@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@stitches/react';
+import styled from '@emotion/styled';
 
 import ExampleHeader from '../common/ExampleHeader';
 import useExample from '../../hooks/useExample';
@@ -23,23 +23,13 @@ const Example: React.FC = () => {
   );
 };
 
-const Button = styled('button', {
-  color: '#fff',
-  border: 'none',
-  borderRadius: '1em',
-  padding: '1em',
-  cursor: 'pointer',
-
-  variants: {
-    color: {
-      red: {
-        background: 'red',
-      },
-      blue: {
-        background: 'blue',
-      },
-    },
-  },
-});
+const Button = styled.button<{ color: string}>`
+  color: #fff;
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+  cursor: pointer;
+  background: ${({ color }) => color};
+`;
 
 export default Example;
