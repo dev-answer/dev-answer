@@ -1,0 +1,29 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev-answer.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  name      String
+  password  String
+}
+
+model Question {
+  id          Int       @id @default(autoincrement())
+  title       String
+  content     String
+  category    Category  @relation(fields: [category_id], references: [id])
+  category_id Int
+}
+
+model Category {
+  id      Int     @id @default(autoincrement())
+  title   String  @unique
+  questions Question[]
+}
