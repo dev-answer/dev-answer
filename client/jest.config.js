@@ -3,4 +3,5 @@ module.exports = {
   setupFilesAfterEnv: [
     './jest.setup',
   ],
+  modulePathIgnorePatterns: ['test/e2e/*'],
 };
