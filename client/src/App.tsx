@@ -1,13 +1,15 @@
 import React from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Switch, Route,
+} from 'react-router-dom';
 import ExamplePage from './page/ExamplePage';
 
 const App: React.FC = () => (
-  <HashRouter>
+  <BrowserRouter>
     <Switch>
-      <Route path="/example" component={ExamplePage} />
+      <Route path="/" component={ExamplePage} />
     </Switch>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default App;
