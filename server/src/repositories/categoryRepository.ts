@@ -1,11 +1,9 @@
-import { PrismaClient } from '@prisma/client';
+import CategoryModel from '../models/categoryModel';
 
 import Repository from './repository';
 
-const prisma = new PrismaClient();
-
 export default class CategoryRepository extends Repository {
   constructor() {
-    super({ Model: prisma.category });
+    super({ Model: new CategoryModel() });
   }
 }

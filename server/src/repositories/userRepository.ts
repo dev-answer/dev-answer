@@ -1,11 +1,9 @@
-import { PrismaClient } from '@prisma/client';
+import UserModel from '../models/userModel';
 
 import Repository from './repository';
 
-const prisma = new PrismaClient();
-
 export default class UserRepository extends Repository {
   constructor() {
-    super({ Model: prisma.user });
+    super({ Model: new UserModel() });
   }
 }
