@@ -5,16 +5,7 @@ const questionRepo = new QuestionRepository();
 export default {
   Query: {
     allQuestions: async () => {
-      const questions = await questionRepo.findAll({
-        include: {
-          category: {
-            select: {
-              title: true,
-            },
-          },
-        },
-      });
-
+      const questions = await questionRepo.findAll();
       return questions;
     },
   },

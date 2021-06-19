@@ -1,5 +1,6 @@
 export default `
 type Category {
+  id: ID!
   title: String! 
 }
 
