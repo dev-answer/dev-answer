@@ -4,27 +4,31 @@
     "title": "클로저",
     "content": "클로저는 무엇일까요?",
     "category": "JavaScript",
-    "level": 1
+    "level": 1,
+    "frequency": false
   },
   {
     "id": 2,
     "title": "ES6 (1)",
     "content": "ES6는 무엇인가요?",
     "category": "JavaScript",
-    "level": 1
+    "level": 1,
+    "frequency": false
   },
   {
     "id": 3,
     "title": "ES6 (2)",
     "content": "ES6 문법을 아는대로 설명하세요",
     "category": "JavaScript",
-    "level": 1
+    "level": 1,
+    "frequency": false
   },
   {
     "id": 4,
     "title": "useEffect",
     "content": "useEffect의 의존성 배열의 역할은 무엇인가요?",
     "category": "React",
-    "level": 1
+    "level": 1,
+    "frequency": false
   }
 ]

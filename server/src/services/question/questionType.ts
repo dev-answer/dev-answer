@@ -5,6 +5,7 @@ type Question {
   content: String
   category: String
   level: Int
+  frequency: Boolean
 }
 
 type Query {
