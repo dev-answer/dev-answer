@@ -2,7 +2,7 @@
   {
     "id": 1,
     "questionId": 1,
-    "date": "2021-06-11 13:10",
+    "createdAt": "2021-06-11 13:10",
     "userEmail": "inseo@test.com",
     "content": "클로저는 A 입니다",
     "like": [],
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "questionId": 1,
-    "date": "2021-06-12 02:00",
+    "createdAt": "2021-06-12 02:00",
     "userEmail": "woomin@test.com",
     "content": "클로저는 B 입니다",
     "like": [
@@ -27,7 +27,7 @@
     "subComments": [
       {
         "id": 1,
-        "date": "2021-06-12 04:00",
+        "createdAt": "2021-06-12 04:00",
         "userEmail": "gibong@test.com",
         "content": "오 훌륭한 답변입니다!!",
         "like": [],
@@ -35,7 +35,7 @@
       },
       {
         "id": 2,
-        "date": "2021-06-12 06:00",
+        "createdAt": "2021-06-12 06:00",
         "userEmail": "dahee@test.com",
         "content": "상당히 아쉬운 답변인데요?",
         "like": [],
