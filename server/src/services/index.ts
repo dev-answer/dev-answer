@@ -1,21 +1,21 @@
 import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge';
 
 import userResolver from './user/userResolver';
-import categoryResolver from './category/categoryResolver';
+import questionCategoryResolver from './questionCategory/questionCategoryResolver';
 import questionResolver from './question/questionResolver';
 
-import categoryType from './category/categoryType';
+import questionCategoryType from './questionCategory/questionCategoryType';
 import questionType from './question/questionType';
 import userType from './user/userType';
 
 export const typeDefs = mergeTypeDefs([
-  categoryType,
+  questionCategoryType,
   questionType,
   userType,
 ]);
 
 export const resolvers = mergeResolvers([
   userResolver,
-  categoryResolver,
+  questionCategoryResolver,
   questionResolver,
 ]);
