@@ -3,7 +3,7 @@
     "id": 1,
     "email": "inseo@test.com",
     "name": "answer",
-    "bookMarks": [
+    "bookmarks": [
       1,
       2
     ]
@@ -12,7 +12,7 @@
     "id": 2,
     "email": "gibong@test.com",
     "name": "gyim",
-    "bookMarks": [
+    "bookmarks": [
       2
     ]
   },
@@ -20,12 +20,12 @@
     "id": 3,
     "email": "woomin@test.com",
     "name": "dal96",
-    "bookMarks": []
+    "bookmarks": []
   },
   {
     "id": 4,
     "email": "dahee@test.com",
     "name": "dadah",
-    "bookMarks": []
+    "bookmarks": []
   }
 ]

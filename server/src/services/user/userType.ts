@@ -3,7 +3,7 @@ type User {
   id: ID!
   email: String!
   name: String
-  bookMarks: [Int!]!
+  boomarks: [Int!]!
 }
 
 type Query {
