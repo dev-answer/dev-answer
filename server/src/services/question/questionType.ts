@@ -1,8 +1,11 @@
 export default `
 type Question {
+  id: ID!
   title: String
   content: String
-  category: Category
+  category: String
+  level: Int
+  frequency: Boolean
 }
 
 type Query {
