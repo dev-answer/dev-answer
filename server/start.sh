@@ -1,3 +1,3 @@
-yarn run generate:prisma
+rm -rf dist
 tsc
-node dist/src/app.js
+node dist/app.js
