@@ -5,9 +5,10 @@ import Question from '../components/Example/Question';
 import Environment from '../graphql';
 
 import withExample from '../hocs/withExample';
+import { ExamplePageQuery } from '../__generated__/ExamplePageQuery.graphql';
 
 const ExamplePage: React.FC = () => (
-  <QueryRenderer
+  <QueryRenderer<ExamplePageQuery>
     environment={Environment}
     query={graphql`
       query ExamplePageQuery {

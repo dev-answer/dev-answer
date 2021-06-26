@@ -1,8 +1,10 @@
 import React from 'react';
 import { createFragmentContainer, graphql } from 'react-relay';
 
+import { Question_question } from '__generated__/Question_question.graphql';
+
 interface Props {
-  question: any
+  question: Question_question
 }
 
 const Question: React.FC<Props> = ({ question }) => (
