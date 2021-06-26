@@ -3,7 +3,7 @@ const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = ({
-  entry: './src/index.tsx',
+  entry: path.resolve(__dirname, 'src/index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.[fullhash].js',
@@ -20,7 +20,7 @@ module.exports = ({
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@src': path.resolve(__dirname, './src'),
+      '@src': path.resolve(__dirname, 'src'),
     },
   },
   devtool: 'inline-source-map',
