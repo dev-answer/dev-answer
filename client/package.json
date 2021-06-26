@@ -7,6 +7,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
     "start": "webpack serve --mode development",
+    "relay": "relay-compiler --src ./src --schema ./src/graphql/schema.graphql --language typescript --extensions ts tsx --artifactDirectory ./src/__generated__",
     "test": "jest --watchAll --env=jsdom",
     "test-e2e": "npx codeceptjs run --steps"
   },
@@ -15,7 +16,9 @@
     "@emotion/styled": "^11.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0"
+    "react-relay": "^11.0.2",
+    "react-router-dom": "^5.2.0",
+    "relay-runtime": "^11.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -28,10 +31,12 @@
     "@types/jest-plugin-context": "^2.9.4",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.7",
+    "@types/react-relay": "^11.0.1",
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
     "babel-loader": "^8.2.2",
+    "babel-plugin-relay": "^11.0.2",
     "codeceptjs": "3.0.7",
     "dotenv-webpack": "^7.0.3",
     "eslint": "^7.28.0",
@@ -40,10 +45,14 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "graphql": "^15.5.1",
     "html-webpack-plugin": "^5.3.1",
     "jest": "^27.0.4",
     "jest-stitches": "^1.0.4",
     "puppeteer": "10.0.0",
+    "relay-compiler": "^11.0.2",
+    "relay-compiler-language-typescript": "^14.0.0",
+    "relay-config": "^11.0.2",
     "typescript": "^4.3.2",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
