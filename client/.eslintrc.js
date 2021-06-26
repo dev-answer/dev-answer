@@ -27,6 +27,8 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': [1, { devDependencies: ['**/*.test.tsx'] }],
     'no-undef': 'off',
+    'react/prop-types': 'off',
+    camelcase: 'off',
   },
   settings: {
     'import/resolver': {
