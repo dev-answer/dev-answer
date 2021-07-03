@@ -2,6 +2,8 @@ import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
+import { cors } from './utils/cors';
+
 import { resolvers, typeDefs } from './services';
 
 const PORT = 3000;
@@ -13,6 +15,7 @@ const schema = makeExecutableSchema({
 
 const app = express();
 
+app.use(cors);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
