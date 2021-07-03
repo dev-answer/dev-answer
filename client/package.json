@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.config.js --mode production",
     "start": "webpack serve --mode development",
     "relay": "relay-compiler --src ./src --schema ./src/graphql/schema.graphql --language typescript --extensions ts tsx --artifactDirectory ./src/__generated__",
+    "relay:watch": "yarn run relay --watch",
     "test": "jest --watchAll --env=jsdom",
     "test-e2e": "npx codeceptjs run --steps"
   },
