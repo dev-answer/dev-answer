@@ -9,6 +9,7 @@
     "start": "webpack serve --mode development",
     "relay": "relay-compiler",
     "relay:watch": "yarn run relay --watch",
+    "start:open": "webpack serve --mode development --open",
     "test": "jest --watchAll --env=jsdom",
     "test-e2e": "npx codeceptjs run --steps"
   },
