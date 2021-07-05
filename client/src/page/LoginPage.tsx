@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 
+import APP_DOMAIN from '../constants/domain';
 import GitHubOAuthAnchor from '../components/Login/GitHubOAuthAnchor';
 
 const LoginPage: React.FC = () => {
   useEffect(() => {
     const postMessageEvent = (event: MessageEvent) => {
+      if (event.origin !== APP_DOMAIN) {
+        return;
+      }
+
       const { token } = event.data;
 
       if (token) {
