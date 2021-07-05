@@ -1,10 +1,13 @@
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import { makeExecutableSchema } from '@graphql-tools/schema';
+import dotenv from 'dotenv';
 
 import { cors } from './middlewares/cors';
 
 import { resolvers, typeDefs } from './services';
+
+dotenv.config();
 
 const PORT = 3000;
 

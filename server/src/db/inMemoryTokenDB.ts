@@ -1,4 +1,7 @@
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 type Token = string
 interface Profile {
@@ -33,7 +36,7 @@ const InMemoryTokenDB = class {
     const token = jwt.sign({
       randomNumber,
       signature: this.signature,
-    }, 'jwt secret here');
+    }, process.env.JWT_SECRET!);
 
     return token;
   }
