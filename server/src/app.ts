@@ -2,7 +2,7 @@ import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
-import { cors } from './utils/cors';
+import { cors } from './middlewares/cors';
 
 import { resolvers, typeDefs } from './services';
 
