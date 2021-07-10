@@ -5,7 +5,7 @@ import GitHubOAuthAnchor from '../components/Login/GitHubOAuthAnchor';
 
 const LoginPage: React.FC = () => {
   useEffect(() => {
-    const postMessageEvent = (event: MessageEvent) => {
+    const handlePostMessage = (event: MessageEvent) => {
       if (event.origin !== APP_DOMAIN) {
         return;
       }
@@ -19,8 +19,8 @@ const LoginPage: React.FC = () => {
       // Todo: 추후 디자인 완료되면 여기서 추가적인 처리
     };
 
-    window.addEventListener('message', postMessageEvent, false);
-    return () => window.removeEventListener('message', postMessageEvent, false);
+    window.addEventListener('message', handlePostMessage, false);
+    return () => window.removeEventListener('message', handlePostMessage, false);
   }, []);
 
   return <GitHubOAuthAnchor />;
