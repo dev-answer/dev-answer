@@ -17,7 +17,7 @@ const LoginCallbackPage: React.FC = () => {
     <QueryRenderer<LoginCallbackPageQuery>
       environment={Environment}
       query={graphql`
-        query LoginCallbackPageQuery($code: String!) {
+        mutation LoginCallbackPageQuery($code: String!) {
           login(code: $code) {
             accessToken
           }

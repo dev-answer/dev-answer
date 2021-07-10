@@ -19,7 +19,7 @@ export type LoginCallbackPageQuery = {
 
 
 /*
-query LoginCallbackPageQuery(
+mutation LoginCallbackPageQuery(
   $code: String!
 ) {
   login(code: $code) {
@@ -68,7 +68,7 @@ const node: ConcreteRequest = (function () {
             "metadata": null,
             "name": "LoginCallbackPageQuery",
             "selections": (v1 /*: any*/),
-            "type": "Query",
+            "type": "Mutation",
             "abstractKey": null
         },
         "kind": "Request",
@@ -79,14 +79,14 @@ const node: ConcreteRequest = (function () {
             "selections": (v1 /*: any*/)
         },
         "params": {
-            "cacheID": "6904e19cbf64c83357bc639de58cec6f",
+            "cacheID": "f8791495f018ef63405ec5504ae97e4c",
             "id": null,
             "metadata": {},
             "name": "LoginCallbackPageQuery",
-            "operationKind": "query",
-            "text": "query LoginCallbackPageQuery(\n  $code: String!\n) {\n  login(code: $code) {\n    accessToken\n  }\n}\n"
+            "operationKind": "mutation",
+            "text": "mutation LoginCallbackPageQuery(\n  $code: String!\n) {\n  login(code: $code) {\n    accessToken\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '1bb1189fb373a0c09b6917d0565e78bb';
+(node as any).hash = '19394340f21984253560b6eb69a8e1a4';
 export default node;
