@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 
-import APP_DOMAIN from '../constants/domain';
 import GitHubOAuthAnchor from '../components/Login/GitHubOAuthAnchor';
+
+import APP_DOMAIN from '../constants/domain';
 
 const LoginPage: React.FC = () => {
   useEffect(() => {

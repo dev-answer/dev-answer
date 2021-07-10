@@ -1,4 +1,5 @@
 import React, { MouseEvent } from 'react';
+
 import { APP_DOMAIN } from '../../constants/domain';
 
 const GitHubOAuthAnchor: React.FC = () => {

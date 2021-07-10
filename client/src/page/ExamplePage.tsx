@@ -1,11 +1,12 @@
 import React from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
 
-import Question from '../components/Example/Question';
 import Environment from '../graphql';
+import { ExamplePageQuery } from '../__generated__/ExamplePageQuery.graphql';
+
+import Question from '../components/Example/Question';
 
 import withExample from '../hocs/withExample';
-import { ExamplePageQuery } from '../__generated__/ExamplePageQuery.graphql';
 
 const ExamplePage: React.FC = () => (
   <QueryRenderer<ExamplePageQuery>

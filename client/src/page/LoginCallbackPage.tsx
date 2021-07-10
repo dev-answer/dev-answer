@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
 import { useLocation } from 'react-router-dom';
 
-import APP_DOMAIN from '../constants/domain';
 import Environment from '../graphql';
 import { LoginCallbackPageQuery } from '../__generated__/LoginCallbackPageQuery.graphql';
+
+import APP_DOMAIN from '../constants/domain';
 
 const LoginCallbackPage: React.FC = () => {
   const { search } = useLocation();
