@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-type Token = string
+type AccessToken = string
 interface Profile {
   name: string
   profileImageURL: string
@@ -11,14 +11,14 @@ interface Profile {
 }
 
 const InMemoryTokenDB = class {
-  private tokenDB = new Map<Token, Profile>()
+  private tokenDB = new Map<AccessToken, Profile>()
 
   private signature = 'DEV_ANSWER_SIGNATURE'
 
-  hasToken = (token: Token) => Boolean(this.tokenDB.get(token))
+  hasAccessToken = (accessToken: AccessToken) => Boolean(this.tokenDB.get(accessToken))
 
-  getProfile = (token: Token) => {
-    const profile = this.tokenDB.get(token);
+  getProfile = (accessToken: AccessToken) => {
+    const profile = this.tokenDB.get(accessToken);
 
     if (!profile) {
       return null;
@@ -27,18 +27,18 @@ const InMemoryTokenDB = class {
     return profile;
   }
 
-  setToken = (token: Token, profile: Profile) => {
-    this.tokenDB.set(token, profile);
+  setAccessToken = (accessToken: AccessToken, profile: Profile) => {
+    this.tokenDB.set(accessToken, profile);
   }
 
-  generateToken = () => {
+  generateAccessToken = () => {
     const randomNumber = Math.floor(Math.random() * 1_000_000);
-    const token = jwt.sign({
+    const accessToken = jwt.sign({
       randomNumber,
       signature: this.signature,
     }, process.env.JWT_SECRET!);
 
-    return token;
+    return accessToken;
   }
 };
 

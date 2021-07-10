@@ -18,7 +18,7 @@ const LoginCallbackPage: React.FC = () => {
       query={graphql`
         query LoginCallbackPageQuery($code: String!) {
           login(code: $code) {
-            token
+            accessToken
           }
         }
       `}
@@ -28,17 +28,17 @@ const LoginCallbackPage: React.FC = () => {
           return '로그인을 하는 중입니다...';
         }
 
-        const { token } = props.login;
+        const { accessToken } = props.login;
 
-        return <LoginResult token={token} />;
+        return <LoginResult accessToken={accessToken} />;
       }}
     />
   );
 };
 
-const LoginResult: React.FC<{ token: string | null }> = ({ token }) => {
+const LoginResult: React.FC<{ accessToken: string | null }> = ({ accessToken }) => {
   useEffect(() => {
-    window.opener?.postMessage({ token }, APP_DOMAIN);
+    window.opener?.postMessage({ accessToken }, APP_DOMAIN);
     window.close();
   }, []);
 

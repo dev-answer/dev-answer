@@ -7,7 +7,7 @@ type User {
 }
 
 type Auth {
-  token: String
+  accessToken: String
 }
 
 type Query {

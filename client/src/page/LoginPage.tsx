@@ -10,10 +10,10 @@ const LoginPage: React.FC = () => {
         return;
       }
 
-      const { token } = event.data;
+      const { accessToken } = event.data;
 
-      if (token) {
-        localStorage.setItem('token', token);
+      if (accessToken) {
+        localStorage.setItem('accessToken', accessToken);
       }
 
       // Todo: 추후 디자인 완료되면 여기서 추가적인 처리

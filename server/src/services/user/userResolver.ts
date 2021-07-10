@@ -19,7 +19,7 @@ export default {
       const githubAccessToken = searchParams.get('access_token') || '';
 
       if (!githubAccessToken) {
-        return { token: null };
+        return { accessToken: null };
       }
 
       const { data: userInfomation } = await axios.get(GITHUB_USER_PROFILE_API, {
@@ -32,10 +32,10 @@ export default {
         githubPageURL: userInfomation.html_url,
       };
 
-      const token = inMemoryTokenDB.generateToken();
-      inMemoryTokenDB.setToken(token, profile);
+      const accessToken = inMemoryTokenDB.generateAccessToken();
+      inMemoryTokenDB.setAccessToken(accessToken, profile);
 
-      return { token };
+      return { accessToken };
     },
     allUsers: async () => {
       const users = await userRepo.findAll();

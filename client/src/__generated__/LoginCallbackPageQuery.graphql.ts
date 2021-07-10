@@ -8,7 +8,7 @@ export type LoginCallbackPageQueryVariables = {
 };
 export type LoginCallbackPageQueryResponse = {
     readonly login: {
-        readonly token: string | null;
+        readonly accessToken: string | null;
     };
 };
 export type LoginCallbackPageQuery = {
@@ -23,7 +23,7 @@ query LoginCallbackPageQuery(
   $code: String!
 ) {
   login(code: $code) {
-    token
+    accessToken
   }
 }
 */
@@ -54,7 +54,7 @@ const node: ConcreteRequest = (function () {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "token",
+                    "name": "accessToken",
                     "storageKey": null
                 }
             ],
@@ -79,14 +79,14 @@ const node: ConcreteRequest = (function () {
             "selections": (v1 /*: any*/)
         },
         "params": {
-            "cacheID": "d10c18a17d83bd5daa47aefc1af3bcf4",
+            "cacheID": "6904e19cbf64c83357bc639de58cec6f",
             "id": null,
             "metadata": {},
             "name": "LoginCallbackPageQuery",
             "operationKind": "query",
-            "text": "query LoginCallbackPageQuery(\n  $code: String!\n) {\n  login(code: $code) {\n    token\n  }\n}\n"
+            "text": "query LoginCallbackPageQuery(\n  $code: String!\n) {\n  login(code: $code) {\n    accessToken\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '9b8e1fc9c4029534349dca9730fa01bd';
+(node as any).hash = '1bb1189fb373a0c09b6917d0565e78bb';
 export default node;
