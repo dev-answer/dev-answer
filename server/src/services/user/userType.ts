@@ -6,12 +6,7 @@ type User {
   bookmarks: [Int]
 }
 
-type Auth {
-  accessToken: String
-}
-
 type Query {
   allUsers: [User!]!
-  login(code: String!): Auth!
 }
 `;
