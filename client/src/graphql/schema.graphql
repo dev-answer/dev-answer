@@ -7,6 +7,14 @@ type Question {
   frequency: Boolean
 }
 
+type Auth {
+  accessToken: String
+}
+
 type Query {
   allQuestions: [Question!]!
+}
+
+type Mutation {
+  login(code: String!): Auth!
 }
