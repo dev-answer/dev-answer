@@ -24,7 +24,11 @@ const LoginCallbackPage: React.FC = () => {
         }
       `}
       variables={{ code }}
-      render={({ props }) => {
+      render={({ error, props }) => {
+        if (error) {
+          return '로그인에 실패했습니다.';
+        }
+
         if (!props) {
           return '로그인을 하는 중입니다...';
         }
