@@ -1,3 +1,23 @@
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+type Auth {
+  accessToken: String
+}
+
+type Mutation {
+  login(code: String!): Auth!
+}
+
+type Query {
+  allQuestionCategories: [QuestionCategory!]!
+  allQuestions: [Question!]!
+  allUsers: [User!]!
+}
+
 type Question {
   id: ID!
   title: String
@@ -7,14 +27,15 @@ type Question {
   frequency: Boolean
 }
 
-type Auth {
-  accessToken: String
+type QuestionCategory {
+  id: ID!
+  title: String!
 }
 
-type Query {
-  allQuestions: [Question!]!
+type User {
+  id: ID!
+  email: String!
+  name: String
+  bookmarks: [Int]
 }
 
-type Mutation {
-  login(code: String!): Auth!
-}
