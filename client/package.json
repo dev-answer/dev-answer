@@ -9,6 +9,7 @@
     "start": "webpack serve --mode development",
     "relay": "relay-compiler",
     "relay:watch": "yarn run relay --watch",
+    "gen:schema": "get-graphql-schema http://localhost:3000/graphql > ./src/graphql/schema.graphql",
     "start:open": "webpack serve --mode development --open",
     "test": "jest --watchAll --env=jsdom",
     "test-e2e": "npx codeceptjs run --steps"
