@@ -6,8 +6,6 @@ import { CommentPageQuery, CommentPageQueryResponse } from '../__generated__/Com
 
 import Comment from '../components/Example/Comment';
 
-import withExample from '../hocs/withExample';
-
 interface IRenderQuery {
   error: Error | null;
   props: CommentPageQueryResponse | null;
@@ -60,4 +58,4 @@ const CommentPage: React.FC = () => (
   />
 );
 
-export default withExample(CommentPage);
+export default CommentPage;
