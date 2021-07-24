@@ -16,6 +16,7 @@ type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
   allUsers: [User!]!
+  commentsOfQuestion(questionId: Int): [Comment!]!
 }
 
 type Question {
@@ -39,3 +40,22 @@ type User {
   bookmarks: [Int]
 }
 
+type SubComments {
+  id: ID!
+  createAt: String
+  userEmail: String
+  content: String
+  like: [String]
+  hate: [String]
+}
+
+type Comment {
+  id: ID!
+  questionId: Int
+  createdAt: String
+  userEmail: String
+  content: String
+  like: [String]
+  hate: [String]
+  subComments: [SubComments]
+}
