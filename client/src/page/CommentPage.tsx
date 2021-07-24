@@ -23,7 +23,7 @@ const renderQuery = ({ error, props }: IRenderQuery) => {
   }
 
   return (
-    <div>
+    <section>
       <h2>
         댓글
       </h2>
@@ -38,7 +38,7 @@ const renderQuery = ({ error, props }: IRenderQuery) => {
             ))}
           </ol>
         )}
-    </div>
+    </section>
   );
 };
 
