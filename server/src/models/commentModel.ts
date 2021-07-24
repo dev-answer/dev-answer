@@ -3,7 +3,7 @@ import path from 'path';
 
 interface SubComment {
   id: number;
-  createAt: string;
+  createdAt: string;
   userEmail: string;
   content: string;
   like: [string];
@@ -13,7 +13,7 @@ interface SubComment {
 interface Comment {
   id: number;
   questionId: number;
-  createAt: string;
+  createdAt: string;
   userEmail: string;
   content: string;
   like: [string];

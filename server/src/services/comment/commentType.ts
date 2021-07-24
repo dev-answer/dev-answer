@@ -1,7 +1,7 @@
 export default `
 type SubComments {
   id: ID!
-  createAt: String
+  createdAt: String
   userEmail: String
   content: String
   like: [String]
