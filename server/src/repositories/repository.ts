@@ -9,4 +9,14 @@ export default class Repository {
     const result = await this.collection.findMany();
     return result;
   }
+
+  async findOneById(id: number) {
+    const result = await this.collection.findOneById(id);
+    return result;
+  }
+
+  async findAllById(id: number) {
+    const result = await this.collection.findAllById(id);
+    return result;
+  }
 }
