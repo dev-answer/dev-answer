@@ -8,6 +8,13 @@ type Auth {
   accessToken: String
 }
 
+type Bookmark {
+  id: ID!
+  user: User
+  question: Question
+  createdAt: String
+}
+
 type Mutation {
   login(code: String!): Auth!
 }
@@ -16,6 +23,7 @@ type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
   allUsers: [User!]!
+  bookmarks(userId: Int!): [Bookmark]
 }
 
 type Question {

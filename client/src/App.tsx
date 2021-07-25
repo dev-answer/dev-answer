@@ -6,6 +6,7 @@ import {
 import LoginPage from './page/LoginPage';
 import LoginCallbackPage from './page/LoginCallbackPage';
 import ExamplePage from './page/ExamplePage';
+import BookmarksPage from './page/BookmarksPage';
 
 const App: React.FC = () => (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const App: React.FC = () => (
       <Route exact path="/" component={ExamplePage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/oauth" component={LoginCallbackPage} />
+      <Route path="/bookmarks" component={BookmarksPage} />
     </Switch>
   </BrowserRouter>
 );
