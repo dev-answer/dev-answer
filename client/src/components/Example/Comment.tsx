@@ -25,7 +25,7 @@ const Comment: React.FC<Props> = ({ comment }) => (
     <div>
       싫어요 :
       {' '}
-      {comment.hate}
+      {comment.dislike}
     </div>
   </section>
 );
@@ -39,7 +39,7 @@ export default createFragmentContainer(Comment, {
       userEmail
       content
       like
-      hate
+      dislike
     }
   `,
 });

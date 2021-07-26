@@ -6,7 +6,7 @@ type SubComments {
   userEmail: String
   content: String
   like: [String]
-  hate: [String]
+  dislike: [String]
 }
 
 type Comment {
@@ -16,7 +16,7 @@ type Comment {
   userEmail: String
   content: String
   like: [String]
-  hate: [String]
+  dislike: [String]
   subComments: [SubComments]
 }
 

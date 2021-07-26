@@ -6,7 +6,7 @@
     "userEmail": "inseo@test.com",
     "content": "클로저는 A 입니다",
     "like": [],
-    "hate": [
+    "dislike": [
       "woomin.test.com"
     ],
     "subComments": []
@@ -21,7 +21,7 @@
       "gibong@test.com",
       "inseo@test.com"
     ],
-    "hate": [
+    "dislike": [
       "dahee@test.com"
     ],
     "subComments": [
@@ -31,7 +31,7 @@
         "userEmail": "gibong@test.com",
         "content": "오 훌륭한 답변입니다!!",
         "like": [],
-        "hate": []
+        "dislike": []
       },
       {
         "id": 2,
@@ -39,7 +39,7 @@
         "userEmail": "dahee@test.com",
         "content": "상당히 아쉬운 답변인데요?",
         "like": [],
-        "hate": []
+        "dislike": []
       }
     ]
   }

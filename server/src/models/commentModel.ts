@@ -7,7 +7,7 @@ interface SubComment {
   userEmail: string;
   content: string;
   like: [string];
-  hate: [string];
+  dislike: [string];
 }
 
 interface Comment {
@@ -17,7 +17,7 @@ interface Comment {
   userEmail: string;
   content: string;
   like: [string];
-  hate: [string];
+  dislike: [string];
   subComments: [SubComment]
 }
 

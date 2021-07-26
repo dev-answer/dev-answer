@@ -37,7 +37,7 @@ fragment Comment_comment on Comment {
   userEmail
   content
   like
-  hate
+  dislike
 }
 */
 
@@ -143,7 +143,7 @@ const node: ConcreteRequest = (function () {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
-                            "name": "hate",
+                            "name": "dislike",
                             "storageKey": null
                         }
                     ],
@@ -152,12 +152,12 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "c4eacf4fa28629f4050853927deaed16",
+            "cacheID": "fc19f9c69153daf7c7a0e43ea120a9c1",
             "id": null,
             "metadata": {},
             "name": "CommentPageQuery",
             "operationKind": "query",
-            "text": "query CommentPageQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  hate\n}\n"
+            "text": "query CommentPageQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  dislike\n}\n"
         }
     } as any;
 })();

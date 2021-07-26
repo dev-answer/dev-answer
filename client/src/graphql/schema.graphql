@@ -15,7 +15,7 @@ type Comment {
   userEmail: String
   content: String
   like: [String]
-  hate: [String]
+  dislike: [String]
   subComments: [SubComments]
 }
 
@@ -50,7 +50,7 @@ type SubComments {
   userEmail: String
   content: String
   like: [String]
-  hate: [String]
+  dislike: [String]
 }
 
 type User {
