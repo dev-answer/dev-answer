@@ -8,6 +8,17 @@ type Auth {
   accessToken: String
 }
 
+type Comment {
+  id: ID!
+  questionId: Int
+  createdAt: String
+  userEmail: String
+  content: String
+  like: [String]
+  dislike: [String]
+  subComments: [SubComments]
+}
+
 type Mutation {
   login(code: String!): Auth!
 }
@@ -16,6 +27,7 @@ type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
   allUsers: [User!]!
+  comments(questionId: Int): [Comment!]!
 }
 
 type Question {
@@ -30,6 +42,15 @@ type Question {
 type QuestionCategory {
   id: ID!
   title: String!
+}
+
+type SubComments {
+  id: ID!
+  createdAt: String
+  userEmail: String
+  content: String
+  like: [String]
+  dislike: [String]
 }
 
 type User {
