@@ -27,7 +27,7 @@ type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
   allUsers: [User!]!
-  commentsOfQuestion(questionId: Int): [Comment!]!
+  comments(questionId: Int): [Comment!]!
 }
 
 type Question {

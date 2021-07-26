@@ -25,11 +25,11 @@ const renderQuery = ({ error, props }: IRenderQuery) => {
       <h2>
         댓글
       </h2>
-      {props.commentsOfQuestion.length === 0
+      {props.comments.length === 0
         ? <p>댓글이 없습니다</p>
         : (
           <ol>
-            {props.commentsOfQuestion.map((comment) => (
+            {props.comments.map((comment) => (
               <li key={comment.id}>
                 <Comment comment={comment} />
               </li>
@@ -45,7 +45,7 @@ const CommentPage: React.FC = () => (
     environment={Environment}
     query={graphql`
       query CommentPageQuery($questionId: Int) {
-        commentsOfQuestion(questionId: $questionId) {
+        comments(questionId: $questionId) {
           id
           ...Comment_comment
         }

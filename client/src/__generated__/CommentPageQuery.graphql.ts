@@ -8,7 +8,7 @@ export type CommentPageQueryVariables = {
     questionId?: number | null;
 };
 export type CommentPageQueryResponse = {
-    readonly commentsOfQuestion: ReadonlyArray<{
+    readonly comments: ReadonlyArray<{
         readonly id: string;
         readonly " $fragmentRefs": FragmentRefs<"Comment_comment">;
     }>;
@@ -24,7 +24,7 @@ export type CommentPageQuery = {
 query CommentPageQuery(
   $questionId: Int
 ) {
-  commentsOfQuestion(questionId: $questionId) {
+  comments(questionId: $questionId) {
     id
     ...Comment_comment
   }
@@ -73,7 +73,7 @@ const node: ConcreteRequest = (function () {
                     "args": (v1 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "commentsOfQuestion",
+                    "name": "comments",
                     "plural": true,
                     "selections": [
                         (v2 /*: any*/),
@@ -100,7 +100,7 @@ const node: ConcreteRequest = (function () {
                     "args": (v1 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "commentsOfQuestion",
+                    "name": "comments",
                     "plural": true,
                     "selections": [
                         (v2 /*: any*/),
@@ -152,14 +152,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "9561d8e5772a4b3c257e4b2aae883b92",
+            "cacheID": "c4eacf4fa28629f4050853927deaed16",
             "id": null,
             "metadata": {},
             "name": "CommentPageQuery",
             "operationKind": "query",
-            "text": "query CommentPageQuery(\n  $questionId: Int\n) {\n  commentsOfQuestion(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  hate\n}\n"
+            "text": "query CommentPageQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  hate\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '4e5584f9a6a5f71bbbb440b3487d85a7';
+(node as any).hash = 'c39e177f53e921e85d53b896dc6a48df';
 export default node;

@@ -1,4 +1,5 @@
 export default `
+
 type SubComments {
   id: ID!
   createdAt: String
@@ -20,6 +21,6 @@ type Comment {
 }
 
 type Query {
-  commentsOfQuestion(questionId: Int): [Comment!]!
+  comments(questionId: Int): [Comment!]!
 }
 `;
