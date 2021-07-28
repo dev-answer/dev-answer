@@ -1,7 +1,6 @@
 [
   {
     "id": 1,
-    "title": "doctype",
     "content": "doctype이 무엇을 하는 것인가요?",
     "category": "HTML",
     "level": 1,
@@ -9,7 +8,6 @@
   },
   {
     "id": 2,
-    "title": "standards mode quirks mode",
     "content": "표준모드(standards mode)와 쿽스모드(quirks mode)의 다른 점은 무엇인가요?",
     "category": "HTML",
     "level": 1,
@@ -17,7 +15,6 @@
   },
   {
     "id": 3,
-    "title": "XML XHTML",
     "content": "XML과 XHTML의 다른 점은 무엇인가요",
     "category": "HTML",
     "level": 1,
@@ -25,7 +22,6 @@
   },
   {
     "id": 4,
-    "title": "XHTML",
     "content": "XHTML을 이용한 페이지의 한계점은 무엇이 있나요?",
     "category": "HTML",
     "level": 1,
@@ -33,31 +29,27 @@
   },
   {
     "id": 5,
-    "title": "applicationxhtmlxml",
     "content": "application/xhtml+xml으로 지정한 페이지에 어떠한 문제가 있나요?",
     "category": "HTML",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 6,
-    "title": "다국어가",
     "content": "다국어가 포함된 페이지는 어떤 방식으로 제공하나요?",
     "category": "HTML",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 7,
-    "title": "다국어",
     "content": "다국어 페이지를 제공하는 여러 방법에 관해 설명해주세요.",
     "category": "HTML",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 8,
-    "title": "data",
     "content": "data-속성은 무엇을 하는 것인가요? 사용했을 때 이점은 무엇인가요?",
     "category": "HTML",
     "level": 1,
@@ -65,15 +57,13 @@
   },
   {
     "id": 9,
-    "title": "HTML open web platform",
     "content": "HTML5를 오픈 웹 플랫폼(open web platform)으로 생각해본다면, 어떤 것들로 구성돼 있을까요?",
     "category": "HTML",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 10,
-    "title": "Cookies sessionStorage localStorage",
     "content": "쿠키(Cookies)와 세션저장소(sessionStorage)와 로컬저장소(localStorage)의 차이점을 설명해주세요.",
     "category": "HTML",
     "level": 1,
@@ -81,23 +71,20 @@
   },
   {
     "id": 11,
-    "title": "script script async script defer",
     "content": "<script>, <script async>와 <script defer>의 차이점에 관해 설명해주세요.",
     "category": "HTML",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 12,
-    "title": "CSSlink headhead JSscript bodybody",
     "content": "CSS<link>를 <head></head>사이에 쓰는 것과 JS<script>를 <body></body>뒤에 사용하는 것은 좋은 사용법일까요? 어디에 배치하는 게 좋을까요?",
     "category": "HTML",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 13,
-    "title": "Progressive rendering",
     "content": "Progressive rendering이란 무엇인가요?",
     "category": "HTML",
     "level": 1,
@@ -105,39 +92,34 @@
   },
   {
     "id": 14,
-    "title": "srcset",
     "content": "이미지 태그에 srcset 속성을 사용하는 이유는 무엇인가요? 브라우저가 이 속성을 가진 콘텐츠를 평가할 때 사용하는 과정을 설명해보세요.",
     "category": "HTML",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 15,
-    "title": "HTML templating language",
-    "content": "HTML templating language를 사용해 본 경험이 있나요?",
+    "content": "HTML templating language이 무엇인가요?",
     "category": "HTML",
     "level": 1,
     "frequency": false
   },
   {
     "id": 16,
-    "title": "React Element",
     "content": "React와 브라우저 Element 이벤트 처리 방식의 차이는?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 17,
-    "title": "list rendering key",
     "content": "list rendering 할 때 key를 넣어주는 이유가 뭘까요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 18,
-    "title": "ReactJS",
     "content": "ReactJS란 무엇인가?",
     "category": "React",
     "level": 1,
@@ -145,7 +127,6 @@
   },
   {
     "id": 19,
-    "title": "ReactJS",
     "content": "ReactJS의 주요 기능은 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -153,7 +134,6 @@
   },
   {
     "id": 20,
-    "title": "JSX",
     "content": "JSX란 무엇인가?",
     "category": "React",
     "level": 1,
@@ -161,31 +141,27 @@
   },
   {
     "id": 21,
-    "title": "element component",
     "content": "element와 component의 차이점은 무엇입니까?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 22,
-    "title": "ReactJS component",
-    "content": "ReactJS에서 component를 생성하는 방법",
+    "content": "ReactJS에서 component를 생성하는 방법을 설명해주세요",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 23,
-    "title": "functional component component",
     "content": "언제 functional component 대신 클래스 component를 사용해야 합니까?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 24,
-    "title": "component",
     "content": "순수한 component란 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -193,7 +169,6 @@
   },
   {
     "id": 25,
-    "title": "ReactJS state",
     "content": "ReactJS의 state는 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -201,7 +176,6 @@
   },
   {
     "id": 26,
-    "title": "ReactJS props",
     "content": "ReactJS의 props은 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -209,7 +183,6 @@
   },
   {
     "id": 27,
-    "title": "state props",
     "content": "state와 props 간의 차이점은 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -217,47 +190,41 @@
   },
   {
     "id": 28,
-    "title": "state",
     "content": "왜 state를 직접 업데이트하면 안 되는가?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 29,
-    "title": "setState",
     "content": "setState의 인수로 콜백 기능의 목적은 무엇입니까?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 30,
-    "title": "HTML React",
     "content": "HTML과 React의 이벤트 처리의 차이점은 무엇입니까?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 31,
-    "title": "JSX",
     "content": "JSX 콜백에서 메서드 또는 이벤트 핸들러를 바인딩하는 방법",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 32,
-    "title": "이벤트",
-    "content": "이벤트 핸들러 또는 콜백에 매개 변수를 전달하는 방법",
+    "content": "이벤트 핸들러 또는 콜백에 매개 변수를 전달하는 방법을 설명하시오",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 33,
-    "title": "ReactJS",
     "content": "ReactJS의 합성 이벤트는 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -265,7 +232,6 @@
   },
   {
     "id": 34,
-    "title": "inline conditional expressions",
     "content": "inline conditional expressions이란 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -273,15 +239,13 @@
   },
   {
     "id": 35,
-    "title": "Key list",
     "content": "Key가 무엇이고 list에서 사용할때의 이점은?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 36,
-    "title": "Create Refs",
     "content": "Create Refs의 용도는 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -289,15 +253,13 @@
   },
   {
     "id": 37,
-    "title": "reate refs",
-    "content": "reate refs 사용 방법",
+    "content": "reate refs 사용 방법을 설명 해주세요",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 38,
-    "title": "forward refs",
     "content": "forward refs란 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -305,15 +267,13 @@
   },
   {
     "id": 39,
-    "title": "DOMNodeDOM",
     "content": "콜백 참조와 DOMNode(DOM 노드) 내에서 선호되는 옵션은 무엇입니까?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 40,
-    "title": "String Refs",
     "content": "String Refs가 레거시인 이유는 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -321,7 +281,6 @@
   },
   {
     "id": 41,
-    "title": "DOM",
     "content": "가상 DOM이란?",
     "category": "React",
     "level": 1,
@@ -329,15 +288,13 @@
   },
   {
     "id": 42,
-    "title": "DOM",
     "content": "가상 DOM의 작동 방식",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 43,
-    "title": "Shadow DOM Virtual DOM",
     "content": "Shadow DOM 과 Virtual DOM의 차이점은 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -345,7 +302,6 @@
   },
   {
     "id": 44,
-    "title": "React Fiber",
     "content": "React Fiber란?",
     "category": "React",
     "level": 1,
@@ -353,15 +309,13 @@
   },
   {
     "id": 45,
-    "title": "React Fiber",
     "content": "React Fiber의 주요 목표는 무엇인가?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 46,
-    "title": "controlled components",
     "content": "controlled components란 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -369,7 +323,6 @@
   },
   {
     "id": 47,
-    "title": "uncontrolled components",
     "content": "uncontrolled components란 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -377,15 +330,13 @@
   },
   {
     "id": 48,
-    "title": "createElement cloneElement",
     "content": "createElement와 cloneElement의 차이점은 무엇입니까?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 49,
-    "title": "React Lifting State Up",
     "content": "React에서 Lifting State Up란?",
     "category": "React",
     "level": 1,
@@ -393,15 +344,13 @@
   },
   {
     "id": 50,
-    "title": "component",
     "content": "component 라이프사이클 단계들을 설명하세요",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 51,
-    "title": "React lifecycle methods",
     "content": "React의 lifecycle methods는 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -409,7 +358,6 @@
   },
   {
     "id": 52,
-    "title": "HigherOrder components",
     "content": "Higher-Order components 는 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -417,15 +365,13 @@
   },
   {
     "id": 53,
-    "title": "HOC component props proxy",
     "content": "HOC component 위한 props proxy 만드는법?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 54,
-    "title": "context",
     "content": "context가 뭔가요?",
     "category": "React",
     "level": 1,
@@ -433,7 +379,6 @@
   },
   {
     "id": 55,
-    "title": "children prop",
     "content": "children prop란 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -441,15 +386,13 @@
   },
   {
     "id": 56,
-    "title": "props argument super constructor",
     "content": "props argument와 함께 super constructor를 사용하는 목적은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 57,
-    "title": "reconciliation",
     "content": "reconciliation란 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -457,23 +400,20 @@
   },
   {
     "id": 58,
-    "title": "key name set State",
     "content": "동적 key name 으로 어떻게 set State를 하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 59,
-    "title": "render function",
     "content": "render가 될 때마다 호출되는 function 의 일반적인 실수는 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 60,
-    "title": "Component",
     "content": "왜 Component 의 이름은 대문자로 표기해야하나요?",
     "category": "React",
     "level": 1,
@@ -481,39 +421,34 @@
   },
   {
     "id": 61,
-    "title": "React class className",
     "content": "왜 React 는 class를 사용하지 않고 className 속성을 사용하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 62,
-    "title": "fragments",
-    "content": "fragments는 무엇인가요 ?",
+    "content": "fragments는 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
     "id": 63,
-    "title": "fragments div",
-    "content": "왜 fragments 가 div 보다 좋나요 ?",
+    "content": "왜 fragments 가 div 보다 좋나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 64,
-    "title": "React portals",
-    "content": "React 에서 portals은 무엇입니까 ?",
+    "content": "React 에서 portals은 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
     "id": 65,
-    "title": "stateless",
     "content": "stateless 컴포넌트는 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -521,7 +456,6 @@
   },
   {
     "id": 66,
-    "title": "stateful components",
     "content": "stateful components 는 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -529,7 +463,6 @@
   },
   {
     "id": 67,
-    "title": "React Props",
     "content": "React에서 Props의 유효성검사를 적용하나요 ?",
     "category": "React",
     "level": 1,
@@ -537,7 +470,6 @@
   },
   {
     "id": 68,
-    "title": "React",
     "content": "React의 장점은 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -545,7 +477,6 @@
   },
   {
     "id": 69,
-    "title": "리액션의",
     "content": "리액션의 한계는 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -553,7 +484,6 @@
   },
   {
     "id": 70,
-    "title": "React v error boundaries",
     "content": "React v16 에서 error boundaries는 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -561,31 +491,27 @@
   },
   {
     "id": 71,
-    "title": "React v error boundaries",
     "content": "React v15 에서는 어떻게 error boundaries 처리하나요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 72,
-    "title": "static",
     "content": "권장되는 static 한 타입 체크방법은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 73,
-    "title": "reactdom",
     "content": "react-dom 패키지의 사용법은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 74,
-    "title": "React dom render",
     "content": "React dom의 render 메서드의 목적은 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -593,7 +519,6 @@
   },
   {
     "id": 75,
-    "title": "ReactDOMServer",
     "content": "ReactDOMServer 란 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -601,7 +526,6 @@
   },
   {
     "id": 76,
-    "title": "React innerHTML",
     "content": "React에서 innerHTML을 어떻게 사용하나요?",
     "category": "React",
     "level": 1,
@@ -609,7 +533,6 @@
   },
   {
     "id": 77,
-    "title": "React",
     "content": "React 스타일을 어떻게 사용하나요?",
     "category": "React",
     "level": 1,
@@ -617,7 +540,6 @@
   },
   {
     "id": 78,
-    "title": "React",
     "content": "React 에서 이벤트는 어떻게 다른가요?",
     "category": "React",
     "level": 1,
@@ -625,7 +547,6 @@
   },
   {
     "id": 79,
-    "title": "constructor setState",
     "content": "constructor 에서 setState를 사용하면 무슨일이 생기나요?",
     "category": "React",
     "level": 1,
@@ -633,7 +554,6 @@
   },
   {
     "id": 80,
-    "title": "index key",
     "content": "index 가 key 로 미치는 영향은 무엇인가요?",
     "category": "React",
     "level": 1,
@@ -641,23 +561,20 @@
   },
   {
     "id": 81,
-    "title": "componentWillMount setState",
-    "content": "componentWillMount 에서 setState를 사용하는게 좋나요 ?",
+    "content": "componentWillMount 에서 setState를 사용하는게 좋나요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
     "id": 82,
-    "title": "state props",
     "content": "state 의 초기상태에서 props 를 사용하면 어떻게되나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 83,
-    "title": "component",
     "content": "component를 조건부로 렌더링하는 방법은 무엇입니까?",
     "category": "React",
     "level": 1,
@@ -665,2356 +582,1990 @@
   },
   {
     "id": 84,
-    "title": "component",
-    "content": "조건에 따른 component 렌더링은 어떻게 하나요 ?",
+    "content": "DOM element 에 props 를 spreading 할때 왜 조심해야 하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 85,
-    "title": "DOM element props spreading",
-    "content": "DOM element 에 props 를 spreading 할때 왜 조심해야 하나요?",
+    "content": "React 에서 decorators 는 어떻게 사용하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 86,
-    "title": "React decorators",
-    "content": "React 에서 decorators 는 어떻게 사용하나요?",
+    "content": "memoize component 는 어떻게 사용하나요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 87,
-    "title": "memoize component",
-    "content": "memoize component 는 어떻게 사용하나요?",
+    "content": "Server Side Rendering(SSR) 을 어떻게 구현하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 88,
-    "title": "Server Side RenderingSSR",
-    "content": "Server Side Rendering(SSR) 을 어떻게 구현하나요?",
+    "content": "React에서 어떻게 production 모드를 활성화 하나요",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 89,
-    "title": "React production",
-    "content": "React에서 어떻게 production 모드를 활성화 하나요",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 90,
-    "title": "CRA CRA",
     "content": "CRA는 무엇이고 CRA의 이점은 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 91,
-    "title": "lifecycle",
+    "id": 90,
     "content": "마운팅에서 lifecycle 메서드의 순서는 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
+    "frequency": false
+  },
+  {
+    "id": 91,
+    "content": "React v16 에서 사용되지 않을 lifecycle 메서드는 무엇인가요?",
+    "category": "React",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 92,
-    "title": "React v lifecycle",
-    "content": "React v16 에서 사용되지 않을 lifecycle 메서드는 무엇인가요?",
+    "content": "getDerivedStateFromProps() lifecycle 메서드의 목적은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 93,
-    "title": "getDerivedStateFromProps lifecycle",
-    "content": "getDerivedStateFromProps() lifecycle 메서드의 목적은 무엇인가요?",
+    "content": "getSnapshotBeforeUpdate() lifecycle 메서드의 목적은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 94,
-    "title": "getSnapshotBeforeUpdate lifecycle",
-    "content": "getSnapshotBeforeUpdate() lifecycle 메서드의 목적은 무엇인가요?",
+    "content": "createElement() 와 cloneElement() 의 차이점은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 95,
-    "title": "createElement cloneElement",
-    "content": "createElement() 와 cloneElement() 의 차이점은 무엇인가요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 96,
-    "title": "component",
     "content": "component 의 이름을 지정하는 권장방법은 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 97,
-    "title": "component class",
+    "id": 96,
     "content": "component class 안에서 메서드의 추천 순서는 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 98,
-    "title": "switching component",
+    "id": 97,
     "content": "switching component 란 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 99,
-    "title": "setState",
+    "id": 98,
     "content": "왜 setState 에 함수를 전달해야하나요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 100,
-    "title": "React strict mode",
+    "id": 99,
     "content": "React 에서 strict mode 는 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 100,
+    "content": "React Mixins은 무엇인가요?",
+    "category": "React",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 101,
-    "title": "React Mixins",
-    "content": "React Mixins은 무엇인가요?",
+    "content": "왜 isMounted() 가 안티패턴이고 해결책은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 102,
-    "title": "isMounted",
-    "content": "왜 isMounted() 가 안티패턴이고 해결책은 무엇인가요?",
+    "content": "React 에서 지원하는 Pointer Events 는 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 103,
-    "title": "React Pointer Events",
-    "content": "React 에서 지원하는 Pointer Events 는 무엇인가요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 104,
-    "title": "Component",
     "content": "왜 Component 의 이름은 대문자로 시작해야하나요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 105,
-    "title": "React v DOM",
+    "id": 104,
     "content": "React v16 에서 사용자 정의 DOM 속성이 지원되나요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 106,
-    "title": "constructor getInitialState",
+    "id": 105,
     "content": "constructor 와 getInitialState의 차이점은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 106,
+    "content": "setState 를 호출하지 않고 component 를 강제로 재 렌더링 시킬 수 있나요?",
+    "category": "React",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 107,
-    "title": "setState component",
-    "content": "setState 를 호출하지 않고 component 를 강제로 재 렌더링 시킬 수 있나요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 108,
-    "title": "ES class React super superprops",
     "content": "ES6 class 를 사용하는 React 에서 super() 와 super(props) 의 차이점은 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 109,
-    "title": "JSX loop",
+    "id": 108,
     "content": "어떻게 JSX 안에서 loop 를 하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 109,
+    "content": "attribute 따옴표에서 props 에 어떻게 접근하나요?",
+    "category": "React",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 110,
-    "title": "attribute props",
-    "content": "attribute 따옴표에서 props 에 어떻게 접근하나요?",
+    "content": "ReactPropType의 arrayWithShape은 무엇입니까?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 111,
-    "title": "ReactPropType arrayWithShape",
-    "content": "ReactPropType의 arrayWithShape은 무엇입니까?",
+    "content": "어떻게 조건에 따라 class 속성을 적용하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 112,
-    "title": "class",
-    "content": "어떻게 조건에 따라 class 속성을 적용하나요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 113,
-    "title": "React ReactDOM",
     "content": "React와 ReactDOM은 무엇이 다른가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 114,
-    "title": "React ReactDOM",
+    "id": 113,
     "content": "왜 React 와 ReactDOM은 분리되어있나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 114,
+    "content": "React 에서 label element 를 어떻게 사용하나요?",
+    "category": "React",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 115,
-    "title": "React label element",
-    "content": "React 에서 label element 를 어떻게 사용하나요?",
+    "content": "어떻게 여러개의 inline style object 를 합치나요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 116,
-    "title": "inline style object",
-    "content": "어떻게 여러개의 inline style object 를 합치나요?",
+    "content": "어떻게 브라우저가 resize 될 때 재 렌더링 시키나요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 117,
-    "title": "resize",
-    "content": "어떻게 브라우저가 resize 될 때 재 렌더링 시키나요?",
+    "content": "setState() 와 replaceState() 의 차이점은 무엇인가요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 118,
-    "title": "setState replaceState",
-    "content": "setState() 와 replaceState() 의 차이점은 무엇인가요?",
+    "content": "어떻게 state 의 변경을 listen 하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 119,
-    "title": "state listen",
-    "content": "어떻게 state 의 변경을 listen 하나요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 120,
-    "title": "React state",
     "content": "React state 에서 배열요소를 제거하는 추천방법은 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 121,
-    "title": "HTML React",
+    "id": 120,
     "content": "HTML 렌더링 없이 React를 사용할 수 있나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 121,
+    "content": "React와 함께 어떻게 이쁘게 JSON 을 print 하나요?",
+    "category": "React",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 122,
-    "title": "React JSON print",
-    "content": "React와 함께 어떻게 이쁘게 JSON 을 print 하나요?",
+    "content": "왜 React에서 props 를 update 할 수 없나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 123,
-    "title": "React props update",
-    "content": "왜 React에서 props 를 update 할 수 없나요?",
+    "content": "어떻게 페이지 로드시에 input element 에 focus 하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 124,
-    "title": "input element focus",
-    "content": "어떻게 페이지 로드시에 input element 에 focus 하나요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 125,
-    "title": "state object update",
     "content": "state 의 object 를 update 할 수 있는 방법은 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 126,
-    "title": "setState function object",
+    "id": 125,
     "content": "왜 setState()를 위한 function 이 object 보다 선호되나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 126,
+    "content": "브라우저에서 React의 버전을 runtime 시 어떻게 찾을 수 있나요?",
+    "category": "React",
+    "level": 3,
     "frequency": false
   },
   {
     "id": 127,
-    "title": "React runtime",
-    "content": "브라우저에서 React의 버전을 runtime 시 어떻게 찾을 수 있나요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 128,
-    "title": "createreactapp polyfills",
     "content": "create-react-app 에 polyfills를 포함시키는 방법은 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 129,
-    "title": "createreactapp http https",
+    "id": 128,
     "content": "create-react-app 에서 http 대신 https 를 어떻게 사용하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 129,
+    "content": "create-react-app 에서 상대경로 import 를 어떻게 피하나요?",
+    "category": "React",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 130,
-    "title": "createreactapp import",
-    "content": "create-react-app 에서 상대경로 import 를 어떻게 피하나요?",
+    "content": "어떻게 React Router 에 Google Analytics 를 추가하나요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 131,
-    "title": "React Router Google Analytics",
-    "content": "어떻게 React Router 에 Google Analytics 를 추가하나요?",
+    "content": "어떻게 매 초 마다 component 를 업데이트 하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 132,
-    "title": "component",
-    "content": "어떻게 매 초 마다 component 를 업데이트 하나요?",
+    "content": "React 에서 어떻게 인라인 스타일에 vendor prefixes 를 붙일수 있나요?",
     "category": "React",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 133,
-    "title": "React vendor prefixes",
-    "content": "React 에서 어떻게 인라인 스타일에 vendor prefixes 를 붙일수 있나요?",
+    "content": "React와 ES6에서 어떻게 component 를 import 와 export 할 수 있나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 134,
-    "title": "React ES component import export",
-    "content": "React와 ES6에서 어떻게 component 를 import 와 export 할 수 있나요?",
+    "content": "왜 component 생성자는 한번만 호출되나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 135,
-    "title": "React compnent",
-    "content": "왜 React compnent 의 이름은 대문자여야하나요?",
+    "content": "React 에서 어떻게 상수를 정의하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 136,
-    "title": "component",
-    "content": "왜 component 생성자는 한번만 호출되나요?",
+    "content": "React 에서 어떻게 프로그래밍 방식으로 클릭 이벤트를 트리거 할 수 있나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 137,
-    "title": "React",
-    "content": "React 에서 어떻게 상수를 정의하나요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 138,
-    "title": "React",
-    "content": "React 에서 어떻게 프로그래밍 방식으로 클릭 이벤트를 트리거 할 수 있나요?",
-    "category": "React",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 139,
-    "title": "React asyncawait",
     "content": "기본 React 에서 async/await 를 사용할 수 있나요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 140,
-    "title": "AJAX lifecycle",
+    "id": 138,
     "content": "어떻게 AJAX 를 호출하고 어떤 lifecycle 에서 메서드를 호출해야하나요?",
     "category": "React",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 141,
-    "title": "Render Props",
+    "id": 139,
     "content": "Render Props 란 무엇인가요?",
     "category": "React",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 142,
-    "title": "class id",
+    "id": 140,
     "content": "class와 id의 차이점에 관해서 설명해주세요.",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 143,
-    "title": "reset CSS",
+    "id": 141,
     "content": "“reset” CSS가 무엇인지, 어떻게 유용한지 설명해주세요.",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 144,
-    "title": "Floats",
+    "id": 142,
     "content": "Floats가 어떻게 동작하는지 설명해주세요.",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 145,
-    "title": "zindex",
+    "id": 143,
     "content": "z-index에 관해 설명해주세요.",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 146,
-    "title": "BFCBlock Formatting Context",
+    "id": 144,
     "content": "BFC(Block Formatting Context)에 관해 설명해주세요",
     "category": "CSS",
-    "level": 1,
+    "level": 3,
+    "frequency": false
+  },
+  {
+    "id": 145,
+    "content": "클리어링(Clearing) 기술에는 어떤 것들이 있으며, 어떨 때 어떻게 사용하는 것이 적절한지 설명하세요.",
+    "category": "CSS",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 146,
+    "content": "CSS 스프라이트(CSS Sprites)를 설명하고, 페이지나 사이트를 어떻게 향상하는지 설명하세요.",
+    "category": "CSS",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 147,
-    "title": "Clearing",
-    "content": "클리어링(Clearing) 기술에는 어떤 것들이 있으며, 어떨 때 어떻게 사용하는 것이 적절한지 설명하세요.",
+    "content": "Image Replacement를 사용해야 할 때, 선호하는 기술과 언제 사용하는지를 설명해주세요.",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 148,
-    "title": "CSS CSS Sprites",
-    "content": "CSS 스프라이트(CSS Sprites)를 설명하고, 페이지나 사이트를 어떻게 향상하는지 설명하세요.",
+    "content": "브라우저 스펙 차이에 따른 스타일링 이슈를 수정하기 위해서 어떻게 접근하나요?",
     "category": "CSS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 149,
-    "title": "Image Replacement",
-    "content": "Image Replacement를 사용해야 할 때, 선호하는 기술과 언제 사용하는지를 설명해주세요.",
+    "content": "기능이 제약된 브라우저를 위해서 어떤 방식으로 페이지를 만드나요? 어떠한 기술과 절차를 거치는지 설명하세요.",
     "category": "CSS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
     "id": 150,
-    "title": "브라우저",
-    "content": "브라우저 스펙 차이에 따른 스타일링 이슈를 수정하기 위해서 어떻게 접근하나요?",
+    "content": "시각적으로 보이지 않고 스크린 리더에서만 가능하게 하는 방법에 관해 설명해주세요.",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 151,
-    "title": "기능이",
-    "content": "기능이 제약된 브라우저를 위해서 어떤 방식으로 페이지를 만드나요?",
+    "content": "그리드 시스템(Grid system)이 무엇이고 장단점을 알려주세요",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 152,
-    "title": "어떠한",
-    "content": "어떠한 기술과 절차를 거치는지 설명하세요.",
+    "content": "미디어 쿼리(media queries)가 무엇인지 알려주고 왜 사용하는지 설명 해주세요",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 153,
-    "title": "시각적으로",
-    "content": "시각적으로 보이지 않고 스크린 리더에서만 가능하게 하는 방법에 관해 설명해주세요.",
+    "content": "SVG가 무엇인지 알려주고 왜 사용하는지 설명 해주세요",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 154,
-    "title": "Grid system",
-    "content": "그리드 시스템(Grid system)을 사용한 적이 있나요? 있다면 어떠한 것을 선호하나요?",
+    "content": "인쇄하기 위해 웹페이지를 어떻게 최적화 하나요?",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 155,
-    "title": "media queries layout CSS",
-    "content": "미디어 쿼리(media queries)를 사용한 적이 있나요? 혹은 모바일에 맞는 layout과 CSS를 사용한 적이 있나요?",
+    "content": "효율적인 CSS를 작성하기 위한 방법들을 알려주세요",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 156,
-    "title": "SVG",
-    "content": "SVG를 스타일링하는데 익숙하신가요?",
+    "content": "CSS 전처리(CSS preprocessors)무엇인지 알려주고 왜 사용하는지 설명 해주세요",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 157,
-    "title": "인쇄하기",
-    "content": "인쇄하기 위해 웹페이지를 어떻게 최적화 하나요?",
+    "content": "페이지에서 표준 폰트가 아닌 폰트 디자인을 사용할 때 어떤 방식으로 처리하시나요? (웹폰트를 제외하고)",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
     "id": 158,
-    "title": "CSS",
-    "content": "효율적인 CSS를 작성하기 위한 ",
-    "category": "CSS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 159,
-    "title": "CSS CSS preprocessors",
-    "content": "CSS 전처리(CSS preprocessors)를 사용해보셨나요?",
-    "category": "CSS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 160,
-    "title": "그렇다면,",
-    "content": "그렇다면, 사용 경험에 기반을 둬 좋았던 점과 나빴던 점을 설명해주세요.",
-    "category": "CSS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 161,
-    "title": "페이지에서",
-    "content": "페이지에서 표준 폰트가 아닌 폰트 디자인을 사용할 때 어떤 방식으로 처리하시나요? (웹폰트를 제외하고)",
-    "category": "CSS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 162,
-    "title": "CSS Selector",
     "content": "CSS Selector가 어떠한 원리로 동작하는지 설명해주세요.",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 163,
-    "title": "pseudoelements",
+    "id": 159,
     "content": "pseudo-elements에 관해서 설명하고 어디에서 사용되는지 이야기해보세요.",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 164,
-    "title": "box model",
+    "id": 160,
     "content": "box model에 관해 설명하고 브라우저에서 어떻게 동작하는지 설명해주세요.",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 165,
-    "title": "boxsizing borderbox",
+    "id": 161,
     "content": "* { box-sizing: border-box; }은 무엇이고 사용했을때 이점은 무엇인가요?",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 166,
-    "title": "display",
-    "content": "기억나는 display 속성에 대한 값들을 나열해보세요.",
+    "id": 162,
+    "content": "기억나는 display 속성에 대한 값들을 나열해보세요. 차이점은 무엇인가요?",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 167,
-    "title": "inline inlineblock",
-    "content": "inline과 inline-block의 차이점은 무엇인가요?",
-    "category": "CSS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 168,
-    "title": "relative fixed absolute static",
+    "id": 163,
     "content": "요소를 배치하는 방법(relative, fixed, absolute, static) 간의 차이는 무엇인가요?",
     "category": "CSS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 169,
-    "title": "CSS C Cascading Cascading cascading system",
+    "id": 164,
     "content": "CSS에서 'C’는 Cascading을 의미합니다. Cascading에 관해서 설명해주세요. 또 cascading system의 장점은 무엇인가요?",
     "category": "CSS",
-    "level": 1,
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 165,
+    "content": "CSS framework를 사용해본 적이 있으신가요? 실무에서 사용해보았다면 어떤 이점이 있었나요?",
+    "category": "CSS",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 166,
+    "content": "새로운 CSS Flexbox 무엇인지 알려주고 장단점을 알려주세요",
+    "category": "CSS",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 167,
+    "content": "반응형(Responsive) 디자인은 적응형(Adaptive) 디자인과 어떤 차이점이 있나요?",
+    "category": "CSS",
+    "level": 3,
+    "frequency": false
+  },
+  {
+    "id": 168,
+    "content": "레티나 그래픽 환경에서 작업할때 고려해야 할 사항들을 알려주세요",
+    "category": "CSS",
+    "level": 3,
+    "frequency": false
+  },
+  {
+    "id": 169,
+    "content": "절대 좌표대신 translate() 혹은 반대로 사용하는 이유가 있나요? 있다면 이유에 관해서 설명해주세요.",
+    "category": "CSS",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 170,
-    "title": "CSS framework",
-    "content": "CSS framework를 사용해본 적이 있으신가요? 실무에서 사용해보았다면 어떤 이점이 있었나요?",
-    "category": "CSS",
+    "category": "Javascript",
+    "content": "프라미스 체이닝이란 무엇인지 설명해주세요",
     "level": 1,
     "frequency": false
   },
   {
     "id": 171,
-    "title": "CSS Flexbox Grid",
-    "content": "새로운 CSS Flexbox 혹은 Grid 스펙을 사용해 보신 적 있나요?",
-    "category": "CSS",
-    "level": 1,
+    "category": "Javascript",
+    "content": "프라미스 체이닝을 언제 사용하는지, 어떻게 사용하는지 설명해주세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 172,
-    "title": "Responsive Adaptive",
-    "content": "반응형(Responsive) 디자인은 적응형(Adaptive) 디자인과 어떤 차이점이 있나요?",
-    "category": "CSS",
-    "level": 1,
+    "category": "Javascript",
+    "content": "프라미스 하나에 then() 메서드를 여러 개 연결하면 이를 프라미스 체이닝이라고 하나요?",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 173,
-    "title": "레티나",
-    "content": "레티나 그래픽 환경에서 작업해 보신 적이 있나요? 하셨다면 어떤 기술을 사용하셨나요?",
-    "category": "CSS",
+    "category": "Javascript",
+    "content": "event delegation에 관해 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 174,
-    "title": "translate",
-    "content": "절대 좌표대신 translate() 혹은 반대로 사용하는 이유가 있나요? 있다면 이유에 관해서 설명해주세요.",
-    "category": "CSS",
-    "level": 1,
+    "category": "Javascript",
+    "content": "this는 JavaScript에서 어떻게 작동하는지 설명해주세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 175,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "prototype 기반 상속은 어떻게 하는지 설명해주세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 176,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "AMD와 CommonJS는 무엇이고, 이것들의 특징 및 차이점 설명해주세요",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 177,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "IIFE로 만들기 위해서는 어떻게 해야 하나요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 178,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "null과 unedefined 그리고 undeclared의 차이점은 무엇인가요? 두개를 구분하기 위해서는 어떻게 하면 될까요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 179,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "클로져(Closure)는 무엇이며, 어떻게/왜 사용하는지 설명해주세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 180,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "클로져를 만들 때 선호하는 패턴은 무엇인가요? argyle (IIFEs에만 적용할 수 있다)",
+    "level": 3,
     "frequency": false
   },
   {
     "id": 181,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "익명함수(anonymous functions)는 주로 어떤 상황에서 사용하나요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 182,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "호스트 객체(Host Objects)와 네이티브 객체(Native Objects)의 차이점은 무엇인가요?",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 183,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "function Person(){}, var person = Person(), var person = new Person() 차이점을 설명하세요",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 184,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": ".call과 .apply의 차이점은 무엇인가요?",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 185,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "Function.prototype.bind을 설명하세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 186,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "document.write()는 언제 사용하나요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 187,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "UA 문자열을 이용하여 기능 검출(feature detection)과 기능 추론(feature inference)의 차이점을 설명하세요.",
+    "level": 3,
     "frequency": false
   },
   {
     "id": 188,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "AJAX에 관해 가능한 한 자세히 설명하세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 189,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "AJAX를 사용했을 때의 장단점에 대해 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 190,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "JSON이 어떻게 동작 되는지 설명하세요. (그리고 AJAX와 어떻게 다른지 설명하세요.)",
     "level": 1,
     "frequency": false
   },
   {
     "id": 191,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "호이스팅(Hoisting) 에 대하여 설명해주세요",
     "level": 1,
     "frequency": false
   },
   {
     "id": 192,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "이벤트 버블링(Event Bubbling)에 대해서 설명하세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 193,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "이벤트 캡쳐링(Event Capturing)에 대해서 설명하세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 194,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "내장된 JavaScript 객체를 확장하는 것이 좋지 않은 이유는 무엇인가요?",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 195,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "document load event와 DOMContentLoaded event의 차이점은 무엇인가요?",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 196,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "`==`와` ===`의 차이점은 무엇인가요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 197,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "다음 코드를 동작하게 만드세요.\nduplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]",
     "level": 1,
     "frequency": false
   },
   {
     "id": 198,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "삼항식(Ternary statement)을 사용하는 이유는 무엇이고, 그것을 표현하기 위한 연산자 단어는 무엇인가요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 199,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "use strict;은 무엇이고, 사용했을 때 장단점에 관해서 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 200,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "100번 반복되는 반복문이 있습니다. 3의 배수일 때는 fizz, 5의 배수일 때는 buzz, 3과 5의 공배수일 때는 fizzbuzz가 출력되는 코드를 작성해보세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 201,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "전역 scope를 사용했을 때 장단점에 관해 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 202,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "때때로 load event를 사용하는 이유에 관해 설명해주세요. 또 단점이 있다면 대안에 대해서도 설명해주세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 203,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "SPA에서 SEO에 유리하도록 만들기 위한 방법에 대해 설명해주세요.",
+    "level": 3,
     "frequency": false
   },
   {
     "id": 204,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "Promise를 사용해 본 경험이 있나요? Promise가 콜백 대비 장/단점은 무엇인지 설명해주세요",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 205,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "JavaScript의 작동방식의 장단점에 관해 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 206,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "JavaScript를 디버깅할 때 사용하는 도구가 있으면 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 207,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "객체 안의 속성과 배열의 아이템을 순회할 때 사용하는 문법에 관해 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 208,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "mutable object와 immutable object에 관해 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 209,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "JavaScript에서 immutable 객체의 예를 들어보세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 210,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "immutability의 장/단점은 무엇인가요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 211,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "자신의 코드에서 불변성(immutability를) 어떻게 달성할 수 있나요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 212,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "동기방식과 비동기 방식 함수의 차이에 관해서 설명해주세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 213,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "event loop이란 무엇인가요?",
     "level": 1,
     "frequency": false
   },
   {
     "id": 214,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
+    "category": "Javascript",
+    "content": "call stack과 task queue에 관해 설명해주세요.",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 215,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "function foo() {}와 var foo = function() {}에서 foo 의 차이가 무엇인지 설명해보세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 216,
-    "title": "",
-    "category": "JavaScript",
+    "category": "Javascript",
+    "content": "let, var, const의 차이점에 관해서 설명해주세요.",
     "level": 1,
     "frequency": false
   },
   {
     "id": 217,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 218,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 219,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 220,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 221,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 222,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 223,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 224,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 225,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 226,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 227,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 228,
-    "title": "",
-    "category": "JavaScript",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 229,
-    "title": "HTTP",
-    "content": "HTTP2란?",
+    "content": "HTTP란?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 230,
-    "title": "HTTPS",
+    "id": 218,
     "content": "HTTPS란?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 231,
-    "title": "keepAlive",
+    "id": 219,
     "content": "keepAlive란?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 232,
-    "title": "네트워크란",
+    "id": 220,
     "content": "네트워크란 무엇이고, 네트워크를 사용하는 이유",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 233,
-    "title": "리소스를",
+    "id": 221,
     "content": "리소스를 공유 하는 이유? 리소스 공유하는 방법?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 234,
-    "title": "데이터란?",
+    "id": 222,
     "content": "데이터란?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 235,
-    "title": "회선",
+    "id": 223,
     "content": "회선 교환 방식과 패킷 교환 방식이 무엇이고 어떤 차이가 있는가?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 236,
-    "title": "컴퓨터",
+    "id": 224,
     "content": "컴퓨터 네트워크에서는 어떤 교환 방식을 사용하며, 그 교환 방식을 사용하는 이유, 단점",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 237,
-    "title": "세그먼트와",
+    "id": 225,
     "content": "세그먼트와 허브 차이",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 238,
-    "title": "멀티엑세스",
+    "id": 226,
     "content": "멀티엑세스 네트워크에 대해 설명하시오.",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 239,
-    "title": "LAN WAN",
+    "id": 227,
     "content": "LAN 과 WAN 이 무엇인지 설명하고, 각각의 특징에 대하여 설명해주세요.",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 240,
-    "title": "OSI",
+    "id": 228,
     "content": "OSI 참조 모델이란 무엇인가?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 241,
-    "title": "OSI",
+    "id": 229,
     "content": "OSI 참조 모델의 각 계층별 역할에 대해 설명해주세요",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 242,
-    "title": "OSI",
+    "id": 230,
     "content": "OSI 참조 모델이 왜 등장하게 되었는지?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 243,
-    "title": "OSI",
+    "id": 231,
     "content": "OSI 모델의 장점은 무엇인가?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 244,
-    "title": "캠슐화란",
+    "id": 232,
     "content": "캠슐화란 무엇이고, 필요한 이유",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 245,
-    "title": "PDUProtocol Data Unit",
+    "id": 233,
     "content": "PDU(Protocol Data Unit)는 무엇이고 계층별 명칭은 무엇인가",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 246,
-    "title": "프로토콜이",
+    "id": 234,
     "content": "프로토콜이 무엇이고, 프로토콜이 결정하는 3가지가 무엇인지",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 247,
-    "title": "프로토콜",
+    "id": 235,
     "content": "프로토콜 군이란 무엇이며, 인터넷에서 사용되는 프로토콜 군은 무엇인지",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 248,
-    "title": "프로토콜간의",
+    "id": 236,
     "content": "프로토콜간의 인터페이스와 케이블과 컴퓨터 사이의 인터페이스의 차이점",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 249,
-    "title": "프로토콜이",
+    "id": 237,
     "content": "프로토콜이 결정하는것은 무엇인가",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 250,
-    "title": "TCPIP",
+    "id": 238,
     "content": "TCP/IP의 각 계층과 계층별 프로토콜의 예시를 말해보세요.",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 251,
-    "title": "1계층의",
+    "id": 239,
     "content": "1계층의 역할은?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 252,
-    "title": "전기",
-    "content": "전기 신호에서 어떤 경우에 문제가 발생하는지 세 가지 경우를 설명해주세요.",
+    "id": 240,
+    "content": "전기 신호에서 어떤 경우에 문제가 발생하는지 세 가지 경우를 설명해주세요. 각 문제에 대한 해결 방법을 설명해주세요.",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 253,
-    "title": "각",
+    "id": 241,
     "content": "각 문제에 대한 해결 방법을 설명해주세요.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 254,
-    "title": "허브란",
+    "id": 242,
     "content": "허브란 무엇인가?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 255,
-    "title": "허브의",
+    "id": 243,
     "content": "허브의 역할이 무엇인지 설명하고, 단점에 대하여 설명해주세요.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 256,
-    "title": "허브의",
+    "id": 244,
     "content": "허브의 플러딩으로 발생하는 문제점과 그 해결책을 스위치와 관련지어서 설명해주세요.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 257,
-    "title": "충돌",
+    "id": 245,
     "content": "충돌 도메인이란 무엇이고 무엇때문에 발생하며 해결할 수 있는 방법은 무엇인지 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 258,
-    "title": "허브가",
+    "id": 246,
     "content": "허브가 충돌 문제를 극복하는 방법과 해당 방법이 가진 한계를 설명해주세요.",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 259,
-    "title": "CSMACD",
+    "id": 247,
     "content": "CSMA/CD는 무엇인가?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 260,
-    "title": "2계층의",
+    "id": 248,
     "content": "2계층의 역할은?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 261,
-    "title": "프레이밍과",
+    "id": 249,
     "content": "프레이밍과 프리엠블이란 무엇인가요?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 262,
-    "title": "이더넷",
+    "id": 250,
     "content": "이더넷 트레일러에는 어떤 정보가 저장되고, 왜 이러한 정보를 기억해야할까요?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 263,
-    "title": "통신",
+    "id": 251,
     "content": "통신 도중에 에러를 고칠수 있는지? 그 데이터를 어떻게 하는지? 에러가 발생 했는지 어떻게 아는지?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 264,
-    "title": "스위치에서",
+    "id": 252,
     "content": "스위치에서 충돌이 발생하는 경우는 무엇이 있는지 설명하고, 이를 해결할 수 있는 방법에 대해 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 265,
-    "title": "전이중",
+    "id": 253,
     "content": "전이중 반이중 이더넷에 대해 설명하시오.",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 266,
-    "title": "3계층의",
+    "id": 254,
     "content": "3계층의 역할에 대해서 설명하시오",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 267,
-    "title": "3계층에서",
+    "id": 255,
     "content": "3계층에서 네트워크가 무엇인지 설명하고 네트워크를 나누는 이유에 대해서 설명하시오",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 268,
-    "title": "IP",
+    "id": 256,
     "content": "IP 주소의 특징에 대해서 설명하시오",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 269,
-    "title": "IPv IPv",
+    "id": 257,
     "content": "IPv4 와 IPv6의 차이? 왜 나왔는지? 요즘 뭘쓰는지?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 270,
-    "title": "인터넷",
+    "id": 258,
     "content": "인터넷 작업(네트워크와 네트워크가 송수신)을 하기위해 필요한 작업 2가지를 말해주세요",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 271,
-    "title": "ip mac",
+    "id": 259,
     "content": "논리주소(ip)와 물리주소(mac)는 어떤 차이가 있나요?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 272,
-    "title": "네트워크주소와",
+    "id": 260,
     "content": "네트워크주소와 브로드캐스트주소의 호스트주소는 각각 어떻게되나요?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 273,
-    "title": "클래스와",
+    "id": 261,
     "content": "클래스와 클래스풀 어드레싱에 대해 설명해주세요",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 274,
-    "title": "클래스리스",
+    "id": 262,
     "content": "클래스리스 어드레싱이 무엇이며 어떤 문제를 해결하기 위해 나왔으며 어떻게 구현되는지 설명하시오",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 275,
-    "title": "서브네트워크는",
+    "id": 263,
     "content": "서브네트워크는 무엇이고 왜 사용하나요?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 276,
-    "title": "서브넷화는",
+    "id": 264,
     "content": "서브넷화는 어떻게 구현하는지 또 서브넷 마스크란 무엇인지 설명하시오",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 277,
-    "title": "ARP ARP ARP",
+    "id": 265,
     "content": "ARP에 대해서 설명하고 ARP요청과 응답 과정을 설명하시오. ARP 테이블에 기재된 요소들을 주기적으로 리셋하는 이유를 설명하시오",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 278,
-    "title": "DHCP IP DHCP",
+    "id": 266,
     "content": "DHCP에 대해서 설명하고 어떻게 동작하는지 설명하시오. 또 IP주소에는 대여기간이 있는 이유에 대해 설명하고 DHCP를 통해 설정할 수 있는 것을 나열하시오",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 279,
-    "title": "DNS",
+    "id": 267,
     "content": "DNS에 대해서 설명하시오",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 280,
-    "title": "MAC DHCP ARP DNS",
+    "id": 268,
     "content": "MAC, DHCP, ARP, DNS 들을 사용하여 데이터가 네트워크를 통해 목적지 까지 전송되는 과정을 설명하시오",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 281,
-    "title": "IP MAC",
+    "id": 269,
     "content": "IP주소, MAC주소 모두 수신처인데 어떤 차이가 있는지 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 282,
-    "title": "컴퓨터가",
+    "id": 270,
     "content": "컴퓨터가 다른 네트워크로 데이터를 전송하는 과정",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 283,
-    "title": "데이터를",
+    "id": 271,
     "content": "데이터를 전송에 필요한 4가지 주소에 대해 말하고, 이 4가지 주소를 얻어서 수신처로 데이터를 보내기까지의 흐름을 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 284,
-    "title": "같은",
+    "id": 272,
     "content": "같은 허브에 두 대의 컴퓨터가 연결되어 있는데 그 두 대가 서로 다른 네트워크에 소속된 경우 데이터그램 전달이 어떻게 되는지, 그리고 그렇게 되는 이유를 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 285,
-    "title": "라우터가",
+    "id": 273,
     "content": "라우터가 무엇인지? 특징?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 286,
-    "title": "라우터의",
+    "id": 274,
     "content": "라우터의 동작에서 ‘최적의 경로 지도’를 나타내는 것은? 그리고 그 지도에서 다음 수신처를 찾아내는 방식을 무엇이라 하는가(영어로)?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 287,
-    "title": "컴퓨터가",
+    "id": 275,
     "content": "컴퓨터가 다른 네트워크로 데이터를 전송하는 과정을 모두 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 288,
-    "title": "라우팅에",
+    "id": 276,
     "content": "라우팅에 대해서 설명하시오",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 289,
-    "title": "동적",
+    "id": 277,
     "content": "동적 라우팅이란 무엇인지? 그리고 동적 라우팅의 단점을 모두 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 290,
-    "title": "라우팅",
+    "id": 278,
     "content": "라우팅 프로토콜의 역할을 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 291,
-    "title": "RIP Metric RIP",
+    "id": 279,
     "content": "RIP에서 Metric은 무엇인가? 그리고 RIP의 동작 방식을 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 292,
-    "title": "ICMP ICMP",
+    "id": 280,
     "content": "ICMP란 무엇인가? ICMP 패킷의 구성요소는 무엇인가?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 293,
-    "title": "TTL",
+    "id": 281,
     "content": "TTL이 필요한 이유는 무엇인가?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 294,
-    "title": "traceroute TTL Time Exceeded",
+    "id": 282,
     "content": "traceroute의 동작 원리를 TTL과 Time Exceeded 메시지를 이용하여 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 295,
-    "title": "4계층의",
+    "id": 283,
     "content": "4계층의 역할",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 296,
-    "title": "well known",
+    "id": 284,
     "content": "4계층에서 포트 번호가 무엇이고 well known 포트는 왜쓰는지?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 297,
-    "title": "커넷션",
+    "id": 285,
     "content": "커넷션 확립이란 무엇인가요?",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 298,
-    "title": "4계층에서",
+    "id": 286,
     "content": "4계층에서 에러를 복구하는 과정에 대하여 설명해주세요.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 299,
-    "title": "윈도우",
+    "id": 287,
     "content": "윈도우 제어에 대해 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 300,
-    "title": "UDP",
+    "id": 288,
     "content": "UDP의 특징",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 301,
-    "title": "NAT NAT",
+    "id": 289,
     "content": "NAT에 대해 설명하고, NAT를 통한 인터넷 통신 방법을 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 302,
-    "title": "NAT",
+    "id": 290,
     "content": "NAT의 단점에 대해 설명하시오.",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 303,
-    "title": "IP NAT IP",
+    "id": 291,
     "content": "사설 IP와 NAT의 개념을 이용하여 글로벌 IP부족을 어떻게 해결했는지 설명하시오.",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 304,
-    "title": "NAPT",
+    "id": 292,
     "content": "NAPT에 대해 설명하시오.",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 305,
-    "title": "NAPT",
+    "id": 293,
     "content": "정적 NAPT가 필요한 이유는 무엇인가?",
     "category": "Network",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 306,
-    "title": "5",
+    "id": 294,
     "content": "5 ~ 7계층 역할",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 307,
-    "title": "OSI",
+    "id": 295,
     "content": "OSI 참조 모델 계층별 역할에 대해 설명하시오.",
     "category": "Network",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 308,
-    "title": "wwwnavercom",
+    "id": 296,
     "content": "브라우저에 www.naver.com 입력했을 때의 웹 통신의 전체적인 흐름을 설명하시오.",
     "category": "Network",
+    "level": 3,
+    "frequency": false
+  },
+  {
+    "id": 297,
+    "content": "E-mail을 사용했을 때의 웹 통신의 전체적인 흐름을 설명하시오.",
+    "category": "Network",
+    "level": 3,
+    "frequency": false
+  },
+  {
+    "id": 298,
+    "content": "Request 메시지의 구성을 설명하시오",
+    "category": "Network",
     "level": 1,
+    "frequency": false
+  },
+  {
+    "id": 299,
+    "content": "HyperMedia란?",
+    "category": "Network",
+    "level": 1,
+    "frequency": false
+  },
+  {
+    "id": 300,
+    "content": "HTTP 지속연결(keep-alive)이 나온 배경과 파이프라인화(pipelining)에 대해 설명하시오.",
+    "category": "Network",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 301,
+    "content": "HTTP 1.1 vs HTTP 2.0 차이를 설명하시오",
+    "category": "Network",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 302,
+    "content": "HTTP 단점과 약점을 설명하시오",
+    "category": "Network",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 303,
+    "content": "https handshake의 전체적인 흐름을 설명하시오.",
+    "category": "Network",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 304,
+    "content": "TLS와 SSL의 차이",
+    "category": "Network",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 305,
+    "content": "XSS와 CSRF에 대해 설명하시오.",
+    "category": "Network",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 306,
+    "content": "공통키 암호화와 문제점에 대해서 설명하고, 공개키 암호화와 그 문제점에 대해서 설명하시오. 그리고 이러한 문제들을 모두 해결한 최종 방법의 과정을 설명하시오.",
+    "category": "Network",
+    "level": 3,
+    "frequency": false
+  },
+  {
+    "id": 307,
+    "content": "CORS에 대해 설명하고, preflight란 무엇인지, CORS 이슈를 해결하는 방법은 무엇인지 설명하시오.",
+    "category": "Network",
+    "level": 2,
+    "frequency": false
+  },
+  {
+    "id": 308,
+    "content": "부팅 과정을 설명하시오.",
+    "category": "OS",
+    "level": 2,
     "frequency": false
   },
   {
     "id": 309,
-    "title": "Email",
-    "content": "E-mail을 사용했을 때의 웹 통신의 전체적인 흐름을 설명하시오.",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 310,
-    "title": "Request",
-    "content": "Request 메시지의 구성",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 311,
-    "title": "HTTP",
-    "content": "HTTP 란 무엇인가",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 312,
-    "title": "HyperMedia",
-    "content": "HyperMedia",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 313,
-    "title": "HTTP keepalive pipelining",
-    "content": "HTTP 지속연결(keep-alive)이 나온 배경과 파이프라인화(pipelining)에 대해 설명하시오.",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 314,
-    "title": "HTTP vs HTTP",
-    "content": "HTTP 1.1 vs HTTP 2.0 차이",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 315,
-    "title": "HTTP",
-    "content": "HTTP 단점",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 316,
-    "title": "HTTP",
-    "content": "HTTP 약점",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 317,
-    "title": "https handshake",
-    "content": "https handshake 구조",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 318,
-    "title": "TLS SSL",
-    "content": "TLS와 SSL의 차이",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 319,
-    "title": "XSS CSRF",
-    "content": "XSS와 CSRF에 대해 설명하시오.",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 320,
-    "title": "공통키",
-    "content": "공통키 암호화와 문제점에 대해서 설명하고, 공개키 암호화와 그 문제점에 대해서 설명하시오. 그리고 이러한 문제들을 모두 해결한 최종 방법의 과정을 설명하시오.",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 321,
-    "title": "CORS preflight CORS",
-    "content": "CORS에 대해 설명하고, preflight란 무엇인지, CORS 이슈를 해결하는 방법은 무엇인지 설명하시오.",
-    "category": "Network",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 322,
-    "title": "부팅",
-    "content": "부팅 과정을 설명하시오.",
-    "category": "OS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 323,
-    "title": "인터럽트에",
     "content": "인터럽트에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 324,
-    "title": "중첩된",
+    "id": 310,
     "content": "중첩된 인터럽트에 대한 처리는 어떻게 하는지 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 325,
-    "title": "인터럽트의",
+    "id": 311,
     "content": "인터럽트의 처리 과정을 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 326,
-    "title": "타이머",
+    "id": 312,
     "content": "타이머 인터럽트에 대해서 예를 들어 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 327,
-    "title": "CPU",
+    "id": 313,
     "content": "잦은 하드웨어 인터럽트로 인해 CPU의 효율이 떨어질 수 있다. 이를 해결하기 위한 방법은 무엇이 있는가?",
     "category": "OS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 328,
-    "title": "System call",
+    "id": 314,
     "content": "시스템 콜(System call)이란 무엇인지 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 329,
-    "title": "운영체제의",
+    "id": 315,
     "content": "운영체제의 이중 동작 모드란 무엇인지 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 330,
-    "title": "쓰레드에",
+    "id": 316,
     "content": "쓰레드에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 331,
-    "title": "Thread saft",
+    "id": 317,
     "content": "쓰레드 세이프(Thread saft)에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 332,
-    "title": "유저",
+    "id": 318,
     "content": "유저 레벨 쓰레드와 커널 레벨 쓰레드의 차이를 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 333,
-    "title": "스택을",
+    "id": 319,
     "content": "스택을 쓰레드마다 독립적으로 할당하는 이유는 무엇인가?",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 334,
-    "title": "프로세스에",
+    "id": 320,
     "content": "프로세스에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 335,
-    "title": "프로세스의",
+    "id": 321,
     "content": "프로세스의 상태 변화에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 336,
-    "title": "IO Blocked",
+    "id": 322,
     "content": "I/O 인터럽트가 발생하면 프로세스가 대기(Blocked) 상태로 바뀌는 이유는 무엇인지 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 337,
-    "title": "PCB",
+    "id": 323,
     "content": "프로세스 제어 블록(PCB)에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 338,
-    "title": "PCB",
+    "id": 324,
     "content": "PCB는 어디에 저장되는가?",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 339,
-    "title": "프로세스간",
+    "id": 325,
     "content": "프로세스간 통신을 하는 방법 두 가지를 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 340,
-    "title": "context switching",
+    "id": 326,
     "content": "컨텍스트 스위칭(context switching)이란 무엇인지 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 341,
-    "title": "CPU",
+    "id": 327,
     "content": "CPU 스케줄링 알고리즘에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 342,
-    "title": "콘보이효과에",
+    "id": 328,
     "content": "콘보이효과에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 343,
-    "title": "선점",
-    "content": "선점 스케줄링과 비선점 스케줄링의 차이점을 설명하시오.",
+    "id": 329,
+    "content": "선점 스케줄링과 비선점 스케줄링의 차이점과  주의해야할 점을 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 344,
-    "title": "선점형",
-    "content": "선점형 스케줄링에서 주의해야할 점은 무엇인지 설명하시오.",
-    "category": "OS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 345,
-    "title": "동기와",
+    "id": 330,
     "content": "동기와 비동기의 차이는 무엇인가?",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 346,
-    "title": "동기화를",
+    "id": 331,
     "content": "동기화를 해야하는 이유에 대해서 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 347,
-    "title": "Mutual Exclusion",
+    "id": 332,
     "content": "상호 배제(Mutual Exclusion)에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 348,
-    "title": "상호",
+    "id": 333,
     "content": "상호 배제를 위한 알고리즘에 대해서 아는대로 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 349,
-    "title": "critical section",
+    "id": 334,
     "content": "임계영역(critical section)에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 350,
-    "title": "임계영역의",
+    "id": 335,
     "content": "임계영역의 프로그램적 해결 방법의 충족 조건 3가지를 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 351,
-    "title": "Busy WaitingSpin Lock",
+    "id": 336,
     "content": "Busy Waiting(Spin Lock)이 무엇인지 설명하고, 이 문제점을 보완하기 위해 나온 것이 무엇인지 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 352,
-    "title": "세마포어에",
+    "id": 337,
     "content": "세마포어에 대해서 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 353,
-    "title": "세마포어와",
+    "id": 338,
     "content": "세마포어와 뮤택스의 차이를 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 354,
-    "title": "모니터가",
+    "id": 339,
     "content": "모니터가 상호배제를 실현하는 방법에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 355,
-    "title": "Race Condition",
+    "id": 340,
     "content": "Race Condition은 주로 어느 영역에서 발생하는가?",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 356,
-    "title": "Deadlock",
+    "id": 341,
     "content": "교착 상태(Deadlock)에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 357,
-    "title": "교착상태가",
-    "content": "교착상태가 발생하기 위한 4가지 조건을 설명하시오.",
+    "id": 342,
+    "content": "교착상태가 발생하기 위한 4가지 조건과 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 358,
-    "title": "교착상태의",
+    "id": 343,
     "content": "교착상태의 해결 기법 4가지를 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 359,
-    "title": "교착",
-    "content": "교착 상태의 해결 방법 중 무시 기법에 대해 설명하시오.",
-    "category": "OS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 360,
-    "title": "Safe State",
+    "id": 344,
     "content": "안전 상태(Safe State)에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 361,
-    "title": "Bankers Algorithm",
+    "id": 345,
     "content": "교착상태의 회피 기법 알고리즘 중 하나인 Banker's Algorithm에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 362,
-    "title": "교착상태의",
+    "id": 346,
     "content": "교착상태의 복구 기법의 두 가지 방식에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 363,
-    "title": "교착상태의",
+    "id": 347,
     "content": "교착상태의 복구기법인 프로세스 종료 방식을 사용하면 어떤 방식으로 프로세스를 종료시켜야 하는가? 그리고 그 방식의 단점을 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 364,
-    "title": "교착상태의",
+    "id": 348,
     "content": "교착상태의 복구기법인 자원 선점에 의한 방식이 프로세스 종료방식과 어떤 차이점이 있는지 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 365,
-    "title": "고정(정적)분할과",
+    "id": 349,
     "content": "고정(정적)분할과 가변(동적)분할에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 366,
-    "title": "메모리의",
+    "id": 350,
     "content": "메모리의 효율적인 구성을 위한 기법들에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 367,
-    "title": "메모리의",
+    "id": 351,
     "content": "메모리의 크기보다 적재할 프로그램의 크기가 큰 경우에는 어떻게 해야하는가?",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 368,
-    "title": "고정",
-    "content": "고정 분할이 가지는 문제 중 ",
+    "id": 352,
+    "content": "고정 분할이 가지는 문제를 설명 하시오",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 369,
-    "title": "free",
+    "id": 353,
     "content": "가변 분할의 free 탐색 기법에 대해서 아는대로 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 370,
-    "title": "Hole compaction",
+    "id": 354,
     "content": "가변 분할에서 홀(Hole)을 병합(compaction)하는 방법에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 371,
-    "title": "paging",
+    "id": 355,
     "content": "페이징(paging)에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 372,
-    "title": "paging p d",
+    "id": 356,
     "content": "페이징(paging)에서 논리(가상) 주소(페이지 번호 p, 페이지 내에서의 위치 d)를 바탕으로 물리(실) 주소를 찾는 과정을 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 3,
     "frequency": false
   },
   {
-    "id": 373,
-    "title": "TLB",
+    "id": 357,
     "content": "TLB에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 374,
-    "title": "page fault",
+    "id": 358,
     "content": "페이지 부재(page fault)란 무엇인지 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 375,
-    "title": "Demand Fetch",
+    "id": 359,
     "content": "가상메모리의 적재 정책 중 요구 적재(Demand Fetch)에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 376,
-    "title": "요구",
+    "id": 360,
     "content": "요구 적재의 장점에 대해 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 377,
-    "title": "Placement Strategy",
+    "id": 361,
     "content": "가상 메모리의 배치 정책(Placement Strategy)에 대해 설명하고 페이징과 세그멘테이션에서는 어떻게 배치 정책을 사용하는지 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 378,
-    "title": "Replacement Strategy",
+    "id": 362,
     "content": "가상 메모리의 교체 정책(Replacement Strategy) 알고리즘에 대해 아는대로 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 379,
-    "title": "LRU LFU",
-    "content": "LRU 기법과 LFU 기법의 차이점을 설명하시오.",
-    "category": "OS",
-    "level": 1,
-    "frequency": false
-  },
-  {
-    "id": 380,
-    "title": "Thrashing",
+    "id": 363,
     "content": "스레싱(Thrashing)에 대해서 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 381,
-    "title": "Working set",
+    "id": 364,
     "content": "Working set 이론에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 382,
-    "title": "Working set",
+    "id": 365,
     "content": "Working set 이론에서 윈도를 너무 크게잡거나 작게 잡으면 어떤 문제가 발생하는지 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   },
   {
-    "id": 383,
-    "title": "PFF",
+    "id": 366,
     "content": "PFF에 대해 설명하시오.",
     "category": "OS",
     "level": 1,
     "frequency": false
   },
   {
-    "id": 384,
-    "title": "캐시의",
+    "id": 367,
     "content": "캐시의 지역성 원리를 설명하시오.",
     "category": "OS",
-    "level": 1,
+    "level": 2,
     "frequency": false
   }
 ]
