@@ -14,7 +14,7 @@ interface Bookmark {
 export default {
   Query: {
     bookmarks: async (_:any, args: { userId: number }) => {
-      const bookmarks = await bookmarkRepo.findAllById(args.userId);
+      const bookmarks = await bookmarkRepo.findManyByUserId(args.userId);
 
       // TODO : 나중에 PostgreSQL 사용시, IN절을 이용한 로직으로 로직 수정할 예정 해당 로직 해결할 예정
       const bookmarkWithQuestion = bookmarks.map(async (bookmark: Bookmark) => {

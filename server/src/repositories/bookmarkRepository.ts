@@ -7,8 +7,8 @@ export default class BookmarkRepository extends Repository {
     super({ Model: new BookmarkModel() });
   }
 
-  async findAllById(userId: number) {
-    const result = await this.collection.findAllByUserId(userId);
+  async findManyByUserId(userId: number) {
+    const result = await this.collection.findManyByUserId(userId);
     return result;
   }
 }
