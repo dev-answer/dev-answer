@@ -20,7 +20,17 @@ type Comment {
   subComments: [SubComments]
 }
 
+type NewComment {
+  questionId: Int
+  userEmail: String
+  content: String
+}
+
 type Query {
   comments(questionId: Int): [Comment!]!
+}
+
+type Mutation {
+  addComment(args: NewComment): Int
 }
 `;
