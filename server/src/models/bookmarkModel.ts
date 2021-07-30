@@ -5,7 +5,7 @@ interface Bookmark {
   id: number;
   userId: number;
   questionId: number;
-  createdAt: string;
+  createdAt: Date;
 }
 
 export default class BookmarkModel {
