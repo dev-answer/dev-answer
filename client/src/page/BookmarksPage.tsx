@@ -38,13 +38,17 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
 };
 
 const BookmarksPage: React.FC = () => {
-  const [bookmarksQueryRef, loadBookmarksPage] = useQueryLoader<BookmarksPageQueryType>(bookmarksQuery);
-
+  const [
+    bookmarksQueryRef, loadQuery, disposeQuery,
+  ] = useQueryLoader<BookmarksPageQueryType>(bookmarksQuery);
   useEffect(() => {
-    loadBookmarksPage({
-      userId: 4,
+    loadQuery({
+      userId: 4, // TODO : 나중에 회원별 북마크 데이터 가져오는 걸로 수정해야 됨
     });
-  }, []);
+    return () => {
+      disposeQuery();
+    };
+  }, [loadQuery, disposeQuery]);
 
   if (bookmarksQueryRef === null) return null;
 
