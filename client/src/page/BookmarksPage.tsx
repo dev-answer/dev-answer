@@ -21,7 +21,7 @@ type Props = {
   bookmarksQueryRef: PreloadedQuery<BookmarksPageQueryType>,
 };
 
-function Bookmarks({ bookmarksQueryRef }: Props) {
+const Bookmarks = ({ bookmarksQueryRef }: Props) => {
   const data = usePreloadedQuery(bookmarksQuery, bookmarksQueryRef);
 
   const { bookmarks } = data;
@@ -35,7 +35,7 @@ function Bookmarks({ bookmarksQueryRef }: Props) {
       ))}
     </ul>
   );
-}
+};
 
 const BookmarksPage: React.FC = () => {
   const [bookmarksQueryRef, loadBookmarksPage] = useQueryLoader<BookmarksPageQueryType>(bookmarksQuery);
