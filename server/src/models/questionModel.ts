@@ -20,9 +20,8 @@ export default class QuestionModel {
     this.questions = JSON.parse(this.questionsFile);
   }
 
-  findOneById(questionId: number): Question {
-    const questions = this.questions.filter((question: Question) => question.id === questionId);
-    return questions[0];
+  findOneById(questionId: number): Question | undefined {
+    return this.questions.find((question: Question) => question.id === questionId);
   }
 
   findMany(): [Question] {
