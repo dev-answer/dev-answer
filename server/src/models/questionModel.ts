@@ -20,7 +20,7 @@ export default class QuestionModel {
     this.questions = JSON.parse(this.questionsFile);
   }
 
-  findOneById(questionId: number): Question | undefined {
+  findOneByQuestionId(questionId: number): Question | undefined {
     return this.questions.find((question: Question) => question.id === questionId);
   }
 

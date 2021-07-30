@@ -18,7 +18,7 @@ export default {
 
       // TODO : 나중에 PostgreSQL 사용시, IN절을 이용한 로직으로 로직 수정할 예정 해당 로직 해결할 예정
       const bookmarkWithQuestion = bookmarks.map(async (bookmark: Bookmark) => {
-        const question = await questionRepo.findOneById(bookmark.questionId);
+        const question = await questionRepo.findOneByQuestionId(bookmark.questionId);
 
         return {
           ...bookmark,

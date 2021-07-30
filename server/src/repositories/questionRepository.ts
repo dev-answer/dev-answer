@@ -7,8 +7,8 @@ export default class QuestionRepository extends Repository {
     super({ Model: new QuestionModel() });
   }
 
-  async findOneById(quetionId: number) {
-    const result = await this.collection.findOneById(quetionId);
+  async findOneByQuestionId(quetionId: number) {
+    const result = await this.collection.findOneByQuestionId(quetionId);
     return result;
   }
 }
