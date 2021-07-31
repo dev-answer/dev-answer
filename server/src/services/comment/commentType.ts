@@ -20,17 +20,11 @@ type Comment {
   subComments: [SubComments]
 }
 
-input NewComment {
-  questionId: Int
-  userEmail: String
-  content: String
-}
-
 type Query {
   comments(questionId: Int): [Comment!]!
 }
 
 type Mutation {
-  addComment(newComment: NewComment): Int
+  addComment(questionId: Int, userEmail: String, content: String): Int
 }
 `;
