@@ -19,8 +19,15 @@ type Comment {
   subComments: [SubComments]
 }
 
+input NewComment {
+  questionId: Int
+  userEmail: String
+  content: String
+}
+
 type Mutation {
   login(code: String!): Auth!
+  addComment(newComment: NewComment): Int
 }
 
 type Query {
