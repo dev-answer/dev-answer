@@ -47,14 +47,14 @@ export default class CommentModel {
 
   create(newComment: NewComment) {
     try {
-      const id = this.comments.length;
+      const id = this.comments.length + 1;
 
       this.comments = [
         ...this.comments,
         {
           id,
           questionId: newComment.questionId,
-          createdAt: new Date().toString(),
+          createdAt: new Date().toJSON(),
           userEmail: newComment.userEmail,
           content: newComment.content,
           like: [],
@@ -62,8 +62,7 @@ export default class CommentModel {
           subComments: [],
         },
       ];
-
-      fs.writeFileSync('../db/comment.json', JSON.stringify(this.comments), 'utf-8');
+      fs.writeFileSync(path.join(__dirname, '../db/comment.json'), JSON.stringify(this.comments), 'utf-8');
       return id;
     } catch (error) {
       throw Error(`${error}파일 작성에 실패했습니다`);
