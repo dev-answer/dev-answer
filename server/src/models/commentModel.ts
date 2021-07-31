@@ -1,31 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-export interface SubComment {
-  id: number;
-  createdAt: string;
-  userEmail: string;
-  content: string;
-  like: [string];
-  dislike: [string];
-}
-
-export interface Comment {
-  id: number;
-  questionId: number;
-  createdAt: string;
-  userEmail: string;
-  content: string;
-  like: [] | [string];
-  dislike: [] | [string];
-  subComments: [] | [SubComment]
-}
-
-export interface NewComment {
-  questionId: number,
-  userEmail: string,
-  content: string,
-}
+import { Comment, NewComment } from '../types/comment';
 
 export default class CommentModel {
   commentsFile;

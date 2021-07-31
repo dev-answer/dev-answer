@@ -1,6 +1,8 @@
-import CommentModel, { NewComment } from '../models/commentModel';
+import CommentModel from '../models/commentModel';
 
 import Repository from './repository';
+
+import { NewComment } from '../types/comment';
 
 export default class CommentRepository extends Repository {
   constructor() {
