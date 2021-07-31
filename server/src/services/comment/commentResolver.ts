@@ -1,6 +1,6 @@
 import CommentRepository from '../../repositories/commentRepository';
 
-import { NewComment } from '../../models/commentModel';
+import { NewComment } from '../../types/comment';
 
 const commentRepo = new CommentRepository();
 
