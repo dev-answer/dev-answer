@@ -13,7 +13,8 @@
     "start:open": "webpack serve --mode development --open",
     "test": "jest --watchAll --env=jsdom",
     "test:e2e": "npx codeceptjs run --steps",
-    "stylelint": "stylelint '**/*.*sx'"
+    "stylelint": "stylelint '**/*.*sx'",
+    "lint": "eslint --ext ts,tsx ."
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
