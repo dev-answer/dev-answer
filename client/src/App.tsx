@@ -7,6 +7,7 @@ import LoginPage from './page/LoginPage';
 import LoginCallbackPage from './page/LoginCallbackPage';
 import ExamplePage from './page/ExamplePage';
 import CommentPage from './page/CommentPage';
+import BookmarksPage from './page/BookmarksPage';
 
 const App: React.FC = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const App: React.FC = () => (
       <Route exact path="/comment" component={CommentPage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/oauth" component={LoginCallbackPage} />
+      <Route path="/bookmarks" component={BookmarksPage} />
     </Switch>
   </BrowserRouter>
 );
