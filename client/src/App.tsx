@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 
 import LoginPage from './page/LoginPage';
+import QuestionBoardPage from './page/QuestionBoardPage';
 import LoginCallbackPage from './page/LoginCallbackPage';
 import ExamplePage from './page/ExamplePage';
 import CommentPage from './page/CommentPage';
@@ -14,6 +15,7 @@ const App: React.FC = () => (
     <Switch>
       <Route exact path="/" component={ExamplePage} />
       <Route exact path="/comment" component={CommentPage} />
+      <Route path="/question/board" component={QuestionBoardPage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/oauth" component={LoginCallbackPage} />
       <Route path="/bookmarks" component={BookmarksPage} />
