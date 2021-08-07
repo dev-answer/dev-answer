@@ -72,12 +72,12 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run lint && npm run stylelint && npm run test:e2e"
+      "pre-push": "yarn run lint && yarn run stylelint && yarn run test:e2e"
     }
   },
   "lint-staged": {
     "*.{js, jsx, ts, tsx}": [
-      "npm run lint"
+      "yarn run lint"
     ]
   },
   "license": "ISC"
