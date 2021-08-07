@@ -79,7 +79,7 @@ const Base = styled.section<{ animation: boolean; size: Size }>`
     background: #D7D7D7
   }
 `;
-const Content = styled.p`
+const Content = styled.h2`
   color: #757575;
 `;
 const Category = styled.p`
