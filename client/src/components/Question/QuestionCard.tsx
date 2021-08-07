@@ -40,10 +40,11 @@ const Card = styled.a`
   transition: 300ms;
   background: #EAEAEA;
   border-radius: 15px;
-  padding: 32px;
+  padding: 24px;
   box-sizing: border-box;
-  margin: 15px 10px;
+  margin: 12px 10px;
   cursor: pointer;
+  min-width: 277px;
   width: 277px;
   height: 325px;
 
