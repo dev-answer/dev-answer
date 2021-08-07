@@ -4,6 +4,7 @@ import { RelayEnvironmentProvider } from 'react-relay';
 
 import Environment from './graphql';
 import App from './App';
+import './style/reset.css';
 
 const rootElement = document.querySelector('#root');
 
