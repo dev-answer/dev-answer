@@ -4,6 +4,11 @@ import { graphql, useFragment } from 'react-relay';
 
 import { QuestionCard_question$key } from '__generated__/QuestionCard_question.graphql';
 
+import BookmarkIcon from '../../components/Icon/BookmarkIcon';
+import QIcon from '../../components/Icon/QIcon';
+import VoteIcon from '../../components/Icon/VoteIcon';
+import CommentIcon from '../../components/Icon/CommentIcon';
+
 const questionCardFragment = graphql`
   fragment QuestionCard_question on Question {
     content
@@ -17,9 +22,7 @@ interface Props {
 }
 
 const QuestionCard: React.FC<Props> = ({ questionRef, onClick }) => {
-  const {
-    content, category,
-  } = useFragment<QuestionCard_question$key>(questionCardFragment, questionRef);
+  const { content } = useFragment<QuestionCard_question$key>(questionCardFragment, questionRef);
 
   const handleClickCard = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -28,8 +31,24 @@ const QuestionCard: React.FC<Props> = ({ questionRef, onClick }) => {
 
   return (
     <Card onClick={handleClickCard}>
+      <IconLayout>
+        <QIcon size={50} color="black" />
+        <BookmarkButton>
+          <BookmarkIcon size={50} color="#F5F5F5" />
+        </BookmarkButton>
+      </IconLayout>
       <Content>{content}</Content>
-      <Category>{category}</Category>
+      <FooterWrapper>
+        <Tags>#최신 #N사 기출</Tags>
+        <IconsWrapper>
+          <IconWrapper>
+            <VoteIcon size={38} color="#A1A1A1" count={5} countColor="#FFFFFF" />
+          </IconWrapper>
+          <IconWrapper>
+            <CommentIcon size={33} color="#A1A1A1" count={5} countColor="#FFFFFF" />
+          </IconWrapper>
+        </IconsWrapper>
+      </FooterWrapper>
     </Card>
   );
 };
@@ -52,14 +71,46 @@ const Card = styled.a`
   }
 `;
 const Content = styled.p`
+  display: flex;
+  flex: 1;
+  align-items: center;
   color: #757575;
+  font-size: 18px;
 `;
-const Category = styled.p`
-  display: block;
-  margin: auto 0 0 auto;
-  font-size: 30px;
-  line-height: 23px;
-  color: #FF0000;
+const IconLayout = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const BookmarkButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    svg {
+      path {
+        fill: #FFFFFF;
+      }
+    }
+  }
+`;
+const FooterWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto;
+`;
+const IconsWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+const IconWrapper = styled.div`
+  margin-left: 8px;
+`;
+const Tags = styled.p`
+  font-size: 15px;
+  line-height: 24px;
+  color: #757575;
 `;
 
 export default QuestionCard;
