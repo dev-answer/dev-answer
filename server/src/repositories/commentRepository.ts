@@ -15,7 +15,7 @@ export default class CommentRepository extends Repository {
   }
 
   async create(newComment: NewComment) {
-    const id = await this.collection.create(newComment);
-    return id;
+    const result = await this.collection.create(newComment);
+    return result;
   }
 }

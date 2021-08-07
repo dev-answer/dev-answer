@@ -13,8 +13,8 @@ export default {
   },
   Mutation: {
     addComment: async (_: any, args: NewComment) => {
-      const id = await commentRepo.create(args);
-      return id;
+      const result = await commentRepo.create(args);
+      return result;
     },
   },
 };
