@@ -55,26 +55,15 @@ const QuestionBoardPage: React.FC = () => {
             </FilterButton>
           </SettingButtonWrapper>
         </Header>
-        <QuestionWrapper>
-          {currentPageQuestionsRef
-            .slice(0, QUESTION_COUNT_PER_PAGE / 2).map((questionRef) => (
-              <QuestionCard
-                key={questionRef.id}
-                questionRef={questionRef}
-                onClick={handleClickQuestionCard}
-              />
-            ))}
-        </QuestionWrapper>
-        <QuestionWrapper>
-          {currentPageQuestionsRef
-            .slice(QUESTION_COUNT_PER_PAGE / 2, QUESTION_COUNT_PER_PAGE).map((questionRef) => (
-              <QuestionCard
-                key={questionRef.id}
-                questionRef={questionRef}
-                onClick={handleClickQuestionCard}
-              />
-            ))}
-        </QuestionWrapper>
+        <QuestionLayoutWrapper>
+          {currentPageQuestionsRef.map((questionRef) => (
+            <QuestionCard
+              key={questionRef.id}
+              questionRef={questionRef}
+              onClick={handleClickQuestionCard}
+            />
+          ))}
+        </QuestionLayoutWrapper>
         <PageNavigatorWrapper>
           <PageNavigator totalPage={totalPage} currentPage={page} onClickPage={handleClickPage} />
         </PageNavigatorWrapper>
@@ -92,8 +81,10 @@ const Layout = styled.div`
   align-items: center;
   margin: auto;
 `;
-const QuestionWrapper = styled.div`
-  display: flex;
+const QuestionLayoutWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-gap: 24px 10px;
 `;
 const Header = styled.header`
   display: flex;

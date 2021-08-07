@@ -42,9 +42,7 @@ const Card = styled.a`
   border-radius: 15px;
   padding: 24px;
   box-sizing: border-box;
-  margin: 12px 10px;
   cursor: pointer;
-  min-width: 277px;
   width: 277px;
   height: 325px;
 
