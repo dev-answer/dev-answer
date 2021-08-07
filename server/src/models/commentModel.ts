@@ -24,22 +24,22 @@ export default class CommentModel {
   create(newComment: NewComment) {
     try {
       const id = this.comments.length + 1;
+      const comment: Comment = {
+        id,
+        questionId: newComment.questionId,
+        createdAt: new Date().toJSON(),
+        userEmail: newComment.userEmail,
+        content: newComment.content,
+        like: [],
+        dislike: [],
+        subComments: [],
+      };
 
-      this.comments = [
-        ...this.comments,
-        {
-          id,
-          questionId: newComment.questionId,
-          createdAt: new Date().toJSON(),
-          userEmail: newComment.userEmail,
-          content: newComment.content,
-          like: [],
-          dislike: [],
-          subComments: [],
-        },
-      ];
+      this.comments = [...this.comments, comment];
+
       fs.writeFileSync(path.join(__dirname, '../db/comment.json'), JSON.stringify(this.comments), 'utf-8');
-      return id;
+
+      return comment;
     } catch (error) {
       throw Error(`${error}파일 작성에 실패했습니다`);
     }
