@@ -13,7 +13,8 @@
     "start:open": "webpack serve --mode development --open",
     "test": "jest --watchAll --env=jsdom",
     "test:e2e": "npx codeceptjs run --steps",
-    "stylelint": "stylelint '**/*.*sx'"
+    "stylelint": "stylelint '**/*.*sx'",
+    "lint": "eslint --ext ts,tsx ."
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
@@ -71,12 +72,12 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run lint && npm run test:e2e"
+      "pre-push": "yarn run lint && yarn run stylelint && yarn run test:e2e"
     }
   },
   "lint-staged": {
     "*.{js, jsx, ts, tsx}": [
-      "npm run lint"
+      "yarn run lint"
     ]
   },
   "license": "ISC"
