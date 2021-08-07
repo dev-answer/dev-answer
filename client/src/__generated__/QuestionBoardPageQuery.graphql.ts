@@ -4,22 +4,22 @@
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type QuestionPageQueryVariables = {};
-export type QuestionPageQueryResponse = {
+export type QuestionBoardPageQueryVariables = {};
+export type QuestionBoardPageQueryResponse = {
     readonly allQuestions: ReadonlyArray<{
         readonly id: string;
         readonly " $fragmentRefs": FragmentRefs<"QuestionCard_question">;
     }>;
 };
-export type QuestionPageQuery = {
-    readonly response: QuestionPageQueryResponse;
-    readonly variables: QuestionPageQueryVariables;
+export type QuestionBoardPageQuery = {
+    readonly response: QuestionBoardPageQueryResponse;
+    readonly variables: QuestionBoardPageQueryVariables;
 };
 
 
 
 /*
-query QuestionPageQuery {
+query QuestionBoardPageQuery {
   allQuestions {
     id
     ...QuestionCard_question
@@ -45,7 +45,7 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": [],
             "kind": "Fragment",
             "metadata": null,
-            "name": "QuestionPageQuery",
+            "name": "QuestionBoardPageQuery",
             "selections": [
                 {
                     "alias": null,
@@ -72,7 +72,7 @@ const node: ConcreteRequest = (function () {
         "operation": {
             "argumentDefinitions": [],
             "kind": "Operation",
-            "name": "QuestionPageQuery",
+            "name": "QuestionBoardPageQuery",
             "selections": [
                 {
                     "alias": null,
@@ -103,14 +103,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "41d6e2c746a381ec9b7b2efb152bc51c",
+            "cacheID": "23d86ac0013ae3b23d4c0ece034187fc",
             "id": null,
             "metadata": {},
-            "name": "QuestionPageQuery",
+            "name": "QuestionBoardPageQuery",
             "operationKind": "query",
-            "text": "query QuestionPageQuery {\n  allQuestions {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n  category\n}\n"
+            "text": "query QuestionBoardPageQuery {\n  allQuestions {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n  category\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '5064de9b13c574057fe100145aee7120';
+(node as any).hash = '2201c828a14f2df7f61991f173808cf8';
 export default node;

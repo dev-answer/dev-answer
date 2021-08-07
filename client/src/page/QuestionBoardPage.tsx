@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
 
-import { QuestionPageQuery } from '__generated__/QuestionPageQuery.graphql';
+import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.graphql';
 
 import styled from '@emotion/styled';
 import { groupArray, makeGroupElementOneself } from '../utils/array';
@@ -10,8 +10,8 @@ import QuestionCard from '../components/Question/QuestionCard';
 
 const COULMN_LINE_COUNT = 2;
 
-const questionPageQuery = graphql`
-  query QuestionPageQuery {
+const questionBoardPageQuery = graphql`
+  query QuestionBoardPageQuery {
     allQuestions {
       id
       ...QuestionCard_question
@@ -19,8 +19,8 @@ const questionPageQuery = graphql`
   }
 `;
 
-const QuestionPage: React.FC = () => {
-  const questionsRef = useLazyLoadQuery<QuestionPageQuery>(questionPageQuery, {});
+const QuestionBoardPage: React.FC = () => {
+  const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(questionBoardPageQuery, {});
   const [selectedQuestionId, setSelectedQuestionId] = useState<null | string>(null);
   const baseRef = useRef<HTMLDivElement>(null);
 
@@ -76,4 +76,4 @@ const Base = styled.div`
   display: flex;
 `;
 
-export default withSuspense(QuestionPage, () => <div>로딩중...</div>);
+export default withSuspense(QuestionBoardPage, () => <div>로딩중...</div>);
