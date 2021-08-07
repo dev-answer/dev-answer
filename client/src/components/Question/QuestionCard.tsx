@@ -45,6 +45,7 @@ const Card = styled.a`
   cursor: pointer;
   width: 277px;
   height: 325px;
+  margin: 12px 10px;
 
   &:hover {
     background: #D7D7D7

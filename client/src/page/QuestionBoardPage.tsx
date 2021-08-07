@@ -64,9 +64,11 @@ const QuestionBoardPage: React.FC = () => {
             />
           ))}
         </QuestionLayoutWrapper>
-        <PageNavigatorWrapper>
-          <PageNavigator totalPage={totalPage} currentPage={page} onClickPage={handleClickPage} />
-        </PageNavigatorWrapper>
+        <PageNavigatorLayout>
+          <PageNavigatorWrapper>
+            <PageNavigator totalPage={totalPage} currentPage={page} onClickPage={handleClickPage} />
+          </PageNavigatorWrapper>
+        </PageNavigatorLayout>
       </Layout>
     </QuestionBoard>
   );
@@ -74,17 +76,19 @@ const QuestionBoardPage: React.FC = () => {
 
 const QuestionBoard = styled.div`
   display: flex;
+  flex-direction: column;
+  height: 100%;  
 `;
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  margin: 0 auto;
+  height: 100%;
 `;
 const QuestionLayoutWrapper = styled.div`
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-gap: 24px 10px;
 `;
 const Header = styled.header`
   display: flex;
@@ -142,8 +146,15 @@ const FilterButton = styled.button`
 const FilterText = styled.p`
   margin-right: 8px;
 `;
+const PageNavigatorLayout = styled.div`
+  height: 100%;
+  position: relative;
+`;
 const PageNavigatorWrapper = styled.div`
-  margin-top: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export default withSuspense(QuestionBoardPage, () => <div>로딩중...</div>);
