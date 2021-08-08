@@ -1,0 +1,32 @@
+name: Deploy Project
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install dependencies
+        run: yarn install
+        working-directory: client
+        
+      - name: Build
+        run: yarn relay && yarn run build
+        working-directory: client
+        env:
+          NODE_ENV: production
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          PERSONAL_TOKEN: ${{secrets.GH_PAT}}
+          PUBLISH_BRANCH: master
+          PUBLISH_DIR: ./client/dist
+          SCRIPT_MODE: true
