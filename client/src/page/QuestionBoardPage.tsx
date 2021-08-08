@@ -24,7 +24,7 @@ const questionBoardPageQuery = graphql`
 const QuestionBoardPage: React.FC = () => {
   const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(questionBoardPageQuery, {});
   const [page, setPage] = useState(1);
-  const totalPage = Math.ceil(questionsRef.allQuestions.length / QUESTION_COUNT_PER_PAGE);
+  const totalPageCount = Math.ceil(questionsRef.allQuestions.length / QUESTION_COUNT_PER_PAGE);
 
   const handleClickQuestionCard = () => {
     // TODO: 문제 상세 페이지로 이동
@@ -66,7 +66,11 @@ const QuestionBoardPage: React.FC = () => {
         </QuestionLayoutWrapper>
         <PageNavigatorLayout>
           <PageNavigatorWrapper>
-            <PageNavigator totalPage={totalPage} currentPage={page} onClickPage={handleClickPage} />
+            <PageNavigator
+              totalPageCount={totalPageCount}
+              currentPage={page}
+              onClickPage={handleClickPage}
+            />
           </PageNavigatorWrapper>
         </PageNavigatorLayout>
       </Layout>

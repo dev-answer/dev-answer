@@ -2,15 +2,15 @@ import styled from '@emotion/styled';
 import React from 'react';
 
 interface Props {
-  totalPage: number
+  totalPageCount: number
   currentPage: number
   onClickPage: (page: number) => void
 }
 
-const PageNavigator: React.FC<Props> = ({ totalPage, currentPage, onClickPage }) => {
-  const pages = Array(totalPage).fill(0).map((_, i) => i + 1);
+const PageNavigator: React.FC<Props> = ({ totalPageCount, currentPage, onClickPage }) => {
+  const pages = Array(totalPageCount).fill(0).map((_, i) => i + 1);
   const FIRST_PAGE = 1;
-  const LAST_PAGE = totalPage;
+  const LAST_PAGE = totalPageCount;
 
   const handleClickPrevPage = () => {
     const destination = Math.max(currentPage - 1, FIRST_PAGE);
