@@ -2,6 +2,7 @@ import React, {
   useState,
   Suspense,
   useEffect,
+  useCallback,
 } from 'react';
 
 import {
@@ -53,11 +54,11 @@ const CommentContainer: React.FC<Props> = ({ commentQueryRef }) => {
 
   const [commentInput, setCommentInput] = useState('');
 
-  const handleOnChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setCommentInput(event.target.value);
-  };
+  }, []);
 
-  const handleOnSubmit = (event: React.FormEvent) => {
+  const handleOnSubmit = useCallback((event: React.FormEvent) => {
     event.preventDefault();
 
     commitMutation<CommentPageMutation>(Environment, {
@@ -80,7 +81,7 @@ const CommentContainer: React.FC<Props> = ({ commentQueryRef }) => {
     });
 
     setCommentInput('');
-  };
+  }, [commentInput]);
 
   return (
     <section>
