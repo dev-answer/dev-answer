@@ -16,18 +16,12 @@ type Comment {
   content: String
   like: [String]
   dislike: [String]
-  subComments: [SubComments]
-}
-
-input NewComment {
-  questionId: Int
-  userEmail: String
-  content: String
+  subComments: [SubComment]
 }
 
 type Mutation {
   login(code: String!): Auth!
-  addComment(newComment: NewComment): Int
+  addComment(questionId: Int, userEmail: String, content: String): Comment
 }
 
 type Query {
@@ -51,7 +45,7 @@ type QuestionCategory {
   title: String!
 }
 
-type SubComments {
+type SubComment {
   id: ID!
   createdAt: String
   userEmail: String
