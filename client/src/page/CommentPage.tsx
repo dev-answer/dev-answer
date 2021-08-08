@@ -1,11 +1,21 @@
 import React, {
-  useState, useCallback, Suspense, useEffect,
+  useState,
+  Suspense,
+  useEffect,
 } from 'react';
+
 import {
-  graphql, usePreloadedQuery, useQueryLoader, PreloadedQuery,
+  graphql,
+  usePreloadedQuery,
+  useQueryLoader,
+  PreloadedQuery,
 } from 'react-relay';
+import { commitMutation, RecordSourceSelectorProxy } from 'relay-runtime';
 
 import { CommentPageQuery } from '../__generated__/CommentPageQuery.graphql';
+import { CommentPageMutation } from '../__generated__/CommentPageMutation.graphql';
+
+import Environment from '../graphql';
 
 import Comment from '../components/Example/Comment';
 
@@ -22,18 +32,55 @@ const CommentQuery = graphql`
   }
 `;
 
+const CommentMutation = graphql`
+  mutation CommentPageMutation(
+    $questionId: Int,
+    $userEmail: String,
+    $content: String
+  ) {
+    addComment(
+      questionId: $questionId,
+      userEmail: $userEmail,
+      content: $content
+    ) {
+      ...Comment_comment
+    }
+  }
+`;
+
 const CommentContainer: React.FC<Props> = ({ commentQueryRef }) => {
   const { comments } = usePreloadedQuery(CommentQuery, commentQueryRef);
 
   const [commentInput, setCommentInput] = useState('');
 
-  const handleOnChangeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCommentInput(event.target.value);
-  }, []);
+  };
 
-  const handleOnSubmit = useCallback((event: React.FormEvent) => {
+  const handleOnSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-  }, []);
+
+    commitMutation<CommentPageMutation>(Environment, {
+      mutation: CommentMutation,
+      variables: {
+        questionId: 1,
+        userEmail: 'inseo@test.com',
+        content: commentInput,
+      },
+      updater: (store: RecordSourceSelectorProxy) => {
+        const rootStore = store.get('client:root');
+        const originComments = rootStore?.getLinkedRecords('comments(questionId:1)');
+        const payload = store.getRootField('addComment');
+
+        if (Array.isArray(originComments)) {
+          const newComments = [...originComments, payload];
+          rootStore?.setLinkedRecords(newComments, 'comments(questionId:1)');
+        }
+      },
+    });
+
+    setCommentInput('');
+  };
 
   return (
     <section>
