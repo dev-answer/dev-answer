@@ -21,15 +21,15 @@ export default class CommentModel {
     return this.comments.filter((comment) => comment.questionId === questionId);
   }
 
-  create(newComment: NewComment) {
+  create({ questionId, userEmail, content }: NewComment) {
     try {
       const id = this.comments.length + 1;
       const comment: Comment = {
         id,
-        questionId: newComment.questionId,
+        questionId,
         createdAt: new Date().toJSON(),
-        userEmail: newComment.userEmail,
-        content: newComment.content,
+        userEmail,
+        content,
         like: [],
         dislike: [],
         subComments: [],
