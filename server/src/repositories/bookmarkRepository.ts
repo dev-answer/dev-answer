@@ -18,4 +18,9 @@ export default class BookmarkRepository extends Repository {
     const result = await this.collection.createOne(bookinput);
     return result;
   }
+
+  async removeOne(bookmarkId: number) {
+    const result = await this.collection.removeOne(bookmarkId);
+    return result;
+  }
 }
