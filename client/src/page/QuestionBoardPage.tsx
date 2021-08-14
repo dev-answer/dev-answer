@@ -1,14 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
 
 import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.graphql';
 
 import styled from '@emotion/styled';
-import { groupArray, makeGroupElementOneself } from '../utils/array';
 import withSuspense from '../hocs/withSuspense';
 import QuestionCard from '../components/Question/QuestionCard';
+import HambugerIcon from '../components/Icon/HambugerIcon';
+import FilterIcon from '../components/Icon/FilterIcon';
+import PageNavigator from '../components/common/PageNavigator';
 
-const COULMN_LINE_COUNT = 2;
+const QUESTION_COUNT_PER_PAGE = 10;
 
 const questionBoardPageQuery = graphql`
   query QuestionBoardPageQuery {
@@ -21,59 +23,142 @@ const questionBoardPageQuery = graphql`
 
 const QuestionBoardPage: React.FC = () => {
   const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(questionBoardPageQuery, {});
-  const [selectedQuestionId, setSelectedQuestionId] = useState<null | string>(null);
-  const baseRef = useRef<HTMLDivElement>(null);
+  const [page, setPage] = useState(1);
+  const totalPageCount = Math.ceil(questionsRef.allQuestions.length / QUESTION_COUNT_PER_PAGE);
 
-  const questionsGroupedByColumnLineCount = groupArray(
-    questionsRef.allQuestions,
-    COULMN_LINE_COUNT,
-  );
-
-  const { groupedArray, oneselfIndex } = makeGroupElementOneself(
-    questionsGroupedByColumnLineCount,
-    (e) => e.id === selectedQuestionId,
-  );
-
-  const handleClickSmallQuestion = (id: string) => () => {
-    setSelectedQuestionId(id);
+  const handleClickQuestionCard = () => {
+    // TODO: 문제 상세 페이지로 이동
   };
 
-  return (
-    <Base ref={baseRef}>
-      {groupedArray.map((groupedElement, index) => (
-        <div key={`group-${groupedElement[0].id}`}>
-          {(() => {
-            if (index === oneselfIndex) {
-              return (
-                <QuestionCard
-                  questionRef={groupedElement[0]}
-                  size="middle"
-                  onClick={handleClickSmallQuestion(groupedElement[0].id)}
-                />
-              );
-            }
+  const handleClickPage = (pageNumber: number) => {
+    setPage(pageNumber);
+  };
 
-            return (
-              <>
-                {groupedElement.map((questionRef) => (
-                  <QuestionCard
-                    key={questionRef.id}
-                    size="small"
-                    questionRef={questionRef}
-                    onClick={handleClickSmallQuestion(questionRef.id)}
-                  />
-                ))}
-              </>
-            );
-          })()}
-        </div>
-      ))}
-    </Base>
+  const currentPageQuestionsRef = questionsRef.allQuestions
+    .slice((page - 1) * QUESTION_COUNT_PER_PAGE, page * QUESTION_COUNT_PER_PAGE);
+
+  return (
+    <QuestionBoard>
+      <Layout>
+        <Header>
+          <TitleWrapper>
+            <CategoryTitle>JavaScript</CategoryTitle>
+            <CategorySubTitle>_level 1</CategorySubTitle>
+          </TitleWrapper>
+          <SettingButtonWrapper>
+            <MenuButton>
+              <HambugerIcon size={36} color="#C4C4C4" />
+            </MenuButton>
+            <FilterButton>
+              <FilterText>최근 풀이 순</FilterText>
+              <FilterIcon size={18} color="#959595" />
+            </FilterButton>
+          </SettingButtonWrapper>
+        </Header>
+        <QuestionLayoutWrapper>
+          {currentPageQuestionsRef.map((questionRef) => (
+            <QuestionCard
+              key={questionRef.id}
+              questionRef={questionRef}
+              onClick={handleClickQuestionCard}
+            />
+          ))}
+        </QuestionLayoutWrapper>
+        <PageNavigatorLayout>
+          <PageNavigatorWrapper>
+            <PageNavigator
+              totalPageCount={totalPageCount}
+              currentPage={page}
+              onClickPage={handleClickPage}
+            />
+          </PageNavigatorWrapper>
+        </PageNavigatorLayout>
+      </Layout>
+    </QuestionBoard>
   );
 };
 
-const Base = styled.div`
+const QuestionBoard = styled.div`
   display: flex;
+  flex-direction: column;
+  height: 100%;  
+`;
+const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  height: 100%;
+`;
+const QuestionLayoutWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+`;
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
+`;
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+const CategoryTitle = styled.h2`
+  font-size: 48px;
+  line-height: 55px;
+  color: #757575;
+`;
+const CategorySubTitle = styled.h3`
+  font-size: 24px;
+  line-height: 35px;
+  color: #757575;
+`;
+const SettingButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const MenuButton = styled.button`
+  cursor: pointer;
+  border: none;
+  background: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+const FilterButton = styled.button`
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  font-size: 15px;
+  line-height: 18px;
+  color: #434343;
+  height: 50px;
+  background: #C4C4C4;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+const FilterText = styled.p`
+  margin-right: 8px;
+`;
+const PageNavigatorLayout = styled.div`
+  height: 100%;
+  position: relative;
+`;
+const PageNavigatorWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export default withSuspense(QuestionBoardPage, () => <div>로딩중...</div>);

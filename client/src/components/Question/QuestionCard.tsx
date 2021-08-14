@@ -1,8 +1,13 @@
+import React, { MouseEvent } from 'react';
 import styled from '@emotion/styled';
-import React, { useEffect, useState } from 'react';
 import { graphql, useFragment } from 'react-relay';
 
 import { QuestionCard_question$key } from '__generated__/QuestionCard_question.graphql';
+
+import BookmarkIcon from '../../components/Icon/BookmarkIcon';
+import QIcon from '../../components/Icon/QIcon';
+import VoteIcon from '../../components/Icon/VoteIcon';
+import CommentIcon from '../../components/Icon/CommentIcon';
 
 const questionCardFragment = graphql`
   fragment QuestionCard_question on Question {
@@ -11,83 +16,101 @@ const questionCardFragment = graphql`
   }
 `;
 
-type Size = 'small' | 'middle'
-
 interface Props {
   questionRef: QuestionCard_question$key
-  size: Size
   onClick: () => void
 }
 
-const QuestionCard: React.FC<Props> = ({ questionRef, size, onClick }) => {
-  const {
-    content, category,
-  } = useFragment<QuestionCard_question$key>(questionCardFragment, questionRef);
-  const [animation, setAnimation] = useState(false);
+const QuestionCard: React.FC<Props> = ({ questionRef, onClick }) => {
+  const { content } = useFragment<QuestionCard_question$key>(questionCardFragment, questionRef);
 
-  useEffect(() => {
-    if (size === 'middle') {
-      setAnimation(true);
-    }
-  }, []);
+  const handleClickCard = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onClick();
+  };
 
   return (
-    <Base onClick={onClick} animation={animation} size={size}>
+    <Card onClick={handleClickCard}>
+      <IconLayout>
+        <QIcon size={50} color="black" />
+        <BookmarkButton>
+          <BookmarkIcon size={50} color="#F5F5F5" />
+        </BookmarkButton>
+      </IconLayout>
       <Content>{content}</Content>
-      <Category>{category}</Category>
-    </Base>
+      <FooterWrapper>
+        <Tags>#최신 #N사 기출</Tags>
+        <IconsWrapper>
+          <IconWrapper>
+            <VoteIcon size={38} color="#A1A1A1" count={5} countColor="#FFFFFF" />
+          </IconWrapper>
+          <IconWrapper>
+            <CommentIcon size={33} color="#A1A1A1" count={5} countColor="#FFFFFF" />
+          </IconWrapper>
+        </IconsWrapper>
+      </FooterWrapper>
+    </Card>
   );
 };
 
-const Base = styled.section<{ animation: boolean; size: Size }>`
+const Card = styled.a`
   display: flex;
   flex-direction: column;
   transition: 300ms;
   background: #EAEAEA;
   border-radius: 15px;
-  padding: 32px;
+  padding: 24px;
   box-sizing: border-box;
-  margin: 15px 10px;
   cursor: pointer;
-  ${({ animation, size }) => {
-    if (size === 'small') {
-      return `
-        width: 276px;
-        height: 322px;
-      `;
-    }
+  width: 277px;
+  height: 325px;
+  margin: 12px 10px;
 
-    if (size === 'middle') {
-      if (animation) {
-        return `
-          transform: scale(1);
-          width: 573px;
-          height: 664px;
-        `;
-      }
-
-      return `
-        transform: scale(0.5);
-        width: 276px;
-        height: 322px;
-      `;
-    }
-
-    return null;
-  }};
   &:hover {
     background: #D7D7D7
   }
 `;
-const Content = styled.h2`
+const Content = styled.p`
+  display: flex;
+  flex: 1;
+  align-items: center;
   color: #757575;
+  font-size: 18px;
 `;
-const Category = styled.p`
-  display: block;
-  margin: auto 0 0 auto;
-  font-size: 30px;
-  line-height: 23px;
-  color: #FF0000;
+const IconLayout = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const BookmarkButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    svg {
+      path {
+        fill: #FFFFFF;
+      }
+    }
+  }
+`;
+const FooterWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto;
+`;
+const IconsWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+const IconWrapper = styled.div`
+  margin-left: 8px;
+`;
+const Tags = styled.p`
+  font-size: 15px;
+  line-height: 24px;
+  color: #757575;
 `;
 
 export default QuestionCard;
