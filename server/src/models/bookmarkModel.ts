@@ -3,18 +3,7 @@ import path from 'path';
 
 import QuestionModel from './questionModel';
 
-interface Bookmark {
-  id: number;
-  userId: number;
-  questionId: number;
-  createdAt: string;
-}
-
-interface BookmarkInput {
-  id: number;
-  userId: number;
-  questionId: number;
-}
+import { Bookmark, BookmarkInput } from '../types';
 
 export default class BookmarkModel {
   bookmarksFile;
