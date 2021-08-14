@@ -24,7 +24,7 @@ export default class BookmarkModel {
   async createOne(bookmarkInput: BookmarkInput) {
     const { userId, questionId } = bookmarkInput;
     const newBookmark = {
-      id: 100 + this.bookmarks.length,
+      id: 100 + this.bookmarks.length + 1,
       userId,
       questionId,
       createdAt: new Date().toString(),
