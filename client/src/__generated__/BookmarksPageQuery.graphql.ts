@@ -10,6 +10,7 @@ export type BookmarksPageQueryResponse = {
     readonly bookmarks: ReadonlyArray<{
         readonly id: string;
         readonly question: {
+            readonly id: string;
             readonly content: string | null;
         } | null;
     } | null> | null;
@@ -28,8 +29,8 @@ query BookmarksPageQuery(
   bookmarks(userId: $userId) {
     id
     question {
-      content
       id
+      content
     }
   }
 }
@@ -42,57 +43,58 @@ const node: ConcreteRequest = (function () {
             "kind": "LocalArgument",
             "name": "userId"
         } as any
-    ], v1 = [
-        {
-            "kind": "Variable",
-            "name": "userId",
-            "variableName": "userId"
-        } as any
-    ], v2 = {
+    ], v1 = {
         "alias": null,
         "args": null,
         "kind": "ScalarField",
         "name": "id",
         "storageKey": null
-    } as any, v3 = {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "content",
-        "storageKey": null
-    } as any;
-    return {
-        "fragment": {
-            "argumentDefinitions": (v0 /*: any*/),
-            "kind": "Fragment",
-            "metadata": null,
-            "name": "BookmarksPageQuery",
+    } as any, v2 = [
+        {
+            "alias": null,
+            "args": [
+                {
+                    "kind": "Variable",
+                    "name": "userId",
+                    "variableName": "userId"
+                }
+            ],
+            "concreteType": "Bookmark",
+            "kind": "LinkedField",
+            "name": "bookmarks",
+            "plural": true,
             "selections": [
+                (v1 /*: any*/),
                 {
                     "alias": null,
-                    "args": (v1 /*: any*/),
-                    "concreteType": "Bookmark",
+                    "args": null,
+                    "concreteType": "Question",
                     "kind": "LinkedField",
-                    "name": "bookmarks",
-                    "plural": true,
+                    "name": "question",
+                    "plural": false,
                     "selections": [
-                        (v2 /*: any*/),
+                        (v1 /*: any*/),
                         {
                             "alias": null,
                             "args": null,
-                            "concreteType": "Question",
-                            "kind": "LinkedField",
-                            "name": "question",
-                            "plural": false,
-                            "selections": [
-                                (v3 /*: any*/)
-                            ],
+                            "kind": "ScalarField",
+                            "name": "content",
                             "storageKey": null
                         }
                     ],
                     "storageKey": null
                 }
             ],
+            "storageKey": null
+        } as any
+    ];
+    return {
+        "fragment": {
+            "argumentDefinitions": (v0 /*: any*/),
+            "kind": "Fragment",
+            "metadata": null,
+            "name": "BookmarksPageQuery",
+            "selections": (v2 /*: any*/),
             "type": "Query",
             "abstractKey": null
         },
@@ -101,43 +103,17 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
             "name": "BookmarksPageQuery",
-            "selections": [
-                {
-                    "alias": null,
-                    "args": (v1 /*: any*/),
-                    "concreteType": "Bookmark",
-                    "kind": "LinkedField",
-                    "name": "bookmarks",
-                    "plural": true,
-                    "selections": [
-                        (v2 /*: any*/),
-                        {
-                            "alias": null,
-                            "args": null,
-                            "concreteType": "Question",
-                            "kind": "LinkedField",
-                            "name": "question",
-                            "plural": false,
-                            "selections": [
-                                (v3 /*: any*/),
-                                (v2 /*: any*/)
-                            ],
-                            "storageKey": null
-                        }
-                    ],
-                    "storageKey": null
-                }
-            ]
+            "selections": (v2 /*: any*/)
         },
         "params": {
-            "cacheID": "3ea8f4b9cadab8e4957f67ffbbfb1331",
+            "cacheID": "48e9785676510a53f38d4b4cd3b443a8",
             "id": null,
             "metadata": {},
             "name": "BookmarksPageQuery",
             "operationKind": "query",
-            "text": "query BookmarksPageQuery(\n  $userId: Int!\n) {\n  bookmarks(userId: $userId) {\n    id\n    question {\n      content\n      id\n    }\n  }\n}\n"
+            "text": "query BookmarksPageQuery(\n  $userId: Int!\n) {\n  bookmarks(userId: $userId) {\n    id\n    question {\n      id\n      content\n    }\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '3a723c2ea8ee9bf5938cac6631d6fdc3';
+(node as any).hash = 'f13bc25a7e9b7554403ea82e605fc532';
 export default node;
