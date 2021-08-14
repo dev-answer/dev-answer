@@ -8,4 +8,8 @@ export default `
   type Query {
     bookmarks(userId: Int!): [Bookmark]
   }
+
+  type Mutation {
+    addBookmark(userId: Int, questionId: Int): Bookmark
+  }
 `;
