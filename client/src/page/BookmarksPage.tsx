@@ -1,16 +1,23 @@
 import React, { useEffect, Suspense } from 'react';
 
 import {
-  graphql, useQueryLoader, usePreloadedQuery, PreloadedQuery,
+  graphql,
+  useQueryLoader,
+  usePreloadedQuery,
+  PreloadedQuery,
+  useRelayEnvironment,
 } from 'react-relay/hooks';
 
 import { BookmarksPageQueryType } from '../__generated__/BookmarksPageQuery.graphql';
+
+import commitRemoveBookmarkMutation from '../graphql/mutations/RemoveBookmark';
 
 const bookmarksQuery = graphql`
   query BookmarksPageQuery($userId: Int!) {
     bookmarks(userId: $userId) {
       id
       question {
+        id
         content
       }
     }
@@ -26,13 +33,22 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
 
   const { bookmarks } = data;
 
+  const enviroment = useRelayEnvironment();
+
+  const handleClickCancelBookmark = (bookmarkId: number) => () => {
+    commitRemoveBookmarkMutation(enviroment, Number(bookmarkId));
+  };
+
   return (
     <ul>
-      {bookmarks.map((bookmark) => (
-        <li key={bookmark.id}>
-          <p>{`Q) ${bookmark.question.content}`}</p>
-        </li>
-      ))}
+      {bookmarks
+        .filter((bookmark) => bookmark)
+        .map((bookmark) => (
+          <li key={bookmark.id}>
+            <p>{`Q) ${bookmark.question?.content}`}</p>
+            <button type="button" onClick={handleClickCancelBookmark(Number(bookmark.id))}>북마크</button>
+          </li>
+        ))}
     </ul>
   );
 };
