@@ -31,5 +31,10 @@ export default {
       const result = await bookmarkRepo.createOne(args);
       return result;
     },
+    removeBookmark: async (_: any, args: { bookmarkId: number }) => {
+      const { bookmarkId } = args;
+      const result = await bookmarkRepo.removeOne(bookmarkId);
+      return result;
+    },
   },
 };

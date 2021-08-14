@@ -12,5 +12,6 @@ export default `
 
   type Mutation {
     addBookmark(userId: Int, questionId: Int): Bookmark
+    removeBookmark(bookmarkId: Int!): Bookmark
   }
 `;
