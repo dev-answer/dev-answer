@@ -1,24 +1,58 @@
 import fs from 'fs';
 import path from 'path';
 
+import QuestionModel from './questionModel';
+
 interface Bookmark {
   id: number;
   userId: number;
   questionId: number;
-  createdAt: Date;
+  createdAt: string;
+}
+
+interface BookmarkInput {
+  id: number;
+  userId: number;
+  questionId: number;
 }
 
 export default class BookmarkModel {
   bookmarksFile;
 
-  bookmarks: [Bookmark];
+  bookmarks: Bookmark[];
+
+  jsonPath: string = '../db/bookmark.json'
 
   constructor() {
-    this.bookmarksFile = fs.readFileSync(path.join(__dirname, '../db/bookmark.json'), 'utf-8');
+    this.bookmarksFile = fs.readFileSync(path.join(__dirname, this.jsonPath), 'utf-8');
     this.bookmarks = JSON.parse(this.bookmarksFile);
   }
 
   findManyByUserId(userId: number) {
     return this.bookmarks.filter((bookmark) => bookmark.userId === userId);
+  }
+
+  async createOne(bookmarkInput: BookmarkInput) {
+    const { userId, questionId } = bookmarkInput;
+    const newBookmark = {
+      id: 100 + this.bookmarks.length,
+      userId,
+      questionId,
+      createdAt: new Date().toString(),
+    };
+
+    this.bookmarks = [...this.bookmarks, newBookmark];
+
+    fs.writeFileSync(path.join(__dirname, this.jsonPath), JSON.stringify(this.bookmarks), 'utf-8');
+
+    const question = await new QuestionModel().findOneByQuestionId(questionId);
+
+    const response = {
+      id: newBookmark.id,
+      question,
+      createdAt: newBookmark.createdAt,
+    };
+
+    return response;
   }
 }
