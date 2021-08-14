@@ -31,17 +31,20 @@ export default class BookmarkModel {
     };
 
     this.bookmarks = [...this.bookmarks, newBookmark];
+    try {
+      fs.writeFileSync(path.join(__dirname, this.jsonPath), JSON.stringify(this.bookmarks), 'utf-8');
 
-    fs.writeFileSync(path.join(__dirname, this.jsonPath), JSON.stringify(this.bookmarks), 'utf-8');
+      const question = await new QuestionModel().findOneByQuestionId(questionId);
 
-    const question = await new QuestionModel().findOneByQuestionId(questionId);
+      const response = {
+        id: newBookmark.id,
+        question,
+        createdAt: newBookmark.createdAt,
+      };
 
-    const response = {
-      id: newBookmark.id,
-      question,
-      createdAt: newBookmark.createdAt,
-    };
-
-    return response;
+      return response;
+    } catch (error) {
+      throw Error(`${error} 파일 작성에 실패했습니다`);
+    }
   }
 }
