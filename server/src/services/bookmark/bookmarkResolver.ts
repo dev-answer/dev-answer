@@ -1,15 +1,10 @@
 import BookmarkRepository from '../../repositories/bookmarkRepository';
 import QuestionRepository from '../../repositories/questionRepository';
 
+import { Bookmark, BookmarkInput } from '../../types';
+
 const bookmarkRepo = new BookmarkRepository();
 const questionRepo = new QuestionRepository();
-
-interface Bookmark {
-  id: number;
-  userId: number;
-  questionId: number;
-  createdAt: string;
-}
 
 export default {
   Query: {
@@ -29,6 +24,12 @@ export default {
       const results = await Promise.all(bookmarkWithQuestion);
 
       return results;
+    },
+  },
+  Mutation: {
+    addBookmark: async (_: any, args: BookmarkInput) => {
+      const result = await bookmarkRepo.createOne(args);
+      return result;
     },
   },
 };
