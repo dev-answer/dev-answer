@@ -2,6 +2,7 @@ export default `
   type Bookmark {
     id: ID!
     question: Question
+    user: User
     createdAt: String
   }
 
