@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
 import GitHubOAuthAnchor from '../../components/Login/GitHubOAuthAnchor';
 
 import Logo from '../Icon/Logo';
 
+// TODO: 서버쪽에 accessToken 기반으로 나의 정보를 불러오는 로직이 완료되면, isLoggedIn을 그걸 사용하는 것으로 교체
 const Header: React.FC = () => {
   const buttons = [
     {
@@ -24,6 +26,13 @@ const Header: React.FC = () => {
     },
   ];
 
+  const isLoggedIn = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
+
+  const handleClickLogout = () => {
+    localStorage.removeItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
+    window.location.reload();
+  };
+
   return (
     <HeaderArea>
       <LeftSideArea>
@@ -41,9 +50,9 @@ const Header: React.FC = () => {
             {title}
           </Button>
         ))}
-        <LoginOutButton>
-          <GitHubOAuthAnchor>로그인</GitHubOAuthAnchor>
-        </LoginOutButton>
+        {isLoggedIn
+          ? <LogoutButton onClick={handleClickLogout}>로그아웃</LogoutButton>
+          : <LoginButton>로그인</LoginButton>}
       </RightSideArea>
     </HeaderArea>
   );
@@ -74,14 +83,25 @@ const TempCircle = styled.div`
   margin-bottom: 8px;
 `;
 const Button = styled.button`
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 64px;
+  min-width: 64px;
   height: 64px;
   margin-left: 8px;
 `;
-const LoginOutButton = styled.button`
+const LoginButton = styled(GitHubOAuthAnchor)`
+  font-size: 14px;
+  color: #434343;
+  padding: 16px;
+  background: #C4C4C4;
+  border-radius: 10px;
+  margin: 0 0 auto 16px;
+`;
+const LogoutButton = styled.button`
+  font-size: 14px;
+  color: #434343;
   padding: 16px;
   background: #C4C4C4;
   border-radius: 10px;
