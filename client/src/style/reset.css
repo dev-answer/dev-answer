@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 
+* {
+	box-sizing: border-box;
+}
+
 html, body, #root {
   height: 100%;
 }
@@ -29,7 +33,7 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, menu, nav, section a {
 	display: block;
 }
 body {
@@ -49,4 +53,13 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+img {
+	vertical-align: top;
 }
