@@ -1,5 +1,7 @@
-import styled from '@emotion/styled';
 import React from 'react';
+import styled from '@emotion/styled';
+
+import GitHubOAuthAnchor from '../../components/Login/GitHubOAuthAnchor';
 
 import Logo from '../Icon/Logo';
 
@@ -40,7 +42,7 @@ const Header: React.FC = () => {
           </Button>
         ))}
         <LoginOutButton>
-          로그인
+          <GitHubOAuthAnchor>로그인</GitHubOAuthAnchor>
         </LoginOutButton>
       </RightSideArea>
     </HeaderArea>
