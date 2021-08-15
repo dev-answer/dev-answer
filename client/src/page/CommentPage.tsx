@@ -110,7 +110,9 @@ const CommentContainer: React.FC<Props> = ({ commentQueryRef }) => {
             onChange={handleOnChangeInput}
           />
         </label>
-        <input type="submit" value="등록" />
+        <button type="submit">
+          등록
+        </button>
       </form>
     </section>
   );
