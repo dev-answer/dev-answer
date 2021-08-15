@@ -24,7 +24,7 @@ jobs:
           NODE_ENV: production
           GITHUB_OAUTH_CLIENT_ID: ${{ secrets.OAUTH_GITHUB_CLIENT_ID }
           GITHUB_OAUTH_CLIENT_SECRET_KEY: ${{ secrets.OAUTH_GITHUB_CLIENT_SECRET_KEY }
-
+          APP_DOMAIN: ${{ secrets.APP_DOMAIN }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2.5.0
