@@ -1,20 +1,16 @@
-import fs from 'fs';
-import path from 'path';
-
 import QuestionModel from './questionModel';
+
+import { readJSON, writeJSON } from '../utils';
 
 import { Bookmark, BookmarkInput } from '../types';
 
 export default class BookmarkModel {
-  bookmarksFile;
-
   bookmarks: Bookmark[];
 
   jsonPath: string = '../db/bookmark.json'
 
   constructor() {
-    this.bookmarksFile = fs.readFileSync(path.join(__dirname, this.jsonPath), 'utf-8');
-    this.bookmarks = JSON.parse(this.bookmarksFile);
+    this.bookmarks = readJSON(this.jsonPath);
   }
 
   findManyByUserId(userId: number) {
@@ -32,7 +28,7 @@ export default class BookmarkModel {
 
     this.bookmarks = [...this.bookmarks, newBookmark];
     try {
-      fs.writeFileSync(path.join(__dirname, this.jsonPath), JSON.stringify(this.bookmarks), 'utf-8');
+      writeJSON(this.jsonPath, this.bookmarks);
 
       const questionModel = new QuestionModel();
       const question = await questionModel.findOneByQuestionId(questionId);
@@ -54,7 +50,7 @@ export default class BookmarkModel {
       const removedBookmark = this.bookmarks.find((bookmark) => bookmark.id === bookmarkId);
       const filteredBookmarks = this.bookmarks.filter((bookmark) => bookmark.id !== bookmarkId);
 
-      fs.writeFileSync(path.join(__dirname, this.jsonPath), JSON.stringify(filteredBookmarks), 'utf-8');
+      writeJSON(this.jsonPath, filteredBookmarks);
 
       return removedBookmark;
     } catch (error) {
