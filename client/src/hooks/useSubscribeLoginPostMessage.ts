@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
-import GitHubOAuthAnchor from '../components/Login/GitHubOAuthAnchor';
+import { APP_DOMAIN, LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../constants/domain';
 
-import APP_DOMAIN from '../constants/domain';
-
-const LoginPage: React.FC = () => {
+const useSubscribeLoginPostMessage = () => {
   useEffect(() => {
     const handlePostMessage = (event: MessageEvent) => {
       if (event.origin !== APP_DOMAIN) {
@@ -14,7 +12,7 @@ const LoginPage: React.FC = () => {
       const { accessToken } = event.data;
 
       if (accessToken) {
-        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem(LOCALSTORAGE_ACCESS_TOKEN_KEY, accessToken);
       }
 
       // Todo: 추후 디자인 완료되면 여기서 추가적인 처리
@@ -23,8 +21,6 @@ const LoginPage: React.FC = () => {
     window.addEventListener('message', handlePostMessage, false);
     return () => window.removeEventListener('message', handlePostMessage, false);
   }, []);
-
-  return <GitHubOAuthAnchor />;
 };
 
-export default LoginPage;
+export default useSubscribeLoginPostMessage;
