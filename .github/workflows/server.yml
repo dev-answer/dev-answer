@@ -3,7 +3,7 @@ name: Deploy Server
 on:
   push:
     branches:
-      - develop
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,6 +17,7 @@ jobs:
           port: ${{ secrets.REMOTE_SSH_PORT }}
           script: |
             cd /home/ubuntu/dev-answer
+            forever stop 0
             sudo git pull
             cd server
             sudo yarn
