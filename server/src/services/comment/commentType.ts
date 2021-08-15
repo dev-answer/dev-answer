@@ -1,6 +1,6 @@
 export default `
 
-type SubComments {
+type SubComment {
   id: ID!
   createdAt: String
   userEmail: String
@@ -17,10 +17,14 @@ type Comment {
   content: String
   like: [String]
   dislike: [String]
-  subComments: [SubComments]
+  subComments: [SubComment]
 }
 
 type Query {
   comments(questionId: Int): [Comment!]!
+}
+
+type Mutation {
+  addComment(questionId: Int, userEmail: String, content: String): Comment
 }
 `;
