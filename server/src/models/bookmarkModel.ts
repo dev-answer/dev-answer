@@ -34,7 +34,8 @@ export default class BookmarkModel {
     try {
       fs.writeFileSync(path.join(__dirname, this.jsonPath), JSON.stringify(this.bookmarks), 'utf-8');
 
-      const question = await new QuestionModel().findOneByQuestionId(questionId);
+      const questionModel = new QuestionModel();
+      const question = await questionModel.findOneByQuestionId(questionId);
 
       const response = {
         id: newBookmark.id,
