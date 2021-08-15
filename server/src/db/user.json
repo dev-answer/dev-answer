@@ -1,31 +1,34 @@
 [
   {
-    "id": 1,
-    "email": "inseo@test.com",
-    "name": "answer",
-    "bookmarks": [
-      1,
-      2
-    ]
+    "id":"0.3215254543218323",
+    "accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyYW5kb21OdW1iZXIiOjg1ODQsInNpZ25hdHVyZSI6IkRFVl9BTlNXRVJfU0lHTkFUVVJFIiwiaWF0IjoxNjI5MDE2MjIyfQ.qrgzef-OSbD1G3wJk-wrltDtBe7EKgGfimGmU4KG4K0",
+    "gitHubAccessToken":"gho_1apNsRk6dvdu2xtejrZrEvujzpJHzz44Sxaa",
+    "name":"apple_lover",
+    "gitHubURL":"https://naver.com",
+    "profileImageURL":"https://avatars.githubusercontent.com/u/47770247?v=4"
   },
   {
-    "id": 2,
-    "email": "gibong@test.com",
-    "name": "gyim",
-    "bookmarks": [
-      2
-    ]
+    "id":"0.5848283945123123",
+    "accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyYW5kb21OdW1iZXIiOjk1MDYxMywic2lnbmF0dXJlIjoiREVWX0FOU1dFUl9TSUdOQVRVUkUiLCJpYXQiOjE2MjkwMTYyNDJ9.LtxMYVYo3RGNRYOIlPTEYDUI2RpbUrd-RjRusbRo4no",
+    "gitHubAccessToken":"gho_3ipNgRk6dNdu21tvjrZ2Evuj2pJHvz44Sxzz",
+    "name":"banana_hater",
+    "gitHubURL":"https://daum.net",
+    "profileImageURL":"https://avatars.githubusercontent.com/u/37282087?v=4"
   },
   {
-    "id": 3,
-    "email": "woomin@test.com",
-    "name": "dal96",
-    "bookmarks": []
+    "id":"0.4921837332323131",
+    "accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyYW5kb21OdW1iZXIiOjMzODczOSwic2lnbmF0dXJlIjoiREVWX0FOU1dFUl9TSUdOQVRVUkUiLCJpYXQiOjE2MjkwMTYyNTJ9.jyYerO7at83GLAw2YGfB_k7kz92N0icK6TH6elVdgUs",
+    "gitHubAccessToken":"gho_4ip232dNd312u232jrZ2Evuj2pJHXz44S11a",
+    "name":"daangn_holic",
+    "gitHubURL":"https://danngn.com",
+    "profileImageURL":"https://avatars.githubusercontent.com/u/44524462?v=4"
   },
   {
-    "id": 4,
-    "email": "dahee@test.com",
-    "name": "dadah",
-    "bookmarks": []
+    "id":"0.7465548688222423",
+    "accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyYW5kb21OdW1iZXIiOjc3NzQ2OCwic2lnbmF0dXJlIjoiREVWX0FOU1dFUl9TSUdOQVRVUkUiLCJpYXQiOjE2MjkwMTYwOTR9.8Gh525q0q2GoxyrOhicY15H0qVa0Gehpl48fbpWyZS8",
+    "gitHubAccessToken":"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",
+    "name":"Woomin-Jeon",
+    "gitHubURL":"https://github.com/Woomin-Jeon",
+    "profileImageURL":"https://avatars.githubusercontent.com/u/59194356?v=4"
   }
 ]
