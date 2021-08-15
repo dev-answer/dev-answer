@@ -13,4 +13,9 @@ export default class UserRepository extends Repository {
     const result = await this.collection.create(user);
     return result;
   }
+
+  async findOneByUserId(userId: string) {
+    const user = await this.collection.findOneByUserId(userId);
+    return user;
+  }
 }

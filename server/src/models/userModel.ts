@@ -17,6 +17,18 @@ export default class UserModel {
     return this.users;
   }
 
+  findOneByUserId(userId: string) {
+    const targetUser = this.users.find((user) => user.id === userId);
+
+    if (!targetUser) {
+      return null;
+    }
+
+    const { accessToken, gitHubAccessToken, ...userInfo } = targetUser;
+
+    return userInfo;
+  }
+
   create(user: Omit<User, 'id'>) {
     try {
       const newUser = { id: Math.random().toString(), ...user };
