@@ -13,12 +13,8 @@ export default class UserModel {
     this.users = JSON.parse(this.usersFile);
   }
 
-  findMany() {
-    return this.users;
-  }
-
-  findOneByUserId(userId: string) {
-    const targetUser = this.users.find((user) => user.id === userId);
+  private find(callback: (user: User) => boolean) {
+    const targetUser = this.users.find(callback);
 
     if (!targetUser) {
       return null;
@@ -27,6 +23,22 @@ export default class UserModel {
     const { accessToken, gitHubAccessToken, ...userInfo } = targetUser;
 
     return userInfo;
+  }
+
+  findMany() {
+    return this.users;
+  }
+
+  findOneByUserId(userId: string) {
+    const targetUser = this.find((user) => user.id === userId);
+
+    return targetUser;
+  }
+
+  findOneByAccessToken(accessToken: string) {
+    const targetUser = this.find((user) => user.accessToken === accessToken);
+
+    return targetUser;
   }
 
   create(user: Omit<User, 'id'>) {
