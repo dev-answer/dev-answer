@@ -14,6 +14,8 @@ export default class BookmarkModel {
   }
 
   findManyByUserId(userId: number) {
+    this.bookmarks = readJSON(this.jsonPath);
+
     return this.bookmarks.filter((bookmark) => bookmark.userId === userId);
   }
 
