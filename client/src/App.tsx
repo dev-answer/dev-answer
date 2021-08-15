@@ -10,21 +10,17 @@ import ExamplePage from './page/ExamplePage';
 import CommentPage from './page/CommentPage';
 import BookmarksPage from './page/BookmarksPage';
 
-import ErrorBoundary from './helper/Errorboundary';
-
 const App: React.FC = () => (
-  <ErrorBoundary>
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={ExamplePage} />
-        <Route exact path="/comment" component={CommentPage} />
-        <Route path="/question/board" component={QuestionBoardPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/oauth" component={LoginCallbackPage} />
-        <Route path="/bookmarks" component={BookmarksPage} />
-      </Switch>
-    </BrowserRouter>
-  </ErrorBoundary>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={ExamplePage} />
+      <Route exact path="/comment" component={CommentPage} />
+      <Route path="/question/board" component={QuestionBoardPage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/oauth" component={LoginCallbackPage} />
+      <Route path="/bookmarks" component={BookmarksPage} />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default App;
