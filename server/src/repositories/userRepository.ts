@@ -18,4 +18,9 @@ export default class UserRepository extends Repository {
     const user = await this.collection.findOneByUserId(userId);
     return user;
   }
+
+  async findOneByAccessToken(accessToken: string) {
+    const user = await this.collection.findOneByAccessToken(accessToken);
+    return user;
+  }
 }

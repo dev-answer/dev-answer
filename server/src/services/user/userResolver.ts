@@ -12,5 +12,9 @@ export default {
       const user = await userRepo.findOneByUserId(userId);
       return user;
     },
+    myUser: async (_: any, { accessToken }: { accessToken: string }) => {
+      const user = await userRepo.findOneByAccessToken(accessToken);
+      return user;
+    },
   },
 };
