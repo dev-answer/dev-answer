@@ -36,7 +36,7 @@ export default {
         profileImageURL: userInfomation.avatar_url,
       };
 
-      userRepo.create(user);
+      userRepo.createOne(user);
 
       return { accessToken };
     },
