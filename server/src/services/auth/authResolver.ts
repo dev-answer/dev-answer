@@ -22,7 +22,7 @@ export default {
         return { accessToken: null };
       }
 
-      const { data: userInfomation } = await axios.get(GITHUB_USER_PROFILE_API, {
+      const { data: userInformation } = await axios.get(GITHUB_USER_PROFILE_API, {
         headers: { Authorization: `token ${gitHubAccessToken}` },
       });
 
@@ -31,9 +31,9 @@ export default {
       const user = {
         accessToken,
         gitHubAccessToken,
-        name: userInfomation.name,
-        gitHubURL: userInfomation.html_url,
-        profileImageURL: userInfomation.avatar_url,
+        name: userInformation.name,
+        gitHubURL: userInformation.html_url,
+        profileImageURL: userInformation.avatar_url,
       };
 
       userRepo.createOne(user);
