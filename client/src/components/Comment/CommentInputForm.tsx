@@ -1,29 +1,80 @@
-import React, { FormEvent, ChangeEvent } from 'react';
+import React, { useCallback, useState } from 'react';
 
-interface Props {
-  // eslint-disable-next-line no-unused-vars
-  onSubmit: (event: FormEvent) => void;
-    // eslint-disable-next-line no-unused-vars
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  commentInput: string;
-}
+import { graphql, useMutation } from 'react-relay';
+import { RecordSourceSelectorProxy } from 'relay-runtime';
 
-const CommentInputForm: React.FC<Props> = ({ onSubmit, onChange, commentInput }) => (
-  <form onSubmit={onSubmit}>
-    <label htmlFor="commentInput">
-      유저프로필
-      <input
-        type="text"
-        id="commentInput"
-        placeholder="제 생각에는..."
-        value={commentInput}
-        onChange={onChange}
-      />
-    </label>
-    <button type="submit">
-      등록
-    </button>
-  </form>
-);
+import { CommentInputFormMutation } from '../../__generated__/CommentInputFormMutation.graphql';
+
+const CommentMutation = graphql`
+  mutation CommentInputFormMutation(
+    $questionId: Int,
+    $userEmail: String,
+    $content: String
+  ) {
+    addComment(
+      questionId: $questionId,
+      userEmail: $userEmail,
+      content: $content
+    ) {
+      ...Comment_comment
+    }
+  }
+`;
+
+const CommentInputForm: React.FC = () => {
+  const [commitComment, isLoading] = useMutation<CommentInputFormMutation>(CommentMutation);
+
+  const [commentInput, setCommentInput] = useState('');
+
+  const handleOnChangeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentInput(event.target.value);
+  }, []);
+
+  const handleOnSubmit = useCallback((event: React.FormEvent) => {
+    event.preventDefault();
+
+    commitComment({
+      variables: {
+        questionId: 1, // TODO : 임시로 questionId: 1 불러옴. 질문 상세 페이지 완성 후 변수화 시킬 예정
+        userEmail: 'inseo@test.com',
+        content: commentInput,
+      },
+      updater: (store: RecordSourceSelectorProxy) => {
+        const rootStore = store.get('client:root');
+        const originComments = rootStore?.getLinkedRecords('comments(questionId:1)');
+        const payload = store.getRootField('addComment');
+
+        if (Array.isArray(originComments)) {
+          const newComments = [...originComments, payload];
+          rootStore?.setLinkedRecords(newComments, 'comments(questionId:1)');
+        }
+      },
+    });
+
+    setCommentInput('');
+  }, [commentInput]);
+
+  if (isLoading) {
+    return <div>댓글 등록중..</div>;
+  }
+
+  return (
+    <form onSubmit={handleOnSubmit}>
+      <label htmlFor="commentInput">
+        유저프로필
+        <input
+          type="text"
+          id="commentInput"
+          placeholder="제 생각에는..."
+          value={commentInput}
+          onChange={handleOnChangeInput}
+        />
+      </label>
+      <button type="submit">
+        등록
+      </button>
+    </form>
+  );
+};
 
 export default CommentInputForm;
