@@ -5,6 +5,8 @@ import { RecordSourceSelectorProxy } from 'relay-runtime';
 
 import { CommentInputFormMutation } from '../../__generated__/CommentInputFormMutation.graphql';
 
+import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
+
 const CommentMutation = graphql`
   mutation CommentInputFormMutation(
     $questionId: Int,
@@ -56,6 +58,12 @@ const CommentInputForm: React.FC = () => {
 
   if (isLoading) {
     return <div>댓글 등록중..</div>;
+  }
+
+  const isLoggedIn = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
+
+  if (!isLoggedIn) {
+    return <></>;
   }
 
   return (
