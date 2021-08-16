@@ -17,7 +17,8 @@ import { RecordSourceSelectorProxy } from 'relay-runtime';
 import { CommentPageQuery } from '../__generated__/CommentPageQuery.graphql';
 import { CommentPageMutation } from '../__generated__/CommentPageMutation.graphql';
 
-import Comment from '../components/Example/Comment';
+import Comment from '../components/Comment/Comment';
+import CommentInputForm from '../components/Comment/CommentInputForm';
 
 type Props = {
   commentQueryRef: PreloadedQuery<CommentPageQuery>
@@ -103,21 +104,11 @@ const CommentContainer: React.FC<Props> = ({ commentQueryRef }) => {
             ))}
           </ol>
         )}
-      <form onSubmit={handleOnSubmit}>
-        <label htmlFor="commentInput">
-          유저프로필
-          <input
-            type="text"
-            id="commentInput"
-            placeholder="제 생각에는..."
-            value={commentInput}
-            onChange={handleOnChangeInput}
-          />
-        </label>
-        <button type="submit">
-          등록
-        </button>
-      </form>
+      <CommentInputForm
+        onSubmit={handleOnSubmit}
+        onChange={handleOnChangeInput}
+        commentInput={commentInput}
+      />
     </section>
   );
 };
