@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-import inMemoryTokenDB from '../../db/inMemoryTokenDB';
+import auth from './auth';
+import UserRepository from '../../repositories/userRepository';
+
+const userRepo = new UserRepository();
 
 export default {
   Mutation: {
@@ -13,24 +16,27 @@ export default {
       const { data } = await axios.post(GITHUB_ACCESS_TOKEN_API);
       const searchParams = new URLSearchParams(data);
 
-      const githubAccessToken = searchParams.get('access_token') || '';
+      const gitHubAccessToken = searchParams.get('access_token') || '';
 
-      if (!githubAccessToken) {
+      if (!gitHubAccessToken) {
         return { accessToken: null };
       }
 
-      const { data: userInfomation } = await axios.get(GITHUB_USER_PROFILE_API, {
-        headers: { Authorization: `token ${githubAccessToken}` },
+      const { data: userInformation } = await axios.get(GITHUB_USER_PROFILE_API, {
+        headers: { Authorization: `token ${gitHubAccessToken}` },
       });
 
-      const profile = {
-        name: userInfomation.name,
-        profileImageURL: userInfomation.avatar_url,
-        githubPageURL: userInfomation.html_url,
+      const accessToken = auth.generateAccessToken();
+
+      const user = {
+        accessToken,
+        gitHubAccessToken,
+        name: userInformation.name,
+        gitHubURL: userInformation.html_url,
+        profileImageURL: userInformation.avatar_url,
       };
 
-      const accessToken = inMemoryTokenDB.generateAccessToken();
-      inMemoryTokenDB.setAccessToken(accessToken, profile);
+      userRepo.createOne(user);
 
       return { accessToken };
     },
