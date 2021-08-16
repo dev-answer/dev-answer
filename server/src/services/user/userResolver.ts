@@ -8,11 +8,11 @@ export default {
       const users = await userRepo.findAll();
       return users;
     },
-    oneUser: async (_: any, { userId }: { userId: string }) => {
+    userInfo: async (_: any, { userId }: { userId: string }) => {
       const user = await userRepo.findOneByUserId(userId);
       return user;
     },
-    myUser: async (_: any, { accessToken }: { accessToken: string }) => {
+    myInfo: async (_: any, { accessToken }: { accessToken: string }) => {
       const user = await userRepo.findOneByAccessToken(accessToken);
       return user;
     },

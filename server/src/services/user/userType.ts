@@ -8,7 +8,7 @@ type User {
 
 type Query {
   allUsers: [User!]!
-  oneUser(userId: String!): User
-  myUser(accessToken: String!): User
+  userInfo(userId: String!): User
+  myInfo(accessToken: String!): User
 }
 `;
