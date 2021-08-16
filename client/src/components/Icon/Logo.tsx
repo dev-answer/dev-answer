@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Logo: React.FC = () => (
+interface Props {
+  width?: number
+  height?: number
+}
+
+const Logo: React.FC<Props> = ({ width = 51, height = 37 }) => (
   <div>
-    <svg width="51" height="37" viewBox="0 0 51 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="51" height="37" fill="url(#pattern0)" />
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width={width} height={height} fill="url(#pattern0)" />
       <defs>
         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
           <use xlinkHref="#image0" transform="translate(-0.00259863) scale(0.00291362 0.00401606)" />
