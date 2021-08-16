@@ -9,8 +9,8 @@ export default class UserRepository extends Repository {
     super({ Model: new UserModel() });
   }
 
-  async create(user: Omit<User, 'id'>) {
-    const result = await this.collection.create(user);
+  async createOne(user: Omit<User, 'id'>) {
+    const result = await this.collection.createOne(user);
     return result;
   }
 

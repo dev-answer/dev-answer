@@ -41,7 +41,7 @@ export default class UserModel {
     return targetUser;
   }
 
-  create(user: Omit<User, 'id'>) {
+  createOne(user: Omit<User, 'id'>) {
     try {
       const newUser = { id: Math.random().toString(), ...user };
       this.users = [...this.users, newUser];
