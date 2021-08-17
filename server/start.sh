@@ -1,3 +1,3 @@
 rm -rf dist
 tsc
-forever start dist/app.js
+node dist/app.js
