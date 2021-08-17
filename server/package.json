@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "chmod +x start.sh & ./start.sh",
+    "production": "chmod +x production.sh & ./production.sh",
     "dev": "nodemon --exec ts-node src/app.ts",
     "lint": "eslint --fix src/**/*.ts"
   },
