@@ -17,8 +17,8 @@ jobs:
           port: ${{ secrets.REMOTE_SSH_PORT }}
           script: |
             cd /home/ubuntu/dev-answer
-            forever stop 0
+            forever stopall
             sudo git pull
             cd server
             sudo yarn
-            sudo yarn start
+            sudo yarn run production
