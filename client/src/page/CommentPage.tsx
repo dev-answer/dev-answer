@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CommentInputForm from '../components/Comment/CommentInputForm';
 import CommentList from '../components/Comment/CommentList';
+import CommentInputForm from '../components/Comment/CommentInputForm';
 
 const CommentPage: React.FC = () => (
   <section>
@@ -12,4 +12,5 @@ const CommentPage: React.FC = () => (
     <CommentInputForm />
   </section>
 );
+
 export default CommentPage;
