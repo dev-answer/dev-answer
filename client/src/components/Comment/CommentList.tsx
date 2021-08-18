@@ -85,10 +85,8 @@ const CommentList: React.FC = () => {
 
   return (
     <Suspense fallback="로딩중..">
-      {commentQueryRef != null
-        ? (
-          <CommentListContainer commentQueryRef={commentQueryRef} />
-        ) : null}
+      {commentQueryRef
+      && <CommentListContainer commentQueryRef={commentQueryRef} />}
     </Suspense>
 
   );
