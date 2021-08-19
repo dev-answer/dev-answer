@@ -38,9 +38,10 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
       <div>
         <ol>
           {comments.slice(0, 1).map((comment) => (
-            <li key={comment.id}>
-              <Comment comment={comment} />
-            </li>
+            <Comment
+              key={comment.id}
+              comment={comment}
+            />
           ))}
         </ol>
         <p>
@@ -54,9 +55,10 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
   return (
     <ol>
       {comments.map((comment) => (
-        <li key={comment.id}>
-          <Comment comment={comment} />
-        </li>
+        <Comment
+          key={comment.id}
+          comment={comment}
+        />
       ))}
     </ol>
   );
