@@ -7,6 +7,8 @@ import { CommentInputFormMutation } from '../../__generated__/CommentInputFormMu
 
 import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
 
+import GitHubOAuthAnchor from '../Login/GitHubOAuthAnchor';
+
 const CommentMutation = graphql`
   mutation CommentInputFormMutation(
     $questionId: Int,
@@ -56,14 +58,19 @@ const CommentInputForm: React.FC = () => {
     setCommentInput('');
   }, [commentInput]);
 
+  const isLoggedIn = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
+
   if (isLoading) {
     return <div>댓글 등록중..</div>;
   }
 
-  const isLoggedIn = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
-
   if (!isLoggedIn) {
-    return <></>;
+    return (
+      <>
+        <p>다른 사람의 답변이 궁금하다면?</p>
+        <GitHubOAuthAnchor>GitHub으로 로그인하기</GitHubOAuthAnchor>
+      </>
+    );
   }
 
   return (
