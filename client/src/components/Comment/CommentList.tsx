@@ -9,7 +9,6 @@ import { CommentListQuery } from '../../__generated__/CommentListQuery.graphql';
 import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
 
 import Comment from './Comment';
-import GitHubOAuthAnchor from '../Login/GitHubOAuthAnchor';
 
 interface Props{
   commentQueryRef: PreloadedQuery<CommentListQuery>;
@@ -35,20 +34,14 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
 
   if (!isLoggedIn) {
     return (
-      <div>
-        <ol>
-          {comments.slice(0, 1).map((comment) => (
-            <Comment
-              key={comment.id}
-              comment={comment}
-            />
-          ))}
-        </ol>
-        <p>
-          다른 사람의 답변이 궁금하다면?
-        </p>
-        <GitHubOAuthAnchor>GitHub으로 로그인하기</GitHubOAuthAnchor>
-      </div>
+      <ol>
+        {comments.slice(0, 1).map((comment) => (
+          <Comment
+            key={comment.id}
+            comment={comment}
+          />
+        ))}
+      </ol>
     );
   }
 
@@ -84,7 +77,6 @@ const CommentList: React.FC = () => {
       {commentQueryRef
       && <CommentListContainer commentQueryRef={commentQueryRef} />}
     </Suspense>
-
   );
 };
 
