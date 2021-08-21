@@ -52,7 +52,7 @@ export default class BookmarkModel {
       const removedBookmark = this.bookmarks.find((bookmark) => bookmark.id === bookmarkId);
       const filteredBookmarks = this.bookmarks.filter((bookmark) => bookmark.id !== bookmarkId);
 
-      fs.writeFileSync(path.join(__dirname, this.jsonPath), JSON.stringify(filteredBookmarks), 'utf-8');
+      writeJSON(this.jsonPath, filteredBookmarks);
 
       return removedBookmark;
     } catch (error) {
