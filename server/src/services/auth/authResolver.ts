@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import auth from './auth';
 import UserRepository from '../../repositories/userRepository';
+import { User } from '../../types/user';
 
 const userRepo = new UserRepository();
 
@@ -22,21 +23,22 @@ export default {
         return { accessToken: null };
       }
 
-      const { data: userInformation } = await axios.get(GITHUB_USER_PROFILE_API, {
+      const { data: gitHubUser } = await axios.get(GITHUB_USER_PROFILE_API, {
         headers: { Authorization: `token ${gitHubAccessToken}` },
       });
 
       const accessToken = auth.generateAccessToken();
 
-      const user = {
+      const newUser: User = {
         accessToken,
         gitHubAccessToken,
-        name: userInformation.name,
-        gitHubURL: userInformation.html_url,
-        profileImageURL: userInformation.avatar_url,
+        id: gitHubUser.id,
+        name: gitHubUser.name,
+        gitHubURL: gitHubUser.html_url,
+        profileImageURL: gitHubUser.avatar_url,
       };
 
-      userRepo.createOne(user);
+      userRepo.createOne(newUser);
 
       return { accessToken };
     },

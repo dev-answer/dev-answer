@@ -42,9 +42,8 @@ export default class UserModel {
     return targetUser;
   }
 
-  createOne(user: Omit<User, 'id'>) {
+  createOne(newUser: User) {
     try {
-      const newUser = { id: Math.random().toString(), ...user };
       this.users = [...this.users, newUser];
 
       fs.writeFileSync(path.join(__dirname, '../db/user.json'), JSON.stringify(this.users), 'utf-8');
