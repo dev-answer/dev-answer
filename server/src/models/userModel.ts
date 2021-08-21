@@ -1,19 +1,19 @@
-import fs from 'fs';
-import path from 'path';
+import { readJSON, writeJSON } from '../utils';
 
 import { User } from '../types/user';
 
 export default class UserModel {
-  usersFile;
-
   users: User[];
 
+  jsonPath: string = '../db/user.json'
+
   constructor() {
-    this.usersFile = fs.readFileSync(path.join(__dirname, '../db/user.json'), 'utf8');
-    this.users = JSON.parse(this.usersFile);
+    this.users = readJSON(this.jsonPath);
   }
 
   private find(callback: (user: User) => boolean) {
+    this.users = readJSON(this.jsonPath);
+
     const targetUser = this.users.find(callback);
 
     if (!targetUser) {
@@ -26,16 +26,22 @@ export default class UserModel {
   }
 
   findMany() {
+    this.users = readJSON(this.jsonPath);
+
     return this.users;
   }
 
   findOneByUserId(userId: string) {
+    this.users = readJSON(this.jsonPath);
+
     const targetUser = this.find((user) => user.id === userId);
 
     return targetUser;
   }
 
   findOneByAccessToken(accessToken: string) {
+    this.users = readJSON(this.jsonPath);
+
     const targetUser = this.find((user) => user.accessToken === accessToken);
 
     return targetUser;
@@ -43,10 +49,12 @@ export default class UserModel {
 
   createOne(user: Omit<User, 'id'>) {
     try {
+      this.users = readJSON(this.jsonPath);
+
       const newUser = { id: Math.random().toString(), ...user };
       this.users = [...this.users, newUser];
 
-      fs.writeFileSync(path.join(__dirname, '../db/user.json'), JSON.stringify(this.users), 'utf-8');
+      writeJSON(this.jsonPath, this.users);
 
       return this.users;
     } catch (error) {
