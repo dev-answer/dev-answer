@@ -12,12 +12,12 @@ import GitHubOAuthAnchor from '../Login/GitHubOAuthAnchor';
 const CommentMutation = graphql`
   mutation CommentInputFormMutation(
     $questionId: Int,
-    $userEmail: String,
+    $uid: String,
     $content: String
   ) {
     addComment(
       questionId: $questionId,
-      userEmail: $userEmail,
+      uid: $uid,
       content: $content
     ) {
       ...Comment_comment
@@ -40,7 +40,7 @@ const CommentInputForm: React.FC = () => {
     commitComment({
       variables: {
         questionId: 1, // TODO : 임시로 questionId: 1 불러옴. 질문 상세 페이지 완성 후 변수화 시킬 예정
-        userEmail: 'inseo@test.com',
+        uid: '0.5199438703839148',
         content: commentInput,
       },
       updater: (store: RecordSourceSelectorProxy) => {

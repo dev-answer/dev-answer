@@ -6,7 +6,7 @@ import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type CommentInputFormMutationVariables = {
     questionId?: number | null;
-    userEmail?: string | null;
+    uid?: string | null;
     content?: string | null;
 };
 export type CommentInputFormMutationResponse = {
@@ -24,10 +24,10 @@ export type CommentInputFormMutation = {
 /*
 mutation CommentInputFormMutation(
   $questionId: Int
-  $userEmail: String
+  $uid: String
   $content: String
 ) {
-  addComment(questionId: $questionId, userEmail: $userEmail, content: $content) {
+  addComment(questionId: $questionId, uid: $uid, content: $content) {
     ...Comment_comment
     id
   }
@@ -37,7 +37,7 @@ fragment Comment_comment on Comment {
   id
   questionId
   createdAt
-  userEmail
+  uid
   content
   like
   dislike
@@ -56,7 +56,7 @@ const node: ConcreteRequest = (function () {
     } as any, v2 = {
         "defaultValue": null,
         "kind": "LocalArgument",
-        "name": "userEmail"
+        "name": "uid"
     } as any, v3 = [
         {
             "kind": "Variable",
@@ -70,8 +70,8 @@ const node: ConcreteRequest = (function () {
         } as any,
         {
             "kind": "Variable",
-            "name": "userEmail",
-            "variableName": "userEmail"
+            "name": "uid",
+            "variableName": "uid"
         } as any
     ];
     return {
@@ -148,7 +148,7 @@ const node: ConcreteRequest = (function () {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
-                            "name": "userEmail",
+                            "name": "uid",
                             "storageKey": null
                         },
                         {
@@ -178,14 +178,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "63ff8743ef2fe63990ff32cc5af30353",
+            "cacheID": "988b017c828179de4ddd036c7d56423a",
             "id": null,
             "metadata": {},
             "name": "CommentInputFormMutation",
             "operationKind": "mutation",
-            "text": "mutation CommentInputFormMutation(\n  $questionId: Int\n  $userEmail: String\n  $content: String\n) {\n  addComment(questionId: $questionId, userEmail: $userEmail, content: $content) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  dislike\n}\n"
+            "text": "mutation CommentInputFormMutation(\n  $questionId: Int\n  $uid: String\n  $content: String\n) {\n  addComment(questionId: $questionId, uid: $uid, content: $content) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n  dislike\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '1551d47bf36dabe1e129cf0de265aebb';
+(node as any).hash = '03135f2e8ee4e583ae40e4d3ceae48ae';
 export default node;

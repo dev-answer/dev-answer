@@ -8,7 +8,7 @@ export type Comment_comment = {
     readonly id: string;
     readonly questionId: number | null;
     readonly createdAt: string | null;
-    readonly userEmail: string | null;
+    readonly uid: string | null;
     readonly content: string | null;
     readonly like: ReadonlyArray<string | null> | null;
     readonly dislike: ReadonlyArray<string | null> | null;
@@ -53,7 +53,7 @@ const node: ReaderFragment = {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "userEmail",
+            "name": "uid",
             "storageKey": null
         },
         {
@@ -81,5 +81,5 @@ const node: ReaderFragment = {
     "type": "Comment",
     "abstractKey": null
 } as any;
-(node as any).hash = '4301a78d987bed21533649b2d9e5338e';
+(node as any).hash = 'ac26b5404e10d6ba332b5fb72818da04';
 export default node;

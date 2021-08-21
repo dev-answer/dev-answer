@@ -12,7 +12,7 @@ const Comment: React.FC<Props> = ({ comment }) => (
     <div>
       유저 :
       {' '}
-      {comment.userEmail}
+      {comment.uid}
     </div>
     <div>
       {comment.content}
@@ -36,7 +36,7 @@ export default createFragmentContainer(Comment, {
       id
       questionId
       createdAt
-      userEmail
+      uid
       content
       like
       dislike
