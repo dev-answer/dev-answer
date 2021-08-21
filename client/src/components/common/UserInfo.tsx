@@ -37,8 +37,24 @@ function UserInfoContainer({ userQueryRef }: Props) {
   return (
     <>
       <a href={gitHubURL}>
-        <img src={profileImageURL} alt="깃허브프로필이미지" />
-        <p>{name}</p>
+        {/* TODO: 추후 emotion 적용 */}
+        <img
+          src={profileImageURL}
+          style={{
+            width: '50px',
+            borderRadius: '20%',
+          }}
+          alt="깃허브프로필이미지"
+        />
+        <p
+          style={{
+            display: 'inline-block',
+            marginLeft: '10px',
+            paddingTop: '17px',
+          }}
+        >
+          {name}
+        </p>
       </a>
     </>
   );
