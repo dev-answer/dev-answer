@@ -3,6 +3,8 @@ import { createFragmentContainer, graphql } from 'react-relay';
 
 import { Comment_comment } from '__generated__/Comment_comment.graphql';
 
+import UserInfo from '../common/UserInfo';
+
 interface Props {
   comment: Comment_comment
 }
@@ -12,7 +14,7 @@ const Comment: React.FC<Props> = ({ comment }) => (
     <div>
       유저 :
       {' '}
-      {comment.uid}
+      {comment.uid && <UserInfo uid={comment.uid} />}
     </div>
     <div>
       {comment.content}
