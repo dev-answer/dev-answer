@@ -37,6 +37,8 @@ type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
   allUsers: [User!]!
+  userInfo(userId: String!): User
+  myInfo(accessToken: String!): User
   comments(questionId: Int): [Comment!]!
   bookmarks(userId: Int!): [Bookmark]
 }
@@ -66,8 +68,8 @@ type SubComment {
 
 type User {
   id: ID!
-  email: String!
-  name: String
-  bookmarks: [Int]
+  name: String!
+  gitHubURL: String!
+  profileImageURL: String!
 }
 
