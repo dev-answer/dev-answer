@@ -28,9 +28,26 @@ export default {
       });
 
       const user = await userRepo.findOneByUserId(gitHubUser.id);
+      const accessToken = auth.generateAccessToken();
 
-      if (user) {
+      if (!user) {
+        const newUser: User = {
+          accessToken,
+          gitHubAccessToken,
+          id: gitHubUser.id,
+          name: gitHubUser.name,
+          gitHubURL: gitHubUser.html_url,
+          profileImageURL: gitHubUser.avatar_url,
+        };
+
+        userRepo.createOne(newUser);
+
+        return { accessToken };
+      }
+
+      if (!user.accessToken) {
         const updatedUser = await userRepo.updateOne(user, {
+          accessToken,
           name: gitHubUser.name,
           gitHubURL: gitHubUser.html_url,
           profileImageURL: gitHubUser.avatar_url,
@@ -39,20 +56,13 @@ export default {
         return { accessToken: updatedUser.accessToken };
       }
 
-      const accessToken = auth.generateAccessToken();
-
-      const newUser: User = {
-        accessToken,
-        gitHubAccessToken,
-        id: gitHubUser.id,
+      const updatedUser = await userRepo.updateOne(user, {
         name: gitHubUser.name,
         gitHubURL: gitHubUser.html_url,
         profileImageURL: gitHubUser.avatar_url,
-      };
+      });
 
-      userRepo.createOne(newUser);
-
-      return { accessToken };
+      return { accessToken: updatedUser.accessToken };
     },
     logout: async (_: any, { accessToken }: { accessToken: string }) => {
       const user = await userRepo.findOneByAccessToken(accessToken);
