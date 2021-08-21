@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import withSuspense from '../hocs/withSuspense';
 import { LoginCallbackPageQuery } from '../__generated__/LoginCallbackPageQuery.graphql';
 
-import APP_DOMAIN from '../constants/domain';
+import { APP_DOMAIN } from '../constants/domain';
 
 const LoginCallbackPage: React.FC = () => {
   const { search } = useLocation();
