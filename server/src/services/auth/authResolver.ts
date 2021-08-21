@@ -29,15 +29,18 @@ export default {
 
       const user = await userRepo.findOneByUserId(gitHubUser.id);
       const accessToken = auth.generateAccessToken();
+      const lastestGitHubProfile = {
+        name: gitHubUser.name,
+        gitHubURL: gitHubUser.html_url,
+        profileImageURL: gitHubUser.avatar_url,
+      };
 
       if (!user) {
         const newUser: User = {
           accessToken,
           gitHubAccessToken,
           id: gitHubUser.id,
-          name: gitHubUser.name,
-          gitHubURL: gitHubUser.html_url,
-          profileImageURL: gitHubUser.avatar_url,
+          ...lastestGitHubProfile,
         };
 
         userRepo.createOne(newUser);
@@ -48,18 +51,14 @@ export default {
       if (!user.accessToken) {
         const updatedUser = await userRepo.updateOne(user, {
           accessToken,
-          name: gitHubUser.name,
-          gitHubURL: gitHubUser.html_url,
-          profileImageURL: gitHubUser.avatar_url,
+          ...lastestGitHubProfile,
         });
 
         return { accessToken: updatedUser.accessToken };
       }
 
       const updatedUser = await userRepo.updateOne(user, {
-        name: gitHubUser.name,
-        gitHubURL: gitHubUser.html_url,
-        profileImageURL: gitHubUser.avatar_url,
+        ...lastestGitHubProfile,
       });
 
       return { accessToken: updatedUser.accessToken };
