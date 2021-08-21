@@ -54,5 +54,12 @@ export default {
 
       return { accessToken };
     },
+    logout: async (_: any, { accessToken }: { accessToken: string }) => {
+      const user = await userRepo.findOneByAccessToken(accessToken);
+
+      await userRepo.updateOne(user, { accessToken: null });
+
+      return true;
+    },
   },
 };
