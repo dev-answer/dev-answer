@@ -1,6 +1,6 @@
 import CommentRepository from '../../repositories/commentRepository';
 
-import { NewComment } from '../../types/comment';
+import { NewComment, AddLikeArgs } from '../../types/comment';
 
 const commentRepo = new CommentRepository();
 
@@ -14,6 +14,16 @@ export default {
   Mutation: {
     addComment: async (_: any, args: NewComment) => {
       const result = await commentRepo.createOne(args);
+      return result;
+    },
+    addLike: async (_: any, { commentId, uid }: AddLikeArgs) => {
+      const result = await commentRepo.updateOne({
+        targetId: commentId,
+        action: 'PUSH',
+        updateField: 'like',
+        payload: uid,
+      });
+
       return result;
     },
   },

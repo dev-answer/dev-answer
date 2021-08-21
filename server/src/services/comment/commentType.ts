@@ -26,5 +26,6 @@ type Query {
 
 type Mutation {
   addComment(questionId: Int, uid: String, content: String): Comment
+  addLike(commentId: String, uid: String): Comment
 }
 `;

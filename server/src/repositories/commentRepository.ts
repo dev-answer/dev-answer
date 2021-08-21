@@ -2,7 +2,7 @@ import CommentModel from '../models/commentModel';
 
 import Repository from './repository';
 
-import { NewComment } from '../types/comment';
+import { NewComment, UpdateInfo } from '../types/comment';
 
 export default class CommentRepository extends Repository {
   constructor() {
@@ -16,6 +16,11 @@ export default class CommentRepository extends Repository {
 
   async createOne(newComment: NewComment) {
     const result = await this.collection.createOne(newComment);
+    return result;
+  }
+
+  async updateOne(updateInfo: UpdateInfo) {
+    const result = await this.collection.updateOne(updateInfo);
     return result;
   }
 }

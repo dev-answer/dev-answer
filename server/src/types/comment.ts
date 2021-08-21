@@ -13,13 +13,25 @@ export interface Comment {
   createdAt: string;
   uid: string;
   content: string;
-  like: [] | [string];
-  dislike: [] | [string];
-  subComments: [] | [SubComment]
+  like: [] | string[];
+  dislike: [] | string[];
+  subComments: [] | SubComment[]
 }
 
 export interface NewComment {
-  questionId: number,
-  uid: string,
-  content: string,
+  questionId: number;
+  uid: string;
+  content: string;
+}
+
+export interface UpdateInfo {
+  targetId: string;
+  action: 'REVISE' | 'PUSH' | 'FILTER';
+  updateField: keyof Comment;
+  payload: string;
+}
+
+export interface AddLikeArgs {
+  commentId: string;
+  uid: string;
 }
