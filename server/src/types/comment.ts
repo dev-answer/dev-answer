@@ -1,17 +1,17 @@
 export interface SubComment {
-  id: number;
+  id: string;
   createdAt: string;
-  userEmail: string;
+  uid: string;
   content: string;
   like: [string];
   dislike: [string];
 }
 
 export interface Comment {
-  id: number;
+  id: string;
   questionId: number;
   createdAt: string;
-  userEmail: string;
+  uid: string;
   content: string;
   like: [] | [string];
   dislike: [] | [string];
@@ -20,6 +20,6 @@ export interface Comment {
 
 export interface NewComment {
   questionId: number,
-  userEmail: string,
+  uid: string,
   content: string,
 }

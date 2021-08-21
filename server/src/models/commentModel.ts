@@ -1,34 +1,40 @@
-import fs from 'fs';
-import path from 'path';
+import { v4 } from 'uuid';
+
+import { readJSON, writeJSON } from '../utils';
 
 import { Comment, NewComment } from '../types/comment';
 
 export default class CommentModel {
-  commentsFile;
-
   comments: Comment[];
 
+  jsonPath: string = '../db/comment.json'
+
   constructor() {
-    this.commentsFile = fs.readFileSync(path.join(__dirname, '../db/comment.json'), 'utf8');
-    this.comments = JSON.parse(this.commentsFile);
+    this.comments = readJSON(this.jsonPath);
   }
 
   findMany() {
+    this.comments = readJSON(this.jsonPath);
+
     return this.comments;
   }
 
   findOne(questionId: number) {
+    this.comments = readJSON(this.jsonPath);
+
     return this.comments.filter((comment) => comment.questionId === questionId);
   }
 
-  create({ questionId, userEmail, content }: NewComment) {
+  createOne({ questionId, uid, content }: NewComment) {
     try {
-      const id = this.comments.length + 1;
+      this.comments = readJSON(this.jsonPath);
+
+      const id = `comment_${v4()}`;
       const comment: Comment = {
         id,
         questionId,
         createdAt: new Date().toJSON(),
-        userEmail,
+        uid,
         content,
         like: [],
         dislike: [],
@@ -37,7 +43,7 @@ export default class CommentModel {
 
       this.comments = [...this.comments, comment];
 
-      fs.writeFileSync(path.join(__dirname, '../db/comment.json'), JSON.stringify(this.comments), 'utf-8');
+      writeJSON(this.jsonPath, this.comments);
 
       return comment;
     } catch (error) {

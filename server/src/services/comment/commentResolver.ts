@@ -13,7 +13,7 @@ export default {
   },
   Mutation: {
     addComment: async (_: any, args: NewComment) => {
-      const result = await commentRepo.create(args);
+      const result = await commentRepo.createOne(args);
       return result;
     },
   },
