@@ -1,12 +1,15 @@
 import React from 'react';
 
 import {
+  graphql,
+  useMutation,
   useRelayEnvironment,
 } from 'react-relay/hooks';
 
-import commitRemoveBookmarkMutation from '../../graphql/mutations/RemoveBookmark';
-import commitAddBookmarkMutation from '../../graphql/mutations/AddBookmark';
+import { RecordSourceSelectorProxy } from 'relay-runtime';
 
+import commitRemoveBookmarkMutation from '../../graphql/mutations/RemoveBookmark';
+import { BookmarkButtonMutation } from '../../__generated__/BookmarkButtonMutation.graphql';
 import BookmarkIcon from '../Icon/BookmarkIcon';
 
 interface Props {
@@ -14,8 +17,22 @@ interface Props {
   questionId: string,
 }
 
+const AddBookmarkMutation = graphql`
+  mutation BookmarkButtonMutation($userId: Int, $questionId: Int) {
+    addBookmark(userId: $userId, questionId: $questionId) {
+      user {
+        id
+      }
+      question {
+        id
+      }
+    }
+  }
+`;
+
 const BookmarkButton: React.FC<Props> = ({ bookmark, questionId }) => {
   const enviroment = useRelayEnvironment();
+  const [commitAddBookmark] = useMutation<BookmarkButtonMutation>(AddBookmarkMutation);
 
   const handleClickCancelBookmark = (bookmarkId: number) => () => {
     commitRemoveBookmarkMutation(enviroment, bookmarkId);
@@ -24,7 +41,23 @@ const BookmarkButton: React.FC<Props> = ({ bookmark, questionId }) => {
   const handleClickAddBookmark = (id: number) => () => {
     const userId = 4; // TODO : 나중에 회원별 북마크 데이터 가져오는 걸로 수정해야 됨
 
-    commitAddBookmarkMutation(enviroment, id, userId);
+    commitAddBookmark({
+      variables: {
+        questionId: id,
+        userId,
+      },
+      updater: (store: RecordSourceSelectorProxy) => {
+        console.log('updater');
+
+        const userBookmarksRecords = `bookmarks(userId:${userId})`;
+        const rootStore = store.get('client:root');
+        const bookmarks = rootStore?.getLinkedRecords(userBookmarksRecords);
+
+        const newBookmarks = store.getRootField('addBookmark');
+
+        rootStore?.setLinkedRecords([...bookmarks, newBookmarks], userBookmarksRecords);
+      },
+    });
   };
 
   return (
