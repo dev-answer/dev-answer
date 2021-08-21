@@ -14,6 +14,11 @@ export default class UserRepository extends Repository {
     return result;
   }
 
+  async updateOne(user: User, paylaod: Partial<User>) {
+    const result = await this.collection.updateOne(user, paylaod);
+    return result;
+  }
+
   async findOneByUserId(userId: string) {
     const user = await this.collection.findOneByUserId(userId);
     return user;

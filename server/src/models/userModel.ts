@@ -53,4 +53,17 @@ export default class UserModel {
       throw Error(`${error}파일 작성에 실패했습니다`);
     }
   }
+
+  updateOne(user: User, paylaod: Partial<User>) {
+    const updatedUser: User = { ...user, ...paylaod };
+    this.users = this.users.map((dbUser) => (dbUser.id === user.id ? updatedUser : dbUser));
+
+    try {
+      fs.writeFileSync(path.join(__dirname, '../db/user.json'), JSON.stringify(this.users), 'utf-8');
+
+      return updatedUser;
+    } catch (error) {
+      throw Error(`${error}파일 작성에 실패했습니다`);
+    }
+  }
 }
