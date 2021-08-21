@@ -27,6 +27,18 @@ export default {
         headers: { Authorization: `token ${gitHubAccessToken}` },
       });
 
+      const user = await userRepo.findOneByUserId(gitHubUser.id);
+
+      if (user) {
+        const updatedUser = await userRepo.updateOne(user, {
+          name: gitHubUser.name,
+          gitHubURL: gitHubUser.html_url,
+          profileImageURL: gitHubUser.avatar_url,
+        });
+
+        return { accessToken: updatedUser.accessToken };
+      }
+
       const accessToken = auth.generateAccessToken();
 
       const newUser: User = {

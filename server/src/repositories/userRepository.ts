@@ -9,7 +9,7 @@ export default class UserRepository extends Repository {
     super({ Model: new UserModel() });
   }
 
-  async createOne(user: Omit<User, 'id'>) {
+  async createOne(user: User) {
     const result = await this.collection.createOne(user);
     return result;
   }
