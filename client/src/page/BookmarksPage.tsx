@@ -10,7 +10,7 @@ import {
 
 import { BookmarksPageQueryType } from '../__generated__/BookmarksPageQuery.graphql';
 
-import commitRemoveBookmarkMutation from '../graphql/mutations/RemoveBookmark';
+import BookmarkButton from '../components/common/BookmarkButton';
 
 const bookmarksQuery = graphql`
   query BookmarksPageQuery($userId: Int!) {
@@ -33,12 +33,6 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
 
   const { bookmarks } = data;
 
-  const enviroment = useRelayEnvironment();
-
-  const handleClickCancelBookmark = (bookmarkId: number) => () => {
-    commitRemoveBookmarkMutation(enviroment, Number(bookmarkId));
-  };
-
   return (
     <ul>
       {bookmarks
@@ -46,7 +40,10 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
         .map((bookmark) => (
           <li key={bookmark.id}>
             <p>{`Q) ${bookmark.question?.content}`}</p>
-            <button type="button" onClick={handleClickCancelBookmark(Number(bookmark.id))}>북마크</button>
+            <BookmarkButton
+              bookmark={bookmark}
+              questionId={bookmark?.question?.id}
+            />
           </li>
         ))}
     </ul>
