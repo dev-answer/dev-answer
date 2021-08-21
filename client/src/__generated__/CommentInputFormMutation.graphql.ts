@@ -4,29 +4,32 @@
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type CommentPageQueryVariables = {
+export type CommentInputFormMutationVariables = {
     questionId?: number | null;
+    userEmail?: string | null;
+    content?: string | null;
 };
-export type CommentPageQueryResponse = {
-    readonly comments: ReadonlyArray<{
-        readonly id: string;
+export type CommentInputFormMutationResponse = {
+    readonly addComment: {
         readonly " $fragmentRefs": FragmentRefs<"Comment_comment">;
-    }>;
+    } | null;
 };
-export type CommentPageQuery = {
-    readonly response: CommentPageQueryResponse;
-    readonly variables: CommentPageQueryVariables;
+export type CommentInputFormMutation = {
+    readonly response: CommentInputFormMutationResponse;
+    readonly variables: CommentInputFormMutationVariables;
 };
 
 
 
 /*
-query CommentPageQuery(
+mutation CommentInputFormMutation(
   $questionId: Int
+  $userEmail: String
+  $content: String
 ) {
-  comments(questionId: $questionId) {
-    id
+  addComment(questionId: $questionId, userEmail: $userEmail, content: $content) {
     ...Comment_comment
+    id
   }
 }
 
@@ -42,41 +45,54 @@ fragment Comment_comment on Comment {
 */
 
 const node: ConcreteRequest = (function () {
-    var v0 = [
+    var v0 = {
+        "defaultValue": null,
+        "kind": "LocalArgument",
+        "name": "content"
+    } as any, v1 = {
+        "defaultValue": null,
+        "kind": "LocalArgument",
+        "name": "questionId"
+    } as any, v2 = {
+        "defaultValue": null,
+        "kind": "LocalArgument",
+        "name": "userEmail"
+    } as any, v3 = [
         {
-            "defaultValue": null,
-            "kind": "LocalArgument",
-            "name": "questionId"
-        } as any
-    ], v1 = [
+            "kind": "Variable",
+            "name": "content",
+            "variableName": "content"
+        } as any,
         {
             "kind": "Variable",
             "name": "questionId",
             "variableName": "questionId"
+        } as any,
+        {
+            "kind": "Variable",
+            "name": "userEmail",
+            "variableName": "userEmail"
         } as any
-    ], v2 = {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "id",
-        "storageKey": null
-    } as any;
+    ];
     return {
         "fragment": {
-            "argumentDefinitions": (v0 /*: any*/),
+            "argumentDefinitions": [
+                (v0 /*: any*/),
+                (v1 /*: any*/),
+                (v2 /*: any*/)
+            ],
             "kind": "Fragment",
             "metadata": null,
-            "name": "CommentPageQuery",
+            "name": "CommentInputFormMutation",
             "selections": [
                 {
                     "alias": null,
-                    "args": (v1 /*: any*/),
+                    "args": (v3 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "comments",
-                    "plural": true,
+                    "name": "addComment",
+                    "plural": false,
                     "selections": [
-                        (v2 /*: any*/),
                         {
                             "args": null,
                             "kind": "FragmentSpread",
@@ -86,24 +102,34 @@ const node: ConcreteRequest = (function () {
                     "storageKey": null
                 }
             ],
-            "type": "Query",
+            "type": "Mutation",
             "abstractKey": null
         },
         "kind": "Request",
         "operation": {
-            "argumentDefinitions": (v0 /*: any*/),
+            "argumentDefinitions": [
+                (v1 /*: any*/),
+                (v2 /*: any*/),
+                (v0 /*: any*/)
+            ],
             "kind": "Operation",
-            "name": "CommentPageQuery",
+            "name": "CommentInputFormMutation",
             "selections": [
                 {
                     "alias": null,
-                    "args": (v1 /*: any*/),
+                    "args": (v3 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "comments",
-                    "plural": true,
+                    "name": "addComment",
+                    "plural": false,
                     "selections": [
-                        (v2 /*: any*/),
+                        {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "id",
+                            "storageKey": null
+                        },
                         {
                             "alias": null,
                             "args": null,
@@ -152,14 +178,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "fc19f9c69153daf7c7a0e43ea120a9c1",
+            "cacheID": "63ff8743ef2fe63990ff32cc5af30353",
             "id": null,
             "metadata": {},
-            "name": "CommentPageQuery",
-            "operationKind": "query",
-            "text": "query CommentPageQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  dislike\n}\n"
+            "name": "CommentInputFormMutation",
+            "operationKind": "mutation",
+            "text": "mutation CommentInputFormMutation(\n  $questionId: Int\n  $userEmail: String\n  $content: String\n) {\n  addComment(questionId: $questionId, userEmail: $userEmail, content: $content) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  dislike\n}\n"
         }
     } as any;
 })();
-(node as any).hash = 'c39e177f53e921e85d53b896dc6a48df';
+(node as any).hash = '1551d47bf36dabe1e129cf0de265aebb';
 export default node;

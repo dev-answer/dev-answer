@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Comment: React.FC<Props> = ({ comment }) => (
-  <section>
+  <li>
     <div>
       유저 :
       {' '}
@@ -27,7 +27,7 @@ const Comment: React.FC<Props> = ({ comment }) => (
       {' '}
       {comment.dislike}
     </div>
-  </section>
+  </li>
 );
 
 export default createFragmentContainer(Comment, {
