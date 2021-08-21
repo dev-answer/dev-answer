@@ -5,6 +5,7 @@ import {
 
 import Header from './components/common/Header';
 import QuestionBoardPage from './page/QuestionBoardPage';
+import QuestionsPage from './page/QuestionsPage';
 import LoginCallbackPage from './page/LoginCallbackPage';
 import ExamplePage from './page/ExamplePage';
 import CommentPage from './page/CommentPage';
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Route exact path="/" component={ExamplePage} />
           <Route exact path="/comment" component={CommentPage} />
           <Route path="/question/board" component={QuestionBoardPage} />
+          <Route path="/questions" component={QuestionsPage} />
           <Route path="/oauth" component={LoginCallbackPage} />
           <Route path="/bookmarks" component={BookmarksPage} />
         </Switch>
