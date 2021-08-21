@@ -28,6 +28,7 @@ type Comment {
 
 type Mutation {
   login(code: String!): Auth!
+  logout(accessToken: String!): Boolean
   addComment(questionId: Int, userEmail: String, content: String): Comment
   addBookmark(userId: Int, questionId: Int): Bookmark
   removeBookmark(bookmarkId: Int!): Bookmark

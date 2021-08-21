@@ -1,13 +1,37 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+import { graphql, useLazyLoadQuery, useMutation } from 'react-relay';
 import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
+import withPromiseComponent from '../../hocs/withPromiseComponent';
 import GitHubOAuthAnchor from '../../components/Login/GitHubOAuthAnchor';
-
 import Logo from '../Icon/Logo';
 
-// TODO: 서버쪽에 accessToken 기반으로 나의 정보를 불러오는 로직이 완료되면, isLoggedIn을 그걸 사용하는 것으로 교체
+import { HeaderQuery } from '../../__generated__/HeaderQuery.graphql';
+import { HeaderLogoutMutation } from '../../__generated__/HeaderLogoutMutation.graphql';
+
+const IsLoggedInQuery = graphql`
+  query HeaderQuery($accessToken: String!) {
+    myInfo(accessToken: $accessToken) {
+      id
+    }
+  }
+`;
+
+const LogoutMutation = graphql`
+  mutation HeaderLogoutMutation($accessToken: String!) {
+    logout(accessToken: $accessToken)
+  }
+`;
+
 const Header: React.FC = () => {
+  const accessToken = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY) ?? '';
+
+  const { myInfo } = useLazyLoadQuery<HeaderQuery>(IsLoggedInQuery, { accessToken });
+  const [commitLogoutMutation] = useMutation<HeaderLogoutMutation>(LogoutMutation);
+
+  const isLoggedIn = Boolean(myInfo?.id);
+
   const buttons = [
     {
       icon: <TempCircle />,
@@ -26,11 +50,11 @@ const Header: React.FC = () => {
     },
   ];
 
-  const isLoggedIn = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
-
   const handleClickLogout = () => {
     localStorage.removeItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
-    window.location.reload();
+    commitLogoutMutation({
+      variables: { accessToken },
+    });
   };
 
   return (
@@ -63,18 +87,22 @@ const HeaderArea = styled.header`
   align-items: center;
   justify-content: space-between;
 `;
+
 const LeftSideArea = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const RightSideArea = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const LogoTitle = styled.h1`
   font-size: 18px;
   font-weight: bold;
 `;
+
 const TempCircle = styled.div`
   width: 40px;
   height: 40px;
@@ -82,6 +110,7 @@ const TempCircle = styled.div`
   background: #EAEAEA;
   margin-bottom: 8px;
 `;
+
 const Button = styled.button`
   font-size: 14px;
   display: flex;
@@ -91,6 +120,7 @@ const Button = styled.button`
   height: 64px;
   margin-left: 8px;
 `;
+
 const LoginButton = styled(GitHubOAuthAnchor)`
   font-size: 14px;
   color: #434343;
@@ -99,6 +129,7 @@ const LoginButton = styled(GitHubOAuthAnchor)`
   border-radius: 10px;
   margin: 0 0 auto 16px;
 `;
+
 const LogoutButton = styled.button`
   font-size: 14px;
   color: #434343;
@@ -108,4 +139,8 @@ const LogoutButton = styled.button`
   margin: 0 0 auto 16px;
 `;
 
-export default Header;
+export default withPromiseComponent(
+  () => <div>로딩중...</div>,
+  Header,
+  () => <div>에러</div>,
+);
