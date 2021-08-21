@@ -3,13 +3,13 @@ import React from 'react';
 import {
   graphql,
   useMutation,
-  useRelayEnvironment,
 } from 'react-relay/hooks';
 
 import { RecordSourceSelectorProxy } from 'relay-runtime';
 
-import commitRemoveBookmarkMutation from '../../graphql/mutations/RemoveBookmark';
-import { BookmarkButtonMutation } from '../../__generated__/BookmarkButtonMutation.graphql';
+import { BookmarkButtonAddMutation } from '../../__generated__/BookmarkButtonAddMutation.graphql';
+import { BookmarkButtonRemoveMutation } from '../../__generated__/BookmarkButtonRemoveMutation.graphql';
+
 import BookmarkIcon from '../Icon/BookmarkIcon';
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const AddBookmarkMutation = graphql`
-  mutation BookmarkButtonMutation($userId: Int, $questionId: Int) {
+  mutation BookmarkButtonAddMutation($userId: Int, $questionId: Int) {
     addBookmark(userId: $userId, questionId: $questionId) {
       user {
         id
@@ -30,12 +30,29 @@ const AddBookmarkMutation = graphql`
   }
 `;
 
+const removeBookmarkMutation = graphql`
+  mutation BookmarkButtonRemoveMutation($bookmarkId: Int!) {
+    removeBookmark(bookmarkId: $bookmarkId) {
+      id @deleteRecord
+    }
+  }
+`;
+
 const BookmarkButton: React.FC<Props> = ({ bookmark, questionId }) => {
-  const enviroment = useRelayEnvironment();
-  const [commitAddBookmark] = useMutation<BookmarkButtonMutation>(AddBookmarkMutation);
+  const [commitAddBookmark] = useMutation<BookmarkButtonAddMutation>(AddBookmarkMutation);
+  const [commitRemoveBookmark] = useMutation<BookmarkButtonRemoveMutation>(removeBookmarkMutation);
 
   const handleClickCancelBookmark = (bookmarkId: number) => () => {
-    commitRemoveBookmarkMutation(enviroment, bookmarkId);
+    commitRemoveBookmark({
+      variables: {
+        bookmarkId,
+      },
+      optimisticResponse: {
+        removeBookmark: {
+          id: bookmarkId.toString(),
+        },
+      },
+    });
   };
 
   const handleClickAddBookmark = (id: number) => () => {
