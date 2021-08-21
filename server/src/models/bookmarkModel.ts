@@ -46,4 +46,17 @@ export default class BookmarkModel {
       throw Error(`${error} 파일 작성에 실패했습니다`);
     }
   }
+
+  removeOne(bookmarkId: number) {
+    try {
+      const removedBookmark = this.bookmarks.find((bookmark) => bookmark.id === bookmarkId);
+      const filteredBookmarks = this.bookmarks.filter((bookmark) => bookmark.id !== bookmarkId);
+
+      writeJSON(this.jsonPath, filteredBookmarks);
+
+      return removedBookmark;
+    } catch (error) {
+      throw Error(`${error} 파일 작성에 실패했습니다`);
+    }
+  }
 }
