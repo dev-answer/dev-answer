@@ -48,7 +48,7 @@ export default class UserModel {
 
       fs.writeFileSync(path.join(__dirname, '../db/user.json'), JSON.stringify(this.users), 'utf-8');
 
-      return this.users;
+      return newUser;
     } catch (error) {
       throw Error(`${error}파일 작성에 실패했습니다`);
     }
