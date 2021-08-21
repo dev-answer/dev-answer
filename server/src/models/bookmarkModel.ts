@@ -19,16 +19,24 @@ export default class BookmarkModel {
     return this.bookmarks.filter((bookmark) => bookmark.userId === userId);
   }
 
+  uid = (() => { // TODO : 일단 기능 구현 완성 후 uuid 도입 예정
+    let i: number = 111;
+    return () => i++;
+  })();
+
   async createOne(bookmarkInput: BookmarkInput) {
     const { userId, questionId } = bookmarkInput;
     const newBookmark = {
-      id: 100 + this.bookmarks.length + 1,
+      id: this.uid(),
       userId,
       questionId,
       createdAt: new Date().toString(),
     };
 
+    this.bookmarks = readJSON(this.jsonPath);
+
     this.bookmarks = [...this.bookmarks, newBookmark];
+
     try {
       writeJSON(this.jsonPath, this.bookmarks);
 
@@ -48,6 +56,8 @@ export default class BookmarkModel {
   }
 
   removeOne(bookmarkId: number) {
+    this.bookmarks = readJSON(this.jsonPath);
+
     try {
       const removedBookmark = this.bookmarks.find((bookmark) => bookmark.id === bookmarkId);
       const filteredBookmarks = this.bookmarks.filter((bookmark) => bookmark.id !== bookmarkId);
