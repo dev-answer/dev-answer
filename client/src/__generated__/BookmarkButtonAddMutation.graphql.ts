@@ -3,11 +3,11 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type AddBookmarkMutationVariables = {
+export type BookmarkButtonAddMutationVariables = {
     userId?: number | null;
     questionId?: number | null;
 };
-export type AddBookmarkMutationResponse = {
+export type BookmarkButtonAddMutationResponse = {
     readonly addBookmark: {
         readonly user: {
             readonly id: string;
@@ -17,15 +17,15 @@ export type AddBookmarkMutationResponse = {
         } | null;
     } | null;
 };
-export type AddBookmarkMutation = {
-    readonly response: AddBookmarkMutationResponse;
-    readonly variables: AddBookmarkMutationVariables;
+export type BookmarkButtonAddMutation = {
+    readonly response: BookmarkButtonAddMutationResponse;
+    readonly variables: BookmarkButtonAddMutationVariables;
 };
 
 
 
 /*
-mutation AddBookmarkMutation(
+mutation BookmarkButtonAddMutation(
   $userId: Int
   $questionId: Int
 ) {
@@ -96,7 +96,7 @@ const node: ConcreteRequest = (function () {
             ],
             "kind": "Fragment",
             "metadata": null,
-            "name": "AddBookmarkMutation",
+            "name": "BookmarkButtonAddMutation",
             "selections": [
                 {
                     "alias": null,
@@ -122,7 +122,7 @@ const node: ConcreteRequest = (function () {
                 (v0 /*: any*/)
             ],
             "kind": "Operation",
-            "name": "AddBookmarkMutation",
+            "name": "BookmarkButtonAddMutation",
             "selections": [
                 {
                     "alias": null,
@@ -141,14 +141,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "306e9d103c5ad2f4c6053d7930bc1de5",
+            "cacheID": "857ba94c95f78c1b7daa91f2a08cd1a1",
             "id": null,
             "metadata": {},
-            "name": "AddBookmarkMutation",
+            "name": "BookmarkButtonAddMutation",
             "operationKind": "mutation",
-            "text": "mutation AddBookmarkMutation(\n  $userId: Int\n  $questionId: Int\n) {\n  addBookmark(userId: $userId, questionId: $questionId) {\n    user {\n      id\n    }\n    question {\n      id\n    }\n    id\n  }\n}\n"
+            "text": "mutation BookmarkButtonAddMutation(\n  $userId: Int\n  $questionId: Int\n) {\n  addBookmark(userId: $userId, questionId: $questionId) {\n    user {\n      id\n    }\n    question {\n      id\n    }\n    id\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = 'b85a225d14b038d4b82947c9347f7b92';
+(node as any).hash = '804e6a9a261f787c76914abbaca4e905';
 export default node;

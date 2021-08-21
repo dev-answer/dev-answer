@@ -3,23 +3,23 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type RemoveBookmarkMutationVariables = {
+export type BookmarkButtonRemoveMutationVariables = {
     bookmarkId: number;
 };
-export type RemoveBookmarkMutationResponse = {
+export type BookmarkButtonRemoveMutationResponse = {
     readonly removeBookmark: {
         readonly id: string;
     } | null;
 };
-export type RemoveBookmarkMutation = {
-    readonly response: RemoveBookmarkMutationResponse;
-    readonly variables: RemoveBookmarkMutationVariables;
+export type BookmarkButtonRemoveMutation = {
+    readonly response: BookmarkButtonRemoveMutationResponse;
+    readonly variables: BookmarkButtonRemoveMutationVariables;
 };
 
 
 
 /*
-mutation RemoveBookmarkMutation(
+mutation BookmarkButtonRemoveMutation(
   $bookmarkId: Int!
 ) {
   removeBookmark(bookmarkId: $bookmarkId) {
@@ -53,7 +53,7 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
-            "name": "RemoveBookmarkMutation",
+            "name": "BookmarkButtonRemoveMutation",
             "selections": [
                 {
                     "alias": null,
@@ -75,7 +75,7 @@ const node: ConcreteRequest = (function () {
         "operation": {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
-            "name": "RemoveBookmarkMutation",
+            "name": "BookmarkButtonRemoveMutation",
             "selections": [
                 {
                     "alias": null,
@@ -101,14 +101,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "fb3084638cf9752a93072c72aac5dd05",
+            "cacheID": "c0028a0efed17a57e4538f778efe8ebf",
             "id": null,
             "metadata": {},
-            "name": "RemoveBookmarkMutation",
+            "name": "BookmarkButtonRemoveMutation",
             "operationKind": "mutation",
-            "text": "mutation RemoveBookmarkMutation(\n  $bookmarkId: Int!\n) {\n  removeBookmark(bookmarkId: $bookmarkId) {\n    id\n  }\n}\n"
+            "text": "mutation BookmarkButtonRemoveMutation(\n  $bookmarkId: Int!\n) {\n  removeBookmark(bookmarkId: $bookmarkId) {\n    id\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '0901f6d778edc41861dd3cb4cba0dd4c';
+(node as any).hash = 'd2df1444663b3efc40c44c508e3adc65';
 export default node;
