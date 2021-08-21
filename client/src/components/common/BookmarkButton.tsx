@@ -7,6 +7,8 @@ import {
 import commitRemoveBookmarkMutation from '../../graphql/mutations/RemoveBookmark';
 import commitAddBookmarkMutation from '../../graphql/mutations/AddBookmark';
 
+import BookmarkIcon from '../Icon/BookmarkIcon';
+
 interface Props {
   bookmark: any,
   questionId: string,
@@ -26,12 +28,9 @@ const BookmarkButton: React.FC<Props> = ({ bookmark, questionId }) => {
   };
 
   return (
-    <>
-      {bookmark
-        ? <button type="button" onClick={handleClickCancelBookmark(Number(bookmark?.id))}>북마크취소</button>
-        : <button type="button" onClick={handleClickAddBookmark(Number(questionId))}>북마크</button>}
-
-    </>
+    <button type="button" onClick={bookmark ? handleClickCancelBookmark(Number(bookmark?.id)) : handleClickAddBookmark(Number(questionId))}>
+      <BookmarkIcon size={20} color={bookmark ? 'yellow' : 'gray'} />
+    </button>
   );
 };
 
