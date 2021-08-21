@@ -3,10 +3,15 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type BookmarksPageQueryVariables = {
+export type QuestionsPageQueryVariables = {
     userId: number;
 };
-export type BookmarksPageQueryResponse = {
+export type QuestionsPageQueryResponse = {
+    readonly allQuestions: ReadonlyArray<{
+        readonly id: string;
+        readonly title: string | null;
+        readonly content: string | null;
+    }>;
     readonly bookmarks: ReadonlyArray<{
         readonly id: string;
         readonly question: {
@@ -15,17 +20,22 @@ export type BookmarksPageQueryResponse = {
         } | null;
     } | null> | null;
 };
-export type BookmarksPageQuery = {
-    readonly response: BookmarksPageQueryResponse;
-    readonly variables: BookmarksPageQueryVariables;
+export type QuestionsPageQuery = {
+    readonly response: QuestionsPageQueryResponse;
+    readonly variables: QuestionsPageQueryVariables;
 };
 
 
 
 /*
-query BookmarksPageQuery(
+query QuestionsPageQuery(
   $userId: Int!
 ) {
+  allQuestions {
+    id
+    title
+    content
+  }
   bookmarks(userId: $userId) {
     id
     question {
@@ -49,7 +59,33 @@ const node: ConcreteRequest = (function () {
         "kind": "ScalarField",
         "name": "id",
         "storageKey": null
-    } as any, v2 = [
+    } as any, v2 = {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "content",
+        "storageKey": null
+    } as any, v3 = [
+        {
+            "alias": null,
+            "args": null,
+            "concreteType": "Question",
+            "kind": "LinkedField",
+            "name": "allQuestions",
+            "plural": true,
+            "selections": [
+                (v1 /*: any*/),
+                {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "title",
+                    "storageKey": null
+                },
+                (v2 /*: any*/)
+            ],
+            "storageKey": null
+        } as any,
         {
             "alias": null,
             "args": [
@@ -74,13 +110,7 @@ const node: ConcreteRequest = (function () {
                     "plural": false,
                     "selections": [
                         (v1 /*: any*/),
-                        {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "content",
-                            "storageKey": null
-                        }
+                        (v2 /*: any*/)
                     ],
                     "storageKey": null
                 }
@@ -93,8 +123,8 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
-            "name": "BookmarksPageQuery",
-            "selections": (v2 /*: any*/),
+            "name": "QuestionsPageQuery",
+            "selections": (v3 /*: any*/),
             "type": "Query",
             "abstractKey": null
         },
@@ -102,18 +132,18 @@ const node: ConcreteRequest = (function () {
         "operation": {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
-            "name": "BookmarksPageQuery",
-            "selections": (v2 /*: any*/)
+            "name": "QuestionsPageQuery",
+            "selections": (v3 /*: any*/)
         },
         "params": {
-            "cacheID": "48e9785676510a53f38d4b4cd3b443a8",
+            "cacheID": "5f4145dfbad7e367c6870f2e992ca1f5",
             "id": null,
             "metadata": {},
-            "name": "BookmarksPageQuery",
+            "name": "QuestionsPageQuery",
             "operationKind": "query",
-            "text": "query BookmarksPageQuery(\n  $userId: Int!\n) {\n  bookmarks(userId: $userId) {\n    id\n    question {\n      id\n      content\n    }\n  }\n}\n"
+            "text": "query QuestionsPageQuery(\n  $userId: Int!\n) {\n  allQuestions {\n    id\n    title\n    content\n  }\n  bookmarks(userId: $userId) {\n    id\n    question {\n      id\n      content\n    }\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = 'f13bc25a7e9b7554403ea82e605fc532';
+(node as any).hash = '20444543f314e4bd861918dd0a6c38de';
 export default node;

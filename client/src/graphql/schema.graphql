@@ -8,6 +8,13 @@ type Auth {
   accessToken: String
 }
 
+type Bookmark {
+  id: ID!
+  question: Question
+  user: User
+  createdAt: String
+}
+
 type Comment {
   id: ID!
   questionId: Int
@@ -19,16 +26,11 @@ type Comment {
   subComments: [SubComment]
 }
 
-type Bookmark {
-  id: ID!
-  user: User
-  question: Question
-  createdAt: String
-}
-
 type Mutation {
   login(code: String!): Auth!
   addComment(questionId: Int, userEmail: String, content: String): Comment
+  addBookmark(userId: Int, questionId: Int): Bookmark
+  removeBookmark(bookmarkId: Int!): Bookmark
 }
 
 type Query {

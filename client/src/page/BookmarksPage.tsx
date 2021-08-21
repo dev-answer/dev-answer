@@ -1,16 +1,23 @@
 import React, { useEffect, Suspense } from 'react';
 
 import {
-  graphql, useQueryLoader, usePreloadedQuery, PreloadedQuery,
+  graphql,
+  useQueryLoader,
+  usePreloadedQuery,
+  PreloadedQuery,
+  useRelayEnvironment,
 } from 'react-relay/hooks';
 
 import { BookmarksPageQueryType } from '../__generated__/BookmarksPageQuery.graphql';
+
+import BookmarkButton from '../components/common/BookmarkButton';
 
 const bookmarksQuery = graphql`
   query BookmarksPageQuery($userId: Int!) {
     bookmarks(userId: $userId) {
       id
       question {
+        id
         content
       }
     }
@@ -28,11 +35,17 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
 
   return (
     <ul>
-      {bookmarks.map((bookmark) => (
-        <li key={bookmark.id}>
-          <p>{`Q) ${bookmark.question.content}`}</p>
-        </li>
-      ))}
+      {bookmarks
+        .filter((bookmark) => bookmark)
+        .map((bookmark) => (
+          <li key={bookmark.id}>
+            <p>{`Q) ${bookmark.question?.content}`}</p>
+            <BookmarkButton
+              bookmark={bookmark}
+              questionId={bookmark?.question?.id}
+            />
+          </li>
+        ))}
     </ul>
   );
 };
