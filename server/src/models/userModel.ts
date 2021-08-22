@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { User } from '../types/user';
+import { User } from '../types';
 
 export default class UserModel {
   usersFile;

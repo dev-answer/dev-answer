@@ -2,7 +2,7 @@ import UserModel from '../models/userModel';
 
 import Repository from './repository';
 
-import { User } from '../types/user';
+import { User } from '../types';
 
 export default class UserRepository extends Repository {
   constructor() {
