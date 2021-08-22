@@ -51,7 +51,7 @@ const Page = styled.a<{ target?: boolean }>`
   font-size: 24px;
   line-height: 33px;
   border-radius: 3px;
-  color: #ffffff;
+  color: white;
   cursor: pointer;
 
   &:hover {
