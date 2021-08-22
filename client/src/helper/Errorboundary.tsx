@@ -4,7 +4,7 @@ import * as Sentry from '@sentry/react';
 
 interface Props {
   readonly children?: ReactNode;
-  readonly fallback?: (error: Error) => ReactNode;
+  readonly fallback?: () => ReactNode;
 }
 
 interface State {
@@ -13,7 +13,7 @@ interface State {
 
 // TODO : 현재 임시로 구현해 놓은 상태. 디자인 나오면 UI 수정 예정
 const Fallback = () => {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = () => {
     alert('홈화면으로 가자!');
   };
 
