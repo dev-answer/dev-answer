@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Comment, NewComment } from '../types/comment';
+import { Comment, NewComment } from '../types';
 
 export default class CommentModel {
   commentsFile;
