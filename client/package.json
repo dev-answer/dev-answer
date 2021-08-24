@@ -56,10 +56,10 @@
     "get-graphql-schema": "^2.1.2",
     "graphql": "^15.5.1",
     "html-webpack-plugin": "^5.3.1",
-    "husky": "^7.0.1",
+    "husky": "^4.2.5",
     "jest": "^27.0.4",
     "jest-stitches": "^1.0.4",
-    "lint-staged": "^11.1.1",
+    "lint-staged": "^10.2.11",
     "puppeteer": "10.0.0",
     "relay-compiler": "^11.0.2",
     "relay-compiler-language-typescript": "^14.0.0",
@@ -76,7 +76,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn run lint && yarn run stylelint && yarn run test:e2e"
+      "pre-push": "yarn run lint && yarn run stylelint"
     }
   },
   "lint-staged": {

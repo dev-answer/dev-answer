@@ -4,7 +4,7 @@ import React from 'react';
 interface Props {
   totalPageCount: number
   currentPage: number
-  onClickPage: (page: number) => void
+  onClickPage: () => void
 }
 
 const PageNavigator: React.FC<Props> = ({ totalPageCount, currentPage, onClickPage }) => {
@@ -51,7 +51,7 @@ const Page = styled.a<{ target?: boolean }>`
   font-size: 24px;
   line-height: 33px;
   border-radius: 3px;
-  color: #ffffff;
+  color: white;
   cursor: pointer;
 
   &:hover {

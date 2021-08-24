@@ -89,7 +89,7 @@ const BookmarkButton = styled.button`
   &:hover {
     svg {
       path {
-        fill: #FFFFFF;
+        fill: white;
       }
     }
   }

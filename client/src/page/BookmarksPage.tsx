@@ -5,7 +5,6 @@ import {
   useQueryLoader,
   usePreloadedQuery,
   PreloadedQuery,
-  useRelayEnvironment,
 } from 'react-relay/hooks';
 
 import { BookmarksPageQueryType } from '../__generated__/BookmarksPageQuery.graphql';
