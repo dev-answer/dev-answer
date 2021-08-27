@@ -7,6 +7,7 @@ module.exports = ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.[fullhash].js',
+    publicPath: process.argv[process.argv.length - 1] === 'production' ? 'dev-answer' : '/',
   },
   module: {
     rules: [
