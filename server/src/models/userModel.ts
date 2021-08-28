@@ -20,6 +20,7 @@ export default class UserModel {
       return null;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { accessToken, gitHubAccessToken, ...userInfo } = targetUser;
 
     return userInfo;
