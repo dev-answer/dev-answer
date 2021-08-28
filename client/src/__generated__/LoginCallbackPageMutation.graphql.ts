@@ -3,23 +3,23 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type LoginCallbackPageQueryVariables = {
+export type LoginCallbackPageMutationVariables = {
     code: string;
 };
-export type LoginCallbackPageQueryResponse = {
+export type LoginCallbackPageMutationResponse = {
     readonly login: {
         readonly accessToken: string | null;
     };
 };
-export type LoginCallbackPageQuery = {
-    readonly response: LoginCallbackPageQueryResponse;
-    readonly variables: LoginCallbackPageQueryVariables;
+export type LoginCallbackPageMutation = {
+    readonly response: LoginCallbackPageMutationResponse;
+    readonly variables: LoginCallbackPageMutationVariables;
 };
 
 
 
 /*
-mutation LoginCallbackPageQuery(
+mutation LoginCallbackPageMutation(
   $code: String!
 ) {
   login(code: $code) {
@@ -66,7 +66,7 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
-            "name": "LoginCallbackPageQuery",
+            "name": "LoginCallbackPageMutation",
             "selections": (v1 /*: any*/),
             "type": "Mutation",
             "abstractKey": null
@@ -75,18 +75,18 @@ const node: ConcreteRequest = (function () {
         "operation": {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
-            "name": "LoginCallbackPageQuery",
+            "name": "LoginCallbackPageMutation",
             "selections": (v1 /*: any*/)
         },
         "params": {
-            "cacheID": "f8791495f018ef63405ec5504ae97e4c",
+            "cacheID": "c58574df36106dbfc9b06cf0d3b42be8",
             "id": null,
             "metadata": {},
-            "name": "LoginCallbackPageQuery",
+            "name": "LoginCallbackPageMutation",
             "operationKind": "mutation",
-            "text": "mutation LoginCallbackPageQuery(\n  $code: String!\n) {\n  login(code: $code) {\n    accessToken\n  }\n}\n"
+            "text": "mutation LoginCallbackPageMutation(\n  $code: String!\n) {\n  login(code: $code) {\n    accessToken\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '19394340f21984253560b6eb69a8e1a4';
+(node as any).hash = '867c9c832943ed00b9edbe7c53d138aa';
 export default node;
