@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { graphql, useLazyLoadQuery, useMutation } from 'react-relay';
-import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
+import { useGetAuthStore } from '../../contexts/AuthStore';
 import withPromiseComponent from '../../hocs/withPromiseComponent';
 import GitHubOAuthAnchor from '../../components/Login/GitHubOAuthAnchor';
 import Logo from '../Icon/Logo';
@@ -25,8 +25,7 @@ const LogoutMutation = graphql`
 `;
 
 const Header: React.FC = () => {
-  const accessToken = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY) ?? '';
-
+  const { accessToken, handleResetToken } = useGetAuthStore();
   const { myInfo } = useLazyLoadQuery<HeaderQuery>(IsLoggedInQuery, { accessToken });
   const [commitLogoutMutation] = useMutation<HeaderLogoutMutation>(LogoutMutation);
 
@@ -51,7 +50,7 @@ const Header: React.FC = () => {
   ];
 
   const handleClickLogout = () => {
-    localStorage.removeItem(LOCALSTORAGE_ACCESS_TOKEN_KEY);
+    handleResetToken();
     commitLogoutMutation({
       variables: { accessToken },
     });
