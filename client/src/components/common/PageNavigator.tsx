@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { Fragment } from 'react';
 
 interface Props {
   totalPageCount: number
@@ -27,10 +27,10 @@ const PageNavigator: React.FC<Props> = ({ totalPageCount, currentPage, onClickPa
       <Page onClick={handleClickPrevPage}>{'<'}</Page>
       <EmptySpace size={16} />
       {pages.map((page, index) => (
-        <>
+        <Fragment key={page}>
           {index > 0 && <EmptySpace size={6} />}
-          <Page target={currentPage === page} onClick={() => onClickPage(page)}>{page}</Page>
-        </>
+          <Page selected={currentPage === page} onClick={() => onClickPage(page)}>{page}</Page>
+        </Fragment>
       ))}
       <EmptySpace size={16} />
       <Page onClick={handleClickNextPage}>{'>'}</Page>
@@ -41,13 +41,13 @@ const PageNavigator: React.FC<Props> = ({ totalPageCount, currentPage, onClickPa
 const PaginationerWrapper = styled.div`
   display: flex;
 `;
-const Page = styled.a<{ target?: boolean }>`
+const Page = styled.a<{ selected?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 24px;
   height: 36px;
-  background: ${({ target }) => (target ? '#757575' : '#C4C4C4')} ;
+  background: ${({ selected }) => (selected ? '#757575' : '#C4C4C4')} ;
   font-size: 24px;
   line-height: 33px;
   border-radius: 3px;
