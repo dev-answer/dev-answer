@@ -21,6 +21,7 @@ export default class BookmarkModel {
 
   uid = (() => { // TODO : 일단 기능 구현 완성 후 uuid 도입 예정
     let i: number = 111;
+    // eslint-disable-next-line no-plusplus
     return () => i++;
   })();
 

@@ -29,6 +29,7 @@ module.exports = {
     'no-undef': 'off',
     'react/prop-types': 'off',
     camelcase: 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
   },
   settings: {
     'import/resolver': {
