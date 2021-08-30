@@ -7,6 +7,7 @@ import { Integrations } from '@sentry/tracing';
 import Environment from './graphql';
 import App from './App';
 import './style/reset.css';
+import AuthStoreProvider from './contexts/AuthStore';
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({
@@ -21,7 +22,9 @@ const rootElement = document.querySelector('#root');
 
 ReactDOM.render(
   <RelayEnvironmentProvider environment={Environment}>
-    <App />
+    <AuthStoreProvider>
+      <App />
+    </AuthStoreProvider>
   </RelayEnvironmentProvider>,
   rootElement,
 );

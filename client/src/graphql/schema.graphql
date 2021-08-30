@@ -28,6 +28,7 @@ type Comment {
 
 type Mutation {
   login(code: String!): Auth!
+  logout(accessToken: String!): Boolean
   addComment(questionId: Int, userEmail: String, content: String): Comment
   addBookmark(userId: Int, questionId: Int): Bookmark
   removeBookmark(bookmarkId: Int!): Bookmark
@@ -37,6 +38,8 @@ type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
   allUsers: [User!]!
+  userInfo(userId: String!): User
+  myInfo(accessToken: String!): User
   comments(questionId: Int): [Comment!]!
   bookmarks(userId: Int!): [Bookmark]
 }
@@ -66,8 +69,8 @@ type SubComment {
 
 type User {
   id: ID!
-  email: String!
-  name: String
-  bookmarks: [Int]
+  name: String!
+  gitHubURL: String!
+  profileImageURL: String!
 }
 

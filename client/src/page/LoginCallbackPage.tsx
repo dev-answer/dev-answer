@@ -1,30 +1,37 @@
 import React, { useEffect } from 'react';
-import { graphql, useLazyLoadQuery } from 'react-relay';
+import { graphql, useMutation } from 'react-relay';
 import { useLocation } from 'react-router-dom';
 
+import { LoginCallbackPageMutation } from '../__generated__/LoginCallbackPageMutation.graphql';
 import withSuspense from '../hocs/withSuspense';
-import { LoginCallbackPageQuery } from '../__generated__/LoginCallbackPageQuery.graphql';
 
-import APP_DOMAIN from '../constants/domain';
+import { APP_DOMAIN } from '../constants/domain';
+
+const LoginCallbackMutation = graphql`
+  mutation LoginCallbackPageMutation($code: String!) {
+    login(code: $code) {
+      accessToken
+    }
+  }
+`;
 
 const LoginCallbackPage: React.FC = () => {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const code = searchParams.get('code') || '';
 
-  const query = useLazyLoadQuery<LoginCallbackPageQuery>(graphql`
-    mutation LoginCallbackPageQuery($code: String!) {
-      login(code: $code) {
-        accessToken
-      }
-    }
-  `, { code });
+  const [commitLoginMutation] = useMutation<LoginCallbackPageMutation>(LoginCallbackMutation);
 
   useEffect(() => {
-    const { accessToken } = query.login;
+    commitLoginMutation({
+      variables: { code },
+      updater: (_, data) => {
+        const { accessToken } = data.login;
 
-    window.opener?.postMessage({ accessToken }, APP_DOMAIN);
-    window.close();
+        window.opener?.postMessage({ accessToken }, APP_DOMAIN);
+        window.close();
+      },
+    });
   }, []);
 
   return null;

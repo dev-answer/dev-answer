@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { User } from '../types';
+import { writeJSON } from '../utils';
 
 export default class UserModel {
   usersFile;
@@ -13,45 +14,36 @@ export default class UserModel {
     this.users = JSON.parse(this.usersFile);
   }
 
-  private find(callback: (user: User) => boolean) {
-    const targetUser = this.users.find(callback);
-
-    if (!targetUser) {
-      return null;
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { accessToken, gitHubAccessToken, ...userInfo } = targetUser;
-
-    return userInfo;
-  }
-
   findMany() {
     return this.users;
   }
 
   findOneByUserId(userId: string) {
-    const targetUser = this.find((user) => user.id === userId);
+    const targetUser = this.users.find((user) => user.id === userId);
 
     return targetUser;
   }
 
   findOneByAccessToken(accessToken: string) {
-    const targetUser = this.find((user) => user.accessToken === accessToken);
+    const targetUser = this.users.find((user) => user.accessToken === accessToken);
 
     return targetUser;
   }
 
-  createOne(user: Omit<User, 'id'>) {
-    try {
-      const newUser = { id: Math.random().toString(), ...user };
-      this.users = [...this.users, newUser];
+  createOne(newUser: User) {
+    this.users = [...this.users, newUser];
 
-      fs.writeFileSync(path.join(__dirname, '../db/user.json'), JSON.stringify(this.users), 'utf-8');
+    writeJSON(path.join('../db/user.json'), this.users);
 
-      return this.users;
-    } catch (error) {
-      throw Error(`${error}파일 작성에 실패했습니다`);
-    }
+    return newUser;
+  }
+
+  updateOne(user: User, paylaod: Partial<User>) {
+    const updatedUser: User = { ...user, ...paylaod };
+    this.users = this.users.map((dbUser) => (dbUser.id === user.id ? updatedUser : dbUser));
+
+    writeJSON(path.join('../db/user.json'), this.users);
+
+    return updatedUser;
   }
 }

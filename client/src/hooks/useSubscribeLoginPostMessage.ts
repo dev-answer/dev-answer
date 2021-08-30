@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
+import { useGetAuthStore } from '../contexts/AuthStore';
 
-import { APP_DOMAIN, LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../constants/domain';
+import { APP_DOMAIN } from '../constants/domain';
 
 const useSubscribeLoginPostMessage = () => {
+  const { handleSetToken } = useGetAuthStore();
+
   useEffect(() => {
     const handlePostMessage = (event: MessageEvent) => {
       if (event.origin !== APP_DOMAIN) {
@@ -12,7 +15,7 @@ const useSubscribeLoginPostMessage = () => {
       const { accessToken } = event.data;
 
       if (accessToken) {
-        localStorage.setItem(LOCALSTORAGE_ACCESS_TOKEN_KEY, accessToken);
+        handleSetToken(accessToken);
       }
 
       // Todo: 추후 디자인 완료되면 여기서 추가적인 처리

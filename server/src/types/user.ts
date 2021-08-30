@@ -1,5 +1,5 @@
 export interface User {
-  accessToken: string
+  accessToken: string | null
   id: string
   name: string
   gitHubURL: string

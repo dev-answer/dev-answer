@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import auth from './auth';
 import UserRepository from '../../repositories/userRepository';
+import { User } from '../../types/user';
 
 const userRepo = new UserRepository();
 
@@ -22,23 +23,52 @@ export default {
         return { accessToken: null };
       }
 
-      const { data: userInformation } = await axios.get(GITHUB_USER_PROFILE_API, {
+      const { data: gitHubUser } = await axios.get(GITHUB_USER_PROFILE_API, {
         headers: { Authorization: `token ${gitHubAccessToken}` },
       });
 
+      const user = await userRepo.findOneByUserId(gitHubUser.id);
       const accessToken = auth.generateAccessToken();
-
-      const user = {
-        accessToken,
-        gitHubAccessToken,
-        name: userInformation.name,
-        gitHubURL: userInformation.html_url,
-        profileImageURL: userInformation.avatar_url,
+      const lastestGitHubProfile = {
+        name: gitHubUser.name,
+        gitHubURL: gitHubUser.html_url,
+        profileImageURL: gitHubUser.avatar_url,
       };
 
-      userRepo.createOne(user);
+      if (!user) {
+        const newUser: User = {
+          accessToken,
+          gitHubAccessToken,
+          id: gitHubUser.id,
+          ...lastestGitHubProfile,
+        };
 
-      return { accessToken };
+        userRepo.createOne(newUser);
+
+        return { accessToken };
+      }
+
+      if (!user.accessToken) {
+        const updatedUser = await userRepo.updateOne(user, {
+          accessToken,
+          ...lastestGitHubProfile,
+        });
+
+        return { accessToken: updatedUser.accessToken };
+      }
+
+      const updatedUser = await userRepo.updateOne(user, {
+        ...lastestGitHubProfile,
+      });
+
+      return { accessToken: updatedUser.accessToken };
+    },
+    logout: async (_: any, { accessToken }: { accessToken: string }) => {
+      const user = await userRepo.findOneByAccessToken(accessToken);
+
+      await userRepo.updateOne(user, { accessToken: null });
+
+      return true;
     },
   },
 };

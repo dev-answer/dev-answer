@@ -3,27 +3,27 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type LoginCallbackPageQueryVariables = {
-    code: string;
+export type HeaderQueryVariables = {
+    accessToken: string;
 };
-export type LoginCallbackPageQueryResponse = {
-    readonly login: {
-        readonly accessToken: string | null;
-    };
+export type HeaderQueryResponse = {
+    readonly myInfo: {
+        readonly id: string;
+    } | null;
 };
-export type LoginCallbackPageQuery = {
-    readonly response: LoginCallbackPageQueryResponse;
-    readonly variables: LoginCallbackPageQueryVariables;
+export type HeaderQuery = {
+    readonly response: HeaderQueryResponse;
+    readonly variables: HeaderQueryVariables;
 };
 
 
 
 /*
-mutation LoginCallbackPageQuery(
-  $code: String!
+query HeaderQuery(
+  $accessToken: String!
 ) {
-  login(code: $code) {
-    accessToken
+  myInfo(accessToken: $accessToken) {
+    id
   }
 }
 */
@@ -33,7 +33,7 @@ const node: ConcreteRequest = (function () {
         {
             "defaultValue": null,
             "kind": "LocalArgument",
-            "name": "code"
+            "name": "accessToken"
         } as any
     ], v1 = [
         {
@@ -41,20 +41,20 @@ const node: ConcreteRequest = (function () {
             "args": [
                 {
                     "kind": "Variable",
-                    "name": "code",
-                    "variableName": "code"
+                    "name": "accessToken",
+                    "variableName": "accessToken"
                 }
             ],
-            "concreteType": "Auth",
+            "concreteType": "User",
             "kind": "LinkedField",
-            "name": "login",
+            "name": "myInfo",
             "plural": false,
             "selections": [
                 {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "accessToken",
+                    "name": "id",
                     "storageKey": null
                 }
             ],
@@ -66,27 +66,27 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
-            "name": "LoginCallbackPageQuery",
+            "name": "HeaderQuery",
             "selections": (v1 /*: any*/),
-            "type": "Mutation",
+            "type": "Query",
             "abstractKey": null
         },
         "kind": "Request",
         "operation": {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
-            "name": "LoginCallbackPageQuery",
+            "name": "HeaderQuery",
             "selections": (v1 /*: any*/)
         },
         "params": {
-            "cacheID": "f8791495f018ef63405ec5504ae97e4c",
+            "cacheID": "474b94799bd78e75c17f5d6ceb475854",
             "id": null,
             "metadata": {},
-            "name": "LoginCallbackPageQuery",
-            "operationKind": "mutation",
-            "text": "mutation LoginCallbackPageQuery(\n  $code: String!\n) {\n  login(code: $code) {\n    accessToken\n  }\n}\n"
+            "name": "HeaderQuery",
+            "operationKind": "query",
+            "text": "query HeaderQuery(\n  $accessToken: String!\n) {\n  myInfo(accessToken: $accessToken) {\n    id\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '19394340f21984253560b6eb69a8e1a4';
+(node as any).hash = '590c96f98f46b1087de8a8e3f6aa144b';
 export default node;
