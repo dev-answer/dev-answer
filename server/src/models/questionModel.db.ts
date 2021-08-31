@@ -1,4 +1,4 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, model, Document } from 'mongoose';
 
 interface Question extends Document {
   id: number;
@@ -18,7 +18,7 @@ const questionSchema = new Schema({
   frequency: { type: Boolean, required: false },
 });
 
-const questionModel = model<Question>("Question", questionSchema);
+const questionModel = model<Question>('Question', questionSchema);
 
 export default class QuestionModel {
   questions;
