@@ -17,8 +17,11 @@ jobs:
           port: ${{ secrets.REMOTE_SSH_PORT }}
           script: |
             cd /home/ubuntu/dev-answer
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            pm2 save
             pm2 stop app
             sudo git pull
             cd server
-            sudo yarn
-            sudo yarn run production
+            yarn
+            yarn run production
