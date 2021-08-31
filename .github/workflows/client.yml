@@ -18,14 +18,18 @@ jobs:
         working-directory: client
         
       - name: Build
-        run: yarn relay && yarn run build
+        run: |
+          touch .env
+          echo 'REACT_APP_DEV_SERVER_URL=${{ secrets.DEV_SERVER_URL }}' >> .env
+          echo 'GITHUB_OAUTH_CLIENT_ID=${{ secrets.OAUTH_GITHUB_CLIENT_ID }}' >> .env
+          echo 'GITHUB_OAUTH_CLIENT_SECRET_KEY=${{ secrets.OAUTH_GITHUB_CLIENT_SECRET_KEY }}' >> .env
+          echo 'APP_DOMAIN=${{ secrets.APP_DOMAIN }}' >> .env
+          echo 'SENTRY_DSN=${{ secrets.SENTRY_DSN }}' >> .env
+          echo 'ORIGIN_GRAPHQL=https://dev-answer.com/graphql'  >> .env
+          yarn relay && yarn run build
         working-directory: client
         env:
           NODE_ENV: production
-          GITHUB_OAUTH_CLIENT_ID: ${{ secrets.OAUTH_GITHUB_CLIENT_ID }}
-          GITHUB_OAUTH_CLIENT_SECRET_KEY: ${{ secrets.OAUTH_GITHUB_CLIENT_SECRET_KEY }}
-          APP_DOMAIN: ${{ secrets.APP_DOMAIN }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2.5.0
