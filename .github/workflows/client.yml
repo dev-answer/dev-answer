@@ -25,7 +25,7 @@ jobs:
           echo 'GITHUB_OAUTH_CLIENT_SECRET_KEY=${{ secrets.OAUTH_GITHUB_CLIENT_SECRET_KEY }}' >> .env
           echo 'APP_DOMAIN=${{ secrets.APP_DOMAIN }}' >> .env
           echo 'SENTRY_DSN=${{ secrets.SENTRY_DSN }}' >> .env
-          echo 'ORIGIN_GRAPHQL=https://dev-answer.com/graphql'  >> .env
+          echo 'ORIGIN_GRAPHQL=${{ secrets.ORIGIN_GRAPHQL }}'  >> .env
           yarn relay && yarn run build
         working-directory: client
         env:
