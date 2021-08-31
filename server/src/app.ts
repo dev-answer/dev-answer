@@ -4,10 +4,13 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 import dotenv from 'dotenv';
 
 import { cors } from './middlewares/cors';
+import db from './db/startup';
 
 import { resolvers, typeDefs } from './services';
 
 dotenv.config();
+
+db();
 
 const PORT = 3000;
 
