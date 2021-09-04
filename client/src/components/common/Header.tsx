@@ -42,11 +42,6 @@ const Header: React.FC = () => {
     <HeaderArea>
       <LeftSideArea>
         <Logo />
-        <LogoTitle>
-          Dev
-          <br />
-          Answer
-        </LogoTitle>
       </LeftSideArea>
       <RightSideArea>
         {isLoggedIn
@@ -71,11 +66,6 @@ const LeftSideArea = styled.div`
 const RightSideArea = styled.div`
   display: flex;
   align-items: center;
-`;
-
-const LogoTitle = styled.h1`
-  font-size: 18px;
-  font-weight: bold;
 `;
 
 const LoginButton = styled(GitHubOAuthAnchor)`
