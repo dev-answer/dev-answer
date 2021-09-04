@@ -40,50 +40,48 @@ const Header: React.FC = () => {
 
   return (
     <HeaderArea>
-      <LeftSideArea>
+      <LogoArea>
         <Logo />
-      </LeftSideArea>
-      <RightSideArea>
+      </LogoArea>
+      <LoginButtonArea>
         {isLoggedIn
           ? <LogoutButton onClick={handleClickLogout}>로그아웃</LogoutButton>
           : <LoginButton>로그인</LoginButton>}
-      </RightSideArea>
+      </LoginButtonArea>
     </HeaderArea>
   );
 };
 
 const HeaderArea = styled.header`
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  height: 80px;
+  padding: 0 48px 0 32px;
 `;
 
-const LeftSideArea = styled.div`
-  display: flex;
-  align-items: center;
+const LogoArea = styled.div`
+  margin-top: 8px;
 `;
 
-const RightSideArea = styled.div`
-  display: flex;
-  align-items: center;
+const LoginButtonArea = styled.div`
+  margin-top: 32px;
 `;
 
 const LoginButton = styled(GitHubOAuthAnchor)`
+  display: block;
   font-size: 14px;
-  color: #434343;
-  padding: 16px;
-  background: #C4C4C4;
+  color: #230640;
+  background: #FFE666;
   border-radius: 10px;
-  margin: 0 0 auto 16px;
+  padding: 16px;
 `;
 
 const LogoutButton = styled.button`
   font-size: 14px;
-  color: #434343;
-  padding: 16px;
-  background: #C4C4C4;
+  color: #230640;
+  background: #FFE666;
   border-radius: 10px;
-  margin: 0 0 auto 16px;
+  padding: 16px;
 `;
 
 export default withPromiseComponent(
