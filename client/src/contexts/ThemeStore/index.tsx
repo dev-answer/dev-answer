@@ -26,8 +26,8 @@ const theme = {
 
 export type ThemeColorType = keyof typeof theme.colors
 
+// eslint-disable-next-line arrow-body-style
 const ThemeStoreProvider: React.FC = ({ children }) => {
-  console.log('');
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
