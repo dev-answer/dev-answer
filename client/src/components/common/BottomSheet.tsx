@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 
 import styled from '@emotion/styled';
 
+import { useGetRootElement } from '../../contexts/RootElement';
 import { getFadeInOutAnimation } from '../../style';
 import { ANIMATION_DURATION } from '../../constants/style';
 
@@ -13,6 +14,8 @@ interface Props {
 const BottomSheet: React.FC<Props> = ({ children, translateY = '50%' }) => {
   const [overlayMount, setOverlayMount] = useState(false);
   const [overlayAnimation, setOverlayAnimation] = useState(false);
+
+  const rootElement = useGetRootElement();
 
   const handleMouseOver = () => {
     setOverlayAnimation(true);
@@ -34,7 +37,7 @@ const BottomSheet: React.FC<Props> = ({ children, translateY = '50%' }) => {
         {children}
       </BottomSheetArea>
       {(overlayMount || overlayAnimation)
-        && createPortal(<Overlay show={overlayAnimation} />, document.body)}
+        && createPortal(<Overlay show={overlayAnimation} />, rootElement)}
     </>
   );
 };

@@ -9,6 +9,7 @@ import App from './App';
 import './style/reset.css';
 import AuthStoreProvider from './contexts/AuthStore';
 import ThemeStoreProvider from './contexts/ThemeStore';
+import RootElementProvider from './contexts/RootElement';
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({
@@ -25,7 +26,9 @@ ReactDOM.render(
   <RelayEnvironmentProvider environment={Environment}>
     <ThemeStoreProvider>
       <AuthStoreProvider>
-        <App />
+        <RootElementProvider rootElement={rootElement}>
+          <App />
+        </RootElementProvider>
       </AuthStoreProvider>
     </ThemeStoreProvider>
   </RelayEnvironmentProvider>,
