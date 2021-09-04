@@ -41,7 +41,7 @@ const Header: React.FC = () => {
   return (
     <HeaderArea>
       <LogoArea>
-        <Logo />
+        <Logo color={logoColor} />
       </LogoArea>
       <LoginButtonArea>
         {isLoggedIn
