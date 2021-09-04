@@ -31,24 +31,6 @@ const Header: React.FC = () => {
 
   const isLoggedIn = Boolean(myInfo?.id);
 
-  const buttons = [
-    {
-      icon: <TempCircle />,
-      title: '알림창',
-      onClick: () => {},
-    },
-    {
-      icon: <TempCircle />,
-      title: '질문 등록',
-      onClick: () => {},
-    },
-    {
-      icon: <TempCircle />,
-      title: '내 정보',
-      onClick: () => {},
-    },
-  ];
-
   const handleClickLogout = () => {
     handleResetToken();
     commitLogoutMutation({
@@ -67,12 +49,6 @@ const Header: React.FC = () => {
         </LogoTitle>
       </LeftSideArea>
       <RightSideArea>
-        {buttons.map(({ icon, title, onClick }) => (
-          <Button key={title} onClick={onClick}>
-            {icon}
-            {title}
-          </Button>
-        ))}
         {isLoggedIn
           ? <LogoutButton onClick={handleClickLogout}>로그아웃</LogoutButton>
           : <LoginButton>로그인</LoginButton>}
@@ -100,24 +76,6 @@ const RightSideArea = styled.div`
 const LogoTitle = styled.h1`
   font-size: 18px;
   font-weight: bold;
-`;
-
-const TempCircle = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background: #EAEAEA;
-  margin-bottom: 8px;
-`;
-
-const Button = styled.button`
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 64px;
-  height: 64px;
-  margin-left: 8px;
 `;
 
 const LoginButton = styled(GitHubOAuthAnchor)`
