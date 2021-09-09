@@ -4,6 +4,7 @@ import { graphql, useLazyLoadQuery } from 'react-relay';
 import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.graphql';
 
 import styled from '@emotion/styled';
+import BottomSheet from '../components/common/BottomSheet';
 import withSuspense from '../hocs/withSuspense';
 import QuestionCard from '../components/Question/QuestionCard';
 import HambugerIcon from '../components/Icon/HambugerIcon';
@@ -74,6 +75,10 @@ const QuestionBoardPage: React.FC = () => {
           </PageNavigatorWrapper>
         </PageNavigatorLayout>
       </Layout>
+      <BottomSheet translateY="80%">
+        <div style={{ height: '200px', background: 'yellow' }}>HelloWorld</div>
+
+      </BottomSheet>
     </QuestionBoard>
   );
 };
