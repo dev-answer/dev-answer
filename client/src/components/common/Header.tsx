@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 
 import { graphql, useLazyLoadQuery, useMutation } from 'react-relay';
 import { useGetAuthStore } from '../../contexts/AuthStore';
-import withPromiseComponent from '../../hocs/withPromiseComponent';
 import GitHubOAuthAnchor from '../../components/Login/GitHubOAuthAnchor';
 import Logo from '../Icon/Logo';
 
@@ -24,7 +23,12 @@ const LogoutMutation = graphql`
   }
 `;
 
-const Header: React.FC = () => {
+interface Props {
+  logoColor?: string
+  backgroundColor?: string
+}
+
+const Header: React.FC<Props> = ({ logoColor, backgroundColor }) => {
   const { accessToken, handleResetToken } = useGetAuthStore();
   const { myInfo } = useLazyLoadQuery<HeaderQuery>(IsLoggedInQuery, { accessToken });
   const [commitLogoutMutation] = useMutation<HeaderLogoutMutation>(LogoutMutation);
@@ -39,9 +43,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <HeaderArea>
+    <HeaderArea backgroundColor={backgroundColor}>
       <LogoArea>
-        <Logo />
+        <Logo color={logoColor} />
       </LogoArea>
       <LoginButtonArea>
         {isLoggedIn
@@ -52,11 +56,12 @@ const Header: React.FC = () => {
   );
 };
 
-const HeaderArea = styled.header`
+const HeaderArea = styled.header<{ backgroundColor?: string }>`
   display: flex;
   justify-content: space-between;
   height: 80px;
   padding: 0 48px 0 32px;
+  ${({ backgroundColor }) => (backgroundColor ? `background:${backgroundColor}` : '')};
 `;
 
 const LogoArea = styled.div`
@@ -84,8 +89,4 @@ const LogoutButton = styled.button`
   padding: 16px;
 `;
 
-export default withPromiseComponent(
-  () => <div>로딩중...</div>,
-  Header,
-  () => <div>에러</div>,
-);
+export default Header;
