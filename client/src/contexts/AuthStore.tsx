@@ -9,7 +9,7 @@ interface AuthStoreContextProps {
   handleResetToken: () => void
 }
 
-const AuthStoreContext = createContext<AuthStoreContextProps>({});
+const AuthStoreContext = createContext<AuthStoreContextProps>({} as any);
 
 const AuthStoreProvider: React.FC = ({ children }) => {
   const localStorageAccessToken = localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY) ?? '';
