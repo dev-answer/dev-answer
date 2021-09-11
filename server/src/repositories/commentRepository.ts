@@ -9,8 +9,13 @@ export default class CommentRepository extends Repository {
     super({ Model: new CommentModel() });
   }
 
-  async findOne(questionId: number) {
+  async findOneByQuestionId(questionId: number) {
     const result = await this.collection.findOne(questionId);
+    return result;
+  }
+
+  async findOneByCommentId(commentId: string) {
+    const result = await this.collection.findOneByCommentId(commentId);
     return result;
   }
 

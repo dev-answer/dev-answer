@@ -25,6 +25,12 @@ export default class CommentModel {
     return this.comments.filter((comment) => comment.questionId === questionId);
   }
 
+  findOneByCommentId(commentId: string) {
+    this.comments = readJSON(this.jsonPath);
+
+    return this.comments.filter((comment) => comment.id === commentId)[0];
+  }
+
   createOne({ questionId, uid, content }: NewComment) {
     try {
       this.comments = readJSON(this.jsonPath);
@@ -74,7 +80,7 @@ export default class CommentModel {
           return comment;
         }),
         PUSH: (comments: Comment[]) => comments.map((comment) => {
-          if ((comment.id === targetId) && (updateField === 'like' || updateField === 'dislike')) {
+          if ((comment.id === targetId) && (updateField === 'like')) {
             return {
               ...comment,
               [updateField]: [...comment[updateField], payload],
@@ -83,10 +89,10 @@ export default class CommentModel {
           return comment;
         }),
         FILTER: (comments: Comment[]) => comments.map((comment) => {
-          if ((comment.id === targetId) && (updateField === 'like' || updateField === 'dislike')) {
+          if ((comment.id === targetId) && (updateField === 'like')) {
             return {
               ...comment,
-              [updateField]: comment[updateField].filter((value: any) => value.id !== payload),
+              [updateField]: comment[updateField].filter((value: any) => value !== payload),
             };
           }
           return comment;
