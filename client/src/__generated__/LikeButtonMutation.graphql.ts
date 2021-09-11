@@ -9,7 +9,7 @@ export type LikeButtonMutationVariables = {
     uid?: string | null;
 };
 export type LikeButtonMutationResponse = {
-    readonly addLike: {
+    readonly toggleLike: {
         readonly " $fragmentRefs": FragmentRefs<"Comment_comment">;
     } | null;
 };
@@ -25,7 +25,7 @@ mutation LikeButtonMutation(
   $commentId: String
   $uid: String
 ) {
-  addLike(commentId: $commentId, uid: $uid) {
+  toggleLike(commentId: $commentId, uid: $uid) {
     ...Comment_comment
     id
   }
@@ -38,7 +38,6 @@ fragment Comment_comment on Comment {
   uid
   content
   like
-  dislike
 }
 */
 
@@ -78,7 +77,7 @@ const node: ConcreteRequest = (function () {
                     "args": (v1 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "addLike",
+                    "name": "toggleLike",
                     "plural": false,
                     "selections": [
                         {
@@ -104,7 +103,7 @@ const node: ConcreteRequest = (function () {
                     "args": (v1 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "addLike",
+                    "name": "toggleLike",
                     "plural": false,
                     "selections": [
                         {
@@ -148,13 +147,6 @@ const node: ConcreteRequest = (function () {
                             "kind": "ScalarField",
                             "name": "like",
                             "storageKey": null
-                        },
-                        {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "dislike",
-                            "storageKey": null
                         }
                     ],
                     "storageKey": null
@@ -162,14 +154,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "8e655d96261a616bb6ba7d6c5a4134a8",
+            "cacheID": "61c8dc45f173631a36b3405d6deebbc8",
             "id": null,
             "metadata": {},
             "name": "LikeButtonMutation",
             "operationKind": "mutation",
-            "text": "mutation LikeButtonMutation(\n  $commentId: String\n  $uid: String\n) {\n  addLike(commentId: $commentId, uid: $uid) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n  dislike\n}\n"
+            "text": "mutation LikeButtonMutation(\n  $commentId: String\n  $uid: String\n) {\n  toggleLike(commentId: $commentId, uid: $uid) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n}\n"
         }
     } as any;
 })();
-(node as any).hash = 'ebd968655403d22452f0b9fefeab6ef2';
+(node as any).hash = 'f1b19d11092c486339d5ee439cd4ba31';
 export default node;

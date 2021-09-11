@@ -40,7 +40,6 @@ fragment Comment_comment on Comment {
   uid
   content
   like
-  dislike
 }
 */
 
@@ -164,13 +163,6 @@ const node: ConcreteRequest = (function () {
                             "kind": "ScalarField",
                             "name": "like",
                             "storageKey": null
-                        },
-                        {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "dislike",
-                            "storageKey": null
                         }
                     ],
                     "storageKey": null
@@ -178,12 +170,12 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "988b017c828179de4ddd036c7d56423a",
+            "cacheID": "39e0f946da49d3cf24ed593b8b3b3203",
             "id": null,
             "metadata": {},
             "name": "CommentInputFormMutation",
             "operationKind": "mutation",
-            "text": "mutation CommentInputFormMutation(\n  $questionId: Int\n  $uid: String\n  $content: String\n) {\n  addComment(questionId: $questionId, uid: $uid, content: $content) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n  dislike\n}\n"
+            "text": "mutation CommentInputFormMutation(\n  $questionId: Int\n  $uid: String\n  $content: String\n) {\n  addComment(questionId: $questionId, uid: $uid, content: $content) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n}\n"
         }
     } as any;
 })();

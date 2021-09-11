@@ -11,7 +11,6 @@ export type Comment_comment = {
     readonly uid: string | null;
     readonly content: string | null;
     readonly like: ReadonlyArray<string | null> | null;
-    readonly dislike: ReadonlyArray<string | null> | null;
     readonly " $refType": "Comment_comment";
 };
 export type Comment_comment$data = Comment_comment;
@@ -69,17 +68,10 @@ const node: ReaderFragment = {
             "kind": "ScalarField",
             "name": "like",
             "storageKey": null
-        },
-        {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "dislike",
-            "storageKey": null
         }
     ],
     "type": "Comment",
     "abstractKey": null
 } as any;
-(node as any).hash = 'ac26b5404e10d6ba332b5fb72818da04';
+(node as any).hash = 'ad9fa2f23eadc15d808fc410665d97e5';
 export default node;
