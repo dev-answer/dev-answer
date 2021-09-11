@@ -1,23 +1,30 @@
-import React, { useCallback, useState } from 'react';
+import React, {
+  useEffect, useCallback, useState, Suspense,
+} from 'react';
 
-import { graphql, useMutation } from 'react-relay';
+import {
+  graphql, useMutation, usePreloadedQuery, useQueryLoader, PreloadedQuery,
+} from 'react-relay';
 import { RecordSourceSelectorProxy } from 'relay-runtime';
 
 import { CommentInputFormMutation } from '../../__generated__/CommentInputFormMutation.graphql';
+import { CommentInputFormQuery } from '../../__generated__/CommentInputFormQuery.graphql';
 
 import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
+
+import { useGetAuthStore } from '../../contexts/AuthStore';
 
 import GitHubOAuthAnchor from '../Login/GitHubOAuthAnchor';
 
 const CommentMutation = graphql`
   mutation CommentInputFormMutation(
     $questionId: Int,
-    $userEmail: String,
+    $uid: String,
     $content: String
   ) {
     addComment(
       questionId: $questionId,
-      userEmail: $userEmail,
+      uid: $uid,
       content: $content
     ) {
       ...Comment_comment
@@ -25,9 +32,21 @@ const CommentMutation = graphql`
   }
 `;
 
-const CommentInputForm: React.FC = () => {
-  const [commitComment, isLoading] = useMutation<CommentInputFormMutation>(CommentMutation);
+const MyInfoQuery = graphql`
+  query CommentInputFormQuery($accessToken: String!) {
+    myInfo(accessToken: $accessToken) {
+      id
+    }
+  }
+`;
 
+interface Props{
+  myInfoRef: PreloadedQuery<CommentInputFormQuery>;
+}
+
+const CommentInputForm: React.FC<Props> = ({ myInfoRef }) => {
+  const { myInfo } = usePreloadedQuery<CommentInputFormQuery>(MyInfoQuery, myInfoRef);
+  const [commitComment, isLoading] = useMutation<CommentInputFormMutation>(CommentMutation);
   const [commentInput, setCommentInput] = useState('');
 
   const handleChangeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +59,7 @@ const CommentInputForm: React.FC = () => {
     commitComment({
       variables: {
         questionId: 1, // TODO : 임시로 questionId: 1 불러옴. 질문 상세 페이지 완성 후 변수화 시킬 예정
-        userEmail: 'inseo@test.com',
+        uid: myInfo?.id,
         content: commentInput,
       },
       updater: (store: RecordSourceSelectorProxy) => {
@@ -92,4 +111,27 @@ const CommentInputForm: React.FC = () => {
   );
 };
 
-export default CommentInputForm;
+const CommentInputFormContainer = () => {
+  const [
+    myInfoRef,
+    loadQuery,
+    disposeQuery,
+  ] = useQueryLoader<CommentInputFormQuery>(MyInfoQuery);
+
+  const { accessToken } = useGetAuthStore();
+
+  useEffect(() => {
+    loadQuery({ accessToken });
+
+    return () => disposeQuery();
+  }, [loadQuery, disposeQuery]);
+
+  return (
+    <Suspense fallback="로딩중..">
+      {myInfoRef
+      && <CommentInputForm myInfoRef={myInfoRef} />}
+    </Suspense>
+  );
+};
+
+export default CommentInputFormContainer;
