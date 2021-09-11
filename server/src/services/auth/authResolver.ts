@@ -39,7 +39,7 @@ export default {
         const newUser: User = {
           accessToken,
           gitHubAccessToken,
-          id: gitHubUser.id,
+          id: gitHubUser.id.toString(),
           ...lastestGitHubProfile,
         };
 

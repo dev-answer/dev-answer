@@ -144,12 +144,12 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "741b149cbf797a8abb25b8dd0b7fcda7",
+            "cacheID": "bde5582b5640341e89072ae9338b9a9c",
             "id": null,
             "metadata": {},
             "name": "CommentListQuery",
             "operationKind": "query",
-            "text": "query CommentListQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  dislike\n}\n"
+            "text": "query CommentListQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n}\n"
         }
     } as any;
 })();
