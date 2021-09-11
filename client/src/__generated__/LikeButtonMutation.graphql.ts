@@ -4,30 +4,28 @@
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type CommentInputFormMutationVariables = {
-    questionId?: number | null;
+export type LikeButtonMutationVariables = {
+    commentId?: string | null;
     uid?: string | null;
-    content?: string | null;
 };
-export type CommentInputFormMutationResponse = {
-    readonly addComment: {
+export type LikeButtonMutationResponse = {
+    readonly toggleLike: {
         readonly " $fragmentRefs": FragmentRefs<"Comment_comment">;
     } | null;
 };
-export type CommentInputFormMutation = {
-    readonly response: CommentInputFormMutationResponse;
-    readonly variables: CommentInputFormMutationVariables;
+export type LikeButtonMutation = {
+    readonly response: LikeButtonMutationResponse;
+    readonly variables: LikeButtonMutationVariables;
 };
 
 
 
 /*
-mutation CommentInputFormMutation(
-  $questionId: Int
+mutation LikeButtonMutation(
+  $commentId: String
   $uid: String
-  $content: String
 ) {
-  addComment(questionId: $questionId, uid: $uid, content: $content) {
+  toggleLike(commentId: $commentId, uid: $uid) {
     ...Comment_comment
     id
   }
@@ -44,28 +42,22 @@ fragment Comment_comment on Comment {
 */
 
 const node: ConcreteRequest = (function () {
-    var v0 = {
-        "defaultValue": null,
-        "kind": "LocalArgument",
-        "name": "content"
-    } as any, v1 = {
-        "defaultValue": null,
-        "kind": "LocalArgument",
-        "name": "questionId"
-    } as any, v2 = {
-        "defaultValue": null,
-        "kind": "LocalArgument",
-        "name": "uid"
-    } as any, v3 = [
+    var v0 = [
         {
-            "kind": "Variable",
-            "name": "content",
-            "variableName": "content"
+            "defaultValue": null,
+            "kind": "LocalArgument",
+            "name": "commentId"
         } as any,
         {
+            "defaultValue": null,
+            "kind": "LocalArgument",
+            "name": "uid"
+        } as any
+    ], v1 = [
+        {
             "kind": "Variable",
-            "name": "questionId",
-            "variableName": "questionId"
+            "name": "commentId",
+            "variableName": "commentId"
         } as any,
         {
             "kind": "Variable",
@@ -75,21 +67,17 @@ const node: ConcreteRequest = (function () {
     ];
     return {
         "fragment": {
-            "argumentDefinitions": [
-                (v0 /*: any*/),
-                (v1 /*: any*/),
-                (v2 /*: any*/)
-            ],
+            "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
-            "name": "CommentInputFormMutation",
+            "name": "LikeButtonMutation",
             "selections": [
                 {
                     "alias": null,
-                    "args": (v3 /*: any*/),
+                    "args": (v1 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "addComment",
+                    "name": "toggleLike",
                     "plural": false,
                     "selections": [
                         {
@@ -106,20 +94,16 @@ const node: ConcreteRequest = (function () {
         },
         "kind": "Request",
         "operation": {
-            "argumentDefinitions": [
-                (v1 /*: any*/),
-                (v2 /*: any*/),
-                (v0 /*: any*/)
-            ],
+            "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
-            "name": "CommentInputFormMutation",
+            "name": "LikeButtonMutation",
             "selections": [
                 {
                     "alias": null,
-                    "args": (v3 /*: any*/),
+                    "args": (v1 /*: any*/),
                     "concreteType": "Comment",
                     "kind": "LinkedField",
-                    "name": "addComment",
+                    "name": "toggleLike",
                     "plural": false,
                     "selections": [
                         {
@@ -170,14 +154,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "63ff8743ef2fe63990ff32cc5af30353",
+            "cacheID": "61c8dc45f173631a36b3405d6deebbc8",
             "id": null,
             "metadata": {},
-            "name": "CommentInputFormMutation",
+            "name": "LikeButtonMutation",
             "operationKind": "mutation",
-            "text": "mutation CommentInputFormMutation(\n  $questionId: Int\n  $userEmail: String\n  $content: String\n) {\n  addComment(questionId: $questionId, userEmail: $userEmail, content: $content) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  dislike\n}\n"
+            "text": "mutation LikeButtonMutation(\n  $commentId: String\n  $uid: String\n) {\n  toggleLike(commentId: $commentId, uid: $uid) {\n    ...Comment_comment\n    id\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '1551d47bf36dabe1e129cf0de265aebb';
+(node as any).hash = 'f1b19d11092c486339d5ee439cd4ba31';
 export default node;

@@ -19,7 +19,7 @@ type Comment {
   id: ID!
   questionId: Int
   createdAt: String
-  userEmail: String
+  uid: String
   content: String
   like: [String]
   dislike: [String]
@@ -30,7 +30,7 @@ type Mutation {
   login(code: String!): Auth!
   logout(accessToken: String!): Boolean
   addComment(questionId: Int, userEmail: String, content: String): Comment
-  addBookmark(userId: Int, questionId: Int): Bookmark
+  toggleLike(commentId: String, userEmail: String): Comment
   removeBookmark(bookmarkId: Int!): Bookmark
 }
 
@@ -61,7 +61,7 @@ type QuestionCategory {
 type SubComment {
   id: ID!
   createdAt: String
-  userEmail: String
+  uid: String
   content: String
   like: [String]
   dislike: [String]

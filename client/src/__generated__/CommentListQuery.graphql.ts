@@ -34,10 +34,9 @@ fragment Comment_comment on Comment {
   id
   questionId
   createdAt
-  userEmail
+  uid
   content
   like
-  dislike
 }
 */
 
@@ -122,7 +121,7 @@ const node: ConcreteRequest = (function () {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
-                            "name": "userEmail",
+                            "name": "uid",
                             "storageKey": null
                         },
                         {
@@ -137,13 +136,6 @@ const node: ConcreteRequest = (function () {
                             "args": null,
                             "kind": "ScalarField",
                             "name": "like",
-                            "storageKey": null
-                        },
-                        {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "dislike",
                             "storageKey": null
                         }
                     ],

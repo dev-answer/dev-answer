@@ -30,11 +30,11 @@ const CommentInputForm: React.FC = () => {
 
   const [commentInput, setCommentInput] = useState('');
 
-  const handleOnChangeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setCommentInput(event.target.value);
   }, []);
 
-  const handleOnSubmit = useCallback((event: React.FormEvent) => {
+  const handleSubmit = useCallback((event: React.FormEvent) => {
     event.preventDefault();
 
     commitComment({
@@ -74,7 +74,7 @@ const CommentInputForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="commentInput">
         유저프로필
         <input
@@ -82,7 +82,7 @@ const CommentInputForm: React.FC = () => {
           id="commentInput"
           placeholder="제 생각에는..."
           value={commentInput}
-          onChange={handleOnChangeInput}
+          onChange={handleChangeInput}
         />
       </label>
       <button type="submit">

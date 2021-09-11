@@ -13,6 +13,8 @@ export default class UserModel {
   }
 
   findMany() {
+    this.users = readJSON(this.jsonPath);
+
     return this.users;
   }
 
