@@ -1,6 +1,6 @@
 import CommentRepository from '../../repositories/commentRepository';
 
-import { NewComment, AddLikeArgs } from '../../types/comment';
+import { NewComment, ToggleLikeArgs } from '../../types/comment';
 
 const commentRepo = new CommentRepository();
 
@@ -16,7 +16,7 @@ export default {
       const result = await commentRepo.createOne(args);
       return result;
     },
-    addLike: async (_: any, { commentId, uid }: AddLikeArgs) => {
+    toggleLike: async (_: any, { commentId, uid }: ToggleLikeArgs) => {
       const result = await commentRepo.updateOne({
         targetId: commentId,
         action: 'PUSH',

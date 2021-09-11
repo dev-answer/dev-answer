@@ -31,7 +31,7 @@ export interface UpdateInfo {
   payload: string;
 }
 
-export interface AddLikeArgs {
+export interface ToggleLikeArgs {
   commentId: string;
   uid: string;
 }
