@@ -5,7 +5,8 @@ import styled from '@emotion/styled';
 
 import { Comment_comment } from '__generated__/Comment_comment.graphql';
 
-import UserInfo from '../common/UserInfo';
+import UserInfo from './UserInfo';
+import LikeButton from './LikeButton';
 
 interface Props {
   comment: Comment_comment
@@ -13,7 +14,7 @@ interface Props {
 
 const Comment: React.FC<Props> = ({ comment }) => {
   const {
-    uid, like, dislike, content,
+    id, uid, like, content,
   } = comment;
 
   if (!uid) {
@@ -23,14 +24,11 @@ const Comment: React.FC<Props> = ({ comment }) => {
   return (
     <CommentArea>
       <UserInfo uid={uid} />
-      <div>
-        좋아요 :
-        {like?.length}
-      </div>
-      <div>
-        싫어요 :
-        {dislike?.length}
-      </div>
+      <LikeButton
+        commentId={id}
+        uid={uid}
+      />
+      <span>{like?.length}</span>
       <p>
         {content}
       </p>

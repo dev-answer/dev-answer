@@ -29,6 +29,7 @@ type Comment {
 type Mutation {
   login(code: String!): Auth!
   addComment(questionId: Int, uid: String, content: String): Comment
+  addLike(commentId: String, uid: String): Comment
   addBookmark(userId: Int, questionId: Int): Bookmark
   removeBookmark(bookmarkId: Int!): Bookmark
 }
