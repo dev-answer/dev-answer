@@ -40,7 +40,7 @@ const CommentInputForm: React.FC = () => {
     commitComment({
       variables: {
         questionId: 1, // TODO : 임시로 questionId: 1 불러옴. 질문 상세 페이지 완성 후 변수화 시킬 예정
-        uid: '0.5199438703839148',
+        uid: '0.5199438703839148', // TODO : 임시로 uid를 넣어놓음. uid 가져오는 로직 추가 예정
         content: commentInput,
       },
       updater: (store: RecordSourceSelectorProxy) => {
