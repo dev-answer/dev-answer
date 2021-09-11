@@ -9,12 +9,12 @@ interface Props {
   uid: string
 }
 
-const AddLikeMutation = graphql`
+const ToggleLikeMutation = graphql`
   mutation LikeButtonMutation(
     $commentId: String,
     $uid: String,
   ) {
-    addLike(
+    toggleLike(
       commentId: $commentId,
       uid: $uid,
     ) {
@@ -24,10 +24,10 @@ const AddLikeMutation = graphql`
 `;
 
 export default function LikeButton({ commentId, uid }:Props) {
-  const [commitAddLike] = useMutation<LikeButtonMutation>(AddLikeMutation);
+  const [commitToggleLike] = useMutation<LikeButtonMutation>(ToggleLikeMutation);
 
   const handleClick = () => {
-    commitAddLike({ variables: { commentId, uid } });
+    commitToggleLike({ variables: { commentId, uid } });
   };
 
   return (

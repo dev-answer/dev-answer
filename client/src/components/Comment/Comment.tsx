@@ -44,7 +44,6 @@ export default createFragmentContainer(Comment, {
       uid
       content
       like
-      dislike
     }
   `,
 });
