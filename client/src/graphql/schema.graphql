@@ -37,6 +37,8 @@ type Mutation {
 type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
+  questionDetail(questionId: Int!): Question
+  questionsByCategoryId(categoryId: Int!): [Question!]!
   allUsers: [User!]!
   userInfo(userId: String!): User
   myInfo(accessToken: String!): User
@@ -46,11 +48,19 @@ type Query {
 
 type Question {
   id: ID!
-  title: String
-  content: String
-  category: String
-  level: Int
-  frequency: Boolean
+  content: String!
+  categoryId: Int!
+  category: QuestionCategory!
+  authorId: String!
+  author: QuestionAuthor!
+  comments: [Comment!]!
+}
+
+type QuestionAuthor {
+  id: String!
+  name: String!
+  gitHubURL: String!
+  profileImageURL: String!
 }
 
 type QuestionCategory {
