@@ -4,7 +4,7 @@ import {
 import { readJSON } from '../utils';
 
 export default class QuestionModel {
-  questions: [Question];
+  questions: Question[];
 
   jsonPath: string = '../db/question.json'
 
@@ -39,9 +39,19 @@ export default class QuestionModel {
 
     return questionResponse;
   }
+
+  findOneByQuestionId(questionId: number): QuestionResponse | null {
+    const question = this.questions.find((q: Question) => q.id === questionId);
+
+    if (!question) {
+      return null;
+    }
+
+    const questionResponse = this.merge(question);
+    return questionResponse;
   }
 
-  findMany(): [Question] {
-    return this.questions;
+  findMany(): QuestionResponse[] {
+    return this.questions.map((question) => this.merge(question)!).filter(Boolean);
   }
 }
