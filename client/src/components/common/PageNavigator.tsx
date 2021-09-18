@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 interface Props {
   totalPageCount: number
   currentPage: number
-  onClickPage: () => void
+  onClickPage: (pageNumber: number) => void
 }
 
 const PageNavigator: React.FC<Props> = ({ totalPageCount, currentPage, onClickPage }) => {
