@@ -60,6 +60,10 @@ export default class QuestionModel {
     return questionResponse;
   }
 
+  findManyByCategoryId(categoryId: number): QuestionResponse[] {
+    return this.findMany().filter((question) => question.categoryId === categoryId);
+  }
+
   findMany(): QuestionResponse[] {
     return this.questions.map((question) => this.merge(question)!).filter(Boolean);
   }

@@ -19,5 +19,6 @@ type Question {
 type Query {
   allQuestions: [Question!]!
   questionDetail(questionId: Int!): Question
+  questionsByCategoryId(categoryId: Int!): [Question!]!
 }
 `;
