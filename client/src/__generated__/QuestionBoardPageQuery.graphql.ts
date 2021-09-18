@@ -4,9 +4,11 @@
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type QuestionBoardPageQueryVariables = {};
+export type QuestionBoardPageQueryVariables = {
+    categoryId: number;
+};
 export type QuestionBoardPageQueryResponse = {
-    readonly allQuestions: ReadonlyArray<{
+    readonly questionsByCategoryId: ReadonlyArray<{
         readonly id: string;
         readonly " $fragmentRefs": FragmentRefs<"QuestionCard_question">;
     }>;
@@ -19,8 +21,10 @@ export type QuestionBoardPageQuery = {
 
 
 /*
-query QuestionBoardPageQuery {
-  allQuestions {
+query QuestionBoardPageQuery(
+  $categoryId: Int!
+) {
+  questionsByCategoryId(categoryId: $categoryId) {
     id
     ...QuestionCard_question
   }
@@ -32,7 +36,19 @@ fragment QuestionCard_question on Question {
 */
 
 const node: ConcreteRequest = (function () {
-    var v0 = {
+    var v0 = [
+        {
+            "defaultValue": null,
+            "kind": "LocalArgument",
+            "name": "categoryId"
+        } as any
+    ], v1 = [
+        {
+            "kind": "Variable",
+            "name": "categoryId",
+            "variableName": "categoryId"
+        } as any
+    ], v2 = {
         "alias": null,
         "args": null,
         "kind": "ScalarField",
@@ -41,20 +57,20 @@ const node: ConcreteRequest = (function () {
     } as any;
     return {
         "fragment": {
-            "argumentDefinitions": [],
+            "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
             "name": "QuestionBoardPageQuery",
             "selections": [
                 {
                     "alias": null,
-                    "args": null,
+                    "args": (v1 /*: any*/),
                     "concreteType": "Question",
                     "kind": "LinkedField",
-                    "name": "allQuestions",
+                    "name": "questionsByCategoryId",
                     "plural": true,
                     "selections": [
-                        (v0 /*: any*/),
+                        (v2 /*: any*/),
                         {
                             "args": null,
                             "kind": "FragmentSpread",
@@ -69,19 +85,19 @@ const node: ConcreteRequest = (function () {
         },
         "kind": "Request",
         "operation": {
-            "argumentDefinitions": [],
+            "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
             "name": "QuestionBoardPageQuery",
             "selections": [
                 {
                     "alias": null,
-                    "args": null,
+                    "args": (v1 /*: any*/),
                     "concreteType": "Question",
                     "kind": "LinkedField",
-                    "name": "allQuestions",
+                    "name": "questionsByCategoryId",
                     "plural": true,
                     "selections": [
-                        (v0 /*: any*/),
+                        (v2 /*: any*/),
                         {
                             "alias": null,
                             "args": null,
@@ -95,14 +111,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "f763ad3736820c51be7aa9874fc98d17",
+            "cacheID": "651e8936b0e5140fa568bd074f3a78ae",
             "id": null,
             "metadata": {},
             "name": "QuestionBoardPageQuery",
             "operationKind": "query",
-            "text": "query QuestionBoardPageQuery {\n  allQuestions {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
+            "text": "query QuestionBoardPageQuery(\n  $categoryId: Int!\n) {\n  questionsByCategoryId(categoryId: $categoryId) {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '2201c828a14f2df7f61991f173808cf8';
+(node as any).hash = '3ef600e29b4327e071f41f49b9a525f0';
 export default node;

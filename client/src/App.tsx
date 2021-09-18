@@ -22,7 +22,7 @@ const App: React.FC = () => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/comment" component={CommentPage} />
-          <Route path="/question/board" component={QuestionBoardPage} />
+          <Route path="/question/board/:categoryId" component={QuestionBoardPage} />
           <Route path="/questions" component={QuestionsPage} />
           <Route path="/oauth" component={LoginCallbackPage} />
           <Route path="/bookmarks" component={BookmarksPage} />
