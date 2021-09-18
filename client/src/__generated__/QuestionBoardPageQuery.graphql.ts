@@ -28,7 +28,6 @@ query QuestionBoardPageQuery {
 
 fragment QuestionCard_question on Question {
   content
-  category
 }
 */
 
@@ -89,13 +88,6 @@ const node: ConcreteRequest = (function () {
                             "kind": "ScalarField",
                             "name": "content",
                             "storageKey": null
-                        },
-                        {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "category",
-                            "storageKey": null
                         }
                     ],
                     "storageKey": null
@@ -103,12 +95,12 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "23d86ac0013ae3b23d4c0ece034187fc",
+            "cacheID": "f763ad3736820c51be7aa9874fc98d17",
             "id": null,
             "metadata": {},
             "name": "QuestionBoardPageQuery",
             "operationKind": "query",
-            "text": "query QuestionBoardPageQuery {\n  allQuestions {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n  category\n}\n"
+            "text": "query QuestionBoardPageQuery {\n  allQuestions {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
         }
     } as any;
 })();
