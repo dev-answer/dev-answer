@@ -1,5 +1,5 @@
 import {
-  Comment, Question, QuestionAuthor, QuestionResponse, User,
+  Comment, Question, QuestionAuthor, QuestionCategory, QuestionResponse, User,
 } from '../types';
 import { readJSON } from '../utils';
 
@@ -35,7 +35,16 @@ export default class QuestionModel {
     const comments: Comment[] = readJSON('../db/comment.json')
       .filter((comment: Comment) => comment.questionId === question.id);
 
-    const questionResponse = { ...question, author, comments };
+    const cateogries: QuestionCategory[] = readJSON('../db/questionCategory.json');
+    const category = cateogries.find((c) => c.id === question.categoryId);
+
+    if (!category) {
+      return null;
+    }
+
+    const questionResponse = {
+      ...question, author, comments, category,
+    };
 
     return questionResponse;
   }

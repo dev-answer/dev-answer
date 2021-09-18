@@ -1,6 +1,9 @@
 import { Comment } from '.';
 
-export type QuestionCategory = 'React' | 'JavaScript' | 'HTML' | 'CSS'
+export interface QuestionCategory {
+  id: number
+  title: 'React' | 'JavaScript' | 'HTML' | 'CSS'
+}
 
 export interface QuestionAuthor {
   id: string
@@ -12,11 +15,12 @@ export interface QuestionAuthor {
 export interface Question {
   id: number,
   content: string,
-  category: QuestionCategory,
+  categoryId: number,
   authorId: string
 }
 
 export interface QuestionResponse extends Question {
   author: QuestionAuthor
   comments: Comment[]
+  category: QuestionCategory
 }

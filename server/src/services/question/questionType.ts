@@ -9,6 +9,7 @@ type QuestionAuthor {
 type Question {
   id: ID!,
   content: String!,
+  categoryId: Int!,
   category: QuestionCategory!,
   authorId: String!
   author: QuestionAuthor!
