@@ -48,49 +48,49 @@
     "authorId": "0.3215254543218323"
   },
   {
-    "id": 5,
+    "id": 9,
     "content": "React useEffect에 대해서 설명하시오.",
     "categoryId": 1,
     "authorId": "0.3215254543218323"
   },
   {
-    "id": 9,
+    "id": 10,
     "content": "React에서 상태를 끌어올리는 방법을 설명하시오.",
     "categoryId": 1,
     "authorId": "0.5848283945123123"
   },
   {
-    "id": 10,
+    "id": 12,
     "content": "React Virtual DOM이란 무엇인가?",
     "categoryId": 1,
     "authorId": "0.5848283945123123"
   },
   {
-    "id": 11,
+    "id": 13,
     "content": "React의 Context API에 대해서 설명하시오.",
     "categoryId": 1,
     "authorId": "0.5848283945123123"
   },
   {
-    "id": 12,
+    "id": 14,
     "content": "React의 Reconciliation이 발생하는 경우는 무엇이 있는가?",
     "categoryId": 1,
     "authorId": "0.4921837332323131"
   },
   {
-    "id": 13,
+    "id": 15,
     "content": "React 최적화 방법에는 무엇이 있는지 설명하시오.",
     "categoryId": 1,
     "authorId": "0.4921837332323131"
   },
   {
-    "id": 14,
+    "id": 16,
     "content": "React Hook의 호출 순서가 보장되어야 하는 이유에 대해서 설명하시오.",
     "categoryId": 1,
     "authorId": "0.3215254543218323"
   },
   {
-    "id": 15,
+    "id": 17,
     "content": "HTML <script> 태그를 <body>의 맨 하단에 위치시키는 이유를 설명하시오.",
     "categoryId": 3,
     "authorId": "0.4921837332323131"
