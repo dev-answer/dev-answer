@@ -69,7 +69,7 @@ const LoginButton = styled(GitHubOAuthAnchor)`
   
   &:hover {
     opacity: 0.7;
-    color: #000000;
+    color: black;
   }
 `;
 
