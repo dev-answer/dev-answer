@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+import { readJSON } from '../utils';
 
 interface Question {
   id: number;
@@ -11,13 +10,12 @@ interface Question {
 }
 
 export default class QuestionModel {
-  questionsFile;
-
   questions: [Question];
 
+  jsonPath: string = '../db/question.json'
+
   constructor() {
-    this.questionsFile = fs.readFileSync(path.join(__dirname, '../db/question.json'), 'utf-8');
-    this.questions = JSON.parse(this.questionsFile);
+    this.questions = readJSON(this.jsonPath);
   }
 
   findOneByQuestionId(questionId: number): Question | undefined {
