@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.graphql';
 
 import styled from '@emotion/styled';
-import { useParams } from 'react-router-dom';
+
 import BottomSheet from '../components/common/BottomSheet';
 import withSuspense from '../hocs/withSuspense';
 import QuestionCard from '../components/Question/QuestionCard';
@@ -24,6 +25,8 @@ const questionBoardPageQuery = graphql`
 `;
 
 const QuestionBoardPage: React.FC = () => {
+  const { push } = useHistory();
+
   const { categoryId } = useParams<{ categoryId: string}>();
   const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(
     questionBoardPageQuery, { categoryId },
@@ -33,8 +36,8 @@ const QuestionBoardPage: React.FC = () => {
     questionsRef.questionsByCategoryId.length / QUESTION_COUNT_PER_PAGE,
   );
 
-  const handleClickQuestionCard = () => {
-    // TODO: 문제 상세 페이지로 이동
+  const handleClickQuestionCard = (questionId: string) => {
+    push(`/question/detail/${questionId}`);
   };
 
   const handleClickPage = (pageNumber: number) => {
@@ -67,7 +70,7 @@ const QuestionBoardPage: React.FC = () => {
             <QuestionCard
               key={questionRef.id}
               questionRef={questionRef}
-              onClick={handleClickQuestionCard}
+              onClick={() => handleClickQuestionCard(questionRef.id)}
             />
           ))}
         </QuestionLayoutWrapper>
