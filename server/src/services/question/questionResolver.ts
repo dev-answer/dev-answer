@@ -1,4 +1,5 @@
 import QuestionRepository from '../../repositories/questionRepository';
+import { QuestionVoteKind } from '../../types';
 
 const questionRepo = new QuestionRepository();
 
@@ -14,6 +15,12 @@ export default {
     },
     questionDetail: async (_:any, args: { questionId: number }) => {
       const question = await questionRepo.findOneByQuestionId(args.questionId);
+      return question;
+    },
+  },
+  Mutation: {
+    vote: async (_:any, args: { questionId: number, userId: string, kind: QuestionVoteKind }) => {
+      const question = await questionRepo.vote(args.questionId, args.userId, args.kind);
       return question;
     },
   },

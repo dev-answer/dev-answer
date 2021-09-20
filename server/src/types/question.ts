@@ -12,9 +12,11 @@ export interface QuestionAuthor {
   profileImageURL: string
 }
 
+export type QuestionVoteKind = 'easy' | 'normal' | 'hard'
+
 export interface QuestionVote {
   userId: string
-  kind: 'easy' | 'normal' | 'hard'
+  kind: QuestionVoteKind
 }
 
 export interface Question {

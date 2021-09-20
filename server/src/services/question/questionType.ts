@@ -27,4 +27,8 @@ type Query {
   questionDetail(questionId: Int!): Question
   questionsByCategoryId(categoryId: String!): [Question!]!
 }
+
+type Mutation {
+  vote(questionId: Int!, userId: String!, kind: String!): Question 
+}
 `;
