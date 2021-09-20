@@ -11,6 +11,12 @@ type QuestionVote {
   kind: String!
 }
 
+type QuestionVoteResult {
+  easy: Int!
+  normal: Int!
+  hard: Int!
+}
+
 type Question {
   id: ID!,
   content: String!,
@@ -29,6 +35,6 @@ type Query {
 }
 
 type Mutation {
-  vote(questionId: Int!, userId: String!, kind: String!): Question 
+  vote(questionId: Int!, userId: String!, kind: String!): QuestionVoteResult 
 }
 `;

@@ -68,7 +68,7 @@ export default class QuestionModel {
     return this.questions.map((question) => this.merge(question)!).filter(Boolean);
   }
 
-  vote(questionId: number, userId: string, kind: QuestionVoteKind): QuestionResponse | null {
+  vote(questionId: number, userId: string, kind: QuestionVoteKind) {
     this.questions = readJSON(this.jsonPath);
 
     const question = this.questions.find((q) => q.id === questionId);
@@ -87,6 +87,11 @@ export default class QuestionModel {
     this.questions = this.questions.map((q) => (q.id === questionId ? updatedQuestion : q));
     writeJSON(this.jsonPath, this.questions);
 
-    return this.merge(updatedQuestion);
+    const normalizedVoteCount = updatedQuestion.vote.reduce(
+      (acc, cur) => ({ ...acc, [cur.kind]: acc[cur.kind] + 1 }),
+      { easy: 0, normal: 0, hard: 0 },
+    );
+
+    return normalizedVoteCount;
   }
 }
