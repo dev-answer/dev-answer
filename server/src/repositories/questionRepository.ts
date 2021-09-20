@@ -12,7 +12,7 @@ export default class QuestionRepository extends Repository {
     return result;
   }
 
-  async findManyByCategoryId(categoryId: number) {
+  async findManyByCategoryId(categoryId: string) {
     const result = await this.collection.findManyByCategoryId(categoryId);
     return result;
   }

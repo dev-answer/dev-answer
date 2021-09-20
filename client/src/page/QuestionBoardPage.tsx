@@ -15,7 +15,7 @@ import PageNavigator from '../components/common/PageNavigator';
 const QUESTION_COUNT_PER_PAGE = 10;
 
 const questionBoardPageQuery = graphql`
-  query QuestionBoardPageQuery($categoryId: Int!) {
+  query QuestionBoardPageQuery($categoryId: String!) {
     questionsByCategoryId(categoryId: $categoryId) {
       id
       ...QuestionCard_question
@@ -26,7 +26,7 @@ const questionBoardPageQuery = graphql`
 const QuestionBoardPage: React.FC = () => {
   const { categoryId } = useParams<{ categoryId: string}>();
   const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(
-    questionBoardPageQuery, { categoryId: Number(categoryId) },
+    questionBoardPageQuery, { categoryId },
   );
   const [page, setPage] = useState(1);
   const totalPageCount = Math.ceil(

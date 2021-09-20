@@ -9,7 +9,7 @@ type QuestionAuthor {
 type Question {
   id: ID!,
   content: String!,
-  categoryId: Int!,
+  categoryId: String!,
   category: QuestionCategory!,
   authorId: String!
   author: QuestionAuthor!
@@ -19,6 +19,6 @@ type Question {
 type Query {
   allQuestions: [Question!]!
   questionDetail(questionId: Int!): Question
-  questionsByCategoryId(categoryId: Int!): [Question!]!
+  questionsByCategoryId(categoryId: String!): [Question!]!
 }
 `;

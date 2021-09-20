@@ -60,7 +60,7 @@ export default class QuestionModel {
     return questionResponse;
   }
 
-  findManyByCategoryId(categoryId: number): QuestionResponse[] {
+  findManyByCategoryId(categoryId: string): QuestionResponse[] {
     return this.findMany().filter((question) => question.categoryId === categoryId);
   }
 

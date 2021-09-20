@@ -1,7 +1,7 @@
 import { Comment } from '.';
 
 export interface QuestionCategory {
-  id: number
+  id: string
   title: 'React' | 'JavaScript' | 'HTML' | 'CSS'
 }
 
@@ -15,7 +15,7 @@ export interface QuestionAuthor {
 export interface Question {
   id: number,
   content: string,
-  categoryId: number,
+  categoryId: string,
   authorId: string
 }
 

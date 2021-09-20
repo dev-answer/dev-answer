@@ -38,7 +38,7 @@ type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
   questionDetail(questionId: Int!): Question
-  questionsByCategoryId(categoryId: Int!): [Question!]!
+  questionsByCategoryId(categoryId: String!): [Question!]!
   allUsers: [User!]!
   userInfo(userId: String!): User
   myInfo(accessToken: String!): User
@@ -49,7 +49,7 @@ type Query {
 type Question {
   id: ID!
   content: String!
-  categoryId: Int!
+  categoryId: String!
   category: QuestionCategory!
   authorId: String!
   author: QuestionAuthor!

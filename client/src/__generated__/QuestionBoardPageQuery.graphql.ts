@@ -5,7 +5,7 @@
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type QuestionBoardPageQueryVariables = {
-    categoryId: number;
+    categoryId: string;
 };
 export type QuestionBoardPageQueryResponse = {
     readonly questionsByCategoryId: ReadonlyArray<{
@@ -22,7 +22,7 @@ export type QuestionBoardPageQuery = {
 
 /*
 query QuestionBoardPageQuery(
-  $categoryId: Int!
+  $categoryId: String!
 ) {
   questionsByCategoryId(categoryId: $categoryId) {
     id
@@ -111,14 +111,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "651e8936b0e5140fa568bd074f3a78ae",
+            "cacheID": "2abce66c53d8b9482d99b3be4bc95f63",
             "id": null,
             "metadata": {},
             "name": "QuestionBoardPageQuery",
             "operationKind": "query",
-            "text": "query QuestionBoardPageQuery(\n  $categoryId: Int!\n) {\n  questionsByCategoryId(categoryId: $categoryId) {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
+            "text": "query QuestionBoardPageQuery(\n  $categoryId: String!\n) {\n  questionsByCategoryId(categoryId: $categoryId) {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '3ef600e29b4327e071f41f49b9a525f0';
+(node as any).hash = '9c299256a7781b93163025c3842d58db';
 export default node;
