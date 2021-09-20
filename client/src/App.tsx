@@ -5,6 +5,7 @@ import {
 
 import HomePage from './page/HomePage';
 import QuestionBoardPage from './page/QuestionBoardPage';
+import QuestionDetailPage from './page/QuestionDetailPage';
 import QuestionsPage from './page/QuestionsPage';
 import LoginCallbackPage from './page/LoginCallbackPage';
 import CommentPage from './page/CommentPage';
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/comment" component={CommentPage} />
           <Route path="/question/board/:categoryId" component={QuestionBoardPage} />
+          <Route path="/question/detail/:questionId" component={QuestionDetailPage} />
           <Route path="/questions" component={QuestionsPage} />
           <Route path="/oauth" component={LoginCallbackPage} />
           <Route path="/bookmarks" component={BookmarksPage} />
