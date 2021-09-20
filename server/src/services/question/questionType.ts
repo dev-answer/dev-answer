@@ -14,6 +14,7 @@ type Question {
   authorId: String!
   author: QuestionAuthor!
   comments: [Comment!]!
+  infomations: [String!]!
 }
 
 type Query {
