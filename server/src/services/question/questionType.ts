@@ -6,11 +6,17 @@ type QuestionAuthor {
   profileImageURL: String!
 }
 
+type QuestionVote {
+  userId: String!
+  kind: String!
+}
+
 type Question {
   id: ID!,
   content: String!,
   categoryId: String!,
   category: QuestionCategory!,
+  vote: [QuestionVote!]!
   authorId: String!
   author: QuestionAuthor!
   comments: [Comment!]!

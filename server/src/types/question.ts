@@ -12,10 +12,16 @@ export interface QuestionAuthor {
   profileImageURL: string
 }
 
+export interface QuestionVote {
+  userId: string
+  kind: 'easy' | 'normal' | 'hard'
+}
+
 export interface Question {
   id: number,
   content: string,
   categoryId: string,
+  vote: QuestionVote[]
   authorId: string
 }
 

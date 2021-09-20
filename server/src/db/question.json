@@ -2,96 +2,157 @@
   {
     "id": 1,
     "content": "let, const 와 var의 차이점에 대해 설명하시오.",
+    "vote": [
+      { "userId": "0.3215254543218323", "kind": "easy" },
+      { "userId": "0.7465548688222423", "kind": "normal" },
+      { "userId": "0.5848283945123123", "kind": "normal" }
+    ],
     "categoryId": "category_2",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 2,
     "content": "JavaScript에서 전역 컨텍스트는 언제 활성화되는가?",
+    "vote": [
+      { "userId": "0.3215254543218323", "kind": "normal" },
+      { "userId": "0.5848283945123123", "kind": "hard" }
+    ],
     "categoryId": "category_2",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 3,
     "content": "callback 함수에서의 this는 어떻게 동작하는가?",
+    "vote": [
+      { "userId": "0.3215254543218323", "kind": "normal" }
+    ],
     "categoryId": "category_2",
     "authorId": "0.5848283945123123"
   },
   {
     "id": 4,
     "content": "'use strict' 란 무엇인지 설명하시오.",
+    "vote": [
+      { "userId": "0.3215254543218323", "kind": "easy" },
+      { "userId": "0.5848283945123123", "kind": "hard" }
+    ],
     "categoryId": "category_2",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 5,
     "content": "JavaScript에서 가비지 컬렉션이 동작하는 원리를 설명하라.",
+    "vote": [
+      { "userId": "0.4921837332323131", "kind": "normal" },
+      { "userId": "0.3215254543218323", "kind": "normal" }
+    ],
     "categoryId": "category_2",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 6,
     "content": "Promise가 async/await에 비해 가지는 장점에 대해서 설명하시오.",
+    "vote": [],
     "categoryId": "category_2",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 7,
     "content": "JSX란 무엇인지 설명하시오.",
+    "vote": [
+      { "userId": "0.3215254543218323", "kind": "normal" },
+      { "userId": "0.4921837332323131", "kind": "hard" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.5848283945123123"
   },
   {
     "id": 8,
     "content": "React의 생명주기 메서드 componentDidMount, componentDidUpdate, componentWillUnmount에 대해서 설명하시오.",
+    "vote": [
+      { "userId": "0.3215254543218323", "kind": "normal" },
+      { "userId": "0.4921837332323131", "kind": "hard" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 9,
     "content": "React useEffect에 대해서 설명하시오.",
+    "vote": [
+      { "userId": "0.5848283945123123", "kind": "normal" },
+      { "userId": "0.4921837332323131", "kind": "normal" },
+      { "userId": "0.3215254543218323", "kind": "hard" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 10,
     "content": "React에서 상태를 끌어올리는 방법을 설명하시오.",
+    "vote": [
+      { "userId": "0.5848283945123123", "kind": "normal" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.5848283945123123"
   },
   {
     "id": 12,
     "content": "React Virtual DOM이란 무엇인가?",
+    "vote": [],
     "categoryId": "category_1",
     "authorId": "0.5848283945123123"
   },
   {
     "id": 13,
     "content": "React의 Context API에 대해서 설명하시오.",
+    "vote": [
+      { "userId": "0.4921837332323131", "kind": "easy" },
+      { "userId": "0.3215254543218323", "kind": "normal" },
+      { "userId": "", "kind": "normal" },
+      { "userId": "", "kind": "hard" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.5848283945123123"
   },
   {
     "id": 14,
     "content": "React의 Reconciliation이 발생하는 경우는 무엇이 있는가?",
+    "vote": [
+      { "userId": "0.4921837332323131", "kind": "normal" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.4921837332323131"
   },
   {
     "id": 15,
     "content": "React 최적화 방법에는 무엇이 있는지 설명하시오.",
+    "vote": [
+      { "userId": "0.5848283945123123", "kind": "easy" },
+      { "userId": "0.3215254543218323", "kind": "normal" },
+      { "userId": "0.4921837332323131", "kind": "normal" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.4921837332323131"
   },
   {
     "id": 16,
     "content": "React Hook의 호출 순서가 보장되어야 하는 이유에 대해서 설명하시오.",
+    "vote": [
+      { "userId": "0.4921837332323131", "kind": "normal" },
+      { "userId": "0.5848283945123123", "kind": "normal" }
+    ],
     "categoryId": "category_1",
     "authorId": "0.3215254543218323"
   },
   {
     "id": 17,
     "content": "HTML <script> 태그를 <body>의 맨 하단에 위치시키는 이유를 설명하시오.",
+    "vote": [
+      { "userId": "0.3215254543218323", "kind": "easy" },
+      { "userId": "0.4921837332323131", "kind": "normal" },
+      { "userId": "0.7465548688222423", "kind": "normal" }
+    ],
     "categoryId": "category_3",
     "authorId": "0.4921837332323131"
   }
