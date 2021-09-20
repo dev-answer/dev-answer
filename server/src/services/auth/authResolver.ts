@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import auth from './auth';
 import UserRepository from '../../repositories/userRepository';
-import { User } from '../../types/user';
+import { User } from '../../types';
 
 const userRepo = new UserRepository();
 
@@ -39,7 +39,7 @@ export default {
         const newUser: User = {
           accessToken,
           gitHubAccessToken,
-          id: gitHubUser.id,
+          id: gitHubUser.id.toString(),
           ...lastestGitHubProfile,
         };
 
