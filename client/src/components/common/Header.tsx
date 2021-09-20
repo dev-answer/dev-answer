@@ -61,7 +61,7 @@ const HeaderArea = styled.header<{ backgroundColor?: string }>`
   justify-content: space-between;
   height: 80px;
   padding: 0 48px 0 32px;
-  ${({ backgroundColor }) => (backgroundColor ? `background:${backgroundColor}` : '')};
+  ${({ backgroundColor }) => (backgroundColor ? `background:${backgroundColor}` : '')}
 `;
 
 const LogoArea = styled.div`

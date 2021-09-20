@@ -4,9 +4,11 @@
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type QuestionBoardPageQueryVariables = {};
+export type QuestionBoardPageQueryVariables = {
+    categoryId: string;
+};
 export type QuestionBoardPageQueryResponse = {
-    readonly allQuestions: ReadonlyArray<{
+    readonly questionsByCategoryId: ReadonlyArray<{
         readonly id: string;
         readonly " $fragmentRefs": FragmentRefs<"QuestionCard_question">;
     }>;
@@ -19,8 +21,10 @@ export type QuestionBoardPageQuery = {
 
 
 /*
-query QuestionBoardPageQuery {
-  allQuestions {
+query QuestionBoardPageQuery(
+  $categoryId: String!
+) {
+  questionsByCategoryId(categoryId: $categoryId) {
     id
     ...QuestionCard_question
   }
@@ -28,12 +32,23 @@ query QuestionBoardPageQuery {
 
 fragment QuestionCard_question on Question {
   content
-  category
 }
 */
 
 const node: ConcreteRequest = (function () {
-    var v0 = {
+    var v0 = [
+        {
+            "defaultValue": null,
+            "kind": "LocalArgument",
+            "name": "categoryId"
+        } as any
+    ], v1 = [
+        {
+            "kind": "Variable",
+            "name": "categoryId",
+            "variableName": "categoryId"
+        } as any
+    ], v2 = {
         "alias": null,
         "args": null,
         "kind": "ScalarField",
@@ -42,20 +57,20 @@ const node: ConcreteRequest = (function () {
     } as any;
     return {
         "fragment": {
-            "argumentDefinitions": [],
+            "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
             "name": "QuestionBoardPageQuery",
             "selections": [
                 {
                     "alias": null,
-                    "args": null,
+                    "args": (v1 /*: any*/),
                     "concreteType": "Question",
                     "kind": "LinkedField",
-                    "name": "allQuestions",
+                    "name": "questionsByCategoryId",
                     "plural": true,
                     "selections": [
-                        (v0 /*: any*/),
+                        (v2 /*: any*/),
                         {
                             "args": null,
                             "kind": "FragmentSpread",
@@ -70,31 +85,24 @@ const node: ConcreteRequest = (function () {
         },
         "kind": "Request",
         "operation": {
-            "argumentDefinitions": [],
+            "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
             "name": "QuestionBoardPageQuery",
             "selections": [
                 {
                     "alias": null,
-                    "args": null,
+                    "args": (v1 /*: any*/),
                     "concreteType": "Question",
                     "kind": "LinkedField",
-                    "name": "allQuestions",
+                    "name": "questionsByCategoryId",
                     "plural": true,
                     "selections": [
-                        (v0 /*: any*/),
+                        (v2 /*: any*/),
                         {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
                             "name": "content",
-                            "storageKey": null
-                        },
-                        {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "category",
                             "storageKey": null
                         }
                     ],
@@ -103,14 +111,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "23d86ac0013ae3b23d4c0ece034187fc",
+            "cacheID": "2abce66c53d8b9482d99b3be4bc95f63",
             "id": null,
             "metadata": {},
             "name": "QuestionBoardPageQuery",
             "operationKind": "query",
-            "text": "query QuestionBoardPageQuery {\n  allQuestions {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n  category\n}\n"
+            "text": "query QuestionBoardPageQuery(\n  $categoryId: String!\n) {\n  questionsByCategoryId(categoryId: $categoryId) {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '2201c828a14f2df7f61991f173808cf8';
+(node as any).hash = '9c299256a7781b93163025c3842d58db';
 export default node;

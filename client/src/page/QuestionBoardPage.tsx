@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.graphql';
 
 import styled from '@emotion/styled';
+
 import BottomSheet from '../components/common/BottomSheet';
 import withSuspense from '../hocs/withSuspense';
 import QuestionCard from '../components/Question/QuestionCard';
@@ -14,8 +16,8 @@ import PageNavigator from '../components/common/PageNavigator';
 const QUESTION_COUNT_PER_PAGE = 10;
 
 const questionBoardPageQuery = graphql`
-  query QuestionBoardPageQuery {
-    allQuestions {
+  query QuestionBoardPageQuery($categoryId: String!) {
+    questionsByCategoryId(categoryId: $categoryId) {
       id
       ...QuestionCard_question
     }
@@ -23,19 +25,26 @@ const questionBoardPageQuery = graphql`
 `;
 
 const QuestionBoardPage: React.FC = () => {
-  const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(questionBoardPageQuery, {});
-  const [page, setPage] = useState(1);
-  const totalPageCount = Math.ceil(questionsRef.allQuestions.length / QUESTION_COUNT_PER_PAGE);
+  const { push } = useHistory();
 
-  const handleClickQuestionCard = () => {
-    // TODO: 문제 상세 페이지로 이동
+  const { categoryId } = useParams<{ categoryId: string}>();
+  const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(
+    questionBoardPageQuery, { categoryId },
+  );
+  const [page, setPage] = useState(1);
+  const totalPageCount = Math.ceil(
+    questionsRef.questionsByCategoryId.length / QUESTION_COUNT_PER_PAGE,
+  );
+
+  const handleClickQuestionCard = (questionId: string) => {
+    push(`/question/detail/${questionId}`);
   };
 
   const handleClickPage = (pageNumber: number) => {
     setPage(pageNumber);
   };
 
-  const currentPageQuestionsRef = questionsRef.allQuestions
+  const currentPageQuestionsRef = questionsRef.questionsByCategoryId
     .slice((page - 1) * QUESTION_COUNT_PER_PAGE, page * QUESTION_COUNT_PER_PAGE);
 
   return (
@@ -61,7 +70,7 @@ const QuestionBoardPage: React.FC = () => {
             <QuestionCard
               key={questionRef.id}
               questionRef={questionRef}
-              onClick={handleClickQuestionCard}
+              onClick={() => handleClickQuestionCard(questionRef.id)}
             />
           ))}
         </QuestionLayoutWrapper>

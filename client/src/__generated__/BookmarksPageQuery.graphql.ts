@@ -11,7 +11,7 @@ export type BookmarksPageQueryResponse = {
         readonly id: string;
         readonly question: {
             readonly id: string;
-            readonly content: string | null;
+            readonly content: string;
         } | null;
     } | null> | null;
 };

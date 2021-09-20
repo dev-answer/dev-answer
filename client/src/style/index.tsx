@@ -29,5 +29,5 @@ export const getFadeOutStyle = (duration: number) => css`
 export const getFadeInOutAnimation = (on: boolean, duration: number) => css`
   ${on
     ? getFadeInStyle(duration)
-    : getFadeOutStyle(duration)};
+    : getFadeOutStyle(duration)}
 `;

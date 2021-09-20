@@ -63,7 +63,7 @@ const Overlay = styled.div<{ show: boolean }>`
   height: 100%;
   z-index: 1;
   background: black;
-  ${({ show }) => getFadeInOutAnimation(show, ANIMATION_DURATION)};
+  ${({ show }) => getFadeInOutAnimation(show, ANIMATION_DURATION)}
 `;
 
 export default BottomSheet;
