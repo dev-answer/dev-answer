@@ -63,7 +63,7 @@ const AlignButton = styled.button`
 
 const Section = styled.section`
   position: relative;
-  background-color: #C5C9E1;
+  background: #C5C9E1;
   height: 704px;
   width: 664px;
   border-radius: 15px;

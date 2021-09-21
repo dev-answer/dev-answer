@@ -35,7 +35,7 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
   if (!isLoggedIn) {
     return (
       <ol>
-        {comments.slice(0, 1).map((comment) => (
+        {comments.slice(0, 2).map((comment) => (
           <Comment
             key={comment.id}
             comment={comment}

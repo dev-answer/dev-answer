@@ -7,6 +7,8 @@ import {
 } from 'react-relay';
 import { RecordSourceSelectorProxy } from 'relay-runtime';
 
+import styled from '@emotion/styled';
+
 import { CommentInputFormMutation } from '../../__generated__/CommentInputFormMutation.graphql';
 import { CommentInputFormQuery } from '../../__generated__/CommentInputFormQuery.graphql';
 
@@ -49,7 +51,7 @@ const CommentInputForm: React.FC<Props> = ({ myInfoRef }) => {
   const [commitComment, isLoading] = useMutation<CommentInputFormMutation>(CommentMutation);
   const [commentInput, setCommentInput] = useState('');
 
-  const handleChangeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCommentInput(event.target.value);
   }, []);
 
@@ -86,28 +88,31 @@ const CommentInputForm: React.FC<Props> = ({ myInfoRef }) => {
   if (!isLoggedIn) {
     return (
       <>
-        <p>다른 사람의 답변이 궁금하다면?</p>
-        <GitHubOAuthAnchor>GitHub으로 로그인하기</GitHubOAuthAnchor>
+        <Gradient top="280px" />
+        <Section>
+          <SubTitle>다른 사람의 답변이 궁금하다면?</SubTitle>
+          <LoginButton type="button">
+            <GitHubOAuthAnchor>GitHub으로 로그인하기</GitHubOAuthAnchor>
+          </LoginButton>
+        </Section>
       </>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="commentInput">
-        유저프로필
-        <input
-          type="text"
-          id="commentInput"
+    <>
+      <Gradient top="500px" />
+      <Form onSubmit={handleSubmit}>
+        <FormInput
           placeholder="제 생각에는..."
           value={commentInput}
           onChange={handleChangeInput}
         />
-      </label>
-      <button type="submit">
-        등록
-      </button>
-    </form>
+        <SubmitButton type="submit">
+          등록
+        </SubmitButton>
+      </Form>
+    </>
   );
 };
 
@@ -133,5 +138,73 @@ const CommentInputFormContainer = () => {
     </Suspense>
   );
 };
+
+const Section = styled.section`
+  position: absolute;
+  top: 380px;
+  height: 300px;
+  width: 100%;
+  background: #C5C9E1;
+  text-align: center;
+`;
+
+const SubTitle = styled.p`
+  text-align: center;
+  font-size: 30px;
+  line-height: 35px;
+  color: #230640;
+  margin-top: 100px;
+`;
+
+const LoginButton = styled.button`
+  width: 184px;
+  height: 48px;
+  background: #FFE666;
+  border-radius: 10px;
+  margin-top: 20px;
+`;
+
+type GradientProps = {
+  top: string;
+}
+
+const Gradient = styled.div`
+  position: absolute;
+  top: ${(props: GradientProps) => props.top};
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(rgba(197, 201, 225, 0.3), rgba(197, 201, 225, 1));
+`;
+
+const Form = styled.form`
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  top: 600px;
+  background: #C5C9E1;
+  border-radius: 10px;
+`;
+
+const FormInput = styled.textarea`
+  width: 550px;
+  height: 88px;
+  background: #F6F6FA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  resize: none;
+`;
+
+const SubmitButton = styled.button`
+  position: relative;
+  margin-left: 8px;
+  top: -40px;
+  width: 57px;
+  height: 88px;
+  background: #FFE666;
+  border-radius: 10px;
+`;
 
 export default CommentInputFormContainer;
