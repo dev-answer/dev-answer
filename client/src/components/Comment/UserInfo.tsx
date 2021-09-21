@@ -86,4 +86,5 @@ const Name = styled.p`
   padding-top: 24px;
   font-size: 18px;
   color: #4F3866;
+  font-weight: bold;
 `;

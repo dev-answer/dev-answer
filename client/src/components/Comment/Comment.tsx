@@ -14,17 +14,22 @@ interface Props {
 
 const Comment: React.FC<Props> = ({ comment }) => {
   const {
-    id, uid, like, content,
+    id, uid, like, content, createdAt,
   } = comment;
 
   if (!uid) {
     return <p>유저 정보를 불러오지 못했습니다</p>;
   }
 
+  const createdTime = createdAt?.split('T')[0].split('-').join('/').slice(-8);
+
   return (
     <CommentArea>
       <TopArea>
         <UserInfo uid={uid} />
+        <CreatedTime>
+          {createdTime}
+        </CreatedTime>
         <LikeArea>
           <LikeButton
             commentId={id}
@@ -41,6 +46,7 @@ const Comment: React.FC<Props> = ({ comment }) => {
     </CommentArea>
   );
 };
+
 export default createFragmentContainer(Comment, {
   comment: graphql`
     fragment Comment_comment on Comment{
@@ -88,4 +94,13 @@ const CommentContent = styled.p`
   font-size: 18px;
   line-height: 22px;
   color: #391F54;
+`;
+
+const CreatedTime = styled.p`
+  position: relative;
+  padding-left: 14px;
+  top: 26px;
+  font-size: 14px;
+  line-height: 115%;
+  color: #4F3866;
 `;

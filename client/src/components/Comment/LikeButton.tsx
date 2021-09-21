@@ -45,6 +45,7 @@ export default function LikeButton({ commentId, uid }:Props) {
 }
 
 const Button = styled.button`
-  position: relative;
-  top: 10px;
+  position: absolute;
+  top: -2px;
+  right: 12px;
 `;
