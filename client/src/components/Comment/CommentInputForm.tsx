@@ -88,7 +88,7 @@ const CommentInputForm: React.FC<Props> = ({ myInfoRef }) => {
   if (!isLoggedIn) {
     return (
       <>
-        <Gradient top="280px" />
+        <Gradient top="280px" height="100px" />
         <Section>
           <SubTitle>다른 사람의 답변이 궁금하다면?</SubTitle>
           <LoginButton type="button">
@@ -101,7 +101,7 @@ const CommentInputForm: React.FC<Props> = ({ myInfoRef }) => {
 
   return (
     <>
-      <Gradient top="500px" />
+      <Gradient top="550px" height="50px" />
       <Form onSubmit={handleSubmit}>
         <FormInput
           placeholder="제 생각에는..."
@@ -166,24 +166,26 @@ const LoginButton = styled.button`
 
 type GradientProps = {
   top: string;
+  height: string;
 }
 
 const Gradient = styled.div`
-  position: absolute;
+  position: fixed;
   top: ${(props: GradientProps) => props.top};
-  width: 100%;
-  height: 100px;
-  background: linear-gradient(rgba(197, 201, 225, 0.3), rgba(197, 201, 225, 1));
+  width: 650px;
+  height: ${(props: GradientProps) => props.height};
+  background: linear-gradient(rgba(197, 201, 225, 0.2), rgba(197, 201, 225, 1));
 `;
 
 const Form = styled.form`
-  position: absolute;
-  height: 100px;
-  width: 100%;
+  position: fixed;
+  height: 110px;
+  width: 650px;
   text-align: center;
-  top: 600px;
+  top: 596px;
   background: #C5C9E1;
   border-radius: 10px;
+  /* border: 1px solid black; */
 `;
 
 const FormInput = styled.textarea`
@@ -195,6 +197,7 @@ const FormInput = styled.textarea`
   border: none;
   padding: 8px;
   resize: none;
+  outline: none;
 `;
 
 const SubmitButton = styled.button`

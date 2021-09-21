@@ -29,7 +29,7 @@ const CommentHeader = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding-top: 40px;
+  padding: 40px 0;
 `;
 
 const H2 = styled.h2`
@@ -68,6 +68,8 @@ const Section = styled.section`
   width: 664px;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  overflow-y: scroll;
 `;
 
 export default CommentPage;

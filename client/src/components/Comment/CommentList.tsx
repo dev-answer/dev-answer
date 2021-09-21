@@ -4,6 +4,8 @@ import {
   graphql, usePreloadedQuery, PreloadedQuery, useQueryLoader,
 } from 'react-relay';
 
+import styled from '@emotion/styled';
+
 import { CommentListQuery } from '../../__generated__/CommentListQuery.graphql';
 
 import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
@@ -53,6 +55,7 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
           comment={comment}
         />
       ))}
+      <Space />
     </ol>
   );
 };
@@ -82,5 +85,9 @@ const CommentList: React.FC<CommentListProps> = ({ questionId }) => {
     </Suspense>
   );
 };
+
+const Space = styled.div`
+  height: 120px;
+`;
 
 export default CommentList;
