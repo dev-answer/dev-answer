@@ -23,15 +23,21 @@ const Comment: React.FC<Props> = ({ comment }) => {
 
   return (
     <CommentArea>
-      <UserInfo uid={uid} />
-      <LikeButton
-        commentId={id}
-        uid={uid}
-      />
-      <span>{like?.length}</span>
-      <p>
+      <TopArea>
+        <UserInfo uid={uid} />
+        <LikeArea>
+          <LikeButton
+            commentId={id}
+            uid={uid}
+          />
+          <LikeCount>
+            {like?.length}
+          </LikeCount>
+        </LikeArea>
+      </TopArea>
+      <CommentContent>
         {content}
-      </p>
+      </CommentContent>
     </CommentArea>
   );
 };
@@ -49,7 +55,37 @@ export default createFragmentContainer(Comment, {
 });
 
 const CommentArea = styled.li`
-  border: 1px solid gray;
-  margin: 10px;
-  padding: 10px;
+  margin: 0 8px;
+  padding: 16px;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    background: #ECEDF5;
+    height: 1px;
+    width: 585px;
+  }
+`;
+
+const TopArea = styled.div`
+  display: flex;
+`;
+
+const LikeArea = styled.div`
+  position: absolute;
+  right: 100px;
+`;
+
+const LikeCount = styled.span`
+  position: relative;
+  top: 6px;
+  left: 10px;
+`;
+
+const CommentContent = styled.p`
+  width: 550px;
+  padding-top: 16px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #391F54;
 `;

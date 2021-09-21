@@ -2,7 +2,11 @@ import React from 'react';
 
 import { graphql, useMutation } from 'react-relay';
 
+import styled from '@emotion/styled';
+
 import { LikeButtonMutation } from '__generated__/LikeButtonMutation.graphql';
+
+import HeartIcon from '../Icon/HeartIcon';
 
 interface Props {
   commentId: string
@@ -31,11 +35,16 @@ export default function LikeButton({ commentId, uid }:Props) {
   };
 
   return (
-    <button
+    <Button
       type="button"
       onClick={handleClick}
     >
-      좋아요
-    </button>
+      <HeartIcon size={23} color="none" />
+    </Button>
   );
 }
+
+const Button = styled.button`
+  position: relative;
+  top: 10px;
+`;

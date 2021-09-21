@@ -57,7 +57,11 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
   );
 };
 
-const CommentList: React.FC = () => {
+interface CommentListProps{
+  questionId: number;
+}
+
+const CommentList: React.FC<CommentListProps> = ({ questionId }) => {
   const [
     commentQueryRef,
     loadQuery,
@@ -65,8 +69,7 @@ const CommentList: React.FC = () => {
   ] = useQueryLoader<CommentListQuery>(CommentQuery);
 
   useEffect(() => {
-    // TODO : 임시로 questionId: 1 불러옴. 질문 상세 페이지 완성 후 변수화 시킬 예정
-    loadQuery({ questionId: 1 });
+    loadQuery({ questionId });
     return () => {
       disposeQuery();
     };

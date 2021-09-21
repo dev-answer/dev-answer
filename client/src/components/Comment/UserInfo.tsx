@@ -3,6 +3,8 @@ import {
   graphql, PreloadedQuery, usePreloadedQuery, useQueryLoader,
 } from 'react-relay';
 
+import styled from '@emotion/styled';
+
 import { UserInfoQuery } from '__generated__/UserInfoQuery.graphql';
 
 interface Props {
@@ -37,24 +39,11 @@ function UserInfoContainer({ userQueryRef }: Props) {
   return (
     <>
       <a href={gitHubURL}>
-        {/* TODO: 추후 emotion 적용 */}
-        <img
+        <ProfileImage
           src={profileImageURL}
-          style={{
-            width: '50px',
-            borderRadius: '20%',
-          }}
           alt="깃허브프로필이미지"
         />
-        <p
-          style={{
-            display: 'inline-block',
-            marginLeft: '10px',
-            paddingTop: '17px',
-          }}
-        >
-          {name}
-        </p>
+        <Name>{name}</Name>
       </a>
     </>
   );
@@ -84,3 +73,17 @@ export default function UserInfo({ uid }: { uid: string }) {
     </Suspense>
   );
 }
+
+const ProfileImage = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+`;
+
+const Name = styled.p`
+  display: inline-block;
+  margin-left: 8px;
+  padding-top: 24px;
+  font-size: 18px;
+  color: #4F3866;
+`;
