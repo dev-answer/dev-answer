@@ -1,18 +1,18 @@
 [
   {
-    "id": 1,
+    "id": "category_1",
     "title": "React"
   },
   {
-    "id": 2,
+    "id": "category_2",
     "title": "JavaScript"
   },
   {
-    "id": 3,
+    "id": "category_3",
     "title": "HTML"
   },
   {
-    "id": 4,
+    "id": "category_4",
     "title": "CSS"
   }
 ]

@@ -19,7 +19,7 @@ type Comment {
   id: ID!
   questionId: Int
   createdAt: String
-  userEmail: String
+  uid: String
   content: String
   like: [String]
   dislike: [String]
@@ -29,7 +29,8 @@ type Comment {
 type Mutation {
   login(code: String!): Auth!
   logout(accessToken: String!): Boolean
-  addComment(questionId: Int, userEmail: String, content: String): Comment
+  addComment(questionId: Int, uid: String, content: String): Comment
+  toggleLike(commentId: String, uid: String): Comment
   addBookmark(userId: Int, questionId: Int): Bookmark
   removeBookmark(bookmarkId: Int!): Bookmark
 }
@@ -37,6 +38,8 @@ type Mutation {
 type Query {
   allQuestionCategories: [QuestionCategory!]!
   allQuestions: [Question!]!
+  questionDetail(questionId: Int!): Question
+  questionsByCategoryId(categoryId: String!): [Question!]!
   allUsers: [User!]!
   userInfo(userId: String!): User
   myInfo(accessToken: String!): User
@@ -46,11 +49,19 @@ type Query {
 
 type Question {
   id: ID!
-  title: String
-  content: String
-  category: String
-  level: Int
-  frequency: Boolean
+  content: String!
+  categoryId: String!
+  category: QuestionCategory!
+  authorId: String!
+  author: QuestionAuthor!
+  comments: [Comment!]!
+}
+
+type QuestionAuthor {
+  id: String!
+  name: String!
+  gitHubURL: String!
+  profileImageURL: String!
 }
 
 type QuestionCategory {
@@ -61,7 +72,7 @@ type QuestionCategory {
 type SubComment {
   id: ID!
   createdAt: String
-  userEmail: String
+  uid: String
   content: String
   like: [String]
   dislike: [String]

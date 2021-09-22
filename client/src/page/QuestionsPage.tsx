@@ -15,7 +15,6 @@ const questionsQuery = graphql`
   query QuestionsPageQuery($userId: Int!) {
     allQuestions {
       id
-      title
       content
     }
     bookmarks(userId: $userId) {

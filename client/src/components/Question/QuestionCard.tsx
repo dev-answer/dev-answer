@@ -12,7 +12,6 @@ import CommentIcon from '../../components/Icon/CommentIcon';
 const questionCardFragment = graphql`
   fragment QuestionCard_question on Question {
     content
-    category
   }
 `;
 

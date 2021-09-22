@@ -4,24 +4,24 @@
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type CommentPageQueryVariables = {
+export type CommentListQueryVariables = {
     questionId?: number | null;
 };
-export type CommentPageQueryResponse = {
+export type CommentListQueryResponse = {
     readonly comments: ReadonlyArray<{
         readonly id: string;
         readonly " $fragmentRefs": FragmentRefs<"Comment_comment">;
     }>;
 };
-export type CommentPageQuery = {
-    readonly response: CommentPageQueryResponse;
-    readonly variables: CommentPageQueryVariables;
+export type CommentListQuery = {
+    readonly response: CommentListQueryResponse;
+    readonly variables: CommentListQueryVariables;
 };
 
 
 
 /*
-query CommentPageQuery(
+query CommentListQuery(
   $questionId: Int
 ) {
   comments(questionId: $questionId) {
@@ -34,10 +34,9 @@ fragment Comment_comment on Comment {
   id
   questionId
   createdAt
-  userEmail
+  uid
   content
   like
-  dislike
 }
 */
 
@@ -66,7 +65,7 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
-            "name": "CommentPageQuery",
+            "name": "CommentListQuery",
             "selections": [
                 {
                     "alias": null,
@@ -93,7 +92,7 @@ const node: ConcreteRequest = (function () {
         "operation": {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
-            "name": "CommentPageQuery",
+            "name": "CommentListQuery",
             "selections": [
                 {
                     "alias": null,
@@ -122,7 +121,7 @@ const node: ConcreteRequest = (function () {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
-                            "name": "userEmail",
+                            "name": "uid",
                             "storageKey": null
                         },
                         {
@@ -138,13 +137,6 @@ const node: ConcreteRequest = (function () {
                             "kind": "ScalarField",
                             "name": "like",
                             "storageKey": null
-                        },
-                        {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "dislike",
-                            "storageKey": null
                         }
                     ],
                     "storageKey": null
@@ -152,14 +144,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "fc19f9c69153daf7c7a0e43ea120a9c1",
+            "cacheID": "bde5582b5640341e89072ae9338b9a9c",
             "id": null,
             "metadata": {},
-            "name": "CommentPageQuery",
+            "name": "CommentListQuery",
             "operationKind": "query",
-            "text": "query CommentPageQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  userEmail\n  content\n  like\n  dislike\n}\n"
+            "text": "query CommentListQuery(\n  $questionId: Int\n) {\n  comments(questionId: $questionId) {\n    id\n    ...Comment_comment\n  }\n}\n\nfragment Comment_comment on Comment {\n  id\n  questionId\n  createdAt\n  uid\n  content\n  like\n}\n"
         }
     } as any;
 })();
-(node as any).hash = 'c39e177f53e921e85d53b896dc6a48df';
+(node as any).hash = 'd0a6df47b24ee9d8d387780282723044';
 export default node;

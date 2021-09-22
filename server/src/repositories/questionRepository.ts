@@ -11,4 +11,9 @@ export default class QuestionRepository extends Repository {
     const result = await this.collection.findOneByQuestionId(quetionId);
     return result;
   }
+
+  async findManyByCategoryId(categoryId: string) {
+    const result = await this.collection.findManyByCategoryId(categoryId);
+    return result;
+  }
 }
