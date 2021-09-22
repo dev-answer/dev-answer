@@ -9,33 +9,35 @@ const userModelSchema = new Schema<User>({
   gitHubURL: String,
   profileImageURL: String,
   gitHubAccessToken: String,
-})
+});
 
-const userModel = model<User>('User', userModelSchema);
+const userModelDB = model<User>('User', userModelSchema);
 
 export default class UserModel {
   users;
 
   constructor() {
-    this.users = userModel;
+    this.users = userModelDB;
   }
 
   async findMany(): Promise<User[] | []> {
-    return await this.users.find();
+    const users = await this.users.find();
+    return users;
   }
 
   async findOneByUserId(userId: string): Promise<User | null> {
-    return await this.users.findOne({ id: userId });
+    const user = await this.users.findOne({ id: userId });
+    return user;
   }
 
   async findOneByAccessToken(accessToken: string): Promise<User | null> {
-    return await this.users.findOne({ accessToken });
+    const user = await this.users.findOne({ accessToken });
+    return user;
   }
 
   async createOne(user: User) {
-    const newUser = new userModel(user);
-    await newUser.save();
-    return newUser;
+    await this.users.create(user);
+    return user;
   }
 
   async updateOne(user: User, paylaod: Partial<User>) {

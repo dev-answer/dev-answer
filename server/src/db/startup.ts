@@ -6,5 +6,5 @@ export default async () => {
   } catch (err) {
     return err;
   }
-  return;
+  return null;
 };

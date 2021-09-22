@@ -28,9 +28,12 @@ export default class QuestionModel {
   }
 
   async findOneByQuestionId(questionId: number): Promise<Question | null> {
-    return this.questions.findOne({ id: questionId });
+    const question = await this.questions.findOne({ id: questionId });
+    return question;
   }
+
   async findMany(): Promise<Question[]> {
-    return await this.questions.find();
+    const questions = await this.questions.find();
+    return questions;
   }
 }

@@ -18,29 +18,30 @@ const commentModelSchema = new Schema<Comment>({
     like: [String],
     dislike: [String],
   }],
-})
+});
 
-const commentModel = model<Comment>('Comment', commentModelSchema);
-
+const CommentModelDB = model<Comment>('Comment', commentModelSchema);
 
 export default class CommentModel {
   comments
 
   constructor() {
-    this.comments = commentModel;
+    this.comments = CommentModelDB;
   }
 
   async findMany(): Promise<Comment[] | []> {
-    return await this.comments.find();
+    const comments = await this.comments.find();
+    return comments;
   }
 
   async findOne(questionId: number): Promise<Comment | null> {
-    return await this.comments.findOne({ questionId });
+    const comment = await this.comments.findOne({ questionId });
+    return comment;
   }
 
   async create({ questionId, userEmail, content }: NewComment) {
     try {
-      const id = this.comments.length + 1;//TODO: 추후 수정 필요
+      const id = this.comments.length + 1;// TODO: 추후 수정 필요
       const comment: Comment = {
         id,
         questionId,
@@ -52,7 +53,7 @@ export default class CommentModel {
         subComments: [],
       };
 
-      const newComment = new commentModel(comment);
+      const newComment = new CommentModelDB(comment);
       await newComment.save();
       return newComment;
     } catch (error) {

@@ -12,7 +12,6 @@ const questionCategorySchema = new Schema<QuestionCategory>({
 
 const questionCategoryModel = model<QuestionCategory>('QuestionCategory', questionCategorySchema);
 
-
 export default class QuestionCategoryModel {
   questionCategories;
 

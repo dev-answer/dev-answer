@@ -1,6 +1,5 @@
-import QuestionModel from './questionModel';
-
 import { Schema, model } from 'mongoose';
+import QuestionModel from './questionModel';
 
 import { Bookmark, BookmarkInput } from '../types';
 
@@ -9,20 +8,20 @@ const bookmarkModelSchema = new Schema<Bookmark>({
   userId: Number,
   questionId: Number,
   createdAt: String,
-})
+});
 
-const bookMarkModel = model<Bookmark>('Bookmark', bookmarkModelSchema);
-
+const BookMarkModelDB = model<Bookmark>('Bookmark', bookmarkModelSchema);
 
 export default class BookmarkModel {
   bookmarks
 
   constructor() {
-    this.bookmarks = bookMarkModel;
+    this.bookmarks = BookMarkModelDB;
   }
 
   async findManyByUserId(userId: number): Promise<Bookmark[] | []> {
-    return await this.bookmarks.find({ userId })
+    const users = await this.bookmarks.find({ userId });
+    return users;
   }
 
   uid = (() => { // TODO : 일단 기능 구현 완성 후 uuid 도입 예정
@@ -42,7 +41,7 @@ export default class BookmarkModel {
     };
 
     try {
-      const newBookmark = new bookMarkModel(bookmark);
+      const newBookmark = new BookMarkModelDB(bookmark);
 
       await newBookmark.save();
 
@@ -63,7 +62,7 @@ export default class BookmarkModel {
 
   async removeOne(bookmarkId: number): Promise<Bookmark | null> {
     try {
-      const removedBookmark = await this.bookmarks.findOne({ id: bookmarkId })
+      const removedBookmark = await this.bookmarks.findOne({ id: bookmarkId });
       await this.bookmarks.deleteOne({ id: bookmarkId });
       return removedBookmark;
     } catch (error) {
