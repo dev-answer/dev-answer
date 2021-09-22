@@ -1,6 +1,6 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-interface Question extends Document {
+interface Question {
   id: number;
   title: string;
   content: string;
@@ -9,13 +9,13 @@ interface Question extends Document {
   frequency: boolean;
 }
 
-const questionSchema = new Schema({
-  id: { type: Number, required: false },
-  title: { type: String, required: false },
-  content: { type: String, required: false },
-  category: { type: String, required: false },
-  level: { type: Number, required: false },
-  frequency: { type: Boolean, required: false },
+const questionSchema = new Schema<Question>({
+  id: Number,
+  title: String,
+  content: String,
+  category: String,
+  level: Number,
+  frequency: Boolean,
 });
 
 const questionModel = model<Question>('Question', questionSchema);
@@ -27,8 +27,10 @@ export default class QuestionModel {
     this.questions = questionModel;
   }
 
+  async findOneByQuestionId(questionId: number): Promise<Question | null> {
+    return this.questions.findOne({ id: questionId });
+  }
   async findMany(): Promise<Question[]> {
-    const result = await this.questions.find();
-    return result;
+    return await this.questions.find();
   }
 }
