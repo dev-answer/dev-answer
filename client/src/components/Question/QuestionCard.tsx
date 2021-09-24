@@ -31,7 +31,7 @@ const QuestionCard: React.FC<Props> = ({ questionRef, onClick }) => {
   return (
     <Card onClick={handleClickCard}>
       <IconLayout>
-        <QIcon size={50} color="black" />
+        <QIcon width={50} height={50} color="#8992C1" />
         <BookmarkButton>
           <BookmarkIcon size={50} color="#F5F5F5" />
         </BookmarkButton>
