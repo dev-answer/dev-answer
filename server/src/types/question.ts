@@ -17,6 +17,7 @@ export interface Question {
   content: string,
   categoryId: string,
   authorId: string
+  infomations: string[]
 }
 
 export interface QuestionResponse extends Question {
