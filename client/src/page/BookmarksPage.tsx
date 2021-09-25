@@ -1,53 +1,22 @@
 import React, { useEffect, Suspense } from 'react';
 
 import {
-  graphql,
   useQueryLoader,
-  usePreloadedQuery,
-  PreloadedQuery,
 } from 'react-relay/hooks';
+
+import styled from '@emotion/styled';
 
 import { BookmarksPageQueryType } from '../__generated__/BookmarksPageQuery.graphql';
 
-import BookmarkButton from '../components/common/BookmarkButton';
+import Header from '../components/common/Header';
 
-const bookmarksQuery = graphql`
-  query BookmarksPageQuery($userId: Int!) {
-    bookmarks(userId: $userId) {
-      id
-      question {
-        id
-        content
-      }
-    }
-  }
-`;
+import CardViewIcon from '../components/Icon/CardViewIcon';
+import FilterIcon from '../components/Icon/FilterIcon';
+import ButtonWithIcon from '../components/common/ButtonWithIcon';
 
-type Props = {
-  bookmarksQueryRef: PreloadedQuery<BookmarksPageQueryType>,
-};
+import Bookmarks, { bookmarksQuery } from '../components/Bookmark/Bookmarks';
 
-const Bookmarks = ({ bookmarksQueryRef }: Props) => {
-  const data = usePreloadedQuery(bookmarksQuery, bookmarksQueryRef);
-
-  const { bookmarks } = data;
-
-  return (
-    <ul>
-      {bookmarks
-        .filter((bookmark) => bookmark)
-        .map((bookmark) => (
-          <li key={bookmark.id}>
-            <p>{`Q) ${bookmark.question?.content}`}</p>
-            <BookmarkButton
-              bookmark={bookmark}
-              questionId={bookmark?.question?.id}
-            />
-          </li>
-        ))}
-    </ul>
-  );
-};
+import PageNavigator from '../components/common/PageNavigator';
 
 const BookmarksPage: React.FC = () => {
   const [
@@ -66,9 +35,99 @@ const BookmarksPage: React.FC = () => {
 
   return (
     <Suspense fallback={<p>bookmarkloading</p>}>
-      <Bookmarks bookmarksQueryRef={bookmarksQueryRef} />
+      <Header logoColor="#626DAD" backgroundColor="transparent" />
+      <BookmarkPageArea>
+        <HeaderArea>
+          <TitleArea>
+            <h2>Javascript</h2>
+            <span>_level 1</span>
+          </TitleArea>
+          <ButtonsArea>
+            <CardViewIcon size={32} color="#C5C9E1" />
+            <ButtonWithIcon
+              width={124}
+              height={48}
+              text="최신 풀이 순"
+              Icon={() => <FilterIcon size={16} color="#626DAD" />}
+            />
+          </ButtonsArea>
+
+        </HeaderArea>
+
+        <Bookmarks bookmarksQueryRef={bookmarksQueryRef} />
+
+        <PageNavigator
+          selectedFontColor="#FFFFFF"
+          unselectedFontColor="#230640"
+          selectedColor="#626DAD"
+          unselectedColor="#C5C9E1"
+          totalPageCount={5}
+          currentPage={2}
+          onClickPage={() => { console.log('페이지 클릭'); }}
+        />
+      </BookmarkPageArea>
+
     </Suspense>
   );
 };
+
+const BookmarkPageArea = styled.div`
+  margin: 52px 248px 0;
+
+  > div:last-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 56px 0;
+  }
+`;
+
+const HeaderArea = styled.div`
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+const TitleArea = styled.div`
+
+  & h2 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 64px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  & span {
+    position: relative;
+    top: 26px;
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+`;
+
+const ButtonsArea = styled.div`
+
+  align-items: center;
+  justify-content: center;
+
+  & button {
+    margin-left: 16px;
+  }
+`;
 
 export default BookmarksPage;
