@@ -23,7 +23,7 @@ export interface Question {
   id: number,
   content: string,
   categoryId: string,
-  vote: QuestionVote[]
+  votes: QuestionVote[]
   authorId: string
   informations: string[]
 }

@@ -22,7 +22,7 @@ type Question {
   content: String!,
   categoryId: String!,
   category: QuestionCategory!,
-  vote: [QuestionVote!]!
+  votes: [QuestionVote!]!
   authorId: String!
   author: QuestionAuthor!
   comments: [Comment!]!
