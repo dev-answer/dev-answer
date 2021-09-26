@@ -1,7 +1,7 @@
 import {
-  Comment, Question, QuestionAuthor, QuestionCategory, QuestionResponse, User,
+  Comment, Question, QuestionAuthor, QuestionCategory, QuestionResponse, QuestionVoteKind, User,
 } from '../types';
-import { readJSON } from '../utils';
+import { readJSON, writeJSON } from '../utils';
 
 export default class QuestionModel {
   questions: Question[];
@@ -66,5 +66,32 @@ export default class QuestionModel {
 
   findMany(): QuestionResponse[] {
     return this.questions.map((question) => this.merge(question)!).filter(Boolean);
+  }
+
+  vote(questionId: number, userId: string, kind: QuestionVoteKind) {
+    this.questions = readJSON(this.jsonPath);
+
+    const question = this.questions.find((q) => q.id === questionId);
+
+    if (!question) {
+      return null;
+    }
+
+    const hasAlreadyBeenVoted = question.vote.find((v) => v.userId === userId);
+    const vote = hasAlreadyBeenVoted
+      ? question.vote.map((v) => (v.userId === userId ? { userId, kind } : v))
+      : [...question.vote, { userId, kind }];
+
+    const updatedQuestion = { ...question, vote };
+
+    this.questions = this.questions.map((q) => (q.id === questionId ? updatedQuestion : q));
+    writeJSON(this.jsonPath, this.questions);
+
+    const normalizedVoteCount = updatedQuestion.vote.reduce(
+      (acc, cur) => ({ ...acc, [cur.kind]: acc[cur.kind] + 1 }),
+      { easy: 0, normal: 0, hard: 0 },
+    );
+
+    return normalizedVoteCount;
   }
 }

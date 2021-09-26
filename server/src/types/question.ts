@@ -12,11 +12,20 @@ export interface QuestionAuthor {
   profileImageURL: string
 }
 
+export type QuestionVoteKind = 'easy' | 'normal' | 'hard'
+
+export interface QuestionVote {
+  userId: string
+  kind: QuestionVoteKind
+}
+
 export interface Question {
   id: number,
   content: string,
   categoryId: string,
+  vote: QuestionVote[]
   authorId: string
+  infomations: string[]
 }
 
 export interface QuestionResponse extends Question {
