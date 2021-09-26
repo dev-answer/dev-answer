@@ -3,7 +3,7 @@ export default `
 type SubCommentDB {
   id: ID!
   createdAt: String
-  userEmail: String
+  uid: String
   content: String
   like: [String]
   dislike: [String]
@@ -13,7 +13,7 @@ type CommentDB {
   id: ID!
   questionId: Int
   createdAt: String
-  userEmail: String
+  uid: String
   content: String
   like: [String]
   dislike: [String]
@@ -25,6 +25,7 @@ type Query {
 }
 
 type Mutation {
-  addCommentDB(questionId: Int, userEmail: String, content: String): CommentDB
+  addCommentDB(questionId: Int, uid: String, content: String): CommentDB
+  toggleLikeDB(commentId: String, uid: String): CommentDB
 }
 `;

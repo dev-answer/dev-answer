@@ -1,19 +1,20 @@
 import { Schema, model } from 'mongoose';
+import { v4 } from 'uuid';
 
 import { Comment, NewComment } from '../types';
 
 const commentModelSchema = new Schema<Comment>({
-  id: Number,
+  id: String,
   questionId: Number,
   createdAt: String,
-  userEmail: String,
+  uid: String,
   content: String,
   like: [{ type: String }],
   dislike: [{ type: String }],
   subComments: [{
-    id: Number,
+    id: String,
     createdAt: String,
-    userEmail: String,
+    uid: String,
     content: String,
     like: [String],
     dislike: [String],
@@ -28,26 +29,30 @@ export default class CommentModel {
   constructor() {
     this.comments = CommentModelDB;
   }
-  // findMany 보단 findAll이 나을듯
+
   async findMany(): Promise<Comment[] | []> {
     const comments = await this.comments.find();
     return comments;
   }
 
-  // TODO: findOne 보단 다수 return 하므로 find by questionId가 나을듯 혹은 bookmarkModel 쪽 처럼 findManyByUserId
-  async findOne(questionId: number): Promise<Comment[] | null> {
+  async findOneByQuestionId(questionId: number): Promise<Comment[] | null> {
     const comment = await this.comments.find({ questionId });
     return comment;
   }
 
-  async create({ questionId, userEmail, content }: NewComment) {
+  async findOneByCommentId(commentId: string) {
+    const comment = await this.comments.find({ commentId });
+    return comment;
+  }
+
+  /*eslint class-methods-use-this: "error"*/
+  async createOne({ questionId, uid, content }: NewComment) {
     try {
-      const id = this.comments.length + 1;// TODO: 추후 수정 필요
       const comment: Comment = {
-        id,
+        id: `comment_${v4()}`,
         questionId,
         createdAt: new Date().toJSON(),
-        userEmail,
+        uid,
         content,
         like: [],
         dislike: [],
@@ -61,4 +66,57 @@ export default class CommentModel {
       throw Error(`${error}파일 작성에 실패했습니다`);
     }
   }
+
+  // 이쪽 수정 부탁드립니다.
+  // async updateOne({
+  //   targetId, action, updateField, payload,
+  // }: UpdateInfo) {
+  //   try {
+  //     let allComments = await this.comments.find();
+  //     const targetComment = await this.findOneByCommentId(targetId);
+
+  //     if (!targetComment) {
+  //       throw Error('target을 찾을 수 없습니다');
+  //     }
+
+  //     const reducers = {
+  //       REVISE: (comments: Comment[]) => comments.map((comment) => {
+  //         if (comment.id === targetId) {
+  //           return {
+  //             ...comment,
+  //             [updateField]: payload,
+  //           };
+  //         }
+  //         return comment;
+  //       }),
+  //       PUSH: (comments: Comment[]) => comments.map((comment) => {
+  //         if ((comment.id === targetId) && (updateField === 'like')) {
+  //           return {
+  //             ...comment,
+  //             [updateField]: [...comment[updateField], payload],
+  //           };
+  //         }
+  //         return comment;
+  //       }),
+  //       FILTER: (comments: Comment[]) => comments.map((comment) => {
+  //         if ((comment.id === targetId) && (updateField === 'like')) {
+  //           return {
+  //             ...comment,
+  //             [updateField]: comment[updateField].filter((value: any) => value !== payload),
+  //           };
+  //         }
+  //         return comment;
+  //       }),
+  //     };
+
+  //     allComments = reducers[action](allComments);
+
+  //     await allComments.save();
+
+  //     const comment = await this.findOneByCommentId(targetId);
+  //     return comment;
+  //   } catch (error) {
+  //     throw Error(`${error}파일 작성에 실패했습니다`);
+  //   }
+  // }
 }

@@ -2,20 +2,30 @@ import CommentModel from '../models/commentModel.db';
 
 import Repository from './repository';
 
-import { NewComment } from '../types';
+import { NewComment, UpdateInfo } from '../types';
 
 export default class CommentRepository extends Repository {
   constructor() {
     super({ Model: new CommentModel() });
   }
 
-  async findOne(questionId: number) {
-    const result = await this.collection.findOne(questionId);
+  async findOneByQuestionId(questionId: number) {
+    const result = await this.collection.findOneByQuestionId(questionId);
     return result;
   }
 
-  async create(newComment: NewComment) {
-    const result = await this.collection.create(newComment);
+  async findOneByCommentId(commentId: string) {
+    const result = await this.collection.findOneByCommentId(commentId);
+    return result;
+  }
+
+  async createOne(newComment: NewComment) {
+    const result = await this.collection.createOne(newComment);
+    return result;
+  }
+
+  async updateOne(updateInfo: UpdateInfo) {
+    const result = await this.collection.updateOne(updateInfo);
     return result;
   }
 }
