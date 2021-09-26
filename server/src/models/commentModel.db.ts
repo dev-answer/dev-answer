@@ -28,14 +28,15 @@ export default class CommentModel {
   constructor() {
     this.comments = CommentModelDB;
   }
-
+  // findMany 보단 findAll이 나을듯
   async findMany(): Promise<Comment[] | []> {
     const comments = await this.comments.find();
     return comments;
   }
 
-  async findOne(questionId: number): Promise<Comment | null> {
-    const comment = await this.comments.findOne({ questionId });
+  // TODO: findOne 보단 다수 return 하므로 find by questionId가 나을듯 혹은 bookmarkModel 쪽 처럼 findManyByUserId
+  async findOne(questionId: number): Promise<Comment[] | null> {
+    const comment = await this.comments.find({ questionId });
     return comment;
   }
 
