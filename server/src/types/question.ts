@@ -25,7 +25,7 @@ export interface Question {
   categoryId: string,
   vote: QuestionVote[]
   authorId: string
-  infomations: string[]
+  informations: string[]
 }
 
 export interface QuestionResponse extends Question {
