@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import { graphql, useFragment } from 'react-relay';
@@ -12,6 +12,10 @@ const questionDetailCardFragment = graphql`
   fragment QuestionDetailCard_question on Question {
     id
     content
+    votes {
+      userId
+      kind
+    }
     author {
       name
       gitHubURL
@@ -28,8 +32,13 @@ interface Props {
 const QuestionDetailCard: React.FC<Props> = ({ questionRef }) => {
   const theme = useTheme();
 
-  const { content, author } = useFragment<QuestionDetailCard_question$key>(
+  const { content, author, votes } = useFragment<QuestionDetailCard_question$key>(
     questionDetailCardFragment, questionRef,
+  );
+
+  const voteCounter = useMemo(
+    () => votes.reduce((acc, cur) => ({ ...acc, [cur.kind]: (acc[cur.kind] ?? 0) + 1 }), {} as any),
+    [],
   );
 
   // 북마크쪽 서버 로직 완료되면 북마크도 퀘스쳔 데이터에 어그리게이트해서 내려주고, 이를 이용해서 조건부 렌더링 실행
@@ -66,18 +75,21 @@ const QuestionDetailCard: React.FC<Props> = ({ questionRef }) => {
             <Divider />
             <VoteRadioLabel htmlFor="easy">
               😏쉬워요
+              <VoteCounter>{voteCounter.easy}</VoteCounter>
               <RadioRabel htmlFor="easy">
                 <input type="radio" name="question_detail_vote" id="easy" />
               </RadioRabel>
             </VoteRadioLabel>
             <VoteRadioLabel htmlFor="normal">
               😍좋아요
+              <VoteCounter>{voteCounter.normal}</VoteCounter>
               <RadioRabel htmlFor="normal">
                 <input type="radio" name="question_detail_vote" id="normal" />
               </RadioRabel>
             </VoteRadioLabel>
             <VoteRadioLabel htmlFor="hard">
               😫어려워요
+              <VoteCounter>{voteCounter.hard}</VoteCounter>
               <RadioRabel htmlFor="hard">
                 <input type="radio" name="question_detail_vote" id="hard" />
               </RadioRabel>
@@ -183,7 +195,6 @@ const InformationContent = styled.p`
 
 const VoteRadioLabel = styled.label`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 24px;
   padding: 0 8px;
@@ -200,9 +211,14 @@ const VoteRadioLabel = styled.label`
   }
 `;
 
+const VoteCounter = styled.p`
+  margin-left: 8px;
+`;
+
 const RadioRabel = styled.label`
   display: block;
   height: 100%;
+  margin-left: auto;
 
   input[type="radio"]  { 
     appearance: none;

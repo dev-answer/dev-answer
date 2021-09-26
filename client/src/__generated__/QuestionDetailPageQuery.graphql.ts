@@ -32,6 +32,10 @@ query QuestionDetailPageQuery(
 fragment QuestionDetailCard_question on Question {
   id
   content
+  votes {
+    userId
+    kind
+  }
   author {
     name
     gitHubURL
@@ -113,6 +117,31 @@ const node: ConcreteRequest = (function () {
                         {
                             "alias": null,
                             "args": null,
+                            "concreteType": "QuestionVote",
+                            "kind": "LinkedField",
+                            "name": "votes",
+                            "plural": true,
+                            "selections": [
+                                {
+                                    "alias": null,
+                                    "args": null,
+                                    "kind": "ScalarField",
+                                    "name": "userId",
+                                    "storageKey": null
+                                },
+                                {
+                                    "alias": null,
+                                    "args": null,
+                                    "kind": "ScalarField",
+                                    "name": "kind",
+                                    "storageKey": null
+                                }
+                            ],
+                            "storageKey": null
+                        },
+                        {
+                            "alias": null,
+                            "args": null,
                             "concreteType": "QuestionAuthor",
                             "kind": "LinkedField",
                             "name": "author",
@@ -149,12 +178,12 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "cb3f3f5a40c5e31e2f6ffbe2d5baa279",
+            "cacheID": "301cbf3786cf532904c56ff8be23c5f5",
             "id": null,
             "metadata": {},
             "name": "QuestionDetailPageQuery",
             "operationKind": "query",
-            "text": "query QuestionDetailPageQuery(\n  $questionId: Int!\n) {\n  questionDetail(questionId: $questionId) {\n    ...QuestionDetailCard_question\n    id\n  }\n}\n\nfragment QuestionDetailCard_question on Question {\n  id\n  content\n  author {\n    name\n    gitHubURL\n    profileImageURL\n    id\n  }\n}\n"
+            "text": "query QuestionDetailPageQuery(\n  $questionId: Int!\n) {\n  questionDetail(questionId: $questionId) {\n    ...QuestionDetailCard_question\n    id\n  }\n}\n\nfragment QuestionDetailCard_question on Question {\n  id\n  content\n  votes {\n    userId\n    kind\n  }\n  author {\n    name\n    gitHubURL\n    profileImageURL\n    id\n  }\n}\n"
         }
     } as any;
 })();
