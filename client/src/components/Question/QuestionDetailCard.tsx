@@ -66,15 +66,21 @@ const QuestionDetailCard: React.FC<Props> = ({ questionRef }) => {
             <Divider />
             <VoteRadioLabel htmlFor="easy">
               😏쉬워요
-              <input type="radio" name="question_detail_vote" id="easy" />
+              <RadioRabel htmlFor="easy">
+                <input type="radio" name="question_detail_vote" id="easy" />
+              </RadioRabel>
             </VoteRadioLabel>
             <VoteRadioLabel htmlFor="normal">
               😍좋아요
-              <input type="radio" name="question_detail_vote" id="normal" />
+              <RadioRabel htmlFor="normal">
+                <input type="radio" name="question_detail_vote" id="normal" />
+              </RadioRabel>
             </VoteRadioLabel>
             <VoteRadioLabel htmlFor="hard">
               😫어려워요
-              <input type="radio" name="question_detail_vote" id="hard" />
+              <RadioRabel htmlFor="hard">
+                <input type="radio" name="question_detail_vote" id="hard" />
+              </RadioRabel>
             </VoteRadioLabel>
           </Information>
         </InformationArea>
@@ -187,9 +193,40 @@ const VoteRadioLabel = styled.label`
   font-size: 18px;
   line-height: 24px;
   color: ${({ theme }) => theme.colors.$t4};
+  cursor: pointer;
 
   :last-of-type {
     margin-bottom: 0;
+  }
+`;
+
+const RadioRabel = styled.label`
+  display: block;
+  height: 100%;
+
+  input[type="radio"]  { 
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    border: 2px solid ${({ theme }) => theme.colors.$5};
+    cursor: pointer;
+    margin: 0;
+  }
+
+  input[type="radio"]:checked  { 
+    position: relative;
+    background: ${({ theme }) => theme.colors.$5};
+    :after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      box-shadow: inset 0 0 0px 3px ${({ theme }) => theme.colors.$4};
+    }
   }
 `;
 
