@@ -8,12 +8,12 @@ const questionSchema = new Schema<Question>({
   id: Number,
   content: String,
   categoryId: String,
-  vote: [{
+  votes: [{
     userId: String,
     kind: String,
   }],
   authorId: String,
-  infomations: [String],
+  informations: [String],
 });
 
 const questionModel = model<Question>('Question', questionSchema);

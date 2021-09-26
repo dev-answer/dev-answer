@@ -77,17 +77,17 @@ export default class QuestionModel {
       return null;
     }
 
-    const hasAlreadyBeenVoted = question.vote.find((v) => v.userId === userId);
-    const vote = hasAlreadyBeenVoted
-      ? question.vote.map((v) => (v.userId === userId ? { userId, kind } : v))
-      : [...question.vote, { userId, kind }];
+    const hasAlreadyBeenVoted = question.votes.find((v) => v.userId === userId);
+    const votes = hasAlreadyBeenVoted
+      ? question.votes.map((v) => (v.userId === userId ? { userId, kind } : v))
+      : [...question.votes, { userId, kind }];
 
-    const updatedQuestion = { ...question, vote };
+    const updatedQuestion = { ...question, votes };
 
     this.questions = this.questions.map((q) => (q.id === questionId ? updatedQuestion : q));
     writeJSON(this.jsonPath, this.questions);
 
-    const normalizedVoteCount = updatedQuestion.vote.reduce(
+    const normalizedVoteCount = updatedQuestion.votes.reduce(
       (acc, cur) => ({ ...acc, [cur.kind]: acc[cur.kind] + 1 }),
       { easy: 0, normal: 0, hard: 0 },
     );
