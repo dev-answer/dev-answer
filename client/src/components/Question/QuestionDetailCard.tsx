@@ -112,16 +112,16 @@ const QuestionDetailCard: React.FC<Props> = ({ questionRef, userRef }) => {
 
   return (
     <CardArea>
-      <TopArea>
+      <div>
         <BookmarkButton>
           <BookmarkIcon size={84} color={isBookmarked ? theme.colors.$5 : theme.colors.$1} />
         </BookmarkButton>
         <QIcon size={72} color={theme.colors.$4} />
 
         <Question>{content}</Question>
-      </TopArea>
+      </div>
 
-      <BottomArea>
+      <div>
         <AuthorArea>
           <AuthorImage src={author.profileImageURL} alt={`${author.name}의 GitHub 프로필 이미지`} />
           <AuthorNickname href={author.gitHubURL}>{author.name}</AuthorNickname>
@@ -129,13 +129,14 @@ const QuestionDetailCard: React.FC<Props> = ({ questionRef, userRef }) => {
 
         <Divider />
 
-        <InformationArea>
+        <FlexArea>
           <Information>
             <InformationTitle>정보</InformationTitle>
             <Divider />
             <InformationContent>N사 기출</InformationContent>
             <InformationContent>Level 1</InformationContent>
           </Information>
+
           <Information>
             <InformationTitle>투표하기</InformationTitle>
             <Divider />
@@ -181,16 +182,16 @@ const QuestionDetailCard: React.FC<Props> = ({ questionRef, userRef }) => {
             </VoteRadioLabel>
 
           </Information>
-        </InformationArea>
+        </FlexArea>
 
         <Divider />
 
-        <AdditionalQuestionTitle>연관질문</AdditionalQuestionTitle>
+        <InformationTitle>연관질문</InformationTitle>
         <Divider />
-        <AdditionalQuestionContent>프론트엔드 개발자가 되기로 결심한 이유는?</AdditionalQuestionContent>
-        <AdditionalQuestionContent>마음이 맞지 않는 동료와 의견 충돌 경험?</AdditionalQuestionContent>
-        <AdditionalQuestionContent>프로젝트를 진행하며 겪은 트러블 슈팅?</AdditionalQuestionContent>
-      </BottomArea>
+        <InformationContentWithMargin>프론트엔드 개발자가 되기로 결심한 이유는?</InformationContentWithMargin>
+        <InformationContentWithMargin>마음이 맞지 않는 동료와 의견 충돌 경험?</InformationContentWithMargin>
+        <InformationContentWithMargin>프로젝트를 진행하며 겪은 트러블 슈팅?</InformationContentWithMargin>
+      </div>
     </CardArea>
   );
 };
@@ -231,10 +232,6 @@ const Question = styled.h2`
   max-height: 108px;
 `;
 
-const TopArea = styled.div``;
-
-const BottomArea = styled.div``;
-
 const AuthorArea = styled.div`
   display: flex;
   align-items: flex-end;
@@ -258,7 +255,7 @@ const AuthorNickname = styled.a`
   margin-left: 8px;
 `;
 
-const InformationArea = styled.div`
+const FlexArea = styled.div`
   display: flex;
 `;
 
@@ -332,9 +329,7 @@ const RadioRabel = styled.label`
   }
 `;
 
-const AdditionalQuestionTitle = styled(InformationTitle)``;
-
-const AdditionalQuestionContent = styled(InformationContent)`
+const InformationContentWithMargin = styled(InformationContent)`
   margin: 8px 0;
 `;
 
