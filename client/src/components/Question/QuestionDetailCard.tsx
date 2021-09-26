@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { ChangeEvent, useMemo } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
-import { graphql, useFragment } from 'react-relay';
+import { graphql, useFragment, useMutation } from 'react-relay';
 
+import { QuestionDetailCard_user$key } from '__generated__/QuestionDetailCard_user.graphql';
 import { QuestionDetailCard_question$key } from '../../__generated__/QuestionDetailCard_question.graphql';
 
 import QIcon from '../../components/Icon/QIcon';
@@ -25,20 +26,63 @@ const questionDetailCardFragment = graphql`
   }
 `;
 
+const questionDetailCardMyInfoFragment = graphql`
+  fragment QuestionDetailCard_user on User {
+    id
+  }
+`;
+
+const quetionDetailCardVoteMutation = graphql`
+  mutation QuestionDetailCardVoteMutation($questionId: Int!, $userId: String!, $kind: String!) {
+    vote(questionId: $questionId, userId: $userId, kind: $kind) {
+      votes {
+        userId
+        kind
+      }
+    }
+  }
+`;
+
 interface Props {
   questionRef: QuestionDetailCard_question$key
+  userRef: QuestionDetailCard_user$key | null
 }
 
-const QuestionDetailCard: React.FC<Props> = ({ questionRef }) => {
+const QuestionDetailCard: React.FC<Props> = ({ questionRef, userRef }) => {
   const theme = useTheme();
 
-  const { content, author, votes } = useFragment<QuestionDetailCard_question$key>(
+  const {
+    id, content, author, votes,
+  } = useFragment<QuestionDetailCard_question$key>(
     questionDetailCardFragment, questionRef,
   );
+  const myInfo = useFragment<QuestionDetailCard_user$key>(
+    questionDetailCardMyInfoFragment, userRef,
+  );
+
+  const [commitVote] = useMutation(quetionDetailCardVoteMutation);
+
+  const myVoteKind = useMemo(() => votes.find((vote) => vote.userId === myInfo?.id)?.kind, [votes]);
+
+  const handleChangeVote = (e: ChangeEvent<HTMLInputElement>) => {
+    if (!myInfo) {
+      alert('로그인을 하셔야 투표하실 수 있습니다. 로그인 하러가기 >');
+      return;
+    }
+
+    const voteKind = e.target.id;
+    commitVote({
+      variables: {
+        questionId: Number(id),
+        userId: myInfo.id,
+        kind: voteKind,
+      },
+    });
+  };
 
   const voteCounter = useMemo(
     () => votes.reduce((acc, cur) => ({ ...acc, [cur.kind]: (acc[cur.kind] ?? 0) + 1 }), {} as any),
-    [],
+    [votes],
   );
 
   // 북마크쪽 서버 로직 완료되면 북마크도 퀘스쳔 데이터에 어그리게이트해서 내려주고, 이를 이용해서 조건부 렌더링 실행
@@ -73,27 +117,47 @@ const QuestionDetailCard: React.FC<Props> = ({ questionRef }) => {
           <Information>
             <InformationTitle>투표하기</InformationTitle>
             <Divider />
+
             <VoteRadioLabel htmlFor="easy">
               😏쉬워요
               <VoteCounter>{voteCounter.easy}</VoteCounter>
               <RadioRabel htmlFor="easy">
-                <input type="radio" name="question_detail_vote" id="easy" />
+                <input
+                  type="radio"
+                  checked={myVoteKind === 'easy'}
+                  onChange={handleChangeVote}
+                  name="question_detail_vote"
+                  id="easy"
+                />
               </RadioRabel>
             </VoteRadioLabel>
             <VoteRadioLabel htmlFor="normal">
               😍좋아요
               <VoteCounter>{voteCounter.normal}</VoteCounter>
               <RadioRabel htmlFor="normal">
-                <input type="radio" name="question_detail_vote" id="normal" />
+                <input
+                  type="radio"
+                  checked={myVoteKind === 'normal'}
+                  onChange={handleChangeVote}
+                  name="question_detail_vote"
+                  id="normal"
+                />
               </RadioRabel>
             </VoteRadioLabel>
             <VoteRadioLabel htmlFor="hard">
               😫어려워요
               <VoteCounter>{voteCounter.hard}</VoteCounter>
               <RadioRabel htmlFor="hard">
-                <input type="radio" name="question_detail_vote" id="hard" />
+                <input
+                  type="radio"
+                  checked={myVoteKind === 'hard'}
+                  onChange={handleChangeVote}
+                  name="question_detail_vote"
+                  id="hard"
+                />
               </RadioRabel>
             </VoteRadioLabel>
+
           </Information>
         </InformationArea>
 

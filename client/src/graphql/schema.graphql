@@ -27,7 +27,7 @@ type Comment {
 }
 
 type Mutation {
-  vote(questionId: Int!, userId: String!, kind: String!): QuestionVoteResult
+  vote(questionId: Int!, userId: String!, kind: String!): Question
   login(code: String!): Auth!
   logout(accessToken: String!): Boolean
   addComment(questionId: Int, uid: String, content: String): Comment
