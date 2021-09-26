@@ -77,6 +77,28 @@ const QuestionDetailCard: React.FC<Props> = ({ questionRef, userRef }) => {
         userId: myInfo.id,
         kind: voteKind,
       },
+      optimisticUpdater: (store) => {
+        const questionRecord = store.get(id);
+        const voteRecords = questionRecord?.getLinkedRecords('votes');
+
+        if (!questionRecord || !voteRecords) {
+          return;
+        }
+
+        const myVoteIndex = votes.findIndex((vote) => vote.userId === myInfo?.id);
+        const alreadyHasBeenVoted = Boolean(myVoteIndex >= 0);
+
+        if (alreadyHasBeenVoted) {
+          voteRecords[myVoteIndex].setValue(voteKind, 'kind');
+          return;
+        }
+
+        const newVoteRecord = store.create(`client:${id}:votes:${voteRecords.length}`, 'QuestionVote');
+        newVoteRecord.setValue(myInfo.id, 'userId');
+        newVoteRecord.setValue(voteKind, 'kind');
+
+        questionRecord.setLinkedRecords([...voteRecords, newVoteRecord], 'votes');
+      },
     });
   };
 
