@@ -45,7 +45,7 @@ export default class CommentModel {
     return comment;
   }
 
-  /*eslint class-methods-use-this: "error"*/
+  /*  eslint class-methods-use-this: 0 */
   async createOne({ questionId, uid, content }: NewComment) {
     try {
       const comment: Comment = {
