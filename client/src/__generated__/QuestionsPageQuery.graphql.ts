@@ -9,14 +9,13 @@ export type QuestionsPageQueryVariables = {
 export type QuestionsPageQueryResponse = {
     readonly allQuestions: ReadonlyArray<{
         readonly id: string;
-        readonly title: string | null;
-        readonly content: string | null;
+        readonly content: string;
     }>;
     readonly bookmarks: ReadonlyArray<{
         readonly id: string;
         readonly question: {
             readonly id: string;
-            readonly content: string | null;
+            readonly content: string;
         } | null;
     } | null> | null;
 };
@@ -33,7 +32,6 @@ query QuestionsPageQuery(
 ) {
   allQuestions {
     id
-    title
     content
   }
   bookmarks(userId: $userId) {
@@ -59,13 +57,16 @@ const node: ConcreteRequest = (function () {
         "kind": "ScalarField",
         "name": "id",
         "storageKey": null
-    } as any, v2 = {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "content",
-        "storageKey": null
-    } as any, v3 = [
+    } as any, v2 = [
+        (v1 /*: any*/),
+        {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "content",
+            "storageKey": null
+        } as any
+    ], v3 = [
         {
             "alias": null,
             "args": null,
@@ -73,17 +74,7 @@ const node: ConcreteRequest = (function () {
             "kind": "LinkedField",
             "name": "allQuestions",
             "plural": true,
-            "selections": [
-                (v1 /*: any*/),
-                {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "title",
-                    "storageKey": null
-                },
-                (v2 /*: any*/)
-            ],
+            "selections": (v2 /*: any*/),
             "storageKey": null
         } as any,
         {
@@ -108,10 +99,7 @@ const node: ConcreteRequest = (function () {
                     "kind": "LinkedField",
                     "name": "question",
                     "plural": false,
-                    "selections": [
-                        (v1 /*: any*/),
-                        (v2 /*: any*/)
-                    ],
+                    "selections": (v2 /*: any*/),
                     "storageKey": null
                 }
             ],
@@ -136,14 +124,14 @@ const node: ConcreteRequest = (function () {
             "selections": (v3 /*: any*/)
         },
         "params": {
-            "cacheID": "5f4145dfbad7e367c6870f2e992ca1f5",
+            "cacheID": "715dfd30e4616249db33cc10fa645eec",
             "id": null,
             "metadata": {},
             "name": "QuestionsPageQuery",
             "operationKind": "query",
-            "text": "query QuestionsPageQuery(\n  $userId: Int!\n) {\n  allQuestions {\n    id\n    title\n    content\n  }\n  bookmarks(userId: $userId) {\n    id\n    question {\n      id\n      content\n    }\n  }\n}\n"
+            "text": "query QuestionsPageQuery(\n  $userId: Int!\n) {\n  allQuestions {\n    id\n    content\n  }\n  bookmarks(userId: $userId) {\n    id\n    question {\n      id\n      content\n    }\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '20444543f314e4bd861918dd0a6c38de';
+(node as any).hash = 'c83ebe2bebc29205469720b0cf9898db';
 export default node;

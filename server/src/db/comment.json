@@ -1,9 +1,9 @@
 [
   {
-    "id": 1,
+    "id": "comment_1",
     "questionId": 1,
     "createdAt": "2021-06-11 13:10",
-    "userEmail": "inseo@test.com",
+    "uid": "0.3215254543218323",
     "content": "클로저는 A 입니다",
     "like": [],
     "dislike": [
@@ -12,31 +12,31 @@
     "subComments": []
   },
   {
-    "id": 2,
+    "id": "comment_2",
     "questionId": 1,
     "createdAt": "2021-06-12 02:00",
-    "userEmail": "woomin@test.com",
+    "uid": "0.5848283945123123",
     "content": "클로저는 B 입니다",
     "like": [
-      "gibong@test.com",
-      "inseo@test.com"
+      "0.4921837332323131",
+      "0.5199438703839148"
     ],
     "dislike": [
-      "dahee@test.com"
+      "0.7465548688222423"
     ],
     "subComments": [
       {
-        "id": 1,
+        "id": "comment_1111",
         "createdAt": "2021-06-12 04:00",
-        "userEmail": "gibong@test.com",
+        "uid": "0.4921837332323131",
         "content": "오 훌륭한 답변입니다!!",
         "like": [],
         "dislike": []
       },
       {
-        "id": 2,
+        "id": "comment_2222",
         "createdAt": "2021-06-12 06:00",
-        "userEmail": "dahee@test.com",
+        "uid": "0.7465548688222423",
         "content": "상당히 아쉬운 답변인데요?",
         "like": [],
         "dislike": []

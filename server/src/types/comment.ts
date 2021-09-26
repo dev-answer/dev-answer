@@ -1,25 +1,37 @@
 export interface SubComment {
-  id: number;
+  id: string;
   createdAt: string;
-  userEmail: string;
+  uid: string;
   content: string;
   like: [string];
   dislike: [string];
 }
 
 export interface Comment {
-  id: number;
+  id: string;
   questionId: number;
   createdAt: string;
-  userEmail: string;
+  uid: string;
   content: string;
-  like: [] | [string];
-  dislike: [] | [string];
-  subComments: [] | [SubComment]
+  like: [] | string[];
+  dislike: [] | string[];
+  subComments: [] | SubComment[]
 }
 
 export interface NewComment {
-  questionId: number,
-  userEmail: string,
-  content: string,
+  questionId: number;
+  uid: string;
+  content: string;
+}
+
+export interface UpdateInfo {
+  targetId: string;
+  action: 'REVISE' | 'PUSH' | 'FILTER';
+  updateField: keyof Comment;
+  payload: string;
+}
+
+export interface ToggleLikeArgs {
+  commentId: string;
+  uid: string;
 }

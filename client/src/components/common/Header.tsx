@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 
 import { graphql, useLazyLoadQuery, useMutation } from 'react-relay';
 import { useGetAuthStore } from '../../contexts/AuthStore';
-import withPromiseComponent from '../../hocs/withPromiseComponent';
 import GitHubOAuthAnchor from '../../components/Login/GitHubOAuthAnchor';
 import Logo from '../Icon/Logo';
 
@@ -24,30 +23,17 @@ const LogoutMutation = graphql`
   }
 `;
 
-const Header: React.FC = () => {
+interface Props {
+  logoColor?: string
+  backgroundColor?: string
+}
+
+const Header: React.FC<Props> = ({ logoColor, backgroundColor }) => {
   const { accessToken, handleResetToken } = useGetAuthStore();
   const { myInfo } = useLazyLoadQuery<HeaderQuery>(IsLoggedInQuery, { accessToken });
   const [commitLogoutMutation] = useMutation<HeaderLogoutMutation>(LogoutMutation);
 
   const isLoggedIn = Boolean(myInfo?.id);
-
-  const buttons = [
-    {
-      icon: <TempCircle />,
-      title: '알림창',
-      onClick: () => {},
-    },
-    {
-      icon: <TempCircle />,
-      title: '질문 등록',
-      onClick: () => {},
-    },
-    {
-      icon: <TempCircle />,
-      title: '내 정보',
-      onClick: () => {},
-    },
-  ];
 
   const handleClickLogout = () => {
     handleResetToken();
@@ -57,89 +43,50 @@ const Header: React.FC = () => {
   };
 
   return (
-    <HeaderArea>
-      <LeftSideArea>
-        <Logo />
-        <LogoTitle>
-          Dev
-          <br />
-          Answer
-        </LogoTitle>
-      </LeftSideArea>
-      <RightSideArea>
-        {buttons.map(({ icon, title, onClick }) => (
-          <Button key={title} onClick={onClick}>
-            {icon}
-            {title}
-          </Button>
-        ))}
+    <HeaderArea backgroundColor={backgroundColor}>
+      <LogoArea>
+        <Logo color={logoColor} />
+      </LogoArea>
+      <LoginButtonArea>
         {isLoggedIn
           ? <LogoutButton onClick={handleClickLogout}>로그아웃</LogoutButton>
           : <LoginButton>로그인</LoginButton>}
-      </RightSideArea>
+      </LoginButtonArea>
     </HeaderArea>
   );
 };
 
-const HeaderArea = styled.header`
+const HeaderArea = styled.header<{ backgroundColor?: string }>`
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  height: 80px;
+  padding: 0 48px 0 32px;
+  ${({ backgroundColor }) => (backgroundColor ? `background:${backgroundColor}` : '')}
 `;
 
-const LeftSideArea = styled.div`
-  display: flex;
-  align-items: center;
+const LogoArea = styled.div`
+  margin-top: 8px;
 `;
 
-const RightSideArea = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const LogoTitle = styled.h1`
-  font-size: 18px;
-  font-weight: bold;
-`;
-
-const TempCircle = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background: #EAEAEA;
-  margin-bottom: 8px;
-`;
-
-const Button = styled.button`
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 64px;
-  height: 64px;
-  margin-left: 8px;
+const LoginButtonArea = styled.div`
+  margin-top: 32px;
 `;
 
 const LoginButton = styled(GitHubOAuthAnchor)`
+  display: block;
   font-size: 14px;
-  color: #434343;
-  padding: 16px;
-  background: #C4C4C4;
+  color: #230640;
+  background: #FFE666;
   border-radius: 10px;
-  margin: 0 0 auto 16px;
+  padding: 16px;
 `;
 
 const LogoutButton = styled.button`
   font-size: 14px;
-  color: #434343;
-  padding: 16px;
-  background: #C4C4C4;
+  color: #230640;
+  background: #FFE666;
   border-radius: 10px;
-  margin: 0 0 auto 16px;
+  padding: 16px;
 `;
 
-export default withPromiseComponent(
-  () => <div>로딩중...</div>,
-  Header,
-  () => <div>에러</div>,
-);
+export default Header;

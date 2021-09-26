@@ -3,35 +3,33 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-import { FragmentRefs } from "relay-runtime";
-export type QuestionBoardPageQueryVariables = {
-    categoryId: string;
+export type UserInfoQueryVariables = {
+    userId: string;
 };
-export type QuestionBoardPageQueryResponse = {
-    readonly questionsByCategoryId: ReadonlyArray<{
-        readonly id: string;
-        readonly " $fragmentRefs": FragmentRefs<"QuestionCard_question">;
-    }>;
+export type UserInfoQueryResponse = {
+    readonly userInfo: {
+        readonly name: string;
+        readonly gitHubURL: string;
+        readonly profileImageURL: string;
+    } | null;
 };
-export type QuestionBoardPageQuery = {
-    readonly response: QuestionBoardPageQueryResponse;
-    readonly variables: QuestionBoardPageQueryVariables;
+export type UserInfoQuery = {
+    readonly response: UserInfoQueryResponse;
+    readonly variables: UserInfoQueryVariables;
 };
 
 
 
 /*
-query QuestionBoardPageQuery(
-  $categoryId: String!
+query UserInfoQuery(
+  $userId: String!
 ) {
-  questionsByCategoryId(categoryId: $categoryId) {
+  userInfo(userId: $userId) {
+    name
+    gitHubURL
+    profileImageURL
     id
-    ...QuestionCard_question
   }
-}
-
-fragment QuestionCard_question on Question {
-  content
 }
 */
 
@@ -40,19 +38,31 @@ const node: ConcreteRequest = (function () {
         {
             "defaultValue": null,
             "kind": "LocalArgument",
-            "name": "categoryId"
+            "name": "userId"
         } as any
     ], v1 = [
         {
             "kind": "Variable",
-            "name": "categoryId",
-            "variableName": "categoryId"
+            "name": "userId",
+            "variableName": "userId"
         } as any
     ], v2 = {
         "alias": null,
         "args": null,
         "kind": "ScalarField",
-        "name": "id",
+        "name": "name",
+        "storageKey": null
+    } as any, v3 = {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "gitHubURL",
+        "storageKey": null
+    } as any, v4 = {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "profileImageURL",
         "storageKey": null
     } as any;
     return {
@@ -60,22 +70,19 @@ const node: ConcreteRequest = (function () {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Fragment",
             "metadata": null,
-            "name": "QuestionBoardPageQuery",
+            "name": "UserInfoQuery",
             "selections": [
                 {
                     "alias": null,
                     "args": (v1 /*: any*/),
-                    "concreteType": "Question",
+                    "concreteType": "User",
                     "kind": "LinkedField",
-                    "name": "questionsByCategoryId",
-                    "plural": true,
+                    "name": "userInfo",
+                    "plural": false,
                     "selections": [
                         (v2 /*: any*/),
-                        {
-                            "args": null,
-                            "kind": "FragmentSpread",
-                            "name": "QuestionCard_question"
-                        }
+                        (v3 /*: any*/),
+                        (v4 /*: any*/)
                     ],
                     "storageKey": null
                 }
@@ -87,22 +94,24 @@ const node: ConcreteRequest = (function () {
         "operation": {
             "argumentDefinitions": (v0 /*: any*/),
             "kind": "Operation",
-            "name": "QuestionBoardPageQuery",
+            "name": "UserInfoQuery",
             "selections": [
                 {
                     "alias": null,
                     "args": (v1 /*: any*/),
-                    "concreteType": "Question",
+                    "concreteType": "User",
                     "kind": "LinkedField",
-                    "name": "questionsByCategoryId",
-                    "plural": true,
+                    "name": "userInfo",
+                    "plural": false,
                     "selections": [
                         (v2 /*: any*/),
+                        (v3 /*: any*/),
+                        (v4 /*: any*/),
                         {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
-                            "name": "content",
+                            "name": "id",
                             "storageKey": null
                         }
                     ],
@@ -111,14 +120,14 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "2abce66c53d8b9482d99b3be4bc95f63",
+            "cacheID": "c3413e8b29dcee956076c66258adc334",
             "id": null,
             "metadata": {},
-            "name": "QuestionBoardPageQuery",
+            "name": "UserInfoQuery",
             "operationKind": "query",
-            "text": "query QuestionBoardPageQuery(\n  $categoryId: String!\n) {\n  questionsByCategoryId(categoryId: $categoryId) {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
+            "text": "query UserInfoQuery(\n  $userId: String!\n) {\n  userInfo(userId: $userId) {\n    name\n    gitHubURL\n    profileImageURL\n    id\n  }\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '9c299256a7781b93163025c3842d58db';
+(node as any).hash = 'b06b845a8099fa20c9716a44d6bdc1da';
 export default node;

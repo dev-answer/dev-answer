@@ -3,7 +3,7 @@ import {
 } from 'relay-runtime';
 
 const fetchGraphQL = async (query: any, variables: any) => {
-  const SERVER_END_POINT = 'http://localhost:3000/graphql';
+  const SERVER_END_POINT = process.env.ORIGIN_GRAPHQL || 'http://localhost:3000/graphql';
 
   try {
     const response = await fetch(SERVER_END_POINT, {
