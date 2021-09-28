@@ -5,6 +5,8 @@ import styled from '@emotion/styled';
 
 import { Comment_comment } from '__generated__/Comment_comment.graphql';
 
+import { getSlashDateFromDateTime } from '../../utils';
+
 import UserInfo from './UserInfo';
 import LikeButton from './LikeButton';
 
@@ -21,7 +23,7 @@ const Comment: React.FC<Props> = ({ comment }) => {
     return <p>유저 정보를 불러오지 못했습니다</p>;
   }
 
-  const createdTime = createdAt?.split('T')[0].split('-').join('/').slice(-8);
+  const createdTime = getSlashDateFromDateTime(createdAt);
 
   return (
     <CommentArea>
