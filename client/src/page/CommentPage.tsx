@@ -37,7 +37,7 @@ const H2 = styled.h2`
   font-weight: bold;
   font-size: 48px;
   line-height: 40px;
-  color: #8992C1;
+  color: ${({ theme }) => theme.colors.$5};
 `;
 
 const ButtonText = styled.span`
@@ -53,8 +53,8 @@ const IconWrapper = styled.span`
 
 const AlignButton = styled.button`
   margin-right: 50px;
-  background: #ECEDF5;
-  border: 1px solid #ECEDF5;
+  background: ${({ theme }) => theme.colors.$2};
+  border: 1px solid ${({ theme }) => theme.colors.$2};
   border-radius: 5px;
   padding: 8px 16px;
   font-size: 14px;
@@ -63,7 +63,7 @@ const AlignButton = styled.button`
 
 const Section = styled.section`
   position: relative;
-  background: #C5C9E1;
+  background: ${({ theme }) => theme.colors.$4};
   height: 704px;
   width: 664px;
   border-radius: 15px;

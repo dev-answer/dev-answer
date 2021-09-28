@@ -69,7 +69,7 @@ const CommentArea = styled.li`
   &:after {
     content: "";
     display: inline-block;
-    background: #ECEDF5;
+    background: ${({ theme }) => theme.colors.$2};
     height: 1px;
     width: 585px;
   }
@@ -95,7 +95,7 @@ const CommentContent = styled.p`
   padding-top: 16px;
   font-size: 18px;
   line-height: 22px;
-  color: #391F54;
+  color: ${({ theme }) => theme.colors.$t3};
 `;
 
 const CreatedTime = styled.p`
@@ -104,5 +104,5 @@ const CreatedTime = styled.p`
   top: 26px;
   font-size: 14px;
   line-height: 115%;
-  color: #4F3866;
+  color: ${({ theme }) => theme.colors.$t2};
 `;

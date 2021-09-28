@@ -85,6 +85,6 @@ const Name = styled.p`
   margin-left: 8px;
   padding-top: 24px;
   font-size: 18px;
-  color: #4F3866;
+  color: ${({ theme }) => theme.colors.$t2};
   font-weight: bold;
 `;

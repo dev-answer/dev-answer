@@ -144,7 +144,7 @@ const Section = styled.section`
   top: 380px;
   height: 300px;
   width: 100%;
-  background: #C5C9E1;
+  background: ${({ theme }) => theme.colors.$4};
   text-align: center;
 `;
 
@@ -152,14 +152,14 @@ const SubTitle = styled.p`
   text-align: center;
   font-size: 30px;
   line-height: 35px;
-  color: #230640;
+  color: ${({ theme }) => theme.colors.$t4};
   margin-top: 100px;
 `;
 
 const LoginButton = styled.button`
   width: 184px;
   height: 48px;
-  background: #FFE666;
+  background: ${({ theme }) => theme.colors.$y6};
   border-radius: 10px;
   margin-top: 20px;
 `;
@@ -183,15 +183,14 @@ const Form = styled.form`
   width: 650px;
   text-align: center;
   top: 596px;
-  background: #C5C9E1;
+  background: ${({ theme }) => theme.colors.$4};
   border-radius: 10px;
-  /* border: 1px solid black; */
 `;
 
 const FormInput = styled.textarea`
   width: 550px;
   height: 88px;
-  background: #F6F6FA;
+  background: ${({ theme }) => theme.colors.$1};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.13);
   border-radius: 5px;
   border: none;
@@ -206,7 +205,7 @@ const SubmitButton = styled.button`
   top: -40px;
   width: 57px;
   height: 88px;
-  background: #FFE666;
+  background: ${({ theme }) => theme.colors.$y6};
   border-radius: 10px;
 `;
 
