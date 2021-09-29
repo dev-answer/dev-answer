@@ -6,10 +6,14 @@ import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type QuestionDetailPageQueryVariables = {
     questionId: number;
+    accessToken: string;
 };
 export type QuestionDetailPageQueryResponse = {
     readonly questionDetail: {
         readonly " $fragmentRefs": FragmentRefs<"QuestionDetailCard_question">;
+    } | null;
+    readonly myInfo: {
+        readonly " $fragmentRefs": FragmentRefs<"QuestionDetailCard_user">;
     } | null;
 };
 export type QuestionDetailPageQuery = {
@@ -22,9 +26,14 @@ export type QuestionDetailPageQuery = {
 /*
 query QuestionDetailPageQuery(
   $questionId: Int!
+  $accessToken: String!
 ) {
   questionDetail(questionId: $questionId) {
     ...QuestionDetailCard_question
+    id
+  }
+  myInfo(accessToken: $accessToken) {
+    ...QuestionDetailCard_user
     id
   }
 }
@@ -32,6 +41,10 @@ query QuestionDetailPageQuery(
 fragment QuestionDetailCard_question on Question {
   id
   content
+  votes {
+    userId
+    kind
+  }
   author {
     name
     gitHubURL
@@ -39,22 +52,34 @@ fragment QuestionDetailCard_question on Question {
     id
   }
 }
+
+fragment QuestionDetailCard_user on User {
+  id
+}
 */
 
 const node: ConcreteRequest = (function () {
-    var v0 = [
-        {
-            "defaultValue": null,
-            "kind": "LocalArgument",
-            "name": "questionId"
-        } as any
-    ], v1 = [
+    var v0 = {
+        "defaultValue": null,
+        "kind": "LocalArgument",
+        "name": "accessToken"
+    } as any, v1 = {
+        "defaultValue": null,
+        "kind": "LocalArgument",
+        "name": "questionId"
+    } as any, v2 = [
         {
             "kind": "Variable",
             "name": "questionId",
             "variableName": "questionId"
         } as any
-    ], v2 = {
+    ], v3 = [
+        {
+            "kind": "Variable",
+            "name": "accessToken",
+            "variableName": "accessToken"
+        } as any
+    ], v4 = {
         "alias": null,
         "args": null,
         "kind": "ScalarField",
@@ -63,14 +88,17 @@ const node: ConcreteRequest = (function () {
     } as any;
     return {
         "fragment": {
-            "argumentDefinitions": (v0 /*: any*/),
+            "argumentDefinitions": [
+                (v0 /*: any*/),
+                (v1 /*: any*/)
+            ],
             "kind": "Fragment",
             "metadata": null,
             "name": "QuestionDetailPageQuery",
             "selections": [
                 {
                     "alias": null,
-                    "args": (v1 /*: any*/),
+                    "args": (v2 /*: any*/),
                     "concreteType": "Question",
                     "kind": "LinkedField",
                     "name": "questionDetail",
@@ -83,6 +111,22 @@ const node: ConcreteRequest = (function () {
                         }
                     ],
                     "storageKey": null
+                },
+                {
+                    "alias": null,
+                    "args": (v3 /*: any*/),
+                    "concreteType": "User",
+                    "kind": "LinkedField",
+                    "name": "myInfo",
+                    "plural": false,
+                    "selections": [
+                        {
+                            "args": null,
+                            "kind": "FragmentSpread",
+                            "name": "QuestionDetailCard_user"
+                        }
+                    ],
+                    "storageKey": null
                 }
             ],
             "type": "Query",
@@ -90,24 +134,52 @@ const node: ConcreteRequest = (function () {
         },
         "kind": "Request",
         "operation": {
-            "argumentDefinitions": (v0 /*: any*/),
+            "argumentDefinitions": [
+                (v1 /*: any*/),
+                (v0 /*: any*/)
+            ],
             "kind": "Operation",
             "name": "QuestionDetailPageQuery",
             "selections": [
                 {
                     "alias": null,
-                    "args": (v1 /*: any*/),
+                    "args": (v2 /*: any*/),
                     "concreteType": "Question",
                     "kind": "LinkedField",
                     "name": "questionDetail",
                     "plural": false,
                     "selections": [
-                        (v2 /*: any*/),
+                        (v4 /*: any*/),
                         {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
                             "name": "content",
+                            "storageKey": null
+                        },
+                        {
+                            "alias": null,
+                            "args": null,
+                            "concreteType": "QuestionVote",
+                            "kind": "LinkedField",
+                            "name": "votes",
+                            "plural": true,
+                            "selections": [
+                                {
+                                    "alias": null,
+                                    "args": null,
+                                    "kind": "ScalarField",
+                                    "name": "userId",
+                                    "storageKey": null
+                                },
+                                {
+                                    "alias": null,
+                                    "args": null,
+                                    "kind": "ScalarField",
+                                    "name": "kind",
+                                    "storageKey": null
+                                }
+                            ],
                             "storageKey": null
                         },
                         {
@@ -139,24 +211,36 @@ const node: ConcreteRequest = (function () {
                                     "name": "profileImageURL",
                                     "storageKey": null
                                 },
-                                (v2 /*: any*/)
+                                (v4 /*: any*/)
                             ],
                             "storageKey": null
                         }
+                    ],
+                    "storageKey": null
+                },
+                {
+                    "alias": null,
+                    "args": (v3 /*: any*/),
+                    "concreteType": "User",
+                    "kind": "LinkedField",
+                    "name": "myInfo",
+                    "plural": false,
+                    "selections": [
+                        (v4 /*: any*/)
                     ],
                     "storageKey": null
                 }
             ]
         },
         "params": {
-            "cacheID": "cb3f3f5a40c5e31e2f6ffbe2d5baa279",
+            "cacheID": "c6e97140e22cc0c6e5c77d709b105c4f",
             "id": null,
             "metadata": {},
             "name": "QuestionDetailPageQuery",
             "operationKind": "query",
-            "text": "query QuestionDetailPageQuery(\n  $questionId: Int!\n) {\n  questionDetail(questionId: $questionId) {\n    ...QuestionDetailCard_question\n    id\n  }\n}\n\nfragment QuestionDetailCard_question on Question {\n  id\n  content\n  author {\n    name\n    gitHubURL\n    profileImageURL\n    id\n  }\n}\n"
+            "text": "query QuestionDetailPageQuery(\n  $questionId: Int!\n  $accessToken: String!\n) {\n  questionDetail(questionId: $questionId) {\n    ...QuestionDetailCard_question\n    id\n  }\n  myInfo(accessToken: $accessToken) {\n    ...QuestionDetailCard_user\n    id\n  }\n}\n\nfragment QuestionDetailCard_question on Question {\n  id\n  content\n  votes {\n    userId\n    kind\n  }\n  author {\n    name\n    gitHubURL\n    profileImageURL\n    id\n  }\n}\n\nfragment QuestionDetailCard_user on User {\n  id\n}\n"
         }
     } as any;
 })();
-(node as any).hash = '9d9c4239620d2dce90737ba5a562cc3d';
+(node as any).hash = 'e9829f1f66787c34b5024c2941a212a5';
 export default node;
