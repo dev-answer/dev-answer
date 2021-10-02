@@ -6,7 +6,7 @@ const theme = {
   colors: {
     $1: '#F6F6FA',
     $2: '#ECEDF5',
-    $3: '#ECEDF5',
+    $3: '#D8DBEA',
     $4: '#C5C9E1',
     $5: '#8992C1',
     $6: '#626DAD',
