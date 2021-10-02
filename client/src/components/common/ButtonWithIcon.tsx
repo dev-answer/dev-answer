@@ -29,8 +29,8 @@ const Button = styled.button<{ width: number, height: number }>`
   justify-content: center;
   align-items: center;
 
-  width: ${({ width }) => (`${width}px`)};
-  height: ${({ height }) => (`${height}px`)};
+  width: ${({ width }) => (`${width}`)}px;
+  height: ${({ height }) => (`${height}`)}px;
 
   background: #C5C9E1;
   border-radius: 10px;
