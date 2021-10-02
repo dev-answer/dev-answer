@@ -7,6 +7,7 @@ import {
 } from 'react-relay/hooks';
 
 import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
 
 import { BookmarksPageQueryType } from '../../__generated__/BookmarksPageQuery.graphql';
 
@@ -33,6 +34,8 @@ type Props = {
 };
 
 const Bookmarks = ({ bookmarksQueryRef }: Props) => {
+  const theme = useTheme();
+
   const data = usePreloadedQuery(bookmarksQuery, bookmarksQueryRef);
 
   const { bookmarks } = data;
@@ -44,11 +47,11 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
         .map((bookmark, index) => (
           <BookmarkItem key={bookmark.id}>
             <TopArea>
-              <QIcon width={48} height={32} color="#8992C1" />
+              <QIcon width={48} height={32} color={theme.colors.$5} />
               <span>{bookmark.question?.content}</span>
               <BookmarkButton
                 size={48}
-                color={bookmark ? '#8992C1' : '#F6F6FA'}
+                color={bookmark ? theme.colors.$5 : theme.colors.$1}
                 bookmark={bookmark}
                 questionId={bookmark?.question?.id}
               />
@@ -58,8 +61,18 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
                 #최신 #N사 기출
               </span>
               <div>
-                <VoteIcon size={40} color="#8992C1" count={5} countColor="#ECEDF5" />
-                <CommentIcon size={40} color="#8992C1" count={3} countColor="#ECEDF5" />
+                <VoteIcon
+                  size={40}
+                  color={theme.colors.$5}
+                  count={5}
+                  countColor={theme.colors.$3}
+                />
+                <CommentIcon
+                  size={40}
+                  color={theme.colors.$5}
+                  count={3}
+                  countColor="#070707"
+                />
               </div>
             </BottomArea>
           </BookmarkItem>
@@ -78,7 +91,7 @@ const BookmarkItem = styled.li`
 
   height: 176px;
 
-  background: #C5C9E1;
+  background: ${({ theme }) => theme.colors.$4};
   border-radius: 15px;
 
 `;
@@ -100,7 +113,7 @@ const TopArea = styled.div`
     letter-spacing: 0em;
     text-align: left;
 
-    color: #230640;
+    color: ${({ theme }) => theme.colors.$t4};
   }
 
 `;
