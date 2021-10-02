@@ -43,7 +43,7 @@ const Bookmarks = ({ bookmarksQueryRef }: Props) => {
   return (
     <ul>
       {bookmarks
-        .filter((bookmark) => bookmark)
+        .filter(Boolean)
         .map((bookmark, index) => (
           <BookmarkItem key={bookmark.id}>
             <TopArea>
