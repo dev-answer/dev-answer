@@ -5,6 +5,7 @@ import {
 } from 'react-relay/hooks';
 
 import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
 
 import { BookmarksPageQueryType } from '../__generated__/BookmarksPageQuery.graphql';
 
@@ -19,6 +20,8 @@ import Bookmarks, { bookmarksQuery } from '../components/Bookmark/Bookmarks';
 import PageNavigator from '../components/common/PageNavigator';
 
 const BookmarksPage: React.FC = () => {
+  const theme = useTheme();
+
   const [
     bookmarksQueryRef, loadQuery, disposeQuery,
   ] = useQueryLoader<BookmarksPageQueryType>(bookmarksQuery);
@@ -35,7 +38,7 @@ const BookmarksPage: React.FC = () => {
 
   return (
     <Suspense fallback={<p>bookmarkloading</p>}>
-      <Header logoColor="#626DAD" backgroundColor="transparent" />
+      <Header logoColor={theme.colors.$6} backgroundColor="transparent" />
       <BookmarkPageArea>
         <HeaderArea>
           <TitleArea>
@@ -43,12 +46,12 @@ const BookmarksPage: React.FC = () => {
             <span>_level 1</span>
           </TitleArea>
           <ButtonsArea>
-            <CardViewIcon size={32} color="#C5C9E1" />
+            <CardViewIcon size={32} color={theme.colors.$4} />
             <ButtonWithIcon
               width={124}
               height={48}
               text="최신 풀이 순"
-              Icon={() => <FilterIcon size={16} color="#626DAD" />}
+              Icon={() => <FilterIcon size={16} color={theme.colors.$6} />}
             />
           </ButtonsArea>
 
@@ -58,9 +61,9 @@ const BookmarksPage: React.FC = () => {
 
         <PageNavigator
           selectedFontColor="#FFFFFF"
-          unselectedFontColor="#230640"
-          selectedColor="#626DAD"
-          unselectedColor="#C5C9E1"
+          unselectedFontColor={theme.colors.$t4}
+          selectedColor={theme.colors.$6}
+          unselectedColor={theme.colors.$4}
           totalPageCount={5}
           currentPage={2}
           onClickPage={() => { console.log('페이지 클릭'); }}
