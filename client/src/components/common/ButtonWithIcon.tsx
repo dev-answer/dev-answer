@@ -35,7 +35,7 @@ const Button = styled.button<{ width: number, height: number }>`
   background: #C5C9E1;
   border-radius: 10px;
 
-  & span {
+  & > span {
     margin-right: 8px;
     color: #230640;
   }
