@@ -36,6 +36,6 @@ type Query {
 }
 
 type Mutation {
-  vote(questionId: Int!, userId: String!, kind: String!): QuestionVoteResult 
+  vote(questionId: Int!, userId: String!, kind: String!): Question 
 }
 `;
