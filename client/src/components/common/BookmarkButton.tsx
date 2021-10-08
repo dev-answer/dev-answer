@@ -13,6 +13,8 @@ import { BookmarkButtonRemoveMutation } from '../../__generated__/BookmarkButton
 import BookmarkIcon from '../Icon/BookmarkIcon';
 
 interface Props {
+  size: number,
+  color: string,
   bookmark: any,
   questionId: string,
 }
@@ -38,7 +40,9 @@ const removeBookmarkMutation = graphql`
   }
 `;
 
-const BookmarkButton: React.FC<Props> = ({ bookmark, questionId }) => {
+const BookmarkButton: React.FC<Props> = ({
+  size, color, bookmark, questionId,
+}) => {
   const [commitAddBookmark] = useMutation<BookmarkButtonAddMutation>(AddBookmarkMutation);
   const [commitRemoveBookmark] = useMutation<BookmarkButtonRemoveMutation>(removeBookmarkMutation);
 
@@ -79,7 +83,7 @@ const BookmarkButton: React.FC<Props> = ({ bookmark, questionId }) => {
 
   return (
     <button type="button" onClick={bookmark ? handleClickCancelBookmark(Number(bookmark?.id)) : handleClickAddBookmark(Number(questionId))}>
-      <BookmarkIcon size={20} color={bookmark ? 'yellow' : 'gray'} />
+      <BookmarkIcon size={size} color={color} />
     </button>
   );
 };

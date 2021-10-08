@@ -1,5 +1,7 @@
 import React, { MouseEvent } from 'react';
 import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
+
 import { graphql, useFragment } from 'react-relay';
 
 import { QuestionCard_question$key } from '__generated__/QuestionCard_question.graphql';
@@ -21,6 +23,8 @@ interface Props {
 }
 
 const QuestionCard: React.FC<Props> = ({ questionRef, onClick }) => {
+  const theme = useTheme();
+
   const { content } = useFragment<QuestionCard_question$key>(questionCardFragment, questionRef);
 
   const handleClickCard = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -31,7 +35,7 @@ const QuestionCard: React.FC<Props> = ({ questionRef, onClick }) => {
   return (
     <Card onClick={handleClickCard}>
       <IconLayout>
-        <QIcon size={50} color="black" />
+        <QIcon width={50} height={50} color={theme.colors.$5} />
         <BookmarkButton>
           <BookmarkIcon size={50} color="#F5F5F5" />
         </BookmarkButton>
