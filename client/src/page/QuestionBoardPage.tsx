@@ -6,6 +6,7 @@ import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.gra
 
 import styled from '@emotion/styled';
 
+import PageLoading from '../components/common/PageLoading';
 import BottomSheet from '../components/common/BottomSheet';
 import withSuspense from '../hocs/withSuspense';
 import QuestionCard from '../components/Question/QuestionCard';
@@ -175,4 +176,4 @@ const PageNavigatorWrapper = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export default withSuspense(QuestionBoardPage, () => <div>로딩중...</div>);
+export default withSuspense(QuestionBoardPage, PageLoading);
