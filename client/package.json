@@ -13,8 +13,6 @@
     "gen:schema": "get-graphql-schema http://localhost:3000/graphql > ./src/graphql/schema.graphql",
     "start:open": "webpack serve --mode development --open",
     "test": "jest --watchAll --env=jsdom",
-    "test:e2e": "npx codeceptjs run --steps",
-    "stylelint": "stylelint '**/*.*sx'",
     "lint": "eslint --ext ts,tsx ."
   },
   "dependencies": {
@@ -47,7 +45,6 @@
     "@typescript-eslint/parser": "^4.26.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-relay": "^11.0.2",
-    "codeceptjs": "3.0.7",
     "css-loader": "^6.2.0",
     "dotenv-webpack": "^7.0.3",
     "eslint": "^7.28.0",
@@ -68,9 +65,6 @@
     "relay-compiler-language-typescript": "^14.0.0",
     "relay-config": "^11.0.2",
     "style-loader": "^3.2.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-no-unsupported-browser-features": "^5.0.1",
     "typescript": "^4.3.2",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
@@ -79,7 +73,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn run lint && yarn run stylelint"
+      "pre-push": "yarn run lint"
     }
   },
   "lint-staged": {
