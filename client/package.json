@@ -4,7 +4,7 @@
   "description": "The computer science interview question bank for dvelopers",
   "repository": "https://github.com/dev-answer/dev-answer",
   "author": "daadaadaah, gyim1345, Park Answer, Woomin-Jeon",
-  "homepage": "https://dev-answer.github.io/dev-answer/",
+  "homepage": ".",
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
     "start": "webpack serve --mode development",

@@ -2,6 +2,7 @@ import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import dotenv from 'dotenv';
+import path from 'path';
 
 import { cors } from './middlewares/cors';
 
@@ -26,6 +27,11 @@ app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true,
 }));
+
+app.use(express.static('public'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

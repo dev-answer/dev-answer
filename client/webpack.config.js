@@ -5,9 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = ({
   entry: path.resolve(__dirname, 'src/index.tsx'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../server/public/'),
     filename: 'main.[fullhash].js',
-    publicPath: process.argv[process.argv.length - 1] === 'production' ? 'dev-answer' : '/',
+    publicPath: '/',
   },
   module: {
     rules: [
