@@ -22,7 +22,7 @@ const VoteIcon: React.FC<Props> = ({
         fill={color}
       />
     </svg>
-    {count && <Count color={countColor}>{count}</Count>}
+    {typeof count === 'number' && <Count color={countColor}>{count}</Count>}
   </Wrapper>
 );
 
@@ -36,7 +36,6 @@ const Count = styled.div<{ color?: string }>`
   left: 50%;
   transform: translate(-50%, -50%);
   color: ${({ color }) => color};
-  font-size: 18px;
   font-weight: bold;
 `;
 

@@ -60,7 +60,7 @@ const HeaderArea = styled.header<{ backgroundColor?: string }>`
   display: flex;
   justify-content: space-between;
   height: 80px;
-  padding: 0 48px 0 32px;
+  padding: 0 32px 0 20px;
   ${({ backgroundColor }) => (backgroundColor ? `background:${backgroundColor}` : '')}
 `;
 
@@ -69,7 +69,7 @@ const LogoArea = styled.div`
 `;
 
 const LoginButtonArea = styled.div`
-  margin-top: 32px;
+  margin-top: 16px;
 `;
 
 const LoginButton = styled(GitHubOAuthAnchor)`
