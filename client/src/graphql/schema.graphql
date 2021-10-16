@@ -70,6 +70,7 @@ type QuestionAuthor {
 type QuestionCategory {
   id: ID!
   title: String!
+  count: Int!
 }
 
 type QuestionVote {

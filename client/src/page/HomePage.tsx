@@ -3,6 +3,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { useTheme } from '@emotion/react';
+import { useLazyLoadQuery, graphql } from 'react-relay';
+import { HomePageQuery } from '__generated__/HomePageQuery.graphql';
+import { useHistory } from 'react-router-dom';
 import PageLoading from '../components/common/PageLoading';
 import GitHubOAuthAnchor from '../components/Login/GitHubOAuthAnchor';
 import Logo from '../components/Icon/Logo';
@@ -11,8 +14,25 @@ import Header from '../components/common/Header';
 import FilterIcon from '../components/Icon/FilterIcon';
 import Footer from '../components/common/Footer';
 
+const homePageQuery = graphql`
+  query HomePageQuery {
+    allQuestionCategories {
+      id
+      title
+      count
+    }
+  }
+`;
+
 const HomePage: React.FC = () => {
   const theme = useTheme();
+  const history = useHistory();
+
+  const { allQuestionCategories } = useLazyLoadQuery<HomePageQuery>(homePageQuery, {});
+
+  const handleClickCategoryItem = (categoryId: string) => {
+    history.push(`/question/board/${categoryId}`);
+  };
 
   return (
     <>
@@ -32,7 +52,12 @@ const HomePage: React.FC = () => {
           </FilterButton>
         </CardTitleArea>
         <Cards>
-          {Array(10).fill(null).map((v, i) => v + i).map((v) => <DummyCard key={v} />)}
+          {allQuestionCategories.filter(({ count }) => count > 0).map((category) => (
+            <CategoryCard key={category.id} onClick={() => handleClickCategoryItem(category.id)}>
+              <CateogryCount>{`0/${category.count}`}</CateogryCount>
+              <CategoryTitle>{category.title}</CategoryTitle>
+            </CategoryCard>
+          ))}
         </Cards>
       </CardsArea>
       <LogoArea>
@@ -114,12 +139,13 @@ const Cards = styled.div`
   grid-gap: 10px;
 `;
 
-const DummyCard = styled.div`
+const CategoryCard = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   background: ${({ theme }) => theme.colors.$2};
   border-radius: 15px;
-  padding: 24px;
+  padding: 16px;
   cursor: pointer;
   width: 182px;
   height: 224px;
@@ -127,6 +153,17 @@ const DummyCard = styled.div`
   &:hover {
     opacity: 0.7;
   }
+`;
+
+const CateogryCount = styled.p`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.$t4};;
+`;
+
+const CategoryTitle = styled.p`
+  font-weight: bold;
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.$t4};;
 `;
 
 const FilterButton = styled.button`
