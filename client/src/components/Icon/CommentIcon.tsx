@@ -19,7 +19,7 @@ const CommentIcon: React.FC<Props> = ({
         fill={color}
       />
     </svg>
-    {count && <Count color={countColor}>{count}</Count>}
+    {typeof count === 'number' && <Count color={countColor}>{count}</Count>}
   </Wrapper>
 );
 
