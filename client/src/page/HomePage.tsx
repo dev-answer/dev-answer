@@ -13,6 +13,7 @@ import withPromiseComponent from '../hocs/withPromiseComponent';
 import Header from '../components/common/Header';
 import FilterIcon from '../components/Icon/FilterIcon';
 import Footer from '../components/common/Footer';
+import PageError from '../components/common/PageError';
 
 const homePageQuery = graphql`
   query HomePageQuery {
@@ -237,5 +238,5 @@ const FooterLoginArea = styled.div`
 export default withPromiseComponent(
   () => <PageLoading />,
   HomePage,
-  () => <div>에러</div>,
+  () => <PageError />,
 );
