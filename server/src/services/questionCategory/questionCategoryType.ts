@@ -1,7 +1,8 @@
 export default `
 type QuestionCategory {
   id: ID!
-  title: String! 
+  title: String!
+  count: Int!
 }
 
 type Query {
