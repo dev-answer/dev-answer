@@ -6,8 +6,9 @@ import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.gra
 
 import styled from '@emotion/styled';
 
+import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
 import PageLoading from '../components/common/PageLoading';
-import BottomSheet from '../components/common/BottomSheet';
 import withSuspense from '../hocs/withSuspense';
 import QuestionCard from '../components/Question/QuestionCard';
 import HambugerIcon from '../components/Icon/HambugerIcon';
@@ -50,8 +51,9 @@ const QuestionBoardPage: React.FC = () => {
 
   return (
     <QuestionBoard>
+      <Header />
       <Layout>
-        <Header>
+        <QuestionCategoryArea>
           <TitleWrapper>
             <CategoryTitle>JavaScript</CategoryTitle>
             <CategorySubTitle>_level 1</CategorySubTitle>
@@ -65,7 +67,7 @@ const QuestionBoardPage: React.FC = () => {
               <FilterIcon size={18} color="#959595" />
             </FilterButton>
           </SettingButtonWrapper>
-        </Header>
+        </QuestionCategoryArea>
         <QuestionLayoutWrapper>
           {currentPageQuestionsRef.map((questionRef) => (
             <QuestionCard
@@ -85,10 +87,7 @@ const QuestionBoardPage: React.FC = () => {
           </PageNavigatorWrapper>
         </PageNavigatorLayout>
       </Layout>
-      <BottomSheet translateY="80%">
-        <div style={{ height: '200px', background: 'yellow' }}>HelloWorld</div>
-
-      </BottomSheet>
+      <Footer />
     </QuestionBoard>
   );
 };
@@ -109,7 +108,7 @@ const QuestionLayoutWrapper = styled.div`
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
 `;
-const Header = styled.header`
+const QuestionCategoryArea = styled.h2`
   display: flex;
   justify-content: space-between;
   align-items: center;

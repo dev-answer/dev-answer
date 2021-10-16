@@ -32,6 +32,12 @@ query QuestionBoardPageQuery(
 
 fragment QuestionCard_question on Question {
   content
+  votes {
+    userId
+  }
+  comments {
+    id
+  }
 }
 */
 
@@ -104,6 +110,36 @@ const node: ConcreteRequest = (function () {
                             "kind": "ScalarField",
                             "name": "content",
                             "storageKey": null
+                        },
+                        {
+                            "alias": null,
+                            "args": null,
+                            "concreteType": "QuestionVote",
+                            "kind": "LinkedField",
+                            "name": "votes",
+                            "plural": true,
+                            "selections": [
+                                {
+                                    "alias": null,
+                                    "args": null,
+                                    "kind": "ScalarField",
+                                    "name": "userId",
+                                    "storageKey": null
+                                }
+                            ],
+                            "storageKey": null
+                        },
+                        {
+                            "alias": null,
+                            "args": null,
+                            "concreteType": "Comment",
+                            "kind": "LinkedField",
+                            "name": "comments",
+                            "plural": true,
+                            "selections": [
+                                (v2 /*: any*/)
+                            ],
+                            "storageKey": null
                         }
                     ],
                     "storageKey": null
@@ -111,12 +147,12 @@ const node: ConcreteRequest = (function () {
             ]
         },
         "params": {
-            "cacheID": "2abce66c53d8b9482d99b3be4bc95f63",
+            "cacheID": "5876ffef486cab82bfd165b2c7199110",
             "id": null,
             "metadata": {},
             "name": "QuestionBoardPageQuery",
             "operationKind": "query",
-            "text": "query QuestionBoardPageQuery(\n  $categoryId: String!\n) {\n  questionsByCategoryId(categoryId: $categoryId) {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n}\n"
+            "text": "query QuestionBoardPageQuery(\n  $categoryId: String!\n) {\n  questionsByCategoryId(categoryId: $categoryId) {\n    id\n    ...QuestionCard_question\n  }\n}\n\nfragment QuestionCard_question on Question {\n  content\n  votes {\n    userId\n  }\n  comments {\n    id\n  }\n}\n"
         }
     } as any;
 })();
