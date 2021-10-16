@@ -2,74 +2,86 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { useTheme } from '@emotion/react';
+import PageLoading from '../components/common/PageLoading';
 import GitHubOAuthAnchor from '../components/Login/GitHubOAuthAnchor';
 import Logo from '../components/Icon/Logo';
 import withPromiseComponent from '../hocs/withPromiseComponent';
 import Header from '../components/common/Header';
 import FilterIcon from '../components/Icon/FilterIcon';
+import Footer from '../components/common/Footer';
 
-const HomePage: React.FC = () => (
-  <>
-    <Header logoColor="#E2E5F3" backgroundColor="#230640" />
-    <Banner>
-      <BannerItemArea>
-        <Logo size={500} color="#E2E5F3" />
+const HomePage: React.FC = () => {
+  const theme = useTheme();
+
+  return (
+    <>
+      <Header logoColor={theme.colors.$2} backgroundColor={theme.colors.$t4} />
+      <Banner>
+        <BannerItemArea>
+          <Logo size={350} color={theme.colors.$2} />
+          <LoginButton>GitHub으로 로그인</LoginButton>
+        </BannerItemArea>
+      </Banner>
+      <CardsArea>
+        <CardTitleArea>
+          <CardTitle>과목</CardTitle>
+          <FilterButton>
+            <FilterText>최근 풀이 순</FilterText>
+            <FilterIcon size={14} color={theme.colors.$6} />
+          </FilterButton>
+        </CardTitleArea>
+        <Cards>
+          {Array(10).fill(null).map((v, i) => v + i).map((v) => <DummyCard key={v} />)}
+        </Cards>
+      </CardsArea>
+      <LogoArea>
+        <CircleLogo>
+          <Logo size={350} noText />
+        </CircleLogo>
+        <LogoAreaTitle>Dev-Answer</LogoAreaTitle>
+        <LogoAreaDescription>
+          개발자 취업을 희망하는 사람들이 모여 만드는
+          <br />
+          기술 면접 질문 & 답변 커뮤니티
+        </LogoAreaDescription>
+      </LogoArea>
+
+      <FooterLoginArea>
         <LoginButton>GitHub으로 로그인</LoginButton>
-      </BannerItemArea>
-    </Banner>
-    <CardsArea>
-      <CardTitleArea>
-        <CardTitle>과목</CardTitle>
-        <FilterButton>
-          <FilterText>최근 풀이 순</FilterText>
-          <FilterIcon size={18} color="#626DAD" />
-        </FilterButton>
-      </CardTitleArea>
-      <Cards>
-        {Array(10).fill(null).map((v, i) => v + i).map((v) => <DummyCard key={v} />)}
-      </Cards>
-    </CardsArea>
-    <LogoArea>
-      <CircleLogo>
-        <Logo size={500} noText />
-      </CircleLogo>
-      <LogoAreaTitle>Dev-Answer</LogoAreaTitle>
-      <LogoAreaDescription>
-        개발자 취업을 희망하는 사람들이 모여 만드는
-        <br />
-        기술 면접 질문 & 답변 커뮤니티
-      </LogoAreaDescription>
-    </LogoArea>
-  </>
-);
+      </FooterLoginArea>
+
+      <Footer />
+    </>
+  );
+};
 
 const Banner = styled.section`
   display: flex;
   align-items: center;
-  background: #230640;
-  height: 424px;
+  justify-content: center;
+  background: ${({ theme }) => theme.colors.$t4};
+  height: 284px;
 `;
 
 const BannerItemArea = styled.div`
   display: flex;
   align-items: flex-end;
-  margin-left: 15%;
+  width: 950px;
 `;
 
 const LoginButton = styled(GitHubOAuthAnchor)`
-  background: #FFE666;
+  display: block;
+  background: ${({ theme }) => theme.colors.$y6};
   padding: 16px 40px;
   width: max-content;
   border-radius: 10px;
   cursor: pointer;
-  opacity: 1;
-  transition: opacity 300ms;
-  color: #230640;
-  margin: 0 0 28px 16px;
+  color: ${({ theme }) => theme.colors.$t4};
+  margin: 0 0 16px 16px;
   
   &:hover {
     opacity: 0.7;
-    color: black;
   }
 `;
 
@@ -78,14 +90,13 @@ const CardsArea = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 120px;
 `;
 
 const CardTitleArea = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 1428px;
-  padding: 16px 0;
+  width: 950px;
+  margin: 64px 0 36px 0;
 `;
 
 const CardTitle = styled.div`
@@ -94,26 +105,24 @@ const CardTitle = styled.div`
   font-weight: bold;
   font-size: 30px;
   line-height: 35px;
-  color: #230640;
+  color: ${({ theme }) => theme.colors.$t4};
 `;
 
 const Cards = styled.div`
   display: grid;
-  grid-template-columns: 272px 272px 272px 272px 272px;
-  grid-gap: 16px;
+  grid-template-columns: 182px 182px 182px 182px 182px;
+  grid-gap: 10px;
 `;
 
 const DummyCard = styled.div`
   display: flex;
   flex-direction: column;
-  transition: opacity, 300ms;
-  background: #ECEDF5;
+  background: ${({ theme }) => theme.colors.$2};
   border-radius: 15px;
   padding: 24px;
-  box-sizing: border-box;
   cursor: pointer;
-  width: 277px;
-  height: 325px;
+  width: 182px;
+  height: 224px;
 
   &:hover {
     opacity: 0.7;
@@ -124,14 +133,13 @@ const FilterButton = styled.button`
   display: flex;
   align-items: center;
   padding: 16px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 18px;
-  color: #434343;
-  height: 50px;
-  background: #C5C9E1;
-  border-radius: 10px;
+  color: ${({ theme }) => theme.colors.$t4};
+  height: 42px;
+  background: ${({ theme }) => theme.colors.$4};
+  border-radius: 8px;
   border: none;
-  margin-left: 10px;
   cursor: pointer;
 
   &:hover {
@@ -148,40 +156,49 @@ const LogoArea = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 120px 0;
+  margin: 70px 0;
 `;
 
 const CircleLogo = styled.div`
   position: relative;
-  margin-left: 300px;
+  margin-left: 212px;
 
   :after {
     content: '';
     position: absolute;
-    width: 176px;
-    height: 176px;
-    border-radius: 88px;
-    background:#E2E5F3;
+    width: 128px;
+    height: 128px;
+    border-radius: 64px;
+    background: ${({ theme }) => theme.colors.$2};
     left: 12px;
-    top: 16px;
+    top: 12px;
     z-index: -1;
   }
 `;
 
 const LogoAreaTitle = styled.div`
-  font-size: 48px;
-  color: #230640;
+  font-size: 36px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.$t4};
 `;
 
 const LogoAreaDescription = styled.div`
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
-  color: #4F3866;
-  margin-top: 24px;
+  color: ${({ theme }) => theme.colors.$t2};
+  margin-top: 16px;
+`;
+
+const FooterLoginArea = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0 92px 0;
 `;
 
 export default withPromiseComponent(
-  () => <div>로딩중</div>,
+  () => <PageLoading />,
   HomePage,
   () => <div>에러</div>,
 );
