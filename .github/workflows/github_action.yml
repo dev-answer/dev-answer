@@ -22,6 +22,15 @@ jobs:
             pm2 save
             pm2 stop app
             sudo git pull
-            cd server
+            cd client
+            yarn
+            rm .env
+            touch .env
+            echo '${{ secrets.CLIENT_ENV }}' >> .env
+            yarn run build
+            cd ../server
+            rm .env
+            touch .env
+            echo '${{ secrets.SERVER_ENV }}' >> .env
             yarn
             yarn run production
