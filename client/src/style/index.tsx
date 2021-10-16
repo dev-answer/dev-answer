@@ -31,3 +31,12 @@ export const getFadeInOutAnimation = (on: boolean, duration: number) => css`
     ? getFadeInStyle(duration)
     : getFadeOutStyle(duration)}
 `;
+
+export const getEllipsisStyle = (line: number) => css`
+  display: -webkit-box;
+  word-break: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: ${line};
+  -webkit-box-orient: vertical;
+`;
