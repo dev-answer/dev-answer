@@ -86,16 +86,14 @@ const QuestionBoardPage: React.FC = () => {
           ))}
         </QuestionLayoutWrapper>
         <PageNavigatorLayout>
-          <PageNavigatorWrapper>
-            <PageNavigator
-              unselectedFontColor={theme.colors.$t4}
-              selectedColor={theme.colors.$6}
-              unselectedColor={theme.colors.$4}
-              totalPageCount={totalPageCount}
-              currentPage={page}
-              onClickPage={handleClickPage}
-            />
-          </PageNavigatorWrapper>
+          <PageNavigator
+            unselectedFontColor={theme.colors.$t4}
+            selectedColor={theme.colors.$6}
+            unselectedColor={theme.colors.$4}
+            totalPageCount={totalPageCount}
+            currentPage={page}
+            onClickPage={handleClickPage}
+          />
         </PageNavigatorLayout>
       </Layout>
       <Footer />
@@ -188,14 +186,8 @@ const FilterText = styled.p`
 const PageNavigatorLayout = styled.div`
   display: flex;
   flex: 1;
-  position: relative;
-`;
-
-const PageNavigatorWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  padding: 16px;
 `;
 
 export default withSuspense(QuestionBoardPage, PageLoading);
