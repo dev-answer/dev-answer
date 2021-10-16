@@ -88,6 +88,9 @@ const QuestionBoardPage: React.FC = () => {
         <PageNavigatorLayout>
           <PageNavigatorWrapper>
             <PageNavigator
+              unselectedFontColor={theme.colors.$t4}
+              selectedColor={theme.colors.$6}
+              unselectedColor={theme.colors.$4}
               totalPageCount={totalPageCount}
               currentPage={page}
               onClickPage={handleClickPage}
