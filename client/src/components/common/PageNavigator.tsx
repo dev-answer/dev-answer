@@ -44,7 +44,6 @@ const PageNavigator: React.FC<Props> = ({
         onClick={handleClickPrevPage}
       >
         {'<'}
-
       </Page>
       <EmptySpace size={16} />
       {pages.map((page, index) => (
@@ -59,7 +58,6 @@ const PageNavigator: React.FC<Props> = ({
             onClick={() => onClickPage(page)}
           >
             {page}
-
           </Page>
         </Fragment>
       ))}
@@ -72,7 +70,6 @@ const PageNavigator: React.FC<Props> = ({
         onClick={handleClickNextPage}
       >
         {'>'}
-
       </Page>
     </PaginationerWrapper>
   );
@@ -85,13 +82,15 @@ const Page = styled.a<{ unselectedColor: string, selectedColor: string, unselect
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 36px;
+  font-weight: bold;
+  font-size: 18px;
+  width: 20px;
+  height: 30px;
   background: ${({ selected, selectedColor, unselectedColor }) => (selected ? selectedColor : unselectedColor)} ;
-  font-size: 24px;
-  line-height: 33px;
-  border-radius: 3px;
+  border-radius: 2px;
   color:  ${({ selected, selectedFontColor, unselectedFontColor }) => (selected ? selectedFontColor : unselectedFontColor)};
+  padding-top: 4px;
+  cursor: pointer;
 
   &:hover {
     opacity: 0.7;

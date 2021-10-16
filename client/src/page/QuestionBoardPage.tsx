@@ -6,8 +6,10 @@ import { QuestionBoardPageQuery } from '__generated__/QuestionBoardPageQuery.gra
 
 import styled from '@emotion/styled';
 
+import { useTheme } from '@emotion/react';
+import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
 import PageLoading from '../components/common/PageLoading';
-import BottomSheet from '../components/common/BottomSheet';
 import withSuspense from '../hocs/withSuspense';
 import QuestionCard from '../components/Question/QuestionCard';
 import HambugerIcon from '../components/Icon/HambugerIcon';
@@ -18,6 +20,10 @@ const QUESTION_COUNT_PER_PAGE = 10;
 
 const questionBoardPageQuery = graphql`
   query QuestionBoardPageQuery($categoryId: String!) {
+    allQuestionCategories {
+      id
+      title
+    }
     questionsByCategoryId(categoryId: $categoryId) {
       id
       ...QuestionCard_question
@@ -26,16 +32,19 @@ const questionBoardPageQuery = graphql`
 `;
 
 const QuestionBoardPage: React.FC = () => {
+  const theme = useTheme();
   const { push } = useHistory();
 
   const { categoryId } = useParams<{ categoryId: string}>();
-  const questionsRef = useLazyLoadQuery<QuestionBoardPageQuery>(
+  const { questionsByCategoryId, allQuestionCategories } = useLazyLoadQuery<QuestionBoardPageQuery>(
     questionBoardPageQuery, { categoryId },
   );
   const [page, setPage] = useState(1);
   const totalPageCount = Math.ceil(
-    questionsRef.questionsByCategoryId.length / QUESTION_COUNT_PER_PAGE,
+    questionsByCategoryId.length / QUESTION_COUNT_PER_PAGE,
   );
+
+  const targetCategory = allQuestionCategories.find((category) => category.id === categoryId)!;
 
   const handleClickQuestionCard = (questionId: string) => {
     push(`/question/detail/${questionId}`);
@@ -45,27 +54,28 @@ const QuestionBoardPage: React.FC = () => {
     setPage(pageNumber);
   };
 
-  const currentPageQuestionsRef = questionsRef.questionsByCategoryId
+  const currentPageQuestionsRef = questionsByCategoryId
     .slice((page - 1) * QUESTION_COUNT_PER_PAGE, page * QUESTION_COUNT_PER_PAGE);
 
   return (
     <QuestionBoard>
+      <Header />
       <Layout>
-        <Header>
+        <QuestionBoardSubHeader>
           <TitleWrapper>
-            <CategoryTitle>JavaScript</CategoryTitle>
+            <CategoryTitle>{targetCategory.title}</CategoryTitle>
             <CategorySubTitle>_level 1</CategorySubTitle>
           </TitleWrapper>
           <SettingButtonWrapper>
             <MenuButton>
-              <HambugerIcon size={36} color="#C4C4C4" />
+              <HambugerIcon size={30} color={theme.colors.$4} />
             </MenuButton>
             <FilterButton>
               <FilterText>최근 풀이 순</FilterText>
-              <FilterIcon size={18} color="#959595" />
+              <FilterIcon size={18} color={theme.colors.$6} />
             </FilterButton>
           </SettingButtonWrapper>
-        </Header>
+        </QuestionBoardSubHeader>
         <QuestionLayoutWrapper>
           {currentPageQuestionsRef.map((questionRef) => (
             <QuestionCard
@@ -78,6 +88,9 @@ const QuestionBoardPage: React.FC = () => {
         <PageNavigatorLayout>
           <PageNavigatorWrapper>
             <PageNavigator
+              unselectedFontColor={theme.colors.$t4}
+              selectedColor={theme.colors.$6}
+              unselectedColor={theme.colors.$4}
               totalPageCount={totalPageCount}
               currentPage={page}
               onClickPage={handleClickPage}
@@ -85,10 +98,7 @@ const QuestionBoardPage: React.FC = () => {
           </PageNavigatorWrapper>
         </PageNavigatorLayout>
       </Layout>
-      <BottomSheet translateY="80%">
-        <div style={{ height: '200px', background: 'yellow' }}>HelloWorld</div>
-
-      </BottomSheet>
+      <Footer />
     </QuestionBoard>
   );
 };
@@ -98,6 +108,7 @@ const QuestionBoard = styled.div`
   flex-direction: column;
   height: 100%;  
 `;
+
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
@@ -105,36 +116,44 @@ const Layout = styled.div`
   margin: 0 auto;
   height: 100%;
 `;
+
 const QuestionLayoutWrapper = styled.div`
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
 `;
-const Header = styled.header`
+
+const QuestionBoardSubHeader = styled.h2`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 16px;
+  margin: 24px 0 36px 0;
 `;
+
 const TitleWrapper = styled.div`
   display: flex;
   align-items: flex-end;
 `;
+
 const CategoryTitle = styled.h2`
-  font-size: 48px;
-  line-height: 55px;
-  color: #757575;
+  font-size: 36px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.$t4};;
 `;
+
 const CategorySubTitle = styled.h3`
-  font-size: 24px;
-  line-height: 35px;
-  color: #757575;
+  font-size: 18px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.$t4};;
+  padding-bottom: 4px;
 `;
+
 const SettingButtonWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const MenuButton = styled.button`
   cursor: pointer;
   border: none;
@@ -144,16 +163,15 @@ const MenuButton = styled.button`
     opacity: 0.7;
   }
 `;
+
 const FilterButton = styled.button`
   display: flex;
   align-items: center;
-  padding: 16px;
-  font-size: 15px;
-  line-height: 18px;
-  color: #434343;
-  height: 50px;
-  background: #C4C4C4;
-  border-radius: 10px;
+  padding: 12px;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.$t4};;
+  background: ${({ theme }) => theme.colors.$4};
+  border-radius: 8px;
   border: none;
   margin-left: 10px;
   cursor: pointer;
@@ -162,13 +180,17 @@ const FilterButton = styled.button`
     opacity: 0.7;
   }
 `;
+
 const FilterText = styled.p`
   margin-right: 8px;
 `;
+
 const PageNavigatorLayout = styled.div`
-  height: 100%;
+  display: flex;
+  flex: 1;
   position: relative;
 `;
+
 const PageNavigatorWrapper = styled.div`
   position: absolute;
   left: 50%;
