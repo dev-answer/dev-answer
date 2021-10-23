@@ -5,10 +5,13 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 import { cors } from './middlewares/cors';
+import db from './db/startup';
 
 import { resolvers, typeDefs } from './services';
 
 dotenv.config();
+
+db();
 
 const PORT = 3000;
 

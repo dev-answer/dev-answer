@@ -87,6 +87,13 @@ export default class QuestionModel {
     this.questions = this.questions.map((q) => (q.id === questionId ? updatedQuestion : q));
     writeJSON(this.jsonPath, this.questions);
 
+    //conflict 나서 일단 주석 처리 하겠습니다!
+    //const normalizedVoteCount = updatedQuestion.votes.reduce(
+    //  (acc, cur) => ({ ...acc, [cur.kind]: acc[cur.kind] + 1 }),
+    //  { easy: 0, normal: 0, hard: 0 },
+    //);
+    //
+    //return normalizedVoteCount;
     return updatedQuestion;
   }
 }
