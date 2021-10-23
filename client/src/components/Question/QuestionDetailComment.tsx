@@ -2,11 +2,11 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import CommentList from '../components/Comment/CommentList';
-import CommentInputForm from '../components/Comment/CommentInputForm';
-import FilterIcon from '../components/Icon/FilterIcon';
+import CommentList from 'components/Comment/CommentList';
+import CommentInputForm from 'components/Comment/CommentInputForm';
+import FilterIcon from 'components/Icon/FilterIcon';
 
-const CommentPage: React.FC = () => (
+const QuestionDetailComment: React.FC = () => (
   <Section>
     <CommentHeader>
       <H2>A</H2>
@@ -72,4 +72,4 @@ const Section = styled.section`
   overflow-y: scroll;
 `;
 
-export default CommentPage;
+export default QuestionDetailComment;

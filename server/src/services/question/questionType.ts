@@ -22,11 +22,11 @@ type Question {
   content: String!,
   categoryId: String!,
   category: QuestionCategory!,
-  vote: [QuestionVote!]!
+  votes: [QuestionVote!]!
   authorId: String!
   author: QuestionAuthor!
   comments: [Comment!]!
-  infomations: [String!]!
+  informations: [String!]!
 }
 
 type Query {
@@ -36,6 +36,6 @@ type Query {
 }
 
 type Mutation {
-  vote(questionId: Int!, userId: String!, kind: String!): QuestionVoteResult 
+  vote(questionId: Int!, userId: String!, kind: String!): Question 
 }
 `;

@@ -7,6 +7,10 @@ import { FragmentRefs } from "relay-runtime";
 export type QuestionDetailCard_question = {
     readonly id: string;
     readonly content: string;
+    readonly votes: ReadonlyArray<{
+        readonly userId: string;
+        readonly kind: string;
+    }>;
     readonly author: {
         readonly name: string;
         readonly gitHubURL: string;
@@ -48,6 +52,31 @@ const node: ReaderFragment = (function () {
             {
                 "alias": null,
                 "args": null,
+                "concreteType": "QuestionVote",
+                "kind": "LinkedField",
+                "name": "votes",
+                "plural": true,
+                "selections": [
+                    {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "userId",
+                        "storageKey": null
+                    },
+                    {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "kind",
+                        "storageKey": null
+                    }
+                ],
+                "storageKey": null
+            },
+            {
+                "alias": null,
+                "args": null,
                 "concreteType": "QuestionAuthor",
                 "kind": "LinkedField",
                 "name": "author",
@@ -83,5 +112,5 @@ const node: ReaderFragment = (function () {
         "abstractKey": null
     } as any;
 })();
-(node as any).hash = '8f618a2dad54741ee1e1e513e3359bc6';
+(node as any).hash = '3a266c5b5c3e04c35e00fbf8cbac582a';
 export default node;

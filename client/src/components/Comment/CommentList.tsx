@@ -4,6 +4,8 @@ import {
   graphql, usePreloadedQuery, PreloadedQuery, useQueryLoader,
 } from 'react-relay';
 
+import styled from '@emotion/styled';
+
 import { CommentListQuery } from '../../__generated__/CommentListQuery.graphql';
 
 import { LOCALSTORAGE_ACCESS_TOKEN_KEY } from '../../constants/domain';
@@ -35,7 +37,7 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
   if (!isLoggedIn) {
     return (
       <ol>
-        {comments.slice(0, 1).map((comment) => (
+        {comments.slice(0, 2).map((comment) => (
           <Comment
             key={comment.id}
             comment={comment}
@@ -53,11 +55,16 @@ const CommentListContainer: React.FC<Props> = ({ commentQueryRef }) => {
           comment={comment}
         />
       ))}
+      <Space />
     </ol>
   );
 };
 
-const CommentList: React.FC = () => {
+interface CommentListProps{
+  questionId: number;
+}
+
+const CommentList: React.FC<CommentListProps> = ({ questionId }) => {
   const [
     commentQueryRef,
     loadQuery,
@@ -65,8 +72,7 @@ const CommentList: React.FC = () => {
   ] = useQueryLoader<CommentListQuery>(CommentQuery);
 
   useEffect(() => {
-    // TODO : 임시로 questionId: 1 불러옴. 질문 상세 페이지 완성 후 변수화 시킬 예정
-    loadQuery({ questionId: 1 });
+    loadQuery({ questionId });
     return () => {
       disposeQuery();
     };
@@ -79,5 +85,9 @@ const CommentList: React.FC = () => {
     </Suspense>
   );
 };
+
+const Space = styled.div`
+  height: 120px;
+`;
 
 export default CommentList;

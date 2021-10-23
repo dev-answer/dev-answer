@@ -27,6 +27,7 @@ type Comment {
 }
 
 type Mutation {
+  vote(questionId: Int!, userId: String!, kind: String!): Question
   login(code: String!): Auth!
   logout(accessToken: String!): Boolean
   addComment(questionId: Int, uid: String, content: String): Comment
@@ -52,9 +53,11 @@ type Question {
   content: String!
   categoryId: String!
   category: QuestionCategory!
+  votes: [QuestionVote!]!
   authorId: String!
   author: QuestionAuthor!
   comments: [Comment!]!
+  informations: [String!]!
 }
 
 type QuestionAuthor {
@@ -67,6 +70,18 @@ type QuestionAuthor {
 type QuestionCategory {
   id: ID!
   title: String!
+  count: Int!
+}
+
+type QuestionVote {
+  userId: String!
+  kind: String!
+}
+
+type QuestionVoteResult {
+  easy: Int!
+  normal: Int!
+  hard: Int!
 }
 
 type SubComment {

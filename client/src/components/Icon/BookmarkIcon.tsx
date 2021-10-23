@@ -7,7 +7,7 @@ const BookmarkIcon: React.FC<IconProps> = ({ size, color = '#8992C1' }) => (
       <path d="M0 84V0H40V84L20.5479 60.1328L0 84Z" fill={color} />
     </g>
     <defs>
-      <filter id="filter0_d" x="0" y="0" width={(size / 1.92)} height={size} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+      <filter id="filter0_d" x="0" y="0" width={48} height={92} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
         <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
         <feOffset dx="4" dy="4" />

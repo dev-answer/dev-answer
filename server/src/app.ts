@@ -2,6 +2,7 @@ import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import dotenv from 'dotenv';
+import path from 'path';
 
 import { cors } from './middlewares/cors';
 import db from './db/startup';
@@ -30,7 +31,12 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
+app.use(express.static('public'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`Example app listening at http://localhost:${PORT}/graphql`);
+  console.log(`App is listening at http://localhost:${PORT}/graphql`);
 });
